@@ -41,7 +41,6 @@ const Globe: FC = () => {
                     child.material = material;
                 }
             });
-            // obj.add()
             obj.scale.set(1, 1, 1); // Adjust scale as needed
             obj.position.set(0, 0, 0); // Adjust position as needed
 
@@ -49,13 +48,6 @@ const Globe: FC = () => {
             GLOBE = obj;
         });
         
-        // Mesh obj and texture together
-        // const globeFinal = new THREE.Mesh(globe, material)
-        // scene.add(globeFinal);
-        
-
-
-
         camera.position.z = 130;
         camera.position.y = 120;
 

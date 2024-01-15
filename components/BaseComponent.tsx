@@ -4,7 +4,11 @@
 import styled from 'styled-components'
 import Navbar from './NavbarComponent'
 import React, { ReactNode } from 'react'
-import Globe from './Globe'
+import dynamic from 'next/dynamic'
+
+const Globe = dynamic(() => import('./Globe'), {
+    ssr: false,
+})
 
 // CSS COMPONENTS
 const OuterContainer = styled.div`
