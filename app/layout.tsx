@@ -1,8 +1,23 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import localfont from '@next/font/local'
+import { Libre_Franklin } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const Baskerville = localfont({
+  src: [
+    {
+    path: '../public/fonts/BaskervilleMTPro-Regular.otf',
+    weight: '400'
+    }
+  ],
+  variable: '--font-baskerville'
+})
+
+const Franklin = Libre_Franklin({ 
+  subsets: ['latin'],
+  weight: ['300'], //extra-light
+  style: ['normal'],
+  variable: '--font-franklin'
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${Baskerville.variable} ${Franklin.variable}`}>
+      <body>{children}</body>
     </html>
   )
 }
