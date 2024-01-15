@@ -3,7 +3,7 @@
 
 import styled from 'styled-components';
 import Navbar from './NavbarComponent';
-import React, { ReactNode, Suspense } from 'react';
+import { FC, ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import PlaceholderMap from './GlobePlaceholder';
 
@@ -26,10 +26,12 @@ const OuterContainer = styled.div`
 `;
 const InnerBorderBox = styled.div`
     border: 2px solid #444444;
+    position: relative;
     flex: grow;
     width: 92vw;
     background-color: #FFF6DF;
     stroke-width: 2px;
+    overflow: hidden;
 `;
 
 // TYPES
@@ -38,12 +40,11 @@ type BaseProps = {
 };
 
 // REACT COMPONENTS
-const Base: React.FC<BaseProps> = ({ children }) => {
+const Base: FC<BaseProps> = ({ children }) => {
     return (
         <OuterContainer>
             <Navbar/>
             <InnerBorderBox>
-                {/* {children} */}
                 <Globe />
             </InnerBorderBox>
         </OuterContainer>

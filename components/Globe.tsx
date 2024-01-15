@@ -1,3 +1,4 @@
+// This component loads 3d objects, creates the scene, and attaches itself to the DOM
 "use client";
 
 import { FC, useRef, useEffect } from 'react';
