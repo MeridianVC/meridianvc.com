@@ -37,7 +37,6 @@ p, h1, h2, h3, h4, h5, h6 {
 /* 9. Create a root stacking context */
 #root, #__next {
   isolation: isolate;
-  background-color: rgb(255, 255, 220);
   --dark-green: rgb(74, 121, 71); /* #4A7947 */
   --light-green: rgb(166, 207, 163); /* A6CFA3 */
   --blue: rgb(31, 116, 143); /* 1F748F */
@@ -54,6 +53,7 @@ body {
   margin: 0;
   font-family: Libre Baskerville, Times New roman, Times, serif;
   color: #1E1E1E;
+  background-color: #FFF6DF;
 }
 
 a {
