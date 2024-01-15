@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Base from '../components/BaseComponent'
 import './globals.css'
 
