@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useRef, useEffect } from 'react';
+import { FC, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import * as THREE from 'three';
 import { OBJLoader } from 'three/examples/jsm/Addons.js';
@@ -9,8 +9,8 @@ import { OBJLoader } from 'three/examples/jsm/Addons.js';
 const GlobeStyle = styled.div``;
 
 const Globe: FC = () => {
-    const globeRef = useRef<HTMLDivElement>(null);
 
+    const globeRef = useRef<HTMLDivElement>(null);
     const renderer = new THREE.WebGLRenderer
 
     //load texture and create material
@@ -41,8 +41,8 @@ const Globe: FC = () => {
                     child.material = material;
                 }
             });
-            obj.scale.set(1, 1, 1); // Adjust scale as needed
-            obj.position.set(0, 0, 0); // Adjust position as needed
+            obj.scale.set(1, 1, 1);
+            obj.position.set(0, 0, 0);
 
             scene.add(obj);
             GLOBE = obj;
