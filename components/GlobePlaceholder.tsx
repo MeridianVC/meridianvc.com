@@ -3,8 +3,13 @@
 import styled from 'styled-components';
 
 const PlaceholderImage = styled.img`
-    width: 100%;
-    height: auto;
+    width: 5555px;
+    object-fit: cover;
+    height: 1500px;
+    offset: 200px;
+    position: relative;
+    top: -110px;
+    left: 0px;
 `
 
 const PlaceholderMap = () => {
