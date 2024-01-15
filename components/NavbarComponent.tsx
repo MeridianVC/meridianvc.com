@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
-const StyledLinks = styled.div`
+const LinkStyles = styled.div`
   display: flex;
   flex-direction: row;
   gap: 4vw;
@@ -10,17 +10,17 @@ const StyledLinks = styled.div`
 
 const Links: FC = () => {
   return (
-    <StyledLinks>
+    <LinkStyles>
       <div>Principles</div>
       <div>Team</div>
       <div>Portfolio</div>
       <div>Investor Portal</div>
       <div>Get in Touch</div>
-    </StyledLinks>
+    </LinkStyles>
   );
 }
 
-const StyledNav = styled.nav`
+const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   flex-shrink: 1;
@@ -35,24 +35,16 @@ const StyledNav = styled.nav`
   letter-spacing: .025rem;
 `;
 
-const Nav: FC = () => {
+const Navbar: FC = () => {
   return (
-    <StyledNav>
+    <Nav>
     <img
         src="./meridian_wordmark.svg"
         className="aspect-[7.84] object-contain object-center w-[175px] overflow-hidden shrink-0 max-w-full my-auto antialiased"
       />
       <Links/>
-    </StyledNav>
+    </Nav>
   );
-}
-
-const Navbar: FC = () => {
-  return (
-    <>
-      <Nav/>
-    </>
-  )
 }
 
 export default Navbar;
