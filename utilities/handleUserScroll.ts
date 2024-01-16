@@ -6,7 +6,7 @@ type ScrollCallback = (deltaX: number, deltaY: number) => void;
 const scrollListener = (onScroll: ScrollCallback): (() => void) => {
   const handleScroll = () => {
     onScroll(window.scrollX, window.scrollY);
-    console.log('scroll event:', window.scrollX, window.scrollY);
+    console.log('scroll event:', window.scrollX, window.scrollY); // Remove this before production or leverage a testing framework
   };
 
   window.addEventListener('scroll', handleScroll);
