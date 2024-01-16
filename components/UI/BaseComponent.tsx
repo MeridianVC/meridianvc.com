@@ -9,6 +9,7 @@ import { FC, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import PlaceholderMap from '../Globe/GlobePlaceholder';
 
+// This dynamic loading needs to be removed and refactored with useState
 const Globe = dynamic(() => import('../Globe/Globe'), { // ensures globe is loaded only when DOM is present
     ssr: false,
     loading: () => <PlaceholderMap/> // loads placeholder while 3D globe renders
@@ -17,8 +18,8 @@ const Globe = dynamic(() => import('../Globe/Globe'), { // ensures globe is load
 // CSS COMPONENTS
 const OuterContainer = styled.div`
     width: 100vw;
-    height: 100vh;
-    max-height: 100vh;
+    height: 150vh;
+    max-height: 150vh;
     display: flex;
     flex-direction: column;
     align-items: center;
