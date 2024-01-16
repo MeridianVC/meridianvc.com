@@ -1,4 +1,4 @@
-import Base from '../components/BaseComponent'
+import Base from '../components/UI/BaseComponent'
 import './globals.css'
 
 export default function Home() {
