@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useState, useContext, FC, ReactNode } from 'react';
 import { ScrollContextProps } from '../utilities/interfaces';
 
