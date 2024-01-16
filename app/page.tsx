@@ -1,10 +1,12 @@
 // This is the main entrypoint for our application
 
 import Base from '../components/UI/BaseComponent';
+import { ScrollProvider } from '../contexts/ScrollContext';
 import './globals.css';
 
 export default function Home() {
   return (
+    <ScrollProvider>
       <Base>
         <div className="container flex items-center p-4 mx-auto h-screen max-h-full justify-center">
           <main>
@@ -14,5 +16,6 @@ export default function Home() {
           </main>
         </div>
       </Base>
+    </ScrollProvider>
 
   )};
