@@ -1,6 +1,20 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
+const Wordmark = styled.img`
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center;
+    overflow: hidden;
+    flex-shrink: 1;
+    width: 12rem;
+    max-width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: auto;
+`
+
 const LinkStyles = styled.div`
   display: flex;
   flex-direction: row;
@@ -38,11 +52,8 @@ const Nav = styled.nav`
 const Navbar: FC = () => {
   return (
     <Nav>
-    <img
-        src="./meridian_wordmark.svg"
-        className="aspect-[7.84] object-contain object-center w-[175px] overflow-hidden shrink-0 max-w-full my-auto antialiased"
-      />
-      <Links/>
+        <Wordmark src="./meridian_wordmark.svg" />
+        <Links/>
     </Nav>
   );
 }
