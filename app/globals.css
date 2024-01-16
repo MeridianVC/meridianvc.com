@@ -61,3 +61,16 @@ a {
   text-decoration: none;
 }
 
+.mainContentScroll {
+  width: 92vw;
+  height: 80vh;
+  position: bottom;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  background-color: #FFF6DF;
+  background-color: transparent;
+
+}
