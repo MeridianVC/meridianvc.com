@@ -2,7 +2,7 @@
 "use client";
 
 import styled from 'styled-components';
-import Navbar from '../NavbarComponent';
+import Navbar from './NavbarComponent';
 import { FC, ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import PlaceholderMap from '../Globe/GlobePlaceholder';
