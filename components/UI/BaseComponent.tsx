@@ -28,7 +28,7 @@ const InnerBorderBox = styled.div`
     border: 2px solid #444444;
     position: relative;
     flex: grow;
-    width: calc(92vw - 4px); // width is 
+    width: 92%;
     background-color: #FFF6DF;
     stroke-width: 2px;
     overflow: hidden;
