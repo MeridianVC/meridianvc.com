@@ -1,5 +1,7 @@
 "use client";
 
+// this component creates the scroll context for use at the application root
+
 import { createContext, useState, useContext, FC, ReactNode } from 'react';
 import { ScrollContextProps } from '../utilities/interfaces';
 
