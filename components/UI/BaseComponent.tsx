@@ -6,9 +6,9 @@ import Navbar from './NavbarComponent';
 import { FC, ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import PlaceholderMap from '../Globe/GlobePlaceholder';
+import ScrollHandler from '../UtilityComponents/ScrollHandler';
 
-
-const Globe = dynamic(() => import('../Globe/Globe'), {
+const Globe = dynamic(() => import('../Globe/Globe'), { // ensures globe is loaded only when DOM is present
     ssr: false,
     loading: () => <PlaceholderMap/> // loads placeholder while 3D globe renders
 });
@@ -28,7 +28,7 @@ const InnerBorderBox = styled.div`
     border: 2px solid #444444;
     position: relative;
     flex: grow;
-    width: 92vw;
+    width: calc(92vw - 4px); // width is 
     background-color: #FFF6DF;
     stroke-width: 2px;
     overflow: hidden;
@@ -42,12 +42,15 @@ type BaseProps = {
 // REACT COMPONENTS
 const Base: FC<BaseProps> = ({ children }) => {
     return (
+        <>
+        <ScrollHandler/>
         <OuterContainer>
             <Navbar/>
             <InnerBorderBox>
                 <Globe />
             </InnerBorderBox>
         </OuterContainer>
+        </>
     );
 };
 
