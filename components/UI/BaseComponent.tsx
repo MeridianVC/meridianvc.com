@@ -1,12 +1,13 @@
-// This component sets the basic structure of the single scroll
-"use client";
+"use client"
+
+// This component sets the structure for the background of the single scroll
+// Nav is still included for now but we may want to move it
 
 import styled from 'styled-components';
 import Navbar from './NavbarComponent';
-import { FC, ReactNode } from 'react';
+import { FC, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import PlaceholderMap from '../Globe/GlobePlaceholder';
-import ScrollHandler from '../UtilityComponents/ScrollHandler';
 
 const Globe = dynamic(() => import('../Globe/Globe'), { // ensures globe is loaded only when DOM is present
     ssr: false,
@@ -24,6 +25,7 @@ const OuterContainer = styled.div`
     overflow: hidden;
     background-color: #FFF6DF;
 `;
+
 const InnerBorderBox = styled.div`
     border: 2px solid #444444;
     position: relative;
@@ -34,23 +36,23 @@ const InnerBorderBox = styled.div`
     overflow: hidden;
 `;
 
-// TYPES
-type BaseProps = {
-    children: ReactNode;
-};
-
 // REACT COMPONENTS
-const Base: FC<BaseProps> = ({ children }) => {
+const Base: FC = () => {
+    // const [isGlobeLoaded, setGlobeLoaded] = useState(false);
+
+    // useEffect(() => {
+
+    //     setGlobeLoaded(true);
+    // }, [])
+
     return (
-        <>
-        <ScrollHandler/>
         <OuterContainer>
             <Navbar/>
             <InnerBorderBox>
+                {/* {isGlobeLoaded ? <Globe /> : <PlaceholderMap />}  */}
                 <Globe />
             </InnerBorderBox>
         </OuterContainer>
-        </>
     );
 };
 

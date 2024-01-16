@@ -1,3 +1,5 @@
+"use client";
+
 // This initializes the user scroll utility within a react functional component and adds the state to our React Context
 
 import { FC, useEffect } from 'react';

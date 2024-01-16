@@ -1,3 +1,7 @@
+"use client";
+
+// Navbar contains logo and navigation links
+
 import { FC } from 'react';
 import styled from 'styled-components';
 
@@ -11,7 +15,7 @@ const Wordmark = styled.img`
     max-width: 100%;
     margin-top: auto;
     margin-bottom: auto;
-	-webkit-font-smoothing: antialiased;
+	  -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: auto;
 `
 
