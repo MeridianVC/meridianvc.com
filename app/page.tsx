@@ -1,5 +1,7 @@
-import Base from '../components/UI/BaseComponent'
-import './globals.css'
+// This is the main entrypoint for our application
+
+import Base from '../components/UI/BaseComponent';
+import './globals.css';
 
 export default function Home() {
   return (
@@ -13,4 +15,4 @@ export default function Home() {
         </div>
       </Base>
 
-  )}
+  )};
