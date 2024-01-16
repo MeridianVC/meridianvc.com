@@ -28,13 +28,11 @@ export default function Home() {
   return (
     <>
     {/* <Main> */}
-      <div className="mainContentScroll">
-        <main className="bg-transparent">
-          <h1 className="text-xl text-dark bg-light-green">
-            Meridian <span className="text-dark-green">Ventures</span>
+      <main className="mainContentScroll">
+          <h1 className="text-grey-900 bg-light-green text-6xl bg-amber-100">
+            Early-stage venture capital for audacious investors and visionary founders.
           </h1>
-        </main>
-      </div>
+      </main>
       {/* </Main> */}
       <ScrollProvider>
         <Base />
