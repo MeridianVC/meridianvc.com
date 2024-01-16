@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import localfont from "next/font/local"
+import localfont from 'next/font/local'
 import { Libre_Franklin } from 'next/font/google'
 
 const Baskerville = localfont({
