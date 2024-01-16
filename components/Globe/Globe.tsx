@@ -18,9 +18,8 @@ const Globe: FC = () => {
     const texture = new THREE.TextureLoader().load('./globe_texture_a.jpg', function(texture) {
         texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
     });
-    const material = new THREE.MeshBasicMaterial({ map: texture }); // basic material has no lighting or shadow effects - perfect
+    const material = new THREE.MeshBasicMaterial({ map: texture }); // basic material has no lighting or shadow effects
     
-
     useEffect(() => {
         if (!globeRef.current) return;
 
@@ -72,7 +71,7 @@ const Globe: FC = () => {
         };
         window.addEventListener('resize', onWindowResize, false);
 
-        // Clean up
+        // Cleanup, best practice but shouldn't be needed since entire site incorporates globe layer
         return () => {
             window.removeEventListener('resize', onWindowResize);
             globeRef.current?.removeChild(renderer.domElement);

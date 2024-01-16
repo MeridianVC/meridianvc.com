@@ -2,13 +2,13 @@
 "use client";
 
 import styled from 'styled-components';
-import Navbar from './NavbarComponent';
+import Navbar from '../NavbarComponent';
 import { FC, ReactNode } from 'react';
 import dynamic from 'next/dynamic';
-import PlaceholderMap from './GlobePlaceholder';
+import PlaceholderMap from '../Globe/GlobePlaceholder';
 
 
-const Globe = dynamic(() => import('./Globe'), {
+const Globe = dynamic(() => import('../Globe/Globe'), {
     ssr: false,
     loading: () => <PlaceholderMap/> // loads placeholder while 3D globe renders
 });
