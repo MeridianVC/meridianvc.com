@@ -1,5 +1,6 @@
 // This component creates the static map layer used when 3d Globe is not avialable
 
+import { FC } from 'react';
 import styled from 'styled-components';
 
 const PlaceholderImage = styled.img`
@@ -12,7 +13,7 @@ const PlaceholderImage = styled.img`
     left: 0px;
 `
 
-const PlaceholderMap = () => {
+const PlaceholderMap: FC = () => {
     return (
         <PlaceholderImage src="./map.png" alt="Map Image"/>
     )
