@@ -8,6 +8,7 @@ import Navbar from './NavbarComponent';
 import { FC, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import PlaceholderMap from '../Globe/GlobePlaceholder';
+import ScrollHandler from '../UtilityComponents/ScrollHandler';
 
 // This dynamic loading needs to be removed and refactored with useState
 const Globe = dynamic(() => import('../Globe/Globe'), { // ensures globe is loaded only when DOM is present
@@ -48,6 +49,7 @@ const Base: FC = () => {
 
     return (
         <OuterContainer>
+            <ScrollHandler/>
             <Navbar/>
             <InnerBorderBox>
                 {/* {isGlobeLoaded ? <Globe /> : <PlaceholderMap />}  */}

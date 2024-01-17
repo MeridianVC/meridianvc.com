@@ -3,25 +3,29 @@
 // This initializes the user scroll utility within a react functional component and adds the state to our React Context
 
 import { FC, useEffect } from 'react';
-import { useScroll } from '../../contexts/ScrollContext';
-import scrollListener from '../../utilities/handleUserScroll';
-
-// USER SCROLL INPUT
+import { useScrollContext } from '../../contexts/ScrollContext';
 
 const ScrollHandler: FC = () => {
-  const { setScrollPosition } = useScroll();
+  const { setScrollPosition } = useScrollContext();
 
   useEffect(() => {
-    const handleScroll = (deltaX: number, deltaY: number) => {
-      setScrollPosition({ x: deltaX, y: deltaY }); // Set scroll position in the ScrollContext
-    };
-    
-    const removeScrollListener = scrollListener(handleScroll);
+    const handleScroll = () => {
 
-    return removeScrollListener;
+      const currentScrollX = window.scrollX;
+      const currentScrollY = window.scrollY;
+
+      setScrollPosition({ x: currentScrollX, y: currentScrollY });
+      console.log('scroll state:', currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [setScrollPosition]);
 
-  return null; // This component sets scroll context, it does not return anything
+  return null;
 };
 
 export default ScrollHandler;

@@ -10,7 +10,7 @@ const ScrollContext = createContext<ScrollContextProps>({
   setScrollPosition: () => {},
 });
 
-export const useScroll = () => useContext(ScrollContext);
+export const useScrollContext = () => useContext(ScrollContext);
 
 export const ScrollProvider: FC<{children: ReactNode}> = ({ children }) => {
   const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
