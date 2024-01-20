@@ -1,84 +1,82 @@
-// This component loads 3d objects, creates the scene, and attaches itself to the DOM
 "use client";
 
-import { FC, useRef, useEffect } from 'react';
+// This component loads 3d objects, creates the scene, and attaches itself to the DOM
+
+import { FC, useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as THREE from 'three';
-import { OBJLoader } from 'three/examples/jsm/Addons.js';
+import useGlobeObject from './useGlobeObject';
 
 // Styled component for the globe -- delete if styling isn't needed
 const GlobeStyle = styled.div``;
 
 const Globe: FC = () => {
 
-    const globeRef = useRef<HTMLDivElement>(null);
-    const renderer = new THREE.WebGLRenderer
+    // Refs section
+    const divRef = useRef<HTMLDivElement>(null); // the div the canvas element will attach to
+    const rendererRef = useRef<THREE.WebGLRenderer>(); // the renderer itself
 
-    //load texture and create material
-    const texture = new THREE.TextureLoader().load('./globe_texture_a.jpg', function(texture) {
-        texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    });
-    const material = new THREE.MeshBasicMaterial({ map: texture }); // basic material has no lighting or shadow effects
-    
+    // Globe initialization
+    const globe = useGlobeObject({ renderer: rendererRef.current });
+
     useEffect(() => {
-        if (!globeRef.current) return;
+        if (!divRef.current) return;
 
-        // Scene, camera, and renderer setup
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
+        // Renderer setup
         const renderer = new THREE.WebGLRenderer({ alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        globeRef.current.appendChild(renderer.domElement);
+        divRef.current.appendChild(renderer.domElement);
+        rendererRef.current = renderer;
 
-        // Define globe
-        let GLOBE: THREE.Object3D | null | void = null;
-
-        // Load the OBJ file, add to scene, asign to GLOBE variable
-        const loader = new OBJLoader();
-        GLOBE = loader.load('./globe.OBJ', function(obj) {
-            obj.traverse(function (child) {
-                if (child instanceof THREE.Mesh) {
-                    child.material = material;
-                }
-            });
-            obj.scale.set(1, 1, 1);
-            obj.position.set(0, 0, 0);
-
-            scene.add(obj);
-            GLOBE = obj;
-        });
-        
+        // Scene and camera setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.z = 130;
         camera.position.y = 120;
 
-        // Animation loop
-        const animate = () => {
-            requestAnimationFrame(animate);
+        // Add globe to scene if it exists
+        if (globe) {
+            scene.add(globe);
+        }
 
-            if (GLOBE) {
-                GLOBE.rotation.y += 0.00075;
-                // GLOBE.rotation.x += 0.001;
-            }
+        // Render scene and camera if renderer exists
+        if (renderer) {
             renderer.render(scene, camera);
-        };
-        animate();
+        }
+
+        // Animation loop
+        // const animate = () => {
+        //     requestAnimationFrame(animate);
+        //     if (globe) {
+        //         globe.rotation.y += 0.00075;
+        //     }
+        //     if (renderer) {
+        //         renderer.render(scene, camera);
+        //     }
+        // };
+        // animate();
 
         // Handle window resize
         const onWindowResize = () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.render(scene, camera);
         };
         window.addEventListener('resize', onWindowResize, false);
 
-        // Cleanup, best practice but shouldn't be needed since entire site incorporates globe layer
+        // Cleanup
         return () => {
             window.removeEventListener('resize', onWindowResize);
-            globeRef.current?.removeChild(renderer.domElement);
+            if (divRef.current && renderer.domElement) {
+                divRef.current.removeChild(renderer.domElement);
+            }
         };
-    }, []);
+    }, [globe]);
 
-    return <GlobeStyle ref={globeRef} />;
+    return (
+        <GlobeStyle ref={divRef} />
+    );
 };
 
 export default Globe;
