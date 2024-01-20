@@ -8,6 +8,6 @@ export interface ScrollContextProps {
     setScrollPosition: (position: {x: number; y: number}) => void;
 }
 
-export interface ScrollCallback {
-    (deltaX: number, deltaY: number): void;
-}
+export interface UseGlobeObjectProps {
+    renderer: THREE.WebGLRenderer | void;
+};
