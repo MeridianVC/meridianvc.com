@@ -62,7 +62,7 @@ a {
 }
 
 .mainContentScroll {
-  width: 92vw;
+  width: 88%;
   height: 80vh;
   max-height: 100vh;
   display: flex;
