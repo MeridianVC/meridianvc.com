@@ -7,7 +7,7 @@ import { OBJLoader } from 'three/examples/jsm/Addons.js';
 import { UseGlobeObjectProps } from '@/utilities/interfaces';
 
 const useGlobeObject = ({ renderer }: UseGlobeObjectProps) => {
-    const [globe, setGlobe] = useState<THREE.Object3D | void>(undefined);
+    const [globe, setGlobe] = useState<THREE.Object3D | undefined>(undefined);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
