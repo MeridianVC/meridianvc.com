@@ -25,7 +25,7 @@ const OuterContainer = styled.div`
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    background-color: #FFF6DF;
+    background-color: #FFF5DC;
 `;
 
 const InnerBorderBox = styled.div`
@@ -33,7 +33,7 @@ const InnerBorderBox = styled.div`
     position: relative;
     flex: grow;
     width: 92%;
-    background-color: #FFF6DF;
+    background-color: #FFF5DC;
     stroke-width: 2px;
     overflow: hidden;
 `;
