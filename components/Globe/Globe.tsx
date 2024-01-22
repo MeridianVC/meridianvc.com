@@ -6,6 +6,7 @@ import { FC, useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as THREE from 'three';
 import useGlobeObject from './useGlobeObject';
+import useGlobeAnimation from './useGlobeAnimation';
 
 // Styled component for the globe -- delete if styling isn't needed
 const GlobeStyle = styled.div``;
@@ -14,10 +15,14 @@ const Globe: FC = () => {
 
     // Refs section
     const divRef = useRef<HTMLDivElement>(null); // the div the canvas element will attach to
-    const rendererRef = useRef<THREE.WebGLRenderer>(); // the renderer itself
+    const rendererRef = useRef<THREE.WebGLRenderer | null>(null); // the renderer itself
 
     // Globe initialization
     const globe = useGlobeObject({ renderer: rendererRef.current });
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    useGlobeAnimation(globe, rendererRef, camera, scene);
 
     useEffect(() => {
         if (!divRef.current) return;
@@ -28,9 +33,7 @@ const Globe: FC = () => {
         divRef.current.appendChild(renderer.domElement);
         rendererRef.current = renderer;
 
-        // Scene and camera setup
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
+        // Camera position
         camera.position.z = 130;
         camera.position.y = 120;
 
@@ -43,18 +46,6 @@ const Globe: FC = () => {
         if (renderer) {
             renderer.render(scene, camera);
         }
-
-        // Animation loop
-        // const animate = () => {
-        //     requestAnimationFrame(animate);
-        //     if (globe) {
-        //         globe.rotation.y += 0.00075;
-        //     }
-        //     if (renderer) {
-        //         renderer.render(scene, camera);
-        //     }
-        // };
-        // animate();
 
         // Handle window resize
         const onWindowResize = () => {
