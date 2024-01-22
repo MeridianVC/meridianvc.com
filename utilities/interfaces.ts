@@ -9,5 +9,5 @@ export interface ScrollContextProps {
 }
 
 export interface UseGlobeObjectProps {
-    renderer: THREE.WebGLRenderer | void;
+    renderer: THREE.WebGLRenderer | null;
 };
