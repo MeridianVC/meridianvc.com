@@ -18,20 +18,26 @@ const Globe: FC = () => {
     const rendererRef = useRef<THREE.WebGLRenderer | null>(null); // the renderer itself
     const sceneRef = useRef<THREE.Scene | null>(null);
     const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+    const lightRef = useRef<THREE.Light| null>(null);
+    const globeAddedRef = useRef<boolean>(false);
 
-    //instantiate things if they don't already exist as a ref
+    // Instantiate scene
     if (!sceneRef.current) {
         sceneRef.current = new THREE.Scene();
     }
 
+    // Instantiate camera
     if (!cameraRef.current) {
-        cameraRef.current = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 1000);
+        cameraRef.current = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
     }
 
-    // Globe initialization
-    const globe = useGlobeObject({ renderer: rendererRef.current, scene: sceneRef.current });
+    // Instantiate light
+    if (!lightRef.current) {
+        lightRef.current = new THREE.AmbientLight(0xFFFFFF, 3.1);
+    }
 
-    useGlobeAnimation(globe, rendererRef, cameraRef.current, sceneRef.current);
+    // Initialize globe
+    const globe = useGlobeObject({ renderer: rendererRef.current, scene: sceneRef.current });
 
     useEffect(() => {
         if (!divRef.current) return;
@@ -42,20 +48,36 @@ const Globe: FC = () => {
         divRef.current.appendChild(renderer.domElement);
         rendererRef.current = renderer;
 
+        // Camera setup
         if (cameraRef.current) {
-            cameraRef.current.position.z = 60;
-            cameraRef.current.position.y = 0;
-            cameraRef.current.position.x = 10;
+            cameraRef.current.position.z = 50;
+            cameraRef.current.position.y = 40;
+            cameraRef.current.position.x = 100;
+            cameraRef.current.lookAt(new THREE.Vector3(2,2,2));
+        }
+
+        // Light setup
+        if (sceneRef.current && lightRef.current) {
+            
+            sceneRef.current.add(lightRef.current);
+            // const axesHelper = new THREE.AxesHelper(50);
+            // sceneRef.current.add(axesHelper);
+
         }
 
         // Add globe to scene if it exists
-        if (globe && sceneRef.current) {
+        if (globe && sceneRef.current &&!globeAddedRef.current) {
             sceneRef.current.add(globe);
+            globeAddedRef.current = true;
         }
 
         // Render scene and camera if renderer exists
         if (renderer && sceneRef.current && cameraRef.current) {
             renderer.render(sceneRef.current, cameraRef.current);
+        }
+
+        if (globe) {
+            globe.rotation.x = THREE.MathUtils.degToRad(-25.5)
         }
 
         // Handle window resize
@@ -78,6 +100,14 @@ const Globe: FC = () => {
             }
         };
     }, [globe]);
+
+    
+    
+    if (sceneRef.current) {
+        console.log('testing');
+        useGlobeAnimation(globe, rendererRef, cameraRef.current, sceneRef.current);
+    }
+
 
     return (
         <GlobeStyle ref={divRef} />

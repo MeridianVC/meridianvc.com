@@ -25,8 +25,7 @@ const useGlobeAnimation = (
             const currentScrollYProgress = scrollYProgress.get(); // Get current scroll progress
             const scrollDelta = currentScrollYProgress - previousScrollYProgress.current; // Calculate the change in scroll position
 
-            globe.rotation.y -= 0.00035 + scrollDelta * 5;
-            // globe.rotation.x = 10;
+            globe.rotation.y -= 0.00055 + scrollDelta * 5;
 
             if (rendererRef.current) {
                 rendererRef.current.render(scene, camera);
