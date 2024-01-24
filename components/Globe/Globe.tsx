@@ -39,6 +39,8 @@ const Globe: FC = () => {
     // Initialize globe
     const globe = useGlobeObject({ renderer: rendererRef.current, scene: sceneRef.current });
 
+    useGlobeAnimation(globe, rendererRef, cameraRef.current, sceneRef.current);
+
     useEffect(() => {
         if (!divRef.current) return;
 
@@ -100,14 +102,6 @@ const Globe: FC = () => {
             }
         };
     }, [globe]);
-
-    
-    
-    if (sceneRef.current) {
-        console.log('testing');
-        useGlobeAnimation(globe, rendererRef, cameraRef.current, sceneRef.current);
-    }
-
 
     return (
         <GlobeStyle ref={divRef} />
