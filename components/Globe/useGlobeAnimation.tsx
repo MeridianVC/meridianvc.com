@@ -44,7 +44,7 @@ const useGlobeAnimation = (
         return () => {
             cancelAnimationFrame(requestID);
         };
-    }, [globe, camera, scene,]);
+    }, [globe, camera, scene]);
 };
 
 export default useGlobeAnimation;
