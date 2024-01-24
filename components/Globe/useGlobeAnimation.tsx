@@ -1,7 +1,11 @@
 "use client";
 
-import React, { useEffect } from 'react';
+// This component instantiates the globe animation and manipulates it with user-scroll. 
+
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { useScroll } from 'framer-motion';
+import { motion } from 'framer-motion-3d';
 
 const useGlobeAnimation = (
     globe: THREE.Object3D | undefined,
@@ -9,15 +13,26 @@ const useGlobeAnimation = (
     camera: THREE.PerspectiveCamera,
     scene: THREE.Scene
 ) => {
+
+    const { scrollYProgress } = useScroll();
+    const previousScrollYProgress = useRef<number>(0);
+
     useEffect(() => {
         if (!globe || !rendererRef.current) return;
 
+        //animate function, loops continuously
         const animate = () => {
-            globe.rotation.y += 0.00075;
+            const currentScrollYProgress = scrollYProgress.get(); // Get current scroll progress
+            const scrollDelta = currentScrollYProgress - previousScrollYProgress.current; // Calculate the change in scroll position
+
+            globe.rotation.y -= 0.00035 + scrollDelta * 5;
+            // globe.rotation.x = 10;
 
             if (rendererRef.current) {
                 rendererRef.current.render(scene, camera);
             }
+
+            previousScrollYProgress.current = currentScrollYProgress
 
             // Request the next frame
             requestID = requestAnimationFrame(animate);
@@ -30,7 +45,7 @@ const useGlobeAnimation = (
         return () => {
             cancelAnimationFrame(requestID);
         };
-    }, [globe, camera, scene]);
+    }, [globe, camera, scene,]);
 };
 
 export default useGlobeAnimation;
