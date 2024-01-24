@@ -46,7 +46,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   background-color: #FFF6DF;
   color: #1E1E1E;
-  width: 92vw;
+  width: 91vw;
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-right: .1rem;
