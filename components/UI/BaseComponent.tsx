@@ -5,10 +5,9 @@
 
 import styled from 'styled-components';
 import Navbar from './NavbarComponent';
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import dynamic from 'next/dynamic';
 import PlaceholderMap from '../Globe/GlobePlaceholder';
-import ScrollHandler from '../UtilityComponents/ScrollHandler';
 
 // This dynamic loading needs to be removed and refactored with useState
 const Globe = dynamic(() => import('../Globe/Globe'), { // ensures globe is loaded only when DOM is present
@@ -19,14 +18,16 @@ const Globe = dynamic(() => import('../Globe/Globe'), { // ensures globe is load
 // CSS COMPONENTS
 const OuterContainer = styled.div`
     width: 100vw;
-    height: 150vh;
-    max-height: 150vh;
+    max-width: 100%;
+    height: 100h;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
     background-color: #FFF5DC;
-`;
+    position: fixed;
+    `;
 
 const InnerBorderBox = styled.div`
     border: 2px solid #444444;
@@ -49,7 +50,6 @@ const Base: FC = () => {
 
     return (
         <OuterContainer>
-            <ScrollHandler/>
             <Navbar/>
             <InnerBorderBox>
                 {/* {isGlobeLoaded ? <Globe /> : <PlaceholderMap />}  */}
