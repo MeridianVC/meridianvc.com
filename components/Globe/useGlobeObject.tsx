@@ -23,11 +23,25 @@ const useGlobeObject = ({ renderer, scene }: GlobeObjectProps) => {
 
         // Load the GLB/GLTF file
         const loader = new GLTFLoader();
-        loader.load('./world3.glb', (gltf) => {
+        loader.load('./world-no-hills-compressed.glb', (gltf) => {
 
             // Scale and position the scene
             gltf.scene.scale.set(3, 3, 3);
             gltf.scene.position.set(8, 5, 5);
+
+            // Adjust materials to reduce shininess
+            gltf.scene.traverse((object) => {
+                if (object) {
+                    const mesh = object as THREE.Mesh;
+                    if (mesh.material instanceof THREE.Material) {
+                        const material = mesh.material as THREE.MeshStandardMaterial; // Assuming MeshStandardMaterial, adjust as needed
+
+                        // Adjust the roughness and metalness for a more matte appearance
+                        material.roughness = 1; // Increase roughness
+                        material.metalness = 0; // Decrease metalness
+                    }
+                }
+            });
 
             // Set the loaded globe to state
             setGlobe(gltf.scene);
