@@ -11,7 +11,8 @@ const baseStyle: CSSProperties = {
   letterSpacing: '1%',
   color: '#1E1E1E',
   width: '70%',
-  padding: '0px 20px',
+  paddingLeft: '20px',
+  paddingRight: '15px'
 };
 
 const backgroundColorStyle: CSSProperties = {
