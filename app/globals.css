@@ -41,7 +41,7 @@ p, h1, h2, h3, h4, h5, h6 {
   --light-green: rgb(166, 207, 163); /* A6CFA3 */
   --blue: rgb(31, 116, 143); /* 1F748F */
   --orange: rgb(230, 71, 2); /* E64702 */
-  --cream: rgb(255, 255, 220); /* FFF5DC */
+  --cream: rgb(255, 245, 220); /* FFF5DC */
   --dark: rgb(30, 30, 30); /* 1E1E1E */
   --grey: rgb(68, 68, 68); /* #444444 */
 }
