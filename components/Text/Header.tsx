@@ -1,14 +1,24 @@
-import React, { FC } from 'react';
+import React, { FC, CSSProperties, ReactNode } from 'react';
 
 interface HeaderProps {
   type: 'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6';
   isBackgroundColored?: boolean;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
+  style?: CSSProperties;
+  children?: ReactNode;
 }
 
-const headerStyles: { [key: string]: React.CSSProperties } = {
-  H1: { fontSize: '61px', lineHeight: '123px' },
+const baseStyle: CSSProperties = {
+  letterSpacing: '1%',
+  color: '#1E1E1E',
+  width: '70%',
+};
+
+const backgroundColorStyle: CSSProperties = {
+  backgroundColor: '#FFF6DF',
+};
+
+const headerStyles: Record<string, CSSProperties> = {
+  H1: { fontSize: '61px', lineHeight: '90px' },
   H2: { fontSize: '48.8px', lineHeight: '137px' },
   H3: { fontSize: '39.1px', lineHeight: '144px' },
   H4: { fontSize: '31.3px', lineHeight: '151px' },
@@ -17,15 +27,14 @@ const headerStyles: { [key: string]: React.CSSProperties } = {
 };
 
 const Header: FC<HeaderProps> = ({ type, isBackgroundColored, style, children }) => {
-  const combinedHeaderStyle: React.CSSProperties = {
+  const combinedHeaderStyle = {
+    ...baseStyle,
     ...headerStyles[type],
-    letterSpacing: '1%',
-    color: '#1E1E1E',
-    ...(isBackgroundColored && { backgroundColor: '#FFF6DF' }),
+    ...(isBackgroundColored ? backgroundColorStyle : {}),
     ...style,
   };
 
-  return React.createElement(`h${type.charAt(1)}`, { style: combinedHeaderStyle }, children);
+  return React.createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle }, children);
 };
 
 export default Header;
