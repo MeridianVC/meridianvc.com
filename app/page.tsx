@@ -87,7 +87,7 @@ const Home: FC = () => {
             style={compassStyle}
           />
         </div>
-        <Header type='H1'> Championing bold ideas and founders to fuel world-changing companies and innovations. </Header>
+        <Header type='H1'> Championing bold ideas and visionary founders to fuel world-changing companies and innovations. </Header>
         <div style={legendContainerStyle}>
           <img 
             src="./Legend.png" 
