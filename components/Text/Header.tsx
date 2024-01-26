@@ -11,10 +11,14 @@ const baseStyle: CSSProperties = {
   letterSpacing: '1%',
   color: '#1E1E1E',
   width: '70%',
+  padding: '0px 20px',
 };
 
 const backgroundColorStyle: CSSProperties = {
-  backgroundColor: '#FFF6DF',
+  // backgroundColor: '#FFF6DF',
+  backgroundColor: 'rgba(255, 245, 220, .5)',
+  mixBlendMode: 'multiply',
+  
 };
 
 const headerStyles: Record<string, CSSProperties> = {
