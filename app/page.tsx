@@ -25,7 +25,7 @@ const outerStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: '#FFF5DC',
+    backgroundColor: 'transparent',
     position: 'relative',
 };
 
@@ -35,6 +35,7 @@ const globeStyle: React.CSSProperties = {
     left: 0,
     right: 0,
     bottom: 0,
+    zIndex: -2
 };
 
 const ScrollContentStyle: React.CSSProperties = {
@@ -45,13 +46,13 @@ const ScrollContentStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  // position: "absolute",
+  position: "absolute",
   top: "0",  // Align to the top of the parent element
   left: "50%",  // Center horizontally
   transform: "translateX(-50%)",  // Translate only horizontally
 };
 
-const Base: FC = () => {
+const Home: FC = () => {
     return (
       <>
         <Navbar />
@@ -60,9 +61,6 @@ const Base: FC = () => {
         <FillHorizontal />
         <FillHorizontal behind />
         <div style={outerStyle}>
-
-
-
             <div style={ScrollContentStyle}>
               <Header type="H1" isBackgroundColored>Early stage venture capital for badass people. </Header>
                 <div>Hello there</div>
@@ -70,12 +68,11 @@ const Base: FC = () => {
                   <PrinciplesCard title="Card 1" content="This is the content of Card 1." />
                   <PrinciplesCard title="Card 2" content="This is the content of Card 2." />
               </CardWrapper>
-
             </div>
             <Globe style={globeStyle} />
         </div>
-        </>
+      </>
     );
 };
 
-export default Base;
+export default Home;
