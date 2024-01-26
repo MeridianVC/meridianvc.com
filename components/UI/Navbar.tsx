@@ -5,20 +5,6 @@ import { FC } from 'react';
 const borderThickness = '2px'; 
 
 const wordmarkStyle: React.CSSProperties = {
-  aspectRatio: 'auto',
-  objectFit: 'contain',
-  objectPosition: 'center',
-  overflow: 'hidden',
-  flexShrink: 1,
-  width: '12rem',
-  maxWidth: '100%',
-  marginTop: 'auto',
-  marginBottom: 'auto',
-  WebkitFontSmoothing: 'antialiased',
-  MozOsxFontSmoothing: 'auto',
-};
-
-const wordmarkStyleNew: React.CSSProperties = {
   fontSize: '36px',
   letterSpacing: '2.8px'
 }
@@ -52,7 +38,7 @@ const navStyle: React.CSSProperties = {
 const Navbar: FC = () => {
   return (
     <nav style={navStyle}>
-      <div style={wordmarkStyleNew}>
+      <div style={wordmarkStyle}>
         MERIDIAN
       </div>
       <div style={linkStyle}>
