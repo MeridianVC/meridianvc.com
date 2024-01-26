@@ -47,6 +47,7 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
     // Instantiate scene
     if (!sceneRef.current) {
         sceneRef.current = new THREE.Scene();
+        sceneRef.current.background = new THREE.Color(0xFFF5DC); // Cream color
     }
 
     // Instantiate camera
