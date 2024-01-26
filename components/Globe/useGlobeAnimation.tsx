@@ -1,11 +1,6 @@
-"use client";
-
-// This component instantiates the globe animation and manipulates it with user-scroll. 
-
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { useScroll } from 'framer-motion';
-import { motion } from 'framer-motion-3d';
 
 const useGlobeAnimation = (
     globe: THREE.Object3D | undefined,
@@ -20,32 +15,38 @@ const useGlobeAnimation = (
     useEffect(() => {
         if (!globe || !rendererRef.current) return;
 
-        //animate function, loops continuously
-        const animate = () => {
-            const currentScrollYProgress = scrollYProgress.get(); // Get current scroll progress
-            const scrollDelta = currentScrollYProgress - previousScrollYProgress.current; // Calculate the change in scroll position
+        // Initialize globe rotation
+        const initialRotationX = globe.rotation.x = THREE.MathUtils.degToRad(-23.5)
 
-            globe.rotation.y -= 0.00055 + scrollDelta * 5;
+        // animate function, loops continuously
+        const animate = () => {
+            const currentScrollYProgress = scrollYProgress.get();
+            const scrollDelta = currentScrollYProgress - previousScrollYProgress.current;
+
+            globe.rotation.y -= 0.00055 + scrollDelta * 4;
+
+            camera.position.y = 30 - currentScrollYProgress * 100; // Example calculation
+            camera.lookAt(new THREE.Vector3(0, 0, 0));
 
             if (rendererRef.current) {
                 rendererRef.current.render(scene, camera);
             }
 
-            previousScrollYProgress.current = currentScrollYProgress
+            previousScrollYProgress.current = currentScrollYProgress;
 
-            // Request the next frame
+            // This keeps it going by requesting the next frame
             requestID = requestAnimationFrame(animate);
         };
 
-        // Start the animation loop
+        // This starts the animation loop
         let requestID = requestAnimationFrame(animate);
 
         // Cleanup function
         return () => {
             cancelAnimationFrame(requestID);
         };
-    }, [globe, camera, scene]);
+    }, [globe, camera, scene, scrollYProgress]);
+
 };
 
 export default useGlobeAnimation;
-
