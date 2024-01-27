@@ -85,6 +85,7 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
 
         // Renderer setup
         const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
         divRef.current.appendChild(renderer.domElement);
         rendererRef.current = renderer;
