@@ -16,12 +16,14 @@ const linkStyle: React.CSSProperties = {
   fontSize: '1rem',
 };
 
+export const navHeight = `calc(7vh + 2px)` // used in other components for height calcs
+
 const navStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'row',
   flexShrink: 1,
   gap: '4vw',
-  height: `calc(7% + 2px)`,
+  height: navHeight,
   justifyContent: 'space-between',
   color: '#1E1E1E',
   width: 'auto',

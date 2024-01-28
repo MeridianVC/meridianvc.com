@@ -15,7 +15,8 @@ const baseStyle: CSSProperties = {
   color: '#1E1E1E',
   paddingLeft: 'clamp(3vw, 3vw, 20px)',
   overflowWrap: 'break-word',
-  margin: '5vh 0px',
+  marginTop: 'clamp(2vh, 5vh, 8vh)',
+  marginBottom: 'clamp(2vh, 5vh, 8vh)',
 };
 
 const headerStyles: Record<string, CSSProperties> = {

@@ -9,8 +9,8 @@ const fillStyle = (side: 'left' | 'right'): React.CSSProperties => ({
     [side]: 0,
     borderRight: side === 'left' ? '2px solid #444444' : undefined,
     borderLeft: side === 'right' ? '2px solid #444444' : undefined,
-    width: '4%', // Adjust the width as needed
-    zIndex: 10, // Ensures it is above the main content but below any modals or popups
+    width: '4%',
+    zIndex: 10,
     backgroundColor:"#FFF5DC",
 });
 

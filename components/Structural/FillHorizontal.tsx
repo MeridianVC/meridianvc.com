@@ -8,7 +8,7 @@ interface FillHorizontalProps {
 
 const FillHorizontal: FC<FillHorizontalProps> = ({behind = false}) => {
 
-    const borderThickness = '2px'; 
+    const borderThickness = '2px';
 
     const fillStyle: React.CSSProperties = {
         height: behind ? '7%' : `calc(7% + ${borderThickness})`, // This moves down to better fit vertical elements

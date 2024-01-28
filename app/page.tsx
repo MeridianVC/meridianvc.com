@@ -4,19 +4,35 @@ import './globals.css';
 import { FC } from 'react';
 import dynamic from 'next/dynamic';
 import PlaceholderMap from '@/components/Globe/GlobePlaceholder';
-import FillHorizontal from '@/components/UI/FillHorizontal';
-import FillVertical from '@/components/UI/FillVertical';
-import CardWrapper from '@/components/UI/CardWrapper'
-import PrinciplesCard from '@/components/UI/PrinciplesCard'
+import FillHorizontal from '@/components/Structural/FillHorizontal';
+import FillVertical from '@/components/Structural/FillVertical';
+// import CardWrapper from '@/components/UI/CardWrapper'
+// import PrinciplesCard from '@/components/UI/PrinciplesCard'
 import Navbar from '@/components/UI/Navbar';
 import Header from '@/components/Text/Header';
-import Spacer from '@/components/UI/Spacer';
+import Spacer from '@/components/Structural/Spacer';
+import Section from '@/components/Structural/Section';
+import ContentBlock from '@/components/Structural/ContentBlock';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
     ssr: false,
     loading: () => <PlaceholderMap/> // loads placeholder while 3D globe renders
 });
+
+const mainContentStyle: React.CSSProperties = {
+  width: '100vw',
+  maxWidth: '2000px',  
+  height: '1500vh',
+  minHeight: '1500vh',
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'relative',
+  backgroundColor: 'transparent',
+  top: '0',
+  paddingLeft: '5vw',
+  paddingRight: '5vw',
+};
 
 const globeStyle: React.CSSProperties = {
   position: 'fixed',
@@ -27,53 +43,29 @@ const globeStyle: React.CSSProperties = {
   zIndex: -2
 };
 
-const compassContainerStyle: React.CSSProperties = {
-  position: 'relative',
-  width: '100%', // Adjust width as needed
-  minHeight: '10vh', // Adjust height as needed
-  height: 'auto',
-  
-};
+const landingStyle: React.CSSProperties = {
+  justifyContent: 'space-between',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100vh',
+}
 
 const compassStyle: React.CSSProperties = {
   aspectRatio: 'auto',
-  width: 'clamp(5.5rem, 10vw, 8rem)',
+  width: 'clamp(5.5rem, 8vw, 8rem)',
   marginRight: 'clamp(2vw, 7vw, 20vw)',
+  marginTop: 'clamp(2vh, 5vh, 10vh)',
   marginLeft: 'auto',
-
-};
-
-const legendContainerStyle: React.CSSProperties = {
-  position: 'relative',
-  width: '100%',
-  height: 'auto',
-  marginTop: 'clamp(20px, 6vh, 100px',
-
-};
+};  
 
 const legendStyle: React.CSSProperties = {
   aspectRatio: 'auto',
-  width: 'clamp(15rem, 60vw, 27rem)',
+  width: 'clamp(18rem, 60vw, 33rem)',
   position: 'relative',
-  marginRight: 'clamp(2vw, 7vw, 20vw)',
+  paddingRight: 'clamp(.5vw, 7vw, 20vw)',
+  paddingBottom: 'clamp(5vh, 10vh, 10vh)',
   marginLeft: 'auto',
-  bottom: 0,
-};
-
-const mainContentStyle: React.CSSProperties = {
-  width: '90vw',
-  maxWidth: '2000px',
-  // maxWidth: '90vw',
-  height: '1500vh',
-  minHeight: '1500vh',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'left',
-  position: 'absolute',
-  backgroundColor: 'transparent',
-  top: '0',
-  left: '50%',
-  transform: 'translateX(-50%)'
+  marginTop: 'auto',
 };
 
 const Home: FC = () => {
@@ -84,28 +76,22 @@ const Home: FC = () => {
       <FillVertical side='right' />
       <FillHorizontal />
       <FillHorizontal behind />
-      <main style={mainContentStyle}>
-        <Spacer height='10rem'/>
-        <div style={compassContainerStyle}>
-          <img 
-            src="./compass.svg" 
-            alt="Compass" 
-            style={compassStyle}
-          />
-        </div>
-        <Header type='H1'> Championing bold ideas and visionary founders to fuel world-changing innovations. </Header>
-        <div style={legendContainerStyle}>
-          <img 
-            src="./Legend.png" 
-            alt="Legend" 
-            style={legendStyle}
-          />
-        </div>
-        {/* <CardWrapper>
-            <PrinciplesCard title='Card 1' content='This is the content of Card 1.' />
-            <PrinciplesCard title='Card 2' content='This is the content of Card 2.' />
-        </CardWrapper> */}
-      </main>
+        <main style={mainContentStyle}>
+          <Section id="section1_landing" style={landingStyle}>
+            <ContentBlock>
+              <Spacer/>
+              <img src="./compass.svg" alt="Compass" style={compassStyle}/>
+              <Header type='H1'> Championing bold ideas and visionary founders to fuel world-changing innovation. </Header>
+            </ContentBlock>
+            <ContentBlock>
+                <img src="./Legend.png"alt="Legend"style={legendStyle} className="legend"/>
+            </ContentBlock>
+          </Section>
+            {/* <CardWrapper>
+                <PrinciplesCard title='Card 1' content='This is the content of Card 1.' />
+                <PrinciplesCard title='Card 2' content='This is the content of Card 2.' />
+            </CardWrapper> */}
+        </main>
       <Globe style={globeStyle} />
     </>
   );
