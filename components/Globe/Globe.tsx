@@ -99,7 +99,7 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
         if (cameraRef.current) {
             cameraRef.current.position.z = 50;
             cameraRef.current.position.y = 30;
-            cameraRef.current.position.x = 100
+            cameraRef.current.position.x = 80;
             cameraRef.current.lookAt(new THREE.Vector3(0,0,0));
         }
 
