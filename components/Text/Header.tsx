@@ -1,4 +1,7 @@
 import React, { FC, CSSProperties, ReactNode } from 'react';
+import './text.css';
+
+const cssStyle = '.headerWidth'; // from text css style sheet
 
 interface HeaderProps {
   type: 'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6';
@@ -10,36 +13,33 @@ interface HeaderProps {
 const baseStyle: CSSProperties = {
   letterSpacing: '1%',
   color: '#1E1E1E',
-  width: '70%',
-  paddingLeft: '20px',
-  paddingRight: '15px'
-};
-
-const backgroundColorStyle: CSSProperties = {
-  // backgroundColor: '#FFF6DF',
-  backgroundColor: 'rgba(255, 245, 220, .5)',
-  mixBlendMode: 'multiply',
-  
+  // width: 'clamp(300px, 80%, 1000px)',
+  paddingLeft: 'clamp(3vw, 3vw, 20px)',
+  overflowWrap: 'break-word',
 };
 
 const headerStyles: Record<string, CSSProperties> = {
-  H1: { fontSize: '61px', lineHeight: '90px' },
-  H2: { fontSize: '48.8px', lineHeight: '137px' },
-  H3: { fontSize: '39.1px', lineHeight: '144px' },
-  H4: { fontSize: '31.3px', lineHeight: '151px' },
-  H5: { fontSize: '25px', lineHeight: '158px' },
-  H6: { fontSize: '20px', lineHeight: '165px' },
+  H1: { fontSize: 'clamp(36px, 8vw, 61px)', lineHeight: 'clamp(54px, 8vw, 90px)' },
+  H2: { fontSize: 'clamp(28px, 6vw, 48.8px)', lineHeight: 'clamp(84px, 8vw, 137px)' },
+  H3: { fontSize: 'clamp(22px, 5vw, 39.1px)', lineHeight: 'clamp(66px, 8vw, 144px)' },
+  H4: { fontSize: 'clamp(18px, 4vw, 31.3px)', lineHeight: 'clamp(54px, 8vw, 151px)' },
+  H5: { fontSize: 'clamp(15px, 3.5vw, 25px)', lineHeight: 'clamp(45px, 8vw, 158px)' },
+  H6: { fontSize: 'clamp(12px, 3vw, 20px)', lineHeight: 'clamp(36px, 8vw, 165px)' },
 };
 
-const Header: FC<HeaderProps> = ({ type, isBackgroundColored, style, children }) => {
+
+const Header: FC<HeaderProps> = ({ type, style, children }) => {
+  // if(window) {
+  //   const screenWidth = 
+  // }
+
   const combinedHeaderStyle = {
     ...baseStyle,
     ...headerStyles[type],
-    ...(isBackgroundColored ? backgroundColorStyle : {}),
     ...style,
   };
 
-  return React.createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle }, children);
+  return React.createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle, className: 'headerWidth' }, children);
 };
 
 export default Header;
