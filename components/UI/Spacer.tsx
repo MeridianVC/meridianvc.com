@@ -4,9 +4,11 @@ interface SpacerProps {
     height?: string;
 }
 
-const Spacer: FC<SpacerProps> = ({ height = '5rem' }) => {
+const Spacer: FC<SpacerProps> = ({ height = '8rem' }) => {
+    const dynamicHeight= 'clamp(12vh, 12vw, 13vh)' || height
+
     const style: React.CSSProperties = {
-        height: height,
+        height: dynamicHeight,
         display: 'block',
         backgroundColor: 'transparent',
         pointerEvents: 'none'

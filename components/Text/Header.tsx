@@ -1,7 +1,7 @@
 import React, { FC, CSSProperties, ReactNode } from 'react';
 import './text.css';
 
-const cssStyle = '.headerWidth'; // from text css style sheet
+const cssStyle = 'headerWidth'; // from text css style sheet
 
 interface HeaderProps {
   type: 'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6';
@@ -13,9 +13,9 @@ interface HeaderProps {
 const baseStyle: CSSProperties = {
   letterSpacing: '1%',
   color: '#1E1E1E',
-  // width: 'clamp(300px, 80%, 1000px)',
   paddingLeft: 'clamp(3vw, 3vw, 20px)',
   overflowWrap: 'break-word',
+  margin: '5vh 0px',
 };
 
 const headerStyles: Record<string, CSSProperties> = {
@@ -29,9 +29,6 @@ const headerStyles: Record<string, CSSProperties> = {
 
 
 const Header: FC<HeaderProps> = ({ type, style, children }) => {
-  // if(window) {
-  //   const screenWidth = 
-  // }
 
   const combinedHeaderStyle = {
     ...baseStyle,
@@ -39,7 +36,7 @@ const Header: FC<HeaderProps> = ({ type, style, children }) => {
     ...style,
   };
 
-  return React.createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle, className: 'headerWidth' }, children);
+  return React.createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle, className: cssStyle }, children);
 };
 
 export default Header;

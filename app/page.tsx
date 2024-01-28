@@ -29,34 +29,41 @@ const globeStyle: React.CSSProperties = {
 
 const compassContainerStyle: React.CSSProperties = {
   position: 'relative',
-  width: '75vw', // Adjust width as needed
-  height: '10vh', // Adjust height as needed
+  width: '100%', // Adjust width as needed
+  minHeight: '10vh', // Adjust height as needed
+  height: 'auto',
+  
 };
 
 const compassStyle: React.CSSProperties = {
   aspectRatio: 'auto',
-  width: '6rem',
-  position: 'absolute',
-  right: 0,
+  width: 'clamp(5.5rem, 10vw, 8rem)',
+  marginRight: 'clamp(2vw, 7vw, 20vw)',
+  marginLeft: 'auto',
+
 };
 
 const legendContainerStyle: React.CSSProperties = {
   position: 'relative',
-  width: '75vw', // Adjust width as needed
-  height: '40vh', // Adjust height as needed
+  width: '100%',
+  height: 'auto',
+  marginTop: 'clamp(20px, 6vh, 100px',
+
 };
 
 const legendStyle: React.CSSProperties = {
   aspectRatio: 'auto',
-  width: '30rem',
-  position: 'absolute',
-  right: 0,
+  width: 'clamp(15rem, 60vw, 27rem)',
+  position: 'relative',
+  marginRight: 'clamp(2vw, 7vw, 20vw)',
+  marginLeft: 'auto',
   bottom: 0,
 };
 
 const mainContentStyle: React.CSSProperties = {
-  width: '80vw',
-  maxWidth: '80vw',
+  width: '90vw',
+  maxWidth: '2000px',
+  // maxWidth: '90vw',
   height: '1500vh',
   minHeight: '1500vh',
   display: 'flex',
@@ -66,8 +73,7 @@ const mainContentStyle: React.CSSProperties = {
   backgroundColor: 'transparent',
   top: '0',
   left: '50%',
-  transform: 'translateX(-50%)',
-  padding: '2vh, 3vw',
+  transform: 'translateX(-50%)'
 };
 
 const Home: FC = () => {
