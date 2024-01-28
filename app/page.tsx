@@ -6,13 +6,12 @@ import dynamic from 'next/dynamic';
 import PlaceholderMap from '@/components/Globe/GlobePlaceholder';
 import FillHorizontal from '@/components/Structural/FillHorizontal';
 import FillVertical from '@/components/Structural/FillVertical';
-// import CardWrapper from '@/components/UI/CardWrapper'
-// import PrinciplesCard from '@/components/UI/PrinciplesCard'
 import Navbar from '@/components/UI/Navbar';
 import Header from '@/components/Text/Header';
 import Spacer from '@/components/Structural/Spacer';
 import Section from '@/components/Structural/Section';
 import ContentBlock from '@/components/Structural/ContentBlock';
+import PrinciplesCard from '@/components/UI/PrinciplesCard';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -68,6 +67,22 @@ const legendStyle: React.CSSProperties = {
   marginTop: 'auto',
 };
 
+const principlesStyle: React.CSSProperties = {
+  justifyContent: 'space-around',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100vh',
+}
+
+const cardContainerStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '10px',
+  flexWrap: 'wrap',
+}
+
 const Home: FC = () => {
   return (
     <>
@@ -84,13 +99,32 @@ const Home: FC = () => {
               <Header type='H1'> Championing bold ideas and visionary founders to fuel world-changing innovation. </Header>
             </ContentBlock>
             <ContentBlock>
-                <img src="./Legend.png"alt="Legend"style={legendStyle} className="legend"/>
+                <img src="./legend.svg"alt="Legend"style={legendStyle} className="legend"/>
             </ContentBlock>
           </Section>
-            {/* <CardWrapper>
-                <PrinciplesCard title='Card 1' content='This is the content of Card 1.' />
-                <PrinciplesCard title='Card 2' content='This is the content of Card 2.' />
-            </CardWrapper> */}
+          <Section id="section2_principles">
+          <Header type='H1'> Our Principles </Header>
+            <div style={cardContainerStyle}>
+              <PrinciplesCard 
+                title="Vision"
+                imagePath="/vision.svg" // Add image path if available
+                numberDisplay="01"
+                content="We invest in bold leaders who exhibit a rare blend of imagination and execution. Leaders who see what others don’t and courageously sail into the unknown."
+              />
+              <PrinciplesCard 
+                title="Collaboration"
+                imagePath="/collaboration.svg" // Add image path if available
+                numberDisplay="02"
+                content="Our investment goes beyond capital. We invest time in our founders – helping chart your course, acquire key talent, and connect you with key partners along your journey."
+              />
+              <PrinciplesCard 
+                title="Growth"
+                imagePath="/growth.svg" // Add image path if available
+                numberDisplay="03"
+                content="As former operators, we understand how to build and scale startups. We will work with you to safeguard against common missteps and position you best for growth-stage capital."
+              />
+            </div>
+          </Section>
         </main>
       <Globe style={globeStyle} />
     </>

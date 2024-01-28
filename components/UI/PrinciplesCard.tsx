@@ -1,24 +1,43 @@
+// This component is used for each of the 3 principles cards
+
 import { FC, ReactNode } from 'react';
+import TextBlock from '../Text/TextBlock';
 
 interface UICardProps {
-    title?: string;
-    content?: ReactNode;
+    title: string;
+    imagePath: string;
+    numberDisplay: string;
+    content: ReactNode;
 }
 
 const cardStyle: React.CSSProperties = {
-    backgroundColor: "#fff",
-    borderRadius: "8px",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-    padding: "20px",
-    margin: "10px",
-    maxWidth: "300px",
+    backgroundColor: '#FFF5DC',
+    padding: '20px',
+    maxWidth: '300px',
+    border: '2px solid #444444',
+    width: '400px',
+    height: '270px',
+    color: '#1E1E1E',
+    overflow: 'scroll',
 };
 
-const UICard: FC<UICardProps> = ({ title, content }) => {
+const headerStyle: React.CSSProperties = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '10px',
+};
+
+
+const UICard: FC<UICardProps> = ({ title, imagePath, numberDisplay, content }) => {
     return (
         <div style={cardStyle}>
-            {title && <h3>{title}</h3>}
-            <div>{content}</div>
+            <div style={headerStyle}>
+                <h3>{title}</h3>
+                <img src={imagePath} alt="principle icon" />
+                <span>{numberDisplay}</span>
+            </div>
+            <TextBlock variant="BodyBaskerville">{content}</TextBlock>
         </div>
     );
 };
