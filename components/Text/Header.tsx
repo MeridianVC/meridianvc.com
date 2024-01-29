@@ -9,15 +9,14 @@ interface HeaderProps {
   style?: CSSProperties;
   children?: ReactNode;
   className?: string;
+  paddingLeft?: string;
+  marginTop?: string;
+  marginBottom?: string;
 }
 
 const baseStyle: CSSProperties = {
-  letterSpacing: '1%',
   color: '#1E1E1E',
-  paddingLeft: 'clamp(3vw, 3vw, 20px)',
   overflowWrap: 'break-word',
-  marginTop: 'clamp(2vh, 7vh, 10vh)',
-  marginBottom: 'clamp(2vh, 5vh, 8vh)'
   
 };
 
@@ -25,22 +24,27 @@ const headerStyles: Record<string, CSSProperties> = {
   H1: { fontSize: 'clamp(36px, 8vw, 61px)', lineHeight: 'clamp(54px, 8vw, 90px)' },
   H2: { fontSize: 'clamp(28px, 6vw, 48.8px)', lineHeight: 'clamp(84px, 8vw, 137px)' },
   H3: { fontSize: 'clamp(22px, 5vw, 39.1px)', lineHeight: 'clamp(66px, 8vw, 144px)' },
-  H4: { fontSize: 'clamp(18px, 4vw, 31.3px)', lineHeight: 'clamp(54px, 8vw, 151px)' },
-  H5: { fontSize: 'clamp(15px, 3.5vw, 25px)', lineHeight: 'clamp(45px, 8vw, 158px)' },
-  H6: { fontSize: 'clamp(12px, 3vw, 20px)', lineHeight: 'clamp(36px, 8vw, 165px)' },
+  H4: { fontSize: 'clamp(18px, 4vw, 31.3px)', lineHeight: 'clamp(54px, 2vw, 151px)' },
+  H5: { fontSize: 'clamp(15px, 3.5vw, 25px)', lineHeight: 'clamp(12px, 2.5vw, 100px)' },
+  H6: { fontSize: 'clamp(12px, 3vw, 20px)', lineHeight: 'clamp(12px, 2vw, 100px)' },
 };
 
-const Header: FC<HeaderProps> = ({ type, isCentered, style, children, className }) => {
+const Header: FC<HeaderProps> = ({ type, isCentered, style, children, paddingLeft, marginTop, marginBottom, className }) => {
 
   const combinedHeaderStyle = {
     ...baseStyle,
     ...headerStyles[type],
-    ...(isCentered && { textAlign: 'center', paddingLeft: 0  }), 
+    ...(isCentered && { textAlign: 'center'}), 
+    ...{paddingLeft: `${paddingLeft}`},
+    ...{marginTop: `${marginTop}`},
+    ...{marginBottom: `${marginBottom}`},
     ...style,
     
   };
 
-  return createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle, className: cssStyle }, children);
+  const combinedClassName = `${cssStyle} ${className || ''}`.trim();
+
+  return createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle, className: combinedClassName }, children);
 };
 
 export default Header;

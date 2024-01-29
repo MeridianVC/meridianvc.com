@@ -1,10 +1,3 @@
-@media (max-width: 500px) {
-    .testimonialStatement {
-        margin-top: 20px !important;
-        width: 100% !important;
-    }
-}
-
 @media (max-width: 900px) {
     .testimonialStatement {
         width: 75% !important;
@@ -12,22 +5,12 @@
 }
 
 @media (max-width: 500px) {
-    .testimonialFounderPhotoRight {
-        align-self: flex-end !important;
+    .testimonialStatement {
+        margin-top: 20px !important;
+        width: 100% !important;
+    }
+    .testimonialContent {
+        display: flex;
+        flex-direction: column;
     }
 }
-
-@media (max-width: 500px) {
-    .testimonialFounderPhotoLeft {
-        align-self: flex-start !important;
-    }
-}
-
-@media (max-width: 500px) {
-    .testimonialSmallContainer {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-}
-
-

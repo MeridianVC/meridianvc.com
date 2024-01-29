@@ -1,7 +1,7 @@
 // This component is used for each of the 3 principles cards
 
 import { FC, ReactNode } from 'react';
-import TextBlock from '../Text/TextBlock';
+import Text from '../Text/Text';
 
 interface UICardProps {
     title: string;
@@ -50,7 +50,7 @@ const UICard: FC<UICardProps> = ({ title, imagePath, numberDisplay, content }) =
                 <img src={imagePath} alt="principle icon" style={imgStyle}/>
                 <h3>{numberDisplay}</h3>
             </div>
-            <TextBlock variant="BodyBaskerville" style={{paddingLeft: '3px'}}>{content}</TextBlock>
+            <Text variant="BodyBaskerville" style={{paddingLeft: '3px'}}>{content}</Text>
         </div>
     );
 };

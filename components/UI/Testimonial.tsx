@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import TextBlock from '../Text/TextBlock';
+import Text from '../Text/Text';
+import Header from '../Text/Header';
 import './ui.css';
 
 interface TestimonialProps {
@@ -13,11 +14,6 @@ interface TestimonialProps {
 const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company, imageSrc }) => {
     const isLeftAligned = alignment === 'left';
 
-    const testimonialSmallContainer = 'testimonialSmallContainer';
-    const testimonialStatement = 'testimonialStatement';
-    const testimonialFounderPhotoRight = 'testimonialFounderPhotoRight';
-    const testimonialFounderPhotoLeft = 'testimonialFounderPhotoLeft';
-
     const containerStyle: React.CSSProperties = {
         display: 'flex',
         flexDirection: isLeftAligned ? 'row' : 'row-reverse',
@@ -27,20 +23,17 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
     };
 
     const statementStyle: React.CSSProperties = {
-        color: '#3f3f3f',
-        fontSize: '1.25rem',
-        lineHeight: '1.4',
         position: 'relative',
         textAlign: isLeftAligned ? 'left' : 'right',
         marginLeft: isLeftAligned ? undefined : 'auto',
         marginRight: isLeftAligned ? 'auto' : undefined,
         width: '55%',
-        top: 0,
     };
 
     const nameStyle: React.CSSProperties = {
         marginTop: '1rem',
         textAlign: isLeftAligned ? 'left' : 'right',
+        marginLeft: isLeftAligned ? '0px' : 'auto'
     };
 
     const companyStyle: React.CSSProperties = {
@@ -48,21 +41,23 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
     };
 
     const imageStyle: React.CSSProperties = {
-        width: 'clamp(70px, 100px, 100px)',
+        width: 'clamp(50px, 15vw, 110px)',
         height: 'auto',
         borderRadius: '50%',
         objectFit: 'cover',
-        marginTop: '10px',
+        marginTop: '15px',
         mixBlendMode: 'multiply',
     };
 
     return (
-        <div style={containerStyle} className={testimonialSmallContainer}>
-            <img src={imageSrc} alt={name} style={imageStyle} className={isLeftAligned ? testimonialFounderPhotoLeft : testimonialFounderPhotoRight}/>
-            <div>
-                <div style={statementStyle} className={testimonialStatement}>“{statement}”</div>
-                <div style={nameStyle}>{name}</div>
-                <TextBlock variant="SmallFranklin" style={companyStyle}>{company}</TextBlock>
+        <div style={containerStyle}>
+            <img src={imageSrc} alt={name} style={imageStyle} className={isLeftAligned ? "testimonialFounderLeft" : "testimonialFounderPhotoRight"}/>
+            <div className="testimonialContent">
+                <Header type="H5" className="testimonialStatement" style={statementStyle} >“{statement}”</Header>
+                <div>
+                    <Header type="H6" style={nameStyle}>{name}</Header>
+                    <Text variant="SmallFranklin" style={companyStyle}>{company}</Text>
+                </div>
             </div>
         </div>
     );

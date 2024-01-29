@@ -3,50 +3,49 @@ import './text.css';
 
 const textBlockStyles: Record<string, CSSProperties> = {
     BodyFranklin: { 
-        fontSize: '16px',
+        fontSize: 'clamp(14px, 2vw, 16px)',
         lineHeight: 'clamp(24px, 5vw, 26.4px)',
         fontFamily: 'var(--font-franklin)'
     },
     SmallFranklin: { 
-        fontSize: '12.8px', 
+        fontSize: 'clamp(10px, 1.8vw, 12.8px)', 
         lineHeight: 'clamp(21.12px, 4vw, 23.232px)',
         fontFamily: 'var(--font-franklin)'
     },
     ExtraSmallFranklin: { 
-        fontSize: '10.2px', 
+        fontSize: 'clamp(9px, 1.5vw, 10.2px)', 
         lineHeight: 'clamp(17.034px, 3.5vw, 18.7374px)',
         fontFamily: 'var(--font-franklin)'
     },
     BodyBaskerville: { 
-        fontSize: '16px', 
+        fontSize: 'clamp(14px, 2vw, 16px)', 
         lineHeight: 'clamp(27px, 5vw, 29.7px)' 
     },
     SmallBaskerville: { 
-        fontSize: '12.8px', 
+        fontSize: 'clamp(10px, 1.8vw, 12.8px)', 
         lineHeight: 'clamp(22.72px, 4vw, 25.992px)' 
     },
 };
 
-interface TextBlockProps {
+interface TextProps {
   variant: 'BodyFranklin' | 'BodyBaskerville' | 'SmallFranklin' | 'SmallBaskerville' | 'ExtraSmallFranklin';
   style?: CSSProperties;
   children?: ReactNode;
 }
 
 const baseTextStyle: CSSProperties = {
-  letterSpacing: '1%',
   color: '#1E1E1E',
   overflowWrap: 'break-word',
 };
 
-const TextBlock: FC<TextBlockProps> = ({ variant, style, children }) => {
+const Text: FC<TextProps> = ({ variant, style, children }) => {
   const combinedTextStyle = {
     ...baseTextStyle,
     ...textBlockStyles[variant],
     ...style,
   };
 
-  return <div style={combinedTextStyle} className={`textBlockStyle ${variant}`}>{children}</div>;
+  return <p style={combinedTextStyle} className={`textBlockStyle ${variant}`}>{children}</p>;
 };
 
-export default TextBlock;
+export default Text;

@@ -13,6 +13,7 @@ import Section from '@/components/Structural/Section';
 import PrinciplesCard from '@/components/UI/PrinciplesCard';
 import Testimonial from '@/components/UI/Testimonial';
 import FillSection from '@/components/Structural/FillSection';
+import TeamCard from '@/components/UI/TeamCard';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -98,7 +99,7 @@ const principlesHeader: React.CSSProperties = {
 
 const foundersSectionStyle: React.CSSProperties = {
   zIndex: 9, // to sit over top of all site content including the vertical bars
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -117,7 +118,7 @@ const Home: FC = () => {
             <div>
                 <Spacer/>
                 <img src="./compass.svg" alt="Compass" style={compassStyle}/>
-                <Header type='H1'> Championing bold ideas and visionary founders to fuel world-changing innovation. </Header>
+                <Header type='H1' paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> Championing bold ideas and visionary founders to fuel world-changing innovation. </Header>
             </div>
             <div>
                   <img src="./legend.svg"alt="Legend"style={legendStyle} className="legend"/>
@@ -126,7 +127,7 @@ const Home: FC = () => {
           <Section id="section2_principles" style={principlesSectionStyle} isFullHeight={false}>
               <Spacer height={'10vh'}/>
               <div style={principlesHeader}>
-                    <Header type='H1' isCentered={true}> Our Guiding Principles </Header>
+                    <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> Our Guiding Principles </Header>
               </div>
               <div style={principleCardContainerStyle} className={principleCardGap}>
                   <PrinciplesCard 
@@ -148,11 +149,11 @@ const Home: FC = () => {
                     content="As former operators, we understand how to build and scale startups. We will work with you to safeguard against common missteps and position you best for growth-stage capital."
                   />
               </div>
-              <Spacer height={'25vh'}/>
+              <Spacer height={'30vh'}/>
           </Section>
           <Section id="section3_founders" style={foundersSectionStyle} isFullHeight={false}>
               <div>
-                  <Header type='H1' isCentered={true}> What Founders Say </Header>
+                  <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 4vh, 7vh)'> What Founders Say </Header>
               </div>
               <div>
                   <Testimonial 
@@ -179,6 +180,18 @@ const Home: FC = () => {
               </div>
               <Spacer height={'10vh'}/>
               <FillSection/>
+          </Section>
+          <Section id="section4_team" isFullHeight={true}>
+            <TeamCard 
+              name="Devon Gethers"
+              role="Managing Partner"
+              imageSrc="./headshotDevon.png"
+            />
+            <TeamCard 
+              name="Karlton Haney"
+              role="Managing Partner"
+              imageSrc="./headshotKarlton.png"
+            />
           </Section>
         </main>
       <Globe style={globeStyle} />
