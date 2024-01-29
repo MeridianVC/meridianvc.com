@@ -68,7 +68,7 @@ const legendStyle: React.CSSProperties = {
 };
 
 const principlesSectionStyle: React.CSSProperties = {
-  justifyContent: 'flex-start',
+  justifyContent: 'center',
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
@@ -82,7 +82,7 @@ const principleCardContainerStyle: React.CSSProperties = {
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: 'clamp(1vw, 2vw, 3vw)',
+  gap: 'clamp(1vw, 1vw, 3vw)',
   flexWrap: 'wrap',
   margin: '0 clamp(5vw, 5vw, 7vw)',
 }
@@ -95,6 +95,8 @@ const principlesHeader: React.CSSProperties = {
   marginBottom: 'clamp(2vh, 3vh, 20vh)',
   alignItems: 'center'
 }
+
+
 
 const Home: FC = () => {
   return (
@@ -117,33 +119,37 @@ const Home: FC = () => {
           </Section>
           <Section id="section2_principles" style={principlesSectionStyle}>
             <div style={principlesHeader}>
-              <Spacer/>
               <Header type='H1' isCentered={true}> Our Guiding Principles </Header>
             </div>
             <div style={principleCardContainerStyle} className={principleCardGap}>
               <PrinciplesCard 
                 title="Vision"
-                imagePath="/vision.svg" // Add image path if available
+                imagePath="/vision.svg"
                 numberDisplay="01"
                 content="We invest in bold leaders who exhibit a rare blend of imagination and execution. Leaders who see what others don’t and courageously journey into the unknown."
               />
               <PrinciplesCard 
                 title="Collaboration"
-                imagePath="/collaboration.svg" // Add image path if available
+                imagePath="/collaboration.svg"
                 numberDisplay="02"
                 content="Our investment goes beyond capital. We invest time in our founders – helping chart your course, acquire key talent, and connect you with key partners along your journey."
               />
               <PrinciplesCard 
                 title="Growth"
-                imagePath="/growth.svg" // Add image path if available
+                imagePath="/growth.svg"
                 numberDisplay="03"
                 content="As former operators, we understand how to build and scale startups. We will work with you to safeguard against common missteps and position you best for growth-stage capital."
               />
             </div>
           </Section>
+          <Section id="section3_founders">
+            <div>
+              <Header type='H1' > Lorem ipsum dolor sit amet consectetur. Elementum quisque cursus pretium </Header>
+            </div>
+          </Section>
         </main>
       <Globe style={globeStyle} />
-      </>
+    </>
   );
 };
 

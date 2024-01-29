@@ -1,6 +1,6 @@
 // This component is built to fill space vertically and contribute to the inner box effect
 
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 const fillStyle = (side: 'left' | 'right'): React.CSSProperties => ({
     position: 'fixed',

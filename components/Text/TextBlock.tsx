@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, ReactNode } from 'react';
+import { FC, CSSProperties, ReactNode } from 'react';
 import './text.css';
 
 const textBlockStyles: Record<string, CSSProperties> = {

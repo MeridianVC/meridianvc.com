@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, ReactNode } from 'react';
+import { FC, CSSProperties, ReactNode, createElement } from 'react';
 import './text.css';
 
 const cssStyle = 'headerWidth'; // from text css style sheet
@@ -41,9 +41,7 @@ const Header: FC<HeaderProps> = ({ type, isCentered, style, children, className 
     
   };
 
-  const combinedClassName = [cssStyle, className].filter(Boolean).join(' ');
-
-  return React.createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle, className: cssStyle }, children);
+  return createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle, className: cssStyle }, children);
 };
 
 export default Header;
