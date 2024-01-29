@@ -10,12 +10,14 @@ const textBlockStyles: Record<string, CSSProperties> = {
     SmallFranklin: { 
         fontSize: 'clamp(10px, 1.8vw, 12.8px)', 
         lineHeight: 'clamp(21.12px, 4vw, 23.232px)',
-        fontFamily: 'var(--font-franklin)'
+        fontFamily: 'var(--font-franklin)',
+        letterSpacing: '.44px',
     },
     ExtraSmallFranklin: { 
         fontSize: 'clamp(9px, 1.5vw, 10.2px)', 
         lineHeight: 'clamp(17.034px, 3.5vw, 18.7374px)',
-        fontFamily: 'var(--font-franklin)'
+        fontFamily: 'var(--font-franklin)',
+        letterSpacing: '2px',
     },
     BodyBaskerville: { 
         fontSize: 'clamp(14px, 2vw, 16px)', 
@@ -31,6 +33,7 @@ interface TextProps {
   variant: 'BodyFranklin' | 'BodyBaskerville' | 'SmallFranklin' | 'SmallBaskerville' | 'ExtraSmallFranklin';
   style?: CSSProperties;
   children?: ReactNode;
+  paddingLeft?: string;
 }
 
 const baseTextStyle: CSSProperties = {
@@ -38,11 +41,12 @@ const baseTextStyle: CSSProperties = {
   overflowWrap: 'break-word',
 };
 
-const Text: FC<TextProps> = ({ variant, style, children }) => {
+const Text: FC<TextProps> = ({ variant, style, children, paddingLeft }) => {
   const combinedTextStyle = {
     ...baseTextStyle,
     ...textBlockStyles[variant],
     ...style,
+    ...{paddingLeft: `${paddingLeft}`},
   };
 
   return <p style={combinedTextStyle} className={`textBlockStyle ${variant}`}>{children}</p>;

@@ -14,6 +14,7 @@ import PrinciplesCard from '@/components/UI/PrinciplesCard';
 import Testimonial from '@/components/UI/Testimonial';
 import FillSection from '@/components/Structural/FillSection';
 import TeamCard from '@/components/UI/TeamCard';
+import TeamCardContainer from '@/components/UI/TeamCardContainer';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -118,7 +119,9 @@ const Home: FC = () => {
             <div>
                 <Spacer/>
                 <img src="./compass.svg" alt="Compass" style={compassStyle}/>
-                <Header type='H1' paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> Championing bold ideas and visionary founders to fuel world-changing innovation. </Header>
+                <Header type='H1' paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
+                    Championing bold ideas and visionary founders to fuel world-changing innovation. 
+                </Header>
             </div>
             <div>
                   <img src="./legend.svg"alt="Legend"style={legendStyle} className="legend"/>
@@ -127,7 +130,9 @@ const Home: FC = () => {
           <Section id="section2_principles" style={principlesSectionStyle} isFullHeight={false}>
               <Spacer height={'10vh'}/>
               <div style={principlesHeader}>
-                    <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> Our Guiding Principles </Header>
+                    <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
+                        Our Guiding Principles 
+                    </Header>
               </div>
               <div style={principleCardContainerStyle} className={principleCardGap}>
                   <PrinciplesCard 
@@ -152,9 +157,9 @@ const Home: FC = () => {
               <Spacer height={'30vh'}/>
           </Section>
           <Section id="section3_founders" style={foundersSectionStyle} isFullHeight={false}>
-              <div>
-                  <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 4vh, 7vh)'> What Founders Say </Header>
-              </div>
+              <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 4vh, 7vh)'> 
+                  What Founders Say 
+              </Header>
               <div>
                   <Testimonial 
                     alignment="left"
@@ -181,17 +186,39 @@ const Home: FC = () => {
               <Spacer height={'10vh'}/>
               <FillSection/>
           </Section>
-          <Section id="section4_team" isFullHeight={true}>
-            <TeamCard 
-              name="Devon Gethers"
-              role="Managing Partner"
-              imageSrc="./headshotDevon.png"
-            />
-            <TeamCard 
-              name="Karlton Haney"
-              role="Managing Partner"
-              imageSrc="./headshotKarlton.png"
-            />
+          <Section id="section4_team" isFullHeight={true} >
+              <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
+                  Seasoned founders and operators at your side as you chart your course. 
+              </Header>
+              <TeamCardContainer style={{marginBottom: "clamp(1vw, 1vw, 3vw)"}}>
+                  <TeamCard 
+                    name="Devon Gethers"
+                    role="Managing Partner"
+                    imageSrc="./headshotDevon.png"
+                  />
+                  <TeamCard 
+                    name="Karlton Haney"
+                    role="Managing Partner"
+                    imageSrc="/headshotKarlton.png"
+                  />
+              </TeamCardContainer>
+              <TeamCardContainer>
+                  <TeamCard 
+                    name="Dallin Anderson"
+                    role="Advisor"
+                    imageSrc="./headshotDallin.png"
+                  />
+                  <TeamCard 
+                    name="Heather Harmon"
+                    role="Advisor"
+                    imageSrc="./headshotHeather.png"
+                  />
+                  <TeamCard 
+                    name="Zach Thomas"
+                    role="Advisor"
+                    imageSrc="./headshotZach.png"
+                  />
+              </TeamCardContainer>
           </Section>
         </main>
       <Globe style={globeStyle} />

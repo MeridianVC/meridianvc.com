@@ -1,28 +1,28 @@
-import { FC } from 'react'; // Ensure React is imported
-import './ui.css';
-import TextBlock from '../Text/Text';
+import { FC, ReactNode } from 'react'; // Ensure React is imported
 
-const cardStyle: React.CSSProperties = {
-    backgroundColor: '#FFF5DC',
-    padding: '20px',
-    border: '2px solid #444444',
-    maxWidth: '400px',
-    minWidth: '275px',
-    minHeight: '250px',
-    flexBasis: '300px',
-    flexGrow: 1,
-    flexShrink: 1,
-    height: 'auto',
-    color: '#1E1E1E',
-    overflow: 'hidden',
-};
+interface TeamCardContainerProps {
+    children: ReactNode;
+    style?: React.CSSProperties;
+}
 
-import React from 'react';
-import './TeamCardContainer.css'; // Assuming your styles are in TeamCardContainer.css
+const cardContainerStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 'clamp(1vw, 1vw, 3vw)',
+    flexWrap: 'wrap',
+    margin: '0 clamp(5vw, 5vw, 7vw)',
+  }
 
-const TeamCardContainer: React.FC = ({ children }) => {
+const TeamCardContainer: FC<TeamCardContainerProps> = ({ children, style }) => {
+    const combinedTextStyle = {
+        ...cardContainerStyle,
+        ...style
+      };
+
     return (
-        <div className="team-card-container">
+        <div style={combinedTextStyle}>
             {children}
         </div>
     );
