@@ -30,7 +30,6 @@ const headerStyles: Record<string, CSSProperties> = {
   H6: { fontSize: 'clamp(12px, 3vw, 20px)', lineHeight: 'clamp(36px, 8vw, 165px)' },
 };
 
-
 const Header: FC<HeaderProps> = ({ type, isCentered, style, children, className }) => {
 
   const combinedHeaderStyle = {
