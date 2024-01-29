@@ -6,7 +6,8 @@ const borderThickness = '2px';
 
 const wordmarkStyle: React.CSSProperties = {
   fontSize: '36px',
-  letterSpacing: '2.8px'
+  letterSpacing: '2.8px',
+  paddingTop: '5px',
 }
 
 const linkStyle: React.CSSProperties = {
@@ -16,7 +17,7 @@ const linkStyle: React.CSSProperties = {
   fontSize: '1rem',
 };
 
-export const navHeight = `calc(7vh + 2px)` // used in other components for height calcs
+export const navHeight = 'clamp(70px, calc(7vh + 2px), calc(7vh + 2px))' // used in other components for height calcs
 
 const navStyle: React.CSSProperties = {
   display: 'flex',
