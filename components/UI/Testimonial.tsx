@@ -14,7 +14,7 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
     const isLeftAligned = alignment === 'left';
 
     const testimonialSmallContainer = 'testimonialSmallContainer';
-    const testimonialSmallStatement = 'testimonialSmallStatement';
+    const testimonialStatement = 'testimonialStatement';
     const testimonialFounderPhotoRight = 'testimonialFounderPhotoRight';
     const testimonialFounderPhotoLeft = 'testimonialFounderPhotoLeft';
 
@@ -34,7 +34,7 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         textAlign: isLeftAligned ? 'left' : 'right',
         marginLeft: isLeftAligned ? undefined : 'auto',
         marginRight: isLeftAligned ? 'auto' : undefined,
-        width: '65%',
+        width: '55%',
         top: 0,
     };
 
@@ -60,7 +60,7 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         <div style={containerStyle} className={testimonialSmallContainer}>
             <img src={imageSrc} alt={name} style={imageStyle} className={isLeftAligned ? testimonialFounderPhotoLeft : testimonialFounderPhotoRight}/>
             <div>
-                <div style={statementStyle} className={testimonialSmallStatement}>“{statement}”</div>
+                <div style={statementStyle} className={testimonialStatement}>“{statement}”</div>
                 <div style={nameStyle}>{name}</div>
                 <TextBlock variant="SmallFranklin" style={companyStyle}>{company}</TextBlock>
             </div>

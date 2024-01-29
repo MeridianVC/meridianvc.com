@@ -1,7 +1,13 @@
 @media (max-width: 500px) {
-    .testimonialSmallStatement {
+    .testimonialStatement {
         margin-top: 20px !important;
         width: 100% !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .testimonialStatement {
+        width: 75% !important;
     }
 }
 
