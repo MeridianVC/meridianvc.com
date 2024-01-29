@@ -75,6 +75,8 @@ const principlesSectionStyle: React.CSSProperties = {
   alignItems: 'center',
 }
 
+const principleCardGap = 'principle-card-gap';
+
 const principleCardContainerStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'row',
@@ -118,7 +120,7 @@ const Home: FC = () => {
             <Spacer/>
             <Header type='H1' isCentered={true}> Our Guiding Principles </Header>
           </div>
-          <div style={principleCardContainerStyle}>
+          <div style={principleCardContainerStyle} className={principleCardGap}>
               <PrinciplesCard 
                 title="Vision"
                 imagePath="/vision.svg" // Add image path if available

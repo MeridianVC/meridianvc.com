@@ -68,3 +68,9 @@ a {
     margin-right: .5vw !important;
   }
 }
+
+@media (max-width: 450px) {
+  .principle-card-gap {
+    gap: clamp(4vw, 5vw, 5vw) !important;
+  }
+}
