@@ -51,7 +51,7 @@ const UICard: FC<UICardProps> = ({ title, imagePath, numberDisplay, content }) =
                 <img src={imagePath} alt="principle icon" style={imgStyle}/>
                 <h3>{numberDisplay}</h3>
             </div>
-            <TextBlock variant="BodyBaskerville">{content}</TextBlock>
+            <TextBlock variant="BodyBaskerville" style={{paddingLeft: '3px'}}>{content}</TextBlock>
         </div>
     );
 };

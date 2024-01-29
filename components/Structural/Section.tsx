@@ -9,12 +9,16 @@ interface SectionProps {
     children: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;
+    isFullHeight?: boolean;
 }
 
-const Section: FC<SectionProps> = ({ id, children, className, style }) => {
+const Section: FC<SectionProps> = ({ id, children, className, style, isFullHeight }) => {
+
+  console.log('hello');
+  console.log(isFullHeight);
 
   const sectionStyle: React.CSSProperties = {
-    minHeight: `100vh - ${navHeight}`,
+    minHeight: isFullHeight? `calc(100vh - ${navHeight})` : undefined, // no height defined if height is not needed
     width: '100%',
     position: 'relative',
     ...style,

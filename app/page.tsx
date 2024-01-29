@@ -11,6 +11,8 @@ import Header from '@/components/Text/Header';
 import Spacer from '@/components/Structural/Spacer';
 import Section from '@/components/Structural/Section';
 import PrinciplesCard from '@/components/UI/PrinciplesCard';
+import Testimonial from '@/components/UI/Testimonial';
+import FillSection from '@/components/Structural/FillSection';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -20,7 +22,6 @@ const Globe = dynamic(() => import('../components/Globe/Globe'), {
 
 const mainContentStyle: React.CSSProperties = {
   width: '92%',
-  maxWidth: '2000px',  
   height: '1500vh',
   minHeight: '1500vh',
   display: 'flex',
@@ -71,7 +72,6 @@ const principlesSectionStyle: React.CSSProperties = {
   justifyContent: 'center',
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '100vh',
   alignItems: 'center',
 }
 
@@ -96,7 +96,13 @@ const principlesHeader: React.CSSProperties = {
   alignItems: 'center'
 }
 
-
+const foundersSectionStyle: React.CSSProperties = {
+  zIndex: 9, // to sit over top of all site content including the vertical bars
+  justifyContent: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+}
 
 const Home: FC = () => {
   return (
@@ -109,43 +115,70 @@ const Home: FC = () => {
         <main style={mainContentStyle}>
           <Section id="section1_landing" style={landingStyle}>
             <div>
-              <Spacer/>
-              <img src="./compass.svg" alt="Compass" style={compassStyle}/>
-              <Header type='H1'> Championing bold ideas and visionary founders to fuel world-changing innovation. </Header>
+                <Spacer/>
+                <img src="./compass.svg" alt="Compass" style={compassStyle}/>
+                <Header type='H1'> Championing bold ideas and visionary founders to fuel world-changing innovation. </Header>
             </div>
             <div>
-                <img src="./legend.svg"alt="Legend"style={legendStyle} className="legend"/>
+                  <img src="./legend.svg"alt="Legend"style={legendStyle} className="legend"/>
             </div>
           </Section>
-          <Section id="section2_principles" style={principlesSectionStyle}>
-            <div style={principlesHeader}>
-              <Header type='H1' isCentered={true}> Our Guiding Principles </Header>
-            </div>
-            <div style={principleCardContainerStyle} className={principleCardGap}>
-              <PrinciplesCard 
-                title="Vision"
-                imagePath="/vision.svg"
-                numberDisplay="01"
-                content="We invest in bold leaders who exhibit a rare blend of imagination and execution. Leaders who see what others don’t and courageously journey into the unknown."
-              />
-              <PrinciplesCard 
-                title="Collaboration"
-                imagePath="/collaboration.svg"
-                numberDisplay="02"
-                content="Our investment goes beyond capital. We invest time in our founders – helping chart your course, acquire key talent, and connect you with key partners along your journey."
-              />
-              <PrinciplesCard 
-                title="Growth"
-                imagePath="/growth.svg"
-                numberDisplay="03"
-                content="As former operators, we understand how to build and scale startups. We will work with you to safeguard against common missteps and position you best for growth-stage capital."
-              />
-            </div>
+          <Section id="section2_principles" style={principlesSectionStyle} isFullHeight={false}>
+              <Spacer height={'10vh'}/>
+              <div style={principlesHeader}>
+                    <Header type='H1' isCentered={true}> Our Guiding Principles </Header>
+              </div>
+              <div style={principleCardContainerStyle} className={principleCardGap}>
+                  <PrinciplesCard 
+                    title="Vision"
+                    imagePath="/vision.svg"
+                    numberDisplay="01"
+                    content="We invest in bold leaders who exhibit a rare blend of imagination and execution. Leaders who see what others don’t and courageously journey into the unknown."
+                  />
+                  <PrinciplesCard 
+                    title="Collaboration"
+                    imagePath="/collaboration.svg"
+                    numberDisplay="02"
+                    content="Our investment goes beyond capital. We invest time in our founders – helping chart your course, acquire key talent, and connect you with key partners along your journey."
+                  />
+                  <PrinciplesCard 
+                    title="Growth"
+                    imagePath="/growth.svg"
+                    numberDisplay="03"
+                    content="As former operators, we understand how to build and scale startups. We will work with you to safeguard against common missteps and position you best for growth-stage capital."
+                  />
+              </div>
+              <Spacer height={'25vh'}/>
           </Section>
-          <Section id="section3_founders">
-            <div>
-              <Header type='H1' > Lorem ipsum dolor sit amet consectetur. Elementum quisque cursus pretium </Header>
-            </div>
+          <Section id="section3_founders" style={foundersSectionStyle} isFullHeight={false}>
+              <div>
+                  <Header type='H1' isCentered={true}> What Founders Say </Header>
+              </div>
+              <div>
+                  <Testimonial 
+                    alignment="left"
+                    statement="These guys not only showed interest in our pitch but engaged in late-night brainstorming sessions that left us brimming with ideas."
+                    name="Renato Villanueva"
+                    company="Parallel"
+                    imageSrc="./renato.png"
+                  />
+                  <Testimonial 
+                    alignment="right"
+                    statement="We were very inspired by the team, which reminds us a lot of ourselves as founders. A team with a lot to prove that proves it daily. The guys at Meridian are hustlers – very engaged with their portcos and their value-add pays dividends."
+                    name="Atikh Bana"
+                    company="Acctual"
+                    imageSrc="./atikh.png"
+                  />
+                  <Testimonial 
+                    alignment="left"
+                    statement="These guys not only showed interest in our pitch but engaged in late-night brainstorming sessions that left us brimming with ideas."
+                    name="Renato Villanueva"
+                    company="Parallel"
+                    imageSrc="./renato.png"
+                  />
+              </div>
+              <Spacer height={'10vh'}/>
+              <FillSection/>
           </Section>
         </main>
       <Globe style={globeStyle} />

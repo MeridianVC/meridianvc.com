@@ -17,6 +17,7 @@ const FillHorizontal: FC<FillHorizontalProps> = ({behind = false}) => {
         top: 0,
         zIndex: behind ? 10 : 11, // "No you don't understand, it goes to 11."
         backgroundColor: "#FFF5DC",
+        width: behind ? '100%' : undefined,
         left: behind ? '0' : `calc(4vw - ${borderThickness}/2)`, // These ensure the width of the line overlaps..
         right: behind ? '0' : `calc(4vw - ${borderThickness}/2)`, // .. in the center of the vertical lines
         borderBottom: behind ? undefined : `${borderThickness} solid #444444`,
