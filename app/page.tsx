@@ -116,11 +116,11 @@ const Home: FC = () => {
             </div>
           </Section>
           <Section id="section2_principles" style={principlesSectionStyle}>
-          <div style={principlesHeader}>
-            <Spacer/>
-            <Header type='H1' isCentered={true}> Our Guiding Principles </Header>
-          </div>
-          <div style={principleCardContainerStyle} className={principleCardGap}>
+            <div style={principlesHeader}>
+              <Spacer/>
+              <Header type='H1' isCentered={true}> Our Guiding Principles </Header>
+            </div>
+            <div style={principleCardContainerStyle} className={principleCardGap}>
               <PrinciplesCard 
                 title="Vision"
                 imagePath="/vision.svg" // Add image path if available

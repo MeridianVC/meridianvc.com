@@ -39,6 +39,7 @@ const headerStyle: React.CSSProperties = {
 const imgStyle: React.CSSProperties = {
     flexGrow: 1,
     height: 'auto',
+    maxWidth: '60%'
 }
 
 
