@@ -5,9 +5,10 @@ const cssStyle = 'headerWidth'; // from text css style sheet
 
 interface HeaderProps {
   type: 'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6';
-  isBackgroundColored?: boolean;
+  isCentered?: boolean;
   style?: CSSProperties;
   children?: ReactNode;
+  className?: string;
 }
 
 const baseStyle: CSSProperties = {
@@ -15,8 +16,9 @@ const baseStyle: CSSProperties = {
   color: '#1E1E1E',
   paddingLeft: 'clamp(3vw, 3vw, 20px)',
   overflowWrap: 'break-word',
-  marginTop: 'clamp(2vh, 5vh, 8vh)',
-  marginBottom: 'clamp(2vh, 5vh, 8vh)',
+  marginTop: 'clamp(2vh, 7vh, 10vh)',
+  marginBottom: 'clamp(2vh, 5vh, 8vh)'
+  
 };
 
 const headerStyles: Record<string, CSSProperties> = {
@@ -29,13 +31,17 @@ const headerStyles: Record<string, CSSProperties> = {
 };
 
 
-const Header: FC<HeaderProps> = ({ type, style, children }) => {
+const Header: FC<HeaderProps> = ({ type, isCentered, style, children, className }) => {
 
   const combinedHeaderStyle = {
     ...baseStyle,
     ...headerStyles[type],
+    ...(isCentered && { textAlign: 'center', paddingLeft: 0  }), 
     ...style,
+    
   };
+
+  const combinedClassName = [cssStyle, className].filter(Boolean).join(' ');
 
   return React.createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle, className: cssStyle }, children);
 };

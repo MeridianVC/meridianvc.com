@@ -10,7 +10,6 @@ import Navbar from '@/components/UI/Navbar';
 import Header from '@/components/Text/Header';
 import Spacer from '@/components/Structural/Spacer';
 import Section from '@/components/Structural/Section';
-import ContentBlock from '@/components/Structural/ContentBlock';
 import PrinciplesCard from '@/components/UI/PrinciplesCard';
 
 // dynamically load the globe only when DOM is present
@@ -20,7 +19,7 @@ const Globe = dynamic(() => import('../components/Globe/Globe'), {
 });
 
 const mainContentStyle: React.CSSProperties = {
-  width: '100vw',
+  width: '92%',
   maxWidth: '2000px',  
   height: '1500vh',
   minHeight: '1500vh',
@@ -29,8 +28,9 @@ const mainContentStyle: React.CSSProperties = {
   position: 'relative',
   backgroundColor: 'transparent',
   top: '0',
-  paddingLeft: '5vw',
-  paddingRight: '5vw',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  gap: '20px',
 };
 
 const globeStyle: React.CSSProperties = {
@@ -61,26 +61,37 @@ const legendStyle: React.CSSProperties = {
   aspectRatio: 'auto',
   width: 'clamp(18rem, 60vw, 33rem)',
   position: 'relative',
-  paddingRight: 'clamp(.5vw, 7vw, 20vw)',
-  paddingBottom: 'clamp(5vh, 10vh, 10vh)',
+  marginRight: 'clamp(5vw, 8vw, 20vw)',
+  marginBottom: 'clamp(5vh, 10vh, 10vh)',
   marginLeft: 'auto',
-  marginTop: 'auto',
+  marginTop: 'auto'
 };
 
-const principlesStyle: React.CSSProperties = {
-  justifyContent: 'space-around',
+const principlesSectionStyle: React.CSSProperties = {
+  justifyContent: 'flex-start',
   display: 'flex',
   flexDirection: 'column',
-  height: '100vh',
+  minHeight: '100vh',
+  alignItems: 'center',
 }
 
-const cardContainerStyle: React.CSSProperties = {
+const principleCardContainerStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: '10px',
+  gap: 'clamp(1vw, 2vw, 3vw)',
   flexWrap: 'wrap',
+  margin: '0 clamp(5vw, 5vw, 7vw)',
+}
+
+const principlesHeader: React.CSSProperties = {
+  width: '100%',
+  maxWidth: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: 'clamp(2vh, 3vh, 20vh)',
+  alignItems: 'center'
 }
 
 const Home: FC = () => {
@@ -93,23 +104,26 @@ const Home: FC = () => {
       <FillHorizontal behind />
         <main style={mainContentStyle}>
           <Section id="section1_landing" style={landingStyle}>
-            <ContentBlock>
+            <div>
               <Spacer/>
               <img src="./compass.svg" alt="Compass" style={compassStyle}/>
               <Header type='H1'> Championing bold ideas and visionary founders to fuel world-changing innovation. </Header>
-            </ContentBlock>
-            <ContentBlock>
+            </div>
+            <div>
                 <img src="./legend.svg"alt="Legend"style={legendStyle} className="legend"/>
-            </ContentBlock>
+            </div>
           </Section>
-          <Section id="section2_principles">
-          <Header type='H1'> Our Principles </Header>
-            <div style={cardContainerStyle}>
+          <Section id="section2_principles" style={principlesSectionStyle}>
+          <div style={principlesHeader}>
+            <Spacer/>
+            <Header type='H1' isCentered={true}> Our Guiding Principles </Header>
+          </div>
+          <div style={principleCardContainerStyle}>
               <PrinciplesCard 
                 title="Vision"
                 imagePath="/vision.svg" // Add image path if available
                 numberDisplay="01"
-                content="We invest in bold leaders who exhibit a rare blend of imagination and execution. Leaders who see what others don’t and courageously sail into the unknown."
+                content="We invest in bold leaders who exhibit a rare blend of imagination and execution. Leaders who see what others don’t and courageously journey into the unknown."
               />
               <PrinciplesCard 
                 title="Collaboration"
@@ -127,7 +141,7 @@ const Home: FC = () => {
           </Section>
         </main>
       <Globe style={globeStyle} />
-    </>
+      </>
   );
 };
 

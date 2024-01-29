@@ -11,7 +11,8 @@ const Spacer: FC<SpacerProps> = ({ height = navHeight }) => {
         height: height,
         display: 'block',
         backgroundColor: 'transparent',
-        pointerEvents: 'none'
+        pointerEvents: 'none',
+        width: '100%',
     };
 
     return <div style={style} />;

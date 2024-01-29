@@ -18,7 +18,7 @@ interface TextBlockProps {
 const baseTextStyle: CSSProperties = {
   letterSpacing: '1%',
   color: '#1E1E1E',
-  paddingLeft: '10px',
+  paddingLeft: '3px',
   overflowWrap: 'break-word',
 };
 
