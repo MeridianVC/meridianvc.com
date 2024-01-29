@@ -23,7 +23,7 @@ const useGlobeObject = ({ renderer, scene }: GlobeObjectProps) => {
 
         // Load the GLB/GLTF file
         const loader = new GLTFLoader();
-        loader.load('./world12.glb', (gltf) => {
+        loader.load('./world13.glb', (gltf) => {
 
             // Scale and position the scene
             gltf.scene.scale.set(3, 3, 3);
