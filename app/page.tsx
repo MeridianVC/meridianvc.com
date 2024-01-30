@@ -15,6 +15,7 @@ import FillSection from '@/components/Structural/FillSection';
 import TeamCard from '@/components/UI/TeamCard';
 import TeamCardContainer from '@/components/UI/TeamCardContainer';
 import CompanyGrid from '@/components/UI/CompanyGrid';
+import LatestContentCard from '@/components/UI/LatestContentCard';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -114,7 +115,23 @@ const portfolioSectionStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  position: 'static',
+}
+
+const latestSectionStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignContent: 'center',
+  justifyContent: 'center',
+}
+
+const latestCardContainerStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'row',
+  alignContent: 'center',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
+  gap: '30px',
+  padding: '20px'
 }
 
 const Home: FC = () => {
@@ -201,7 +218,7 @@ const Home: FC = () => {
               <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
                   Seasoned operators and founders at your side as you chart your course. 
               </Header>
-              <TeamCardContainer style={{marginBottom: "clamp(1vw, 1vw, 3vw)"}}>
+              <TeamCardContainer style={{marginBottom: 'clamp(1vw, 3vw, 4vw)'}}>
                   <TeamCard 
                     name="Devon Gethers"
                     role="Managing Partner"
@@ -236,6 +253,43 @@ const Home: FC = () => {
               <Header type="H1" isCentered={true} paddingLeft="0px"> Our Investments </Header>
               {/* <FundSelector/> */}
               <CompanyGrid/>
+          </Section>
+          <Section id="section6_latest" isFullHeight={true} style={latestSectionStyle}>
+              <Header type="H1" isCentered={true} marginBottom='clamp(2vh, 5vh, 8vh)' style={principlesHeader}>Our Latest</Header>
+              <div style={latestCardContainerStyle}>
+                  <LatestContentCard
+                      author="Devon Gethers"
+                      title="Redefining Healthtech: Our Latest Venture Has Already Saved Consumers $50M"
+                      imagePath="./placeholderImage.png"
+                      date={new Date()}
+                      source="Linkedin"
+                      link="Linkedin.com"
+                  />
+                  <LatestContentCard
+                      author="Devon Gethers"
+                      title="Redefining Healthtech: Our Latest Venture Has Already Saved Consumers $50M"
+                      imagePath="./placeholderImage.png"
+                      date={new Date()}
+                      source="Linkedin"
+                      link="Linkedin.com"
+                  />
+                  <LatestContentCard
+                      author="Devon Gethers"
+                      title="Redefining Healthtech: Our Latest Venture Has Already Saved Consumers $50M"
+                      imagePath="./placeholderImage.png"
+                      date={new Date()}
+                      source="Linkedin"
+                      link="Linkedin.com"
+                  />
+                  <LatestContentCard
+                      author="Devon Gethers"
+                      title="Redefining Healthtech: Our Latest Venture Has Already Saved Consumers $50M"
+                      imagePath="./placeholderImage.png"
+                      date={new Date()}
+                      source="Linkedin"
+                      link="Linkedin.com"
+                  />
+              </div>
           </Section>
         </main>
       <Globe style={globeStyle} />

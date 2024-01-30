@@ -10,7 +10,7 @@ const cardContainerStyle: React.CSSProperties = {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 'clamp(1vw, 1vw, 3vw)',
+    gap: 'clamp(1vw, 3vw, 4vw)',
     flexWrap: 'wrap',
     margin: '0 clamp(5vw, 5vw, 7vw)',
   }
