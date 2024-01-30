@@ -23,7 +23,7 @@ const useGlobeAnimation = (
             const currentScrollYProgress = scrollYProgress.get();
             const scrollDelta = currentScrollYProgress - previousScrollYProgress.current;
 
-            globe.rotation.y -= 0.00055 + scrollDelta * 4;
+            globe.rotation.y -= 0.00055 + scrollDelta * 2;
 
             camera.position.y = 30 - currentScrollYProgress * 100; // Example calculation
             camera.lookAt(new THREE.Vector3(0, 0, 0));
