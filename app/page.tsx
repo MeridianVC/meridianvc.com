@@ -14,6 +14,7 @@ import Testimonial from '@/components/UI/Testimonial';
 import FillSection from '@/components/Structural/FillSection';
 import TeamCard from '@/components/UI/TeamCard';
 import TeamCardContainer from '@/components/UI/TeamCardContainer';
+import CompanyGrid from '@/components/UI/CompanyGrid';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -231,9 +232,11 @@ const Home: FC = () => {
                   />
               </TeamCardContainer>
           </Section>
+          <Spacer height={'20vh'}/>
           <Section id="section5_portfolio" isFullHeight={true} style={portfolioSectionStyle}>
               <Header type="H1" isCentered={true} paddingLeft="0px"> Our Investments </Header>
-              <FundSelector/>
+              {/* <FundSelector/> */}
+              <CompanyGrid/>
           </Section>
         </main>
       <Globe style={globeStyle} />
