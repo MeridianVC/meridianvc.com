@@ -47,6 +47,10 @@ const linkStyle: React.CSSProperties = {
     paddingBottom: 'clamp(5px, .8vh, 15px)'
 }
 
+const contentStyle: React.CSSProperties = {
+    paddingBottom: 'clamp(2px, .25vh, 20px)',
+}
+
 const formatDate = (date: Date) => {
     const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
@@ -60,7 +64,7 @@ const LatestContentCard: FC<LatestContentCardProps> = ({ author, title, imagePat
             <div style={cardMain}>
                 <img src={imagePath} alt="principle icon" style={imageStyle}/>
                 <div>
-                    <Text variant="SmallFranklin">{author}</Text>
+                    <Text variant="SmallFranklin" style={contentStyle}>{author}</Text>
                     <Text variant="BodyBaskerville">{title}</Text>
                 </div>
             </div>
