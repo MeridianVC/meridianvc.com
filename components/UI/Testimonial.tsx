@@ -45,7 +45,7 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         height: 'auto',
         borderRadius: '50%',
         objectFit: 'cover',
-        marginTop: '15px',
+        marginTop: 'clamp(20px, calc(10rem - 16vw), 100px)', // This marginTop will increase as the screen-width decreases
         mixBlendMode: 'multiply',
     };
 
@@ -54,7 +54,7 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         fontSize: '45px',
         position: 'relative',
         top: '10px',
-        left: '-10px',
+        left: '-5px',
     }
 
     const rightQuoteStyle: React.CSSProperties = {
