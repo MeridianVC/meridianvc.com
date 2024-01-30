@@ -38,7 +38,7 @@ const TeamCard: FC<TeamCardProps> = ({ name, role, imageSrc }) => {
         <div style={cardStyle} className="teamCardHeight">
             <img src={imageSrc} alt={`${name}`} style={imageStyle}/>
             <div>
-                <Header type="H4" lineHeight="clamp(10px, 2.5vh, 40px"> {name}</Header>
+                <Header type="H4" lineHeight="clamp(8px, 2.5vh, 40px"> {name}</Header>
                 <Text variant="SmallFranklin" paddingLeft="3px">{role}</Text>
             </div>
         </div>

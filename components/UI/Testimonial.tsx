@@ -18,8 +18,8 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         display: 'flex',
         flexDirection: isLeftAligned ? 'row' : 'row-reverse',
         alignItems: 'flex-start',
-        gap: '20px',
-        padding: '20px'
+        gap: '30px',
+        padding: '10px'
     };
 
     const statementStyle: React.CSSProperties = {

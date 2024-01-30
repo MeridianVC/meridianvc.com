@@ -34,6 +34,7 @@ const headerStyle: React.CSSProperties = {
     flexShrink: 1,
     flexGrow: 1,
     margin: '0',
+    marginBottom: 'clamp(10px, .5vh, 10px)',
 };
 
 const imgStyle: React.CSSProperties = {
