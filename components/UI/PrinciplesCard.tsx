@@ -2,6 +2,7 @@
 
 import { FC, ReactNode } from 'react';
 import Text from '../Text/Text';
+import Header from '../Text/Header';
 
 interface UICardProps {
     title: string;
@@ -16,7 +17,7 @@ const cardStyle: React.CSSProperties = {
     border: '2px solid #444444',
     maxWidth: '400px',
     minWidth: '275px',
-    minHeight: '250px',
+    minHeight: '275px',
     flexBasis: '300px',
     flexGrow: 1,
     flexShrink: 1,

@@ -53,8 +53,9 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         <div style={containerStyle}>
             <img src={imageSrc} alt={name} style={imageStyle} className={isLeftAligned ? "testimonialFounderLeft" : "testimonialFounderPhotoRight"}/>
             <div className="testimonialContent">
-                <Header type="H5" className="testimonialStatement" style={statementStyle} >“{statement}”</Header>
+                <Text variant="BodyBaskerville" className="testimonialStatement" style={statementStyle}>{statement}</Text>
                 <div>
+                    {/* <Text variant="BodyBaskerville" style={nameStyle}>{name} </Text> */}
                     <Header type="H6" style={nameStyle}>{name}</Header>
                     <Text variant="SmallFranklin" style={companyStyle}>{company}</Text>
                 </div>

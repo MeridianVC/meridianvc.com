@@ -141,7 +141,7 @@ const Home: FC = () => {
           <Section id="section2_principles" style={principlesSectionStyle} isFullHeight={false}>
               <Spacer height={'10vh'}/>
               <div style={principlesHeader}>
-                    <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
+                    <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 4vh, 4vh)'> 
                         Our Guiding Principles 
                     </Header>
               </div>
@@ -169,29 +169,29 @@ const Home: FC = () => {
           </Section>
           <Section id="section3_founders" style={foundersSectionStyle} isFullHeight={false}>
               <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 4vh, 7vh)'> 
-                  What Founders Say 
+                  What Our Founders Say 
               </Header>
               <div>
                   <Testimonial 
                     alignment="left"
-                    statement="Devon and Karlton are young but they have added as much value or if not more than existing investors. They demonstrated a deep exptertise in our business and industry, which made it easy to like them."
-                    name="Raymond Rouf"
-                    company="Pave"
-                    imageSrc="./RaymondRouf.jpeg"
+                    statement="Meridian added value from Day 1. Devon and Karlton stand out among their peers as diligent and insightful. Their contributions have attracted top-tier investors, refined our financing, and improved our GTM and product strategy."
+                    name="Cody Eddings"
+                    company="SnapRefund"
+                    imageSrc="./headshotCodyEddings.png"
                   />
                   <Testimonial 
                     alignment="right"
-                    statement="Meridian blew us away with their unwavering commitment to outstanding founders right out the gate. It was crystal clear from our very first call that Devon and Karlton are truly passionate abiout finding and investing in the very best early-stage companies and they share that passion at every stage of the growth journey by offering truly meaningful assistance to early-stage founders with the deepest level of integrity and consistency that we've ever seen in venture capital. Unlike other early-stage investors, the Meridian team jumps in quickly and drives immediate value across fundraising, customer growth, partnerships, and other key areas. We couldn't have asked for a better partner in this journey than Meridian."
+                    statement="Meridian immediately impressed us with their unwavering support. Devon and Karlton's passion for adding value is illustrated through their consistent and meaningful assistance, displaying a level of integrity unmatched in VC. Their involvement in key areas such as fundraising, customer growth, and partnerships has made them the most active contributors on our cap table."
                     name="Ben Wunderman"
                     company="Packsmith"
-                    imageSrc="./BenWunderman.png"
+                    imageSrc="./headshotBenWunderman.png"
                   />
                   <Testimonial 
                     alignment="left"
-                    statement="Meridian had an immediate positive impact on our business. Devon and Karlton are amongst the hardest working VCs on our cap table and are very bright, insightful, and effortless to work with: choosing them was easy. Since we began working together, Meridian has rbought in other top-tier investors, helped us strategize key cap table financing terms, and been an absolute powerhouse of market research & analysis. We'ved formed a strong team."
-                    name="Cody Eddings"
+                    statement="The team at Meridian, reminiscent of our own founding team, consistently proves their worth daily. Their hustle and engagement with portcos have yielded tangible benefits, including introductions to investors and new customers for our pipeline. Their provision of valuable resources, potential hires, and market insights has been invaluable. Can't speak highly enough of these guys!"
+                    name="Atikh Bana"
                     company="SnapRefund"
-                    imageSrc="./CodyEddings.png"
+                    imageSrc="./headshotAtikh.png"
                   />
               </div>
               <Spacer height={'10vh'}/>

@@ -34,6 +34,7 @@ interface TextProps {
   style?: CSSProperties;
   children?: ReactNode;
   paddingLeft?: string;
+  className?: string;
 }
 
 const baseTextStyle: CSSProperties = {
@@ -41,7 +42,7 @@ const baseTextStyle: CSSProperties = {
   overflowWrap: 'break-word',
 };
 
-const Text: FC<TextProps> = ({ variant, style, children, paddingLeft }) => {
+const Text: FC<TextProps> = ({ variant, style, children, paddingLeft, className }) => {
   const combinedTextStyle = {
     ...baseTextStyle,
     ...textBlockStyles[variant],
@@ -49,7 +50,7 @@ const Text: FC<TextProps> = ({ variant, style, children, paddingLeft }) => {
     ...{paddingLeft: `${paddingLeft}`},
   };
 
-  return <p style={combinedTextStyle} className={`textBlockStyle ${variant}`}>{children}</p>;
+  return <p style={combinedTextStyle} className={`textBlockStyle ${variant} ${className}`}>{children}</p>;
 };
 
 export default Text;
