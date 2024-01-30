@@ -17,7 +17,7 @@ const textBlockStyles: Record<string, CSSProperties> = {
         fontSize: 'clamp(9px, 1.5vw, 10.2px)', 
         lineHeight: 'clamp(17.034px, 3.5vw, 18.7374px)',
         fontFamily: 'var(--font-franklin)',
-        letterSpacing: '2px',
+        letterSpacing: '.44px',
     },
     BodyBaskerville: { 
         fontSize: 'clamp(14px, 2vw, 16px)', 

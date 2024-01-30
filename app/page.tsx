@@ -169,7 +169,7 @@ const Home: FC = () => {
           </Section>
           <Section id="section3_founders" style={foundersSectionStyle} isFullHeight={false}>
               <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 4vh, 7vh)'> 
-                  What Our Founders Say 
+                  What Founders Say 
               </Header>
               <div>
                   <Testimonial 
@@ -188,13 +188,13 @@ const Home: FC = () => {
                   />
                   <Testimonial 
                     alignment="left"
-                    statement="The team at Meridian, reminiscent of our own founding team, consistently proves their worth daily. Their hustle and engagement with portcos have yielded tangible benefits, including introductions to investors and new customers for our pipeline. Their provision of valuable resources, potential hires, and market insights has been invaluable. Can't speak highly enough of these guys!"
+                    statement="The team at Meridian consistently proves their worth. Their hustle and engagement with portfolio companies have yielded tangible benefits for us, including introductions to investors and new customers for our pipeline. Their provision of resources, potential hires, and market insights has been invaluable. Cannot speak highly enough of these guys!"
                     name="Atikh Bana"
                     company="Acctual"
                     imageSrc="./headshotAtikh.png"
                   />
               </div>
-              <Spacer height={'10vh'}/>
+              <Spacer height={'10vh'} />
               <FillSection/>
           </Section>
           <Section id="section4_team" isFullHeight={true} >

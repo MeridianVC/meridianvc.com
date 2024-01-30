@@ -49,15 +49,34 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         mixBlendMode: 'multiply',
     };
 
+    const leftQuoteStyle: React.CSSProperties = {
+        color: '#E64702',
+        fontSize: '45px',
+        position: 'relative',
+        top: '10px',
+        left: '-10px',
+    }
+
+    const rightQuoteStyle: React.CSSProperties = {
+        color: '#E64702',
+        fontSize: '45px',
+        position: 'relative',
+        top: '10px',
+        left: '5px',
+    }
+
     return (
         <div style={containerStyle}>
             <img src={imageSrc} alt={name} style={imageStyle} className={isLeftAligned ? "testimonialFounderLeft" : "testimonialFounderPhotoRight"}/>
             <div className="testimonialContent">
-                <Text variant="BodyBaskerville" className="testimonialStatement" style={statementStyle}>{statement}</Text>
+                <Text variant="BodyBaskerville" className="testimonialStatement" style={statementStyle}>
+                    <span style={leftQuoteStyle}>“</span>
+                        {statement}
+                    <span style={rightQuoteStyle}>”</span>
+                </Text>
                 <div>
-                    {/* <Text variant="BodyBaskerville" style={nameStyle}>{name} </Text> */}
-                    <Header type="H6" style={nameStyle}>{name}</Header>
-                    <Text variant="SmallFranklin" style={companyStyle}>{company}</Text>
+                    <Text variant="BodyBaskerville" style={nameStyle}>{name} </Text>
+                    <Text variant="ExtraSmallFranklin" style={companyStyle}>{company}</Text>
                 </div>
             </div>
         </div>
