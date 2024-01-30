@@ -16,6 +16,7 @@ import TeamCard from '@/components/UI/TeamCard';
 import TeamCardContainer from '@/components/UI/TeamCardContainer';
 import CompanyGrid from '@/components/UI/CompanyGrid';
 import LatestContentCard from '@/components/UI/LatestContentCard';
+import Footer from '@/components/UI/Footer';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -131,7 +132,9 @@ const latestCardContainerStyle: React.CSSProperties = {
   justifyContent: 'center',
   flexWrap: 'wrap',
   gap: '30px',
-  padding: '20px'
+  padding: '20px',
+  maxWidth: '1500px',
+  margin: '0 auto',
 }
 
 const Home: FC = () => {
@@ -159,7 +162,7 @@ const Home: FC = () => {
               <Spacer height={'10vh'}/>
               <div style={principlesHeader}>
                     <Header type='H1' isCentered={true} marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 4vh, 4vh)'> 
-                        Our Guiding Principles 
+                        Guiding Principles 
                     </Header>
               </div>
               <div style={principleCardContainerStyle} className={principleCardGap}>
@@ -167,19 +170,19 @@ const Home: FC = () => {
                     title="Vision"
                     imagePath="/vision.svg"
                     numberDisplay="01"
-                    content="We invest in bold leaders who exhibit a rare blend of imagination and execution. Leaders who see what others don’t and courageously journey into the unknown."
+                    content="We invest in bold leaders who exhibit a rare blend of imagination and execution. Leaders who see what others don’t and courageously venture into the unknown."
                   />
                   <PrinciplesCard 
                     title="Collaboration"
                     imagePath="/collaboration.svg"
                     numberDisplay="02"
-                    content="Our investment goes beyond capital. We invest time in our founders – helping chart your course, acquire key talent, and connect you with key partners along your journey."
+                    content="Our investment goes beyond capital. We invest time in our founders – helping chart the course, acquire key talent, and make connections with key partners along the journey."
                   />
                   <PrinciplesCard 
                     title="Growth"
                     imagePath="/growth.svg"
                     numberDisplay="03"
-                    content="As former operators, we understand how to build and scale startups. We will work with you to safeguard against common missteps and position you best for growth-stage capital."
+                    content="As former operators, we understand how to build and scale startups. We work with our founders to safeguard against common missteps and position our companies for growth-stage capital."
                   />
               </div>
               <Spacer height={'30vh'}/>
@@ -214,9 +217,10 @@ const Home: FC = () => {
               <Spacer height={'10vh'} />
               <FillSection/>
           </Section>
+          <Spacer height={'5vh'} />
           <Section id="section4_team" isFullHeight={true} >
-              <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
-                  Seasoned operators and founders at your side as you chart your course. 
+              <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(15px, 8vh, 100px)'> 
+                  Our team of seasoned operators at your side as you chart your course. 
               </Header>
               <TeamCardContainer style={{marginBottom: 'clamp(1vw, 3vw, 4vw)'}}>
                   <TeamCard 
@@ -290,6 +294,11 @@ const Home: FC = () => {
                       link="Linkedin.com"
                   />
               </div>
+          </Section>
+          <Section id="section7_footer">
+              <Footer>
+                
+              </Footer>
           </Section>
         </main>
       <Globe style={globeStyle} />

@@ -12,13 +12,13 @@ interface LatestContentCardProps {
 
 const cardStyle: React.CSSProperties = {
     backgroundColor: '#FFF5DC',
-    paddingTop: 'clamp(5px, 1.75vh, 30px)',
-    paddingLeft: 'clamp(5px, 1.75vh, 30px)',
-    paddingRight: 'clamp(5px, 1.75vh, 30px)',
+    paddingTop: 'clamp(5px, 1.5vh, 30px)',
+    paddingLeft: 'clamp(5px, 1.5vh, 30px)',
+    paddingRight: 'clamp(5px, 1.5vh, 30px)',
     border: '2px solid #444444',
     maxWidth: '600px',
     minWidth: '300px',
-    flexBasis: '525px',
+    flexBasis: '500px',
     height: 'auto',
     color: '#1E1E1E',
     overflow: 'hidden',
@@ -37,7 +37,6 @@ const cardMain: React.CSSProperties = {
 const imageStyle: React.CSSProperties = {
     width: '40%',
     height: 'auto',
-    marginBottom: 'clamp(2px, .25vh, 20px)',
     mixBlendMode: 'multiply',
 }
 

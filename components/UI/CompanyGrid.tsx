@@ -7,7 +7,7 @@ const gridStyle: React.CSSProperties = {
   flexBasis: 'calc(20% - 50px)',
   justifyContent: 'space-around',
   alignItems: 'flex-start',
-  gap: '10px',
+  gap: 'clamp(2px, 5vw, 40px)',
   margin: '0 clamp(5vw, 18vw, 25vw)',
   maxWidth: '1500px'
 };

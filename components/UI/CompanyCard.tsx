@@ -16,7 +16,6 @@ const cardStyle: React.CSSProperties = {
     position: 'relative',
     width: '150px',
     height: '150px',
-    margin: '10px',
   };
   
   const logoStyle: React.CSSProperties = {
