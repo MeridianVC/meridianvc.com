@@ -14,8 +14,8 @@ interface CompanyCardProps {
 
 const cardStyle: React.CSSProperties = {
     position: 'relative',
-    width: '200px',
-    height: '200px',
+    width: '150px',
+    height: '150px',
     margin: '10px',
   };
   
@@ -50,8 +50,9 @@ const CompanyCard: FC<CompanyCardProps> = ({
   sector,
   coInvestors,
 }) => {
+
   return (
-    <div style={cardStyle}>
+    <div style={cardStyle} className="company-card-size">
       <img src={logoSrc} alt="Company Logo" style={logoStyle} className="company-logo-color"/>
       <div style={detailsStyle}>
         <div><strong>About:</strong> {about}</div>

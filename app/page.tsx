@@ -29,8 +29,6 @@ const FundSelector = dynamic(() => import('@/components/UI/PortfolioFundSelect')
 
 const mainContentStyle: React.CSSProperties = {
   width: '92%',
-  height: '700vh',
-  minHeight: '700vh',
   display: 'flex',
   flexDirection: 'column',
   position: 'relative',
@@ -116,6 +114,7 @@ const portfolioSectionStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  position: 'static',
 }
 
 const Home: FC = () => {
@@ -200,7 +199,7 @@ const Home: FC = () => {
           </Section>
           <Section id="section4_team" isFullHeight={true} >
               <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
-                  Seasoned founders and operators at your side as you chart your course. 
+                  Seasoned operators and founders at your side as you chart your course. 
               </Header>
               <TeamCardContainer style={{marginBottom: "clamp(1vw, 1vw, 3vw)"}}>
                   <TeamCard 
@@ -233,7 +232,7 @@ const Home: FC = () => {
               </TeamCardContainer>
           </Section>
           <Spacer height={'20vh'}/>
-          <Section id="section5_portfolio" isFullHeight={true} style={portfolioSectionStyle}>
+          <Section id="section5_companies" isFullHeight={true} style={portfolioSectionStyle}>
               <Header type="H1" isCentered={true} paddingLeft="0px"> Our Investments </Header>
               {/* <FundSelector/> */}
               <CompanyGrid/>

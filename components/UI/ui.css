@@ -6,6 +6,13 @@
         max-height: 500px !important;
         min-height: 450px !important;
     }
+    .company-card-size {
+        width: 90px !important;
+        height: 90px !important;
+    }
+    .company-grid-margin {
+        margin: 5vw !important;
+    }
 }
 
 @media (max-width: 500px) {

@@ -4,9 +4,12 @@ import CompanyCard from './CompanyCard'; // Import the CompanyCard component
 const gridStyle: React.CSSProperties = {
   display: 'flex',
   flexWrap: 'wrap',
+  flexBasis: 'calc(20% - 50px)',
   justifyContent: 'space-around',
   alignItems: 'flex-start',
   gap: '10px',
+  margin: '0 clamp(5vw, 18vw, 25vw)',
+  maxWidth: '1500px'
 };
 
 // This array should eventually come from a database or API call
@@ -345,7 +348,7 @@ const companyData = [
 
 const CompanyGrid: FC = () => {
   return (
-    <div style={gridStyle}>
+    <div style={gridStyle} className="company-grid-margin">
       {companyData.map((company, index) => (
         <CompanyCard
           key={index}
