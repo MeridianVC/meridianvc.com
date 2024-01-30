@@ -1,5 +1,4 @@
 // This is the main entrypoint for our application
-
 import './globals.css';
 import { FC } from 'react';
 import dynamic from 'next/dynamic';
@@ -22,10 +21,15 @@ const Globe = dynamic(() => import('../components/Globe/Globe'), {
     loading: () => <PlaceholderMap/> // loads placeholder while 3D globe renders
 });
 
+const FundSelector = dynamic(() => import('@/components/UI/PortfolioFundSelect'), {
+  ssr: false,
+  loading: () => <div>Content loading...</div>
+})
+
 const mainContentStyle: React.CSSProperties = {
   width: '92%',
-  height: '1500vh',
-  minHeight: '1500vh',
+  height: '700vh',
+  minHeight: '700vh',
   display: 'flex',
   flexDirection: 'column',
   position: 'relative',
@@ -106,6 +110,13 @@ const foundersSectionStyle: React.CSSProperties = {
   alignItems: 'center',
 }
 
+const portfolioSectionStyle: React.CSSProperties = {
+  justifyContent: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+}
+
 const Home: FC = () => {
   return (
     <>
@@ -163,24 +174,24 @@ const Home: FC = () => {
               <div>
                   <Testimonial 
                     alignment="left"
-                    statement="These guys not only showed interest in our pitch but engaged in late-night brainstorming sessions that left us brimming with ideas."
-                    name="Renato Villanueva"
-                    company="Parallel"
-                    imageSrc="./renato.png"
+                    statement="Devon and Karlton are young but they have added as much value or if not more than existing investors. They demonstrated a deep exptertise in our business and industry, which made it easy to like them."
+                    name="Raymond Rouf"
+                    company="Pave"
+                    imageSrc="./RaymondRouf.jpeg"
                   />
                   <Testimonial 
                     alignment="right"
-                    statement="We were very inspired by the team, which reminds us a lot of ourselves as founders. A team with a lot to prove that proves it daily. The guys at Meridian are hustlers – very engaged with their portcos and their value-add pays dividends."
-                    name="Atikh Bana"
-                    company="Acctual"
-                    imageSrc="./atikh.png"
+                    statement="Meridian blew us away with their unwavering commitment to outstanding founders right out the gate. It was crystal clear from our very first call that Devon and Karlton are truly passionate abiout finding and investing in the very best early-stage companies and they share that passion at every stage of the growth journey by offering truly meaningful assistance to early-stage founders with the deepest level of integrity and consistency that we've ever seen in venture capital. Unlike other early-stage investors, the Meridian team jumps in quickly and drives immediate value across fundraising, customer growth, partnerships, and other key areas. We couldn't have asked for a better partner in this journey than Meridian."
+                    name="Ben Wunderman"
+                    company="Packsmith"
+                    imageSrc="./BenWunderman.png"
                   />
                   <Testimonial 
                     alignment="left"
-                    statement="These guys not only showed interest in our pitch but engaged in late-night brainstorming sessions that left us brimming with ideas."
-                    name="Renato Villanueva"
-                    company="Parallel"
-                    imageSrc="./renato.png"
+                    statement="Meridian had an immediate positive impact on our business. Devon and Karlton are amongst the hardest working VCs on our cap table and are very bright, insightful, and effortless to work with: choosing them was easy. Since we began working together, Meridian has rbought in other top-tier investors, helped us strategize key cap table financing terms, and been an absolute powerhouse of market research & analysis. We'ved formed a strong team."
+                    name="Cody Eddings"
+                    company="SnapRefund"
+                    imageSrc="./CodyEddings.png"
                   />
               </div>
               <Spacer height={'10vh'}/>
@@ -219,6 +230,10 @@ const Home: FC = () => {
                     imageSrc="./headshotZach.png"
                   />
               </TeamCardContainer>
+          </Section>
+          <Section id="section5_portfolio" isFullHeight={true} style={portfolioSectionStyle}>
+              <Header type="H1" isCentered={true} paddingLeft="0px"> Our Investments </Header>
+              <FundSelector/>
           </Section>
         </main>
       <Globe style={globeStyle} />
