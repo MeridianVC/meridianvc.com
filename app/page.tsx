@@ -190,7 +190,7 @@ const Home: FC = () => {
                     alignment="left"
                     statement="The team at Meridian, reminiscent of our own founding team, consistently proves their worth daily. Their hustle and engagement with portcos have yielded tangible benefits, including introductions to investors and new customers for our pipeline. Their provision of valuable resources, potential hires, and market insights has been invaluable. Can't speak highly enough of these guys!"
                     name="Atikh Bana"
-                    company="SnapRefund"
+                    company="Acctual"
                     imageSrc="./headshotAtikh.png"
                   />
               </div>
