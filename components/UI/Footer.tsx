@@ -98,7 +98,7 @@ const Footer: FC = () => {
                         Legal
                     </Text>
                     <Text variant="SmallBaskerville">
-                    The Founders and other third-parties have not received compensation for this feedback and have not invested in the Fund, although the Founders and other third-parties may have an incentive to make a positive statement due to their ongoing relationship with the firm. The companies identified do not represent all of the companies purchased, sold, or recommended for portfolios advised by the Firm. The Firm's complete track record and companies comprising the portfolio of each fund is available upon request. The reader should not assume that all investments in the companies identified were or will be profitable. Past performance is not indicative of future performance.
+                    The Founders and other third-parties have not received compensation for this feedback and have not invested in the Fund, although the Founders and other third-parties may have an incentive to make a positive statement due to their ongoing relationship with the firm. The companies identified do not represent all of the companies purchased, sold, or recommended for portfolios advised by the Firm. The Firm&apos;s complete track record and companies comprising the portfolio of each fund is available upon request. The reader should not assume that all investments in the companies identified were or will be profitable. Past performance is not indicative of future performance.
                     </Text>
                 </div>
                 <div style={sectionStyle} className="footer-small-remove">
