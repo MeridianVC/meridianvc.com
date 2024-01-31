@@ -131,7 +131,7 @@ const Footer: FC = () => {
                 </div>
             </div>
             <div style={rightContainerStyle} className ="footer-right-flex-column">
-                <img src="stamps.jpg" alt=""style={stampStyle}/>
+                <img src="stamp.jpg" alt=""style={stampStyle}/>
                 <div style= {preparedBySectionStyle}>
                     <Text variant="BodyBaskerville">Prepared By:</Text>
                     <a href='https://www.linkedin.com/in/devon-gethers/' target="blank">
