@@ -54,15 +54,15 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         fontSize: '45px',
         position: 'relative',
         top: '10px',
-        left: '-5px',
+        left: '-5px'
     }
 
     const rightQuoteStyle: React.CSSProperties = {
         color: '#E64702',
         fontSize: '45px',
         position: 'relative',
-        top: '10px',
-        left: '5px',
+        top: '17px',
+        left: '10px'
     }
 
     return (
