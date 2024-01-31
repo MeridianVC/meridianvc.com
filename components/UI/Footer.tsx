@@ -36,7 +36,6 @@ const Footer: FC = () => {
     const linkGroupStyle: React.CSSProperties = {
         display: 'flex',
         flexDirection: 'column',
-        maxWidth: 'clamp(80px, 30%, 50%)',
         gap: 'clamp(5px, 10px, 15px)',
         flexShrink: 0,
         width: 'fit-content',
@@ -47,7 +46,7 @@ const Footer: FC = () => {
         flexDirection: 'column',
         paddingRight: 'clamp(5px, 5vw, 20px)',
         gap: 'clamp(20px, 40px, 60px)',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         maxWidth: '30%',
     };
 
@@ -64,7 +63,8 @@ const Footer: FC = () => {
         flexDirection: 'row',
         gap: '10px',
         justifyContent: 'flex-start',
-        flexShrink: 0
+        flexShrink: 0,
+        width: '100%'
     }
 
     const preparedBySectionStyle: React.CSSProperties = {
