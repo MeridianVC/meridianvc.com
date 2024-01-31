@@ -12,11 +12,12 @@ import Section from '@/components/Structural/Section';
 import PrinciplesCard from '@/components/UI/PrinciplesCard';
 import Testimonial from '@/components/UI/Testimonial';
 import FillSection from '@/components/Structural/FillSection';
-import TeamCard from '@/components/UI/TeamCard';
-import TeamCardContainer from '@/components/UI/TeamCardContainer';
+import TeamCard from '@/components/UI/Team/TeamCard';
+import TeamCardContainer from '@/components/UI/Team/TeamCardContainer';
 import CompanyGrid from '@/components/UI/CompanyGrid';
 import LatestContentCard from '@/components/UI/LatestContentCard';
 import Footer from '@/components/UI/Footer';
+import ModalTeam from '@/components/UI/Team/ModalTeam';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -151,7 +152,7 @@ const Home: FC = () => {
                 <Spacer/>
                 <img src="./compass.svg" alt="Compass" style={compassStyle}/>
                 <Header type='H1' paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
-                    Championing bold ideas and visionary founders to fuel world-changing innovation. 
+                    Championing bold ideas and visionary founders to fuel world-changing innovation.
                 </Header>
             </div>
             <div>
@@ -217,10 +218,10 @@ const Home: FC = () => {
               <Spacer height={'10vh'} />
               <FillSection/>
           </Section>
-          <Spacer height={'5vh'} />
           <Section id="section4_team" isFullHeight={true} >
+            <Spacer height={'5vh'} />
               <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(15px, 8vh, 100px)'> 
-                  Our team of seasoned operators at your side as you chart your course. 
+                  A team of seasoned operators and investors, at your side as you chart your course. 
               </Header>
               <TeamCardContainer style={{marginBottom: 'clamp(1vw, 3vw, 4vw)'}}>
                   <TeamCard 
@@ -252,8 +253,8 @@ const Home: FC = () => {
                   />
               </TeamCardContainer>
           </Section>
-          <Spacer height={'20vh'}/>
           <Section id="section5_companies" isFullHeight={true} style={portfolioSectionStyle}>
+          <Spacer height={'20vh'}/>
               <Header type="H1" isCentered={true} paddingLeft="0px"> Our Investments </Header>
               {/* <FundSelector/> */}
               <CompanyGrid/>

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Text from '../Text/Text';
 
 const Footer: FC = () => {
     const borderThickness = '2px';
@@ -7,51 +8,146 @@ const Footer: FC = () => {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'flex-start',
         backgroundColor: '#FFF5DC',
         borderTop: `${borderThickness} solid #444444`,
         borderBottom: `${borderThickness} solid #444444`,
-        padding: '20px',
+        paddingTop: 'clamp(15px, 4vw, 60px)',
+        paddingBottom: '100px',
+        paddingLeft: '2px',
+        paddingRight: '2px',
         boxSizing: 'border-box',
-        position: 'relative', // if you need to position something absolutely within
-        fontSize: '0.85rem', // Adjust font size as necessary
+        position: 'relative',
+        fontSize: '0.85rem',
         width: 'calc(100% + 4px)',
         left: '-2px',
-        zIndex: 9
+        zIndex: 9,
+        gap: '25px',
     };
 
     const sectionStyle: React.CSSProperties = {
         display: 'flex',
         flexDirection: 'column',
-        maxWidth: '20%', // Adjust the width as necessary
+        gap: 'clamp(5px, 10px, 15px)',
+        flexGrow: 1,
+        flexShrink: 1,
+        width: 'fit-content',
+    }
+
+    const linkGroupStyle: React.CSSProperties = {
+        display: 'flex',
+        flexDirection: 'column',
+        maxWidth: 'clamp(80px, 30%, 50%)',
+        gap: 'clamp(5px, 10px, 15px)',
+        flexShrink: 0,
+        width: 'fit-content',
+    }
+
+    const rightContainerStyle: React.CSSProperties = {
+        display: 'flex',
+        flexDirection: 'column',
+        paddingRight: 'clamp(5px, 5vw, 20px)',
+        gap: 'clamp(20px, 40px, 60px)',
+        justifyContent: 'flex-start',
+        maxWidth: '30%',
     };
+
+    const leftContainerStyle: React.CSSProperties = {
+        maxWidth: '70%',
+        display: 'flex',
+        flexDirection: 'row', // changed with className for small screen sizes to 
+        gap: 'clamp(20px, 40px, 60px)'
+
+    }
+
+    const linkStyle: React.CSSProperties = {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '10px',
+        justifyContent: 'flex-start',
+        flexShrink: 0
+    }
+
+    const preparedBySectionStyle: React.CSSProperties = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        paddingRight: 'clamp(0px, 4vw, 40px)',
+    }
+
+    const bottomBadgeStyle: React.CSSProperties = {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: '10px',
+        paddingBottom: '40px'
+    }
 
     const stampStyle: React.CSSProperties = {
-        marginTop: '20px', // Adjust the margin as necessary
-        width: '200px', // Adjust the width as necessary
-    };
-
-    // Add additional specific styles for other sections if needed
+        maxWidth: '300px'
+    }
 
     return (
         <div style={footerStyle}>
-            <div style={sectionStyle}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div style={leftContainerStyle} className="footer-left-flex-column">
+                <div style={sectionStyle}>
+                    <Text variant="BodyBaskerville">
+                        Legal
+                    </Text>
+                    <Text variant="SmallBaskerville">
+                    The Founders and other third-parties have not received compensation for this feedback and have not invested in the Fund, although the Founders and other third-parties may have an incentive to make a positive statement due to their ongoing relationship with the firm. The companies identified do not represent all of the companies purchased, sold, or recommended for portfolios advised by the Firm. The Firm's complete track record and companies comprising the portfolio of each fund is available upon request. The reader should not assume that all investments in the companies identified were or will be profitable. Past performance is not indicative of future performance.
+                    </Text>
+                </div>
+                <div style={sectionStyle} className="footer-small-remove">
+                    <Text variant="BodyBaskerville">
+                        About
+                    </Text>
+                    <Text variant="SmallBaskerville" style={{marginBottom: "10px"}}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
+                    </Text>     
+                    <Text variant="BodyBaskerville">
+                        Something Else
+                    </Text>
+                    <Text variant="SmallBaskerville">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </Text>       
+                </div>
+                <div style={linkGroupStyle}>
+                    <Text variant="BodyBaskerville">
+                        Links
+                    </Text>
+                    <a href='https://www.linkedin.com/company/meridian-vc/' target="blank" style={linkStyle}>
+                        <img src="./linkedin.svg" alt="Linkedin"/> Connect on Linkedin
+                    </a>
+                    <a href='mailto:devon@meridianventures.co' target="blank" style={linkStyle}>
+                        <img src="./email.svg" alt="Email"/> Email us
+                    </a>
+                    <a href='https://medium.com/@devon_45585' target="blank" style={linkStyle}>
+                        <img src="./medium.svg" alt="Medium"/> Read our writing
+                    </a>
+                </div>
             </div>
-            <div style={sectionStyle}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div style={rightContainerStyle} className ="footer-right-flex-column">
+                <img src="stamps.jpg" alt=""style={stampStyle}/>
+                <div style= {preparedBySectionStyle}>
+                    <Text variant="BodyBaskerville">Prepared By:</Text>
+                    <a href='https://www.linkedin.com/in/devon-gethers/' target="blank">
+                        <img src="./signatureDevon.svg" alt="Devon Signature"/>
+                    </a>
+                    <a href='https://www.linkedin.com/in/kevinkarltonhaney/' target="blank">
+                        <img src="./signatureKarlton.svg" alt="Karlton Signature"/>
+                    </a>
+                    <a href='https://www.linkedin.com/in/andmckay/' target="blank">
+                        <img src="./signatureMckay.svg" alt="Mckay Signature"/>
+                    </a>
+                </div>
             </div>
-            <div style={sectionStyle}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ad cupiditate necessitatibus inventore veniam officia ipsam minus quidem recusandae? Quo, asperiores! Laborum fugiat porro quisquam adipisci est facilis exercitationem rem.
-            </div>
-            <div style={sectionStyle}>
-                {/* Links and icons go here */}
-            </div>
-            
-            <div style={sectionStyle}>
-                {/* Prepared By text goes here */}
-                <img src="./stampBoston.svg" alt="Boston Stamp" style={stampStyle} />
-                <img src="./stampUtah.svg" alt="Utah Stamp" style={stampStyle} />
+            <div style={bottomBadgeStyle}>
+                <img src="./MVbadge.svg" alt="MV Badge" />
+                2024 Meridian Ventures &ndash; All Rights Reserved
             </div>
         </div>
     );

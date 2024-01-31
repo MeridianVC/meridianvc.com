@@ -15,6 +15,8 @@ const linkStyle: React.CSSProperties = {
   flexDirection: 'row',
   gap: '4vw',
   fontSize: '1rem',
+  textDecoration: 'none',
+  color: 'inherit'
 };
 
 export const navHeight = 'clamp(70px, calc(7vh + 2px), calc(7vh + 2px))' // used in other components for height calcs
@@ -45,9 +47,9 @@ const Navbar: FC = () => {
         MERIDIAN
       </div>
       <div style={linkStyle}>
-        <div>Principles</div>
-        <div>Team</div>
-        <div>Portfolio</div>
+        <a href="#section2_principles">Principles</a>
+        <a href="#section4_team">Team</a>
+        <a href="#section5_companies">Portfolio</a>
         <div>Investor Portal</div>
         <div>Get in Touch</div>
       </div>

@@ -13,6 +13,15 @@
     .company-grid-margin {
         margin: 5vw !important;
     }
+    .footer-small-remove {
+        display: none !important;
+    }
+    .footer-left-flex-column {
+        flex-direction: column !important;
+    }
+    .footer-right-flex-column {
+        min-width: 40% !important;
+    }
 }
 
 @media (max-width: 500px) {
