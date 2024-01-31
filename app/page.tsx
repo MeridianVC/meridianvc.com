@@ -17,7 +17,6 @@ import TeamCardContainer from '@/components/UI/Team/TeamCardContainer';
 import CompanyGrid from '@/components/UI/CompanyGrid';
 import LatestContentCard from '@/components/UI/LatestContentCard';
 import Footer from '@/components/UI/Footer';
-import ModalTeam from '@/components/UI/Team/ModalTeam';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
