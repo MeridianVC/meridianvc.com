@@ -63,10 +63,16 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         color: '#E64702',
         fontSize: '45px',
         position: 'relative',
-        top: '7px',
+        top: '10px',
         left: '10px',
         display: 'inline-block'
     }
+
+    // This work ensures the right quote text decoration never ends up on a line alone
+    let words = statement.trim().split(/\s+/);
+    words.pop();
+    let trimmedStatement = words.join(' ');
+    let lastWord = statement.trim().split(/\s+/).pop();
 
     return (
         <div style={containerStyle}>
@@ -74,8 +80,8 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
             <div className="testimonialContent">
                 <Text variant="BodyBaskerville" className="testimonialStatement" style={statementStyle}>
                     <span style={leftQuoteStyle}>“</span>
-                        {statement}
-                    <span style={rightQuoteStyle}>”</span>
+                        {trimmedStatement + ' '}
+                    <span style={{ whiteSpace: 'nowrap' }}>{lastWord}<span style={rightQuoteStyle}>”</span></span>
                 </Text>
                 <div>
                     <Text variant="BodyBaskerville" style={nameStyle}>{name} </Text>

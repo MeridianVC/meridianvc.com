@@ -46,7 +46,7 @@ const Header: FC<HeaderProps> = ({ type, isCentered, style, children, paddingLef
 
   const combinedClassName = `${cssStyle} ${className || ''}`.trim();
 
-  return createElement(`H${type.charAt(1)}`, { style: combinedHeaderStyle, className: combinedClassName }, children);
+  return createElement(`h${type.charAt(1)}`, { style: combinedHeaderStyle, className: combinedClassName }, children);
 };
 
 export default Header;
