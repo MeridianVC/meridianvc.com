@@ -263,7 +263,7 @@ const Home: FC = () => {
               <div>
                   <Testimonial 
                     alignment="left"
-                    statement="Meridian added value from day one. Devon and Karlton stand out among their peers as diligent and insightful. Their contributions have attracted top-tier investors, refined our financing, and improved our GTM and product strategy."
+                    statement="Meridian added value from day one. Devon and Karlton stand out among their peers as diligent and insightful. Their contributions have attracted top-tier investors, refined our financing, and improved our go-to-market and product strategy."
                     name="Cody Eddings"
                     company="SnapRefund"
                     imageSrc="./headshotCodyEddings.png"
