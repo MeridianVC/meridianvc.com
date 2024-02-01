@@ -1,5 +1,10 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, ReactElement } from 'react';
 import { navHeight } from '../Navbar';
+import { motion } from 'framer-motion';
+import FillBottomModal from '@/components/Structural/FillBottomModal';
+import Header from '@/components/Text/Header';
+import Text from '@/components/Text/Text';
+import '../ui.css';
 
 interface TeamModalProps {
     imageSrc: string;
@@ -15,19 +20,44 @@ interface TeamModalProps {
     isOpen: boolean; // Added to control visibility
 };
 
-const TeamModal: FC<TeamModalProps> = ({ imageSrc, name, title, linkedin, email, medium, focus, education, experience, onClose, isOpen }) => {
+const TeamModal: FC<TeamModalProps> = ({ 
+    imageSrc, 
+    name, 
+    title, 
+    linkedin, 
+    email, 
+    medium, 
+    focus, 
+    education, 
+    experience, 
+    onClose, 
+    isOpen }): ReactElement => {
 
     const modalStyle: React.CSSProperties = {
         display: isOpen ? 'flex' : 'none', // Control visibility
         position: 'fixed',
-        top: `${navHeight}`,
-        width: '92%',
+        top: `calc(${navHeight} - 2px`,
+        left: 'calc(4vw - 3px)',
+        right: 'calc(4vw - 3px)',
         height: `calc(100vh - ${navHeight})`,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#FFF5DC',
         zIndex: 100,
+        borderTop: 'solid 2px #444444',
+        borderRight: 'solid 2px #444444',
+        borderLeft: 'solid 2px #444444',
+        borderBottom: 'none'
     };
+
+    // needed to make content inside scrollable without messing up formatting of box
+    const modalContentScroll: React.CSSProperties = {
+        overflowY: 'auto',
+        width: '100%',
+        height: '100%',
+        position: 'relative',
+        display: 'flex',
+    }
 
     const contentStyle: React.CSSProperties = {
         padding: '20px',
@@ -35,10 +65,10 @@ const TeamModal: FC<TeamModalProps> = ({ imageSrc, name, title, linkedin, email,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        alignItems: 'flex-start',
-        gap: '20px',
-        width: '100%',
-        height: '100%'
+        alignItems: 'start',
+        gap: '40px',
+        width: 'clamp(60%, 80%, 90%)',
+        height: 'auto',
 
     };
 
@@ -52,14 +82,75 @@ const TeamModal: FC<TeamModalProps> = ({ imageSrc, name, title, linkedin, email,
         cursor: 'pointer',
     };
 
-    const imageStyle: React.CSSProperties = {
-        width: '100%',
-        maxWidth: '200px',
-    };
+    const titleSectionStyle: React.CSSProperties = {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '20px',
+        justifyContent: 'space-between',
+    }
+
+    const linkSectionStyle: React.CSSProperties = {
+        display: 'flex',
+        flexDirection: 'column',
+    }
+
+    const linkStyle: React.CSSProperties = {
+        display: 'flex',
+        flexDirection: 'row',
+        textDecoration: 'underline',
+    }
+
+    const smallArrowStyle: React.CSSProperties = {
+        width: '6.5px',
+        maxWidth: '6.5px',
+        position: 'relative',
+        top: '-4px'
+    }
 
     const sectionStyle: React.CSSProperties = {
         flex: 1,
     };
+
+    const titleStyle: React.CSSProperties = {
+        position: 'relative',
+        top: '-10px',
+    }
+
+    const detailIconStyleTop: React.CSSProperties = {
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        zIndex: -1,
+        minWidth: '200px',
+    }
+
+    const detailIconStyleBottom: React.CSSProperties = {
+        position: 'fixed',
+        right: 0,
+        bottom: `calc(${navHeight} + ${navHeight}/3`,
+        pointerEvents: 'none',
+    }
+
+    const imageContainerStyle: React.CSSProperties = {
+        position: 'relative',
+        zIndex: 1
+    }
+
+    const imageStyle: React.CSSProperties = {
+        width: '100%',
+        maxWidth: '200px',
+        mixBlendMode: 'multiply',
+    };
+
+    const imageBackgroundFill: React.CSSProperties = {
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: 0,
+        backgroundColor: '#FFF5DC',
+        zIndex: -1
+    }
+
 
     useEffect(() => {
         // Close modal on ESC key press
@@ -72,32 +163,64 @@ const TeamModal: FC<TeamModalProps> = ({ imageSrc, name, title, linkedin, email,
         return () => window.removeEventListener('keydown', handleEsc);
     }, [onClose]);
 
-
-
-    // Other styles remain the same
-
     return (
-        <div style={modalStyle}>
+        <motion.div
+            style={modalStyle}
+            initial={{ y: '100vh' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100vh' }}
+            transition={{ type: 'easeInOut', stiffness: 100 }}
+        >
             <div style={contentStyle}>
                 <button style={closeButtonStyle} onClick={onClose}>X</button>
-                <div>
-                    <img src={imageSrc} alt={name} style={imageStyle} />
-                </div>
-                <div style={sectionStyle}>
-                    <h3>{name}</h3>
-                    <p>{title}</p>
-                    <a href={linkedin}>LinkedIn</a>
-                    <a href={`mailto:${email}`}>Email</a>
-                    <a href={medium}>Medium</a>
-                    <p>Focus: {focus}</p>
-                    <p>Education: {education}</p>
-                </div>
-                <div style={sectionStyle}>
-                    <h4>Experience</h4>
-                    <p>{experience}</p>
+                <img src="./visionModalTop.svg" alt="vision icon" style={detailIconStyleTop}/>
+                <img src="./visionModalBottom.svg" alt="vision icon" style={detailIconStyleBottom}/>
+                <div style={modalContentScroll}>
+                    <div style={imageContainerStyle}>
+                        <img src={imageSrc} alt={name} style={imageStyle} />
+                        <div style={imageBackgroundFill}></div>
+                    </div>
+                    <div style={sectionStyle}>
+                        <div style={titleSectionStyle}>
+                            <div>
+                                <Header type="H4">{name}</Header>
+                                <Text variant="SmallFranklin" style={titleStyle}>{title}</Text>
+                            </div>
+                            <div style={linkSectionStyle}>
+                                <div style={linkStyle} className="modal-link">
+                                    <a href={linkedin} target="_blank"><Text variant="SmallFranklin">LinkedIn </Text></a>
+                                    <img src="./smallArrow.svg" alt="small arrow" style={smallArrowStyle} />
+                                </div>
+                                <div style={linkStyle} className="modal-link">
+                                    <a href={`mailto:${email}`} target="_blank"><Text variant="SmallFranklin">Email</Text></a>
+                                    <img src="./smallArrow.svg" alt="small arrow" style={smallArrowStyle}/>
+                                </div>
+                                <div style={linkStyle} className="modal-link">
+                                    <a href={medium} target="_blank"><Text variant="SmallFranklin">Medium</Text></a>
+                                    <img src="./smallArrow.svg" alt="small arrow" style={smallArrowStyle}/>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <Header type="H4"> Focus </Header>
+                            <Text variant="SmallFranklin"> {focus} </Text>
+
+                        </div>
+                        <div>
+                            <Header type="H4"> Education </Header>
+                            <Text variant="SmallFranklin"> {education} </Text>
+                        </div>
+                    </div>
+                    <div style={sectionStyle}>
+                        <div>
+                            <Header type="H4"> Experience </Header>
+                            <Text variant="SmallFranklin"> {experience} </Text>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <FillBottomModal />
+        </motion.div>
     );
 };
 

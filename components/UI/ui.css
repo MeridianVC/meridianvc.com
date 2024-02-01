@@ -2,10 +2,6 @@
     .testimonialStatement {
         width: 75% !important;
     }
-    .teamCardHeight {
-        max-height: 500px !important;
-        min-height: 450px !important;
-    }
     .company-card-size {
         width: 90px !important;
         height: 90px !important;
@@ -65,17 +61,12 @@
     transition: transform 0.2s ease;
 }
 
-/* This pseudo element used to fill in extra space below the footer ensuring no ugly final scroll behavior*/
-.footer::after {
-    content: '';
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: -498px;
-    /* offset: -500px; */
-    height: 500px;
-    width: 100%;
-    background-color: #FFF5DC;
-    z-index: 20;
-    /* offset: -100px; */
+.modal-link:hover {
+    transform: scale(1.1);
+    transition: transfrom 0.2s ease;
+}
+
+.team-card-hover:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
 }

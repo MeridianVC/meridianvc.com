@@ -88,7 +88,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(35px, 4vw, 39.1px);
+  font-size: clamp(30px, 4vw, 39.1px);
 }
 
 h4 {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FC } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import TeamCard from './TeamCard';
 import TeamModal from './TeamModal';
 
@@ -140,21 +141,23 @@ const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) =
               />
             ))}
           </div>
-          {selectedMember && (
-            <TeamModal 
-                isOpen={Boolean(selectedMember)}
-                onClose={handleCloseModal}
-                imageSrc={selectedMember.imageSrc}
-                name={selectedMember.name}
-                title={selectedMember.title}
-                linkedin={selectedMember.linkedin}
-                email={selectedMember.email}
-                medium={selectedMember.medium}
-                focus={selectedMember.focus}
-                education={selectedMember.education}
-                experience={selectedMember.experience}
-            />
-          )}
+            <AnimatePresence>
+            {selectedMember && (
+                <TeamModal 
+                    isOpen={Boolean(selectedMember)}
+                    onClose={handleCloseModal}
+                    imageSrc={selectedMember.imageSrc}
+                    name={selectedMember.name}
+                    title={selectedMember.title}
+                    linkedin={selectedMember.linkedin}
+                    email={selectedMember.email}
+                    medium={selectedMember.medium}
+                    focus={selectedMember.focus}
+                    education={selectedMember.education}
+                    experience={selectedMember.experience}
+                />
+            )}
+            </AnimatePresence>
         </>
       );
     }

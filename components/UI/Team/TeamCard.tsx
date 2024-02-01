@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Header from '../../Text/Header'; // Adjust the import path as necessary
 import Text from '../../Text/Text'; // Adjust the import path as necessary
+import '../ui.css';
 
 interface TeamCardProps {
     name: string;
@@ -29,6 +30,7 @@ const cardStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+    cursor: 'pointer'
 };
 
 const imageStyle: React.CSSProperties = {
@@ -40,7 +42,7 @@ const imageStyle: React.CSSProperties = {
 const TeamCard: FC<TeamCardProps> = ({ name, role, imageSrc, onCardClick }) => {
 
     return (
-        <div style={cardStyle} className="teamCardHeight" onClick={onCardClick}>
+        <div style={cardStyle} className="team-card-hover" onClick={onCardClick}>
             <img src={imageSrc} alt={name} style={imageStyle} />
             <div>
                 <Header type="H4" lineHeight="clamp(4px, 2.5vh, 40px)">{name}</Header>

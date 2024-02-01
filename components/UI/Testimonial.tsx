@@ -18,7 +18,7 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         display: 'flex',
         flexDirection: isLeftAligned ? 'row' : 'row-reverse',
         alignItems: 'flex-start',
-        gap: '30px',
+        gap: 'clamp(20px, 30px, 40px)',
         padding: '10px'
     };
 
@@ -28,6 +28,7 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         marginLeft: isLeftAligned ? undefined : 'auto',
         marginRight: isLeftAligned ? 'auto' : undefined,
         width: '55%',
+        maxWidth: '1300px',
     };
 
     const nameStyle: React.CSSProperties = {
@@ -54,15 +55,17 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         fontSize: '45px',
         position: 'relative',
         top: '10px',
-        left: '-5px'
+        left: '-5px',
+        display: 'inline-block'
     }
 
     const rightQuoteStyle: React.CSSProperties = {
         color: '#E64702',
         fontSize: '45px',
         position: 'relative',
-        top: '17px',
-        left: '10px'
+        top: '7px',
+        left: '10px',
+        display: 'inline-block'
     }
 
     return (

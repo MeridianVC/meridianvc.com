@@ -28,9 +28,9 @@ const teamMembers = [
       linkedin: "https://linkedin.com/in/devongethers",
       email: "devongethers@example.com",
       medium: "https://medium.com/@devongethers",
-      focus: "Business Development",
-      education: "Harvard University",
-      experience: "15 years in management"
+      focus: "Devon allocates his time to identifying and investing in startups with high growth potential, portfolio construction, capital raising, and managing key relationships with portfolio companies.",
+      education: "Devon holds a B.S. in Finance from the University of Utah, where he graduated Summa Cum Laude. He is currently a candidate at Harvard Business School, Class of 2025.",
+      experience: "Prior to co-founding Meridian, Devon served as the CEO and Founder at EarlyAdmit, an EdTech startup dedicated to improving educational and professional outcomes for underserved minorities. This commitment culminated in its acquisition by PE in 2023. During his tenure at Mercato Partners, a $2B AUM growth equity firm investing in Enterprise SaaS and Branded Consumer, further showcased his impact and contributions. Here, Devon reviewed emerging investment opportunities, supported the team’s investment efforts by conducting financial analysis, due diligence, and industry research, supported senior investors with a $400M fundraise, and closely collaborated with portfolio companies on strategic initiatives. This blend of entrepreneurial operator success and investment expertise positions Devon as a preferred strategic partner to founders."
   },
   {
       name: "Karlton Haney",
@@ -206,20 +206,6 @@ const latestCardContainerStyle: React.CSSProperties = {
   margin: '0 auto',
 }
 
-const footerSpacerStyle: React.CSSProperties = {
-  position: 'fixed',
-  // top: '0',
-  // top: 'calc(100vh+50px)',
-  // bottom: '-50',
-  left: '0',
-  // offset: '-90px',
-  bottom: '-100px', // Adjust this value based on the actual footer height
-  backgroundColor: '#FFF5DC',
-  height: '555px',  // This should be at least the height of your footer
-  width: '100%',
-  zIndex: 8,
-};
-
 const Home: FC = () => {
   return (
     <>
@@ -277,7 +263,7 @@ const Home: FC = () => {
               <div>
                   <Testimonial 
                     alignment="left"
-                    statement="Meridian added value from Day 1. Devon and Karlton stand out among their peers as diligent and insightful. Their contributions have attracted top-tier investors, refined our financing, and improved our GTM and product strategy."
+                    statement="Meridian added value from day one. Devon and Karlton stand out among their peers as diligent and insightful. Their contributions have attracted top-tier investors, refined our financing, and improved our GTM and product strategy."
                     name="Cody Eddings"
                     company="SnapRefund"
                     imageSrc="./headshotCodyEddings.png"

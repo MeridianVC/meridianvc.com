@@ -10,7 +10,6 @@ const Footer: FC = () => {
         justifyContent: 'space-between',
         backgroundColor: '#FFF5DC',
         borderTop: `${borderThickness} solid #444444`,
-        borderBottom: `${borderThickness} solid #444444`,
         paddingTop: 'clamp(15px, 4vw, 60px)',
         paddingBottom: '100px',
         paddingLeft: '2px',
@@ -22,6 +21,7 @@ const Footer: FC = () => {
         left: '-2px',
         zIndex: 9,
         gap: '25px',
+        
     };
 
     const sectionStyle: React.CSSProperties = {
