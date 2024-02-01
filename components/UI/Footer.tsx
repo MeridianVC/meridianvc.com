@@ -91,28 +91,28 @@ const Footer: FC = () => {
 
     return (
         <div style={footerStyle} className="footer">
-            <div style={leftContainerStyle} className="footer-left-flex-column">
+            <div style={leftContainerStyle} className="footer-left-flex-column footer-small-remove">
                 <div style={sectionStyle}>
                     <Text variant="BodyBaskerville">
                         Legal
                     </Text>
                     <Text variant="SmallBaskerville">
-                    The Founders and other third-parties have not received compensation for this feedback and have not invested in the Fund, although the Founders and other third-parties may have an incentive to make a positive statement due to their ongoing relationship with the firm. The companies identified do not represent all of the companies purchased, sold, or recommended for portfolios advised by the Firm. The Firm&apos;s complete track record and companies comprising the portfolio of each fund is available upon request. The reader should not assume that all investments in the companies identified were or will be profitable. Past performance is not indicative of future performance.
+                        The Founders and other third-parties have not received compensation for this feedback and have not invested in the Fund, although the Founders and other third-parties may have an incentive to make a positive statement due to their ongoing relationship with the firm. The companies identified do not represent all of the companies purchased, sold, or recommended for portfolios advised by the Firm. The Firm&apos;s complete track record and companies comprising the portfolio of each fund is available upon request. The reader should not assume that all investments in the companies identified were or will be profitable. Past performance is not indicative of future performance.
                     </Text>
                 </div>
-                <div style={sectionStyle} className="footer-small-remove">
+                <div style={sectionStyle}>
                     <Text variant="BodyBaskerville">
                         About
                     </Text>
                     <Text variant="SmallBaskerville" style={{marginBottom: "10px"}}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
+                    At Meridian, we empower audacious founders who are at the forefront of building durable technologies that positively impact humanity. We believe that visionary founders are the architects of the future, and it’s our privilege to support them. As an early-stage venture capital firm, we specialize in investing in B2B software companies from Pre-Seed to Series A.
                     </Text>     
                     <Text variant="BodyBaskerville">
-                        Something Else
+                        Ethos
                     </Text>
                     <Text variant="SmallBaskerville">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </Text>       
+                        Our ethos is grounded in integrity, relentless work ethic, entrepreneurship, and accountability, complemented by a passion for lifelong learning.
+                    </Text>  
                 </div>
                 <div style={linkGroupStyle}>
                     <Text variant="BodyBaskerville">
@@ -121,7 +121,7 @@ const Footer: FC = () => {
                     <a href='https://www.linkedin.com/company/meridian-vc/' target="_blank" style={linkStyle} className="footer-link">
                         <img src="./linkedin.svg" alt="Linkedin"/> Connect on Linkedin
                     </a>
-                    <a href='mailto:devon@meridianventures.co' target="_blank" style={linkStyle} className="footer-link">
+                    <a href='mailto:info@meridianventures.co' target="_blank" style={linkStyle} className="footer-link">
                         <img src="./email.svg" alt="Email"/> Email us
                     </a>
                     <a href='https://medium.com/@devon_45585' target="_blank" style={linkStyle} className="footer-link">
@@ -146,7 +146,7 @@ const Footer: FC = () => {
             </div>
             <div style={bottomBadgeStyle}>
                 <img src="./MVbadge.svg" alt="MV Badge" />
-                2024 Meridian Ventures &ndash; All Rights Reserved
+                {new Date().getFullYear()} Meridian Ventures &ndash; All Rights Reserved
             </div>
         </div>
     );
