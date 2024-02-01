@@ -40,7 +40,6 @@
 }
 
 .company-logo-color {
-    /* filter: contrast(0%); */
     filter: grayscale(100%);
     transition: border 0.3s ease-in-out, filter 0.3s ease-in-out;
 }

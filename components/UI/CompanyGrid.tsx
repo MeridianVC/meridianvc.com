@@ -325,7 +325,7 @@ const companyData = [
         coInvestors: ['Investor C', 'Investor D'],
       },
       {
-        logoSrc: './companyLogos/Trigo.png',
+        logoSrc: './companyLogos/Trigo.svg',
         about: 'about',
         websiteUrl: 'website',
         foundedDate: 'founded date',
@@ -336,6 +336,16 @@ const companyData = [
       },
       {
         logoSrc: './companyLogos/Vigil.png',
+        about: 'about',
+        websiteUrl: 'website',
+        foundedDate: 'founded date',
+        founders: ['founder one', 'founder two'],
+        stageInvested: 'seed',
+        sector: 'sector',
+        coInvestors: ['Investor C', 'Investor D'],
+      },
+      {
+        logoSrc: './companyLogos/Parallel.svg',
         about: 'about',
         websiteUrl: 'website',
         foundedDate: 'founded date',

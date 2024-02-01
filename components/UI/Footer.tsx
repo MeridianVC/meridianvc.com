@@ -53,8 +53,8 @@ const Footer: FC = () => {
     const leftContainerStyle: React.CSSProperties = {
         maxWidth: '70%',
         display: 'flex',
-        flexDirection: 'row', // changed with className for small screen sizes to 
-        gap: 'clamp(20px, 40px, 60px)'
+        flexDirection: 'row',
+        gap: 'clamp(20px, 3vw, 60px)'
     }
 
     const linkStyle: React.CSSProperties = {
@@ -88,16 +88,6 @@ const Footer: FC = () => {
     const stampStyle: React.CSSProperties = {
         maxWidth: '300px'
     }
-
-    const footerSpacerStyle: React.CSSProperties = {
-        position: 'fixed',
-        bottom: '0',
-        left: '0',
-        offset: '-90px',
-        // bottom: '-100px', // Adjust this value based on the actual footer height
-        height: '100px',  // This should be at least the height of your footer
-        width: '100%',
-    };
 
     return (
         <div style={footerStyle} className="footer">
