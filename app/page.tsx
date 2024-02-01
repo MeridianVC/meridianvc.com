@@ -158,9 +158,9 @@ const principleCardContainerStyle: React.CSSProperties = {
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: 'clamp(1vw, 1vw, 3vw)',
+  gap: 'clamp(30px, 2vw, 2vw)',
   flexWrap: 'wrap',
-  margin: '0 clamp(5vw, 5vw, 7vw)',
+  margin: '0 clamp(30px, 5vw, 25vw)'
 }
 
 const principlesHeader: React.CSSProperties = {
@@ -233,7 +233,7 @@ const Home: FC = () => {
             <div>
                 <Spacer/>
                 <img src="./compass.svg" alt="Compass" style={compassStyle}/>
-                <Header type='H1' paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
+                <Header type='H1' paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(5px, 5vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
                     Championing bold ideas and visionary founders to fuel world-changing innovation.
                 </Header>
             </div>
@@ -300,8 +300,7 @@ const Home: FC = () => {
               <Spacer height={'10vh'} />
               <FillSection/>
           </Section>
-          <Section id="section4_team" isFullHeight={true} >
-            <Spacer height={'5vh'} />
+          <Section id="section4_team" isFullHeight={true}>
               <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(15px, 8vh, 100px)'> 
                   Our team of seasoned operators and investors, at your side as you chart your course. 
               </Header>
@@ -310,7 +309,7 @@ const Home: FC = () => {
           </Section>
           <Section id="section5_companies" isFullHeight={true} style={portfolioSectionStyle}>
           <Spacer height={'20vh'}/>
-              <Header type="H1" isCentered={true} paddingLeft="0px"> Our Investments </Header>
+              <Header type="H1" isCentered={true} paddingLeft="0px" marginBottom='clamp(15px, 4vh, 100px)'> Our Investments </Header>
               {/* <FundSelector/> */}
               <CompanyGrid/>
           </Section>

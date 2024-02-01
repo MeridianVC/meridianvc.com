@@ -39,6 +39,11 @@
     }
 }
 
+.navbar-hover:hover {
+    transform: scale(1.15);
+    transition: transform 0.2s ease;
+}
+
 .company-logo-color {
     filter: grayscale(100%);
     transition: border 0.3s ease-in-out, filter 0.3s ease-in-out;
@@ -51,6 +56,7 @@
 }
 
 .footer-link {
+    padding-bottom: 3px;
     transition: border 0.3 ease-in-out;
 }
 

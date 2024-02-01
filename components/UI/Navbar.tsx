@@ -1,6 +1,7 @@
 // Navbar contains logo and navigation links
 
 import { FC } from 'react';
+import './ui.css';
 
 const borderThickness = '2px'; 
 
@@ -43,15 +44,13 @@ const navStyle: React.CSSProperties = {
 const Navbar: FC = () => {
   return (
     <nav style={navStyle}>
-      <div style={wordmarkStyle}>
-        MERIDIAN
-      </div>
+      <a href="./" style={wordmarkStyle}>MERIDIAN</a>
       <div style={linkStyle}>
-        <a href="#section2_principles">Principles</a>
-        <a href="#section4_team">Team</a>
-        <a href="#section5_companies">Investments</a>
-        <div>Investor Portal</div>
-        <div>Get in Touch</div>
+        <a href="#section2_principles" className="navbar-hover">Principles</a>
+        <a href="#section4_team" className="navbar-hover">Team</a>
+        <a href="#section5_companies" className="navbar-hover">Investments</a>
+        <a href="https://login.app.carta.com/credentials/login/" target="blank" className="navbar-hover">Investor Portal</a>
+        <div className="navbar-hover">Get in Touch</div>
       </div>
     </nav>
   );

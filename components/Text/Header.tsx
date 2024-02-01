@@ -22,7 +22,7 @@ const baseStyle: CSSProperties = {
 };
 
 const headerStyles: Record<string, CSSProperties> = {
-  H1: { fontSize: 'clamp(40px, 8vw, 61px)', lineHeight: 'clamp(54px, 8vw, 90px)' },
+  H1: { fontSize: 'clamp(40px, 6svw, 70px)', lineHeight: 'clamp(50px, 8vw, 100px)' },
   H2: { fontSize: 'clamp(35px, 6vw, 48.8px)', lineHeight: 'clamp(84px, 8vw, 137px)' },
   H3: { fontSize: 'clamp(30px, 5vw, 39.1px)', lineHeight: 'clamp(66px, 8vw, 144px)' },
   H4: { fontSize: 'clamp(25px, 4vw, 31.3px)', lineHeight: 'clamp(54px, 2vw, 151px)' },
@@ -39,7 +39,7 @@ const Header: FC<HeaderProps> = ({ type, isCentered, style, children, paddingLef
     ...{paddingLeft: `${paddingLeft}`},
     ...{marginTop: `${marginTop}`},
     ...{marginBottom: `${marginBottom}`},
-    ...{lineHeight: `${lineHeight}`},
+    ...(lineHeight && {lineHeight:`${lineHeight}`}),
     ...style,
     
   };

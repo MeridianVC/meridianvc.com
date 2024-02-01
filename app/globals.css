@@ -78,3 +78,27 @@ a {
     gap: clamp(4vw, 5vw, 5vw) !important;
   }
 }
+
+h1 {
+  font-size: clamp(36px, 8vw, 61px);
+}
+
+h2 {
+  font-size: clamp(28px, 6vw, 48.8px);
+}
+
+h3 {
+  font-size: clamp(35px, 4vw, 39.1px);
+}
+
+h4 {
+  font-size: clamp(18px, 4vw, 31.3px);
+}
+
+h5 {
+  font-size: clamp(15px, 3.5vw, 25px);
+}
+
+h6 {
+  font-size: clamp(12px, 3vw, 20px);
+}

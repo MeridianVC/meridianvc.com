@@ -1,7 +1,8 @@
 import React, { FC, useEffect } from 'react';
+import { navHeight } from '../Navbar';
 
 interface TeamModalProps {
-    photo: string;
+    imageSrc: string;
     name: string;
     title: string;
     linkedin: string;
@@ -14,25 +15,21 @@ interface TeamModalProps {
     isOpen: boolean; // Added to control visibility
 };
 
-const TeamModal: FC<TeamModalProps> = ({ photo, name, title, linkedin, email, medium, focus, education, experience, onClose, isOpen }) => {
+const TeamModal: FC<TeamModalProps> = ({ imageSrc, name, title, linkedin, email, medium, focus, education, experience, onClose, isOpen }) => {
 
     const modalStyle: React.CSSProperties = {
         display: isOpen ? 'flex' : 'none', // Control visibility
-        flexDirection: 'row',
-        flexWrap: 'wrap',
         position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
+        top: `${navHeight}`,
+        width: '92%',
+        height: `calc(100vh - ${navHeight})`,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        zIndex: 1000, // Ensure it's above other content
+        backgroundColor: '#FFF5DC',
+        zIndex: 100,
     };
 
     const contentStyle: React.CSSProperties = {
-        backgroundColor: '#FFF',
         padding: '20px',
         borderRadius: '5px',
         display: 'flex',
@@ -40,7 +37,9 @@ const TeamModal: FC<TeamModalProps> = ({ photo, name, title, linkedin, email, me
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         gap: '20px',
-        maxWidth: '800px',
+        width: '100%',
+        height: '100%'
+
     };
 
     const closeButtonStyle: React.CSSProperties = {
@@ -82,7 +81,7 @@ const TeamModal: FC<TeamModalProps> = ({ photo, name, title, linkedin, email, me
             <div style={contentStyle}>
                 <button style={closeButtonStyle} onClick={onClose}>X</button>
                 <div>
-                    <img src={photo} alt={name} style={imageStyle} />
+                    <img src={imageSrc} alt={name} style={imageStyle} />
                 </div>
                 <div style={sectionStyle}>
                     <h3>{name}</h3>

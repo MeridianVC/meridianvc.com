@@ -17,9 +17,8 @@ const cardStyle: React.CSSProperties = {
     border: '2px solid #444444',
     maxWidth: '400px',
     minWidth: '275px',
-    minHeight: '275px',
-    flexBasis: '300px',
-    flexGrow: 1,
+    minHeight: '250px',
+    flexBasis: '375px',
     flexShrink: 1,
     height: 'auto',
     color: '#1E1E1E',
@@ -31,11 +30,10 @@ const headerStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    gap: '15px',
+    gap: 'clamp(5px, 10px, 20px)',
     flexShrink: 1,
-    flexGrow: 1,
     margin: '0',
-    marginBottom: 'clamp(10px, .5vh, 10px)',
+    marginBottom: 'clamp(10px, 1vh, 10px)',
 };
 
 const imgStyle: React.CSSProperties = {

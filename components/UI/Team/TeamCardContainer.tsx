@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, ReactNode, FC } from 'react';
+import { useState, FC } from 'react';
 import TeamCard from './TeamCard';
 import TeamModal from './TeamModal';
 
@@ -9,7 +9,6 @@ const teamMembers = [
         name: "Devon Gethers",
         role: "Managing Partner",
         imageSrc: "./headshotDevon.png",
-        photo: "path/to/photoDevon.jpg",
         title: "Managing Partner",
         linkedin: "https://linkedin.com/in/devongethers",
         email: "devongethers@example.com",
@@ -22,7 +21,6 @@ const teamMembers = [
         name: "Karlton Haney",
         role: "Managing Partner",
         imageSrc: "/headshotKarlton.png",
-        photo: "path/to/photoKarlton.jpg",
         title: "Managing Partner",
         linkedin: "https://linkedin.com/in/karltonhaney",
         email: "karltonhaney@example.com",
@@ -35,7 +33,6 @@ const teamMembers = [
         name: "Dallin Anderson",
         role: "Advisor",
         imageSrc: "./headshotDallin.png",
-        photo: "path/to/photoDallin.jpg",
         title: "Advisor",
         linkedin: "https://linkedin.com/in/dallinanderson",
         email: "dallinanderson@example.com",
@@ -48,7 +45,6 @@ const teamMembers = [
         name: "Heather Harmon",
         role: "Advisor",
         imageSrc: "./headshotHeather.png",
-        photo: "path/to/photoHeather.jpg",
         title: "Advisor",
         linkedin: "https://linkedin.com/in/heatherharmon",
         email: "heatherharmon@example.com",
@@ -61,7 +57,6 @@ const teamMembers = [
         name: "Zach Thomas",
         role: "Advisor",
         imageSrc: "./headshotZach.png",
-        photo: "path/to/photoZach.jpg",
         title: "Advisor",
         linkedin: "https://linkedin.com/in/zachthomas",
         email: "zachthomas@example.com",
@@ -76,7 +71,6 @@ interface TeamMember {
     name: string;
     role: string;
     imageSrc: string;
-    photo: string;
     title: string;
     linkedin: string;
     email: string;
@@ -96,10 +90,14 @@ const cardContainerStyle: React.CSSProperties = {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 'clamp(1vw, 3vw, 4vw)',
+    gap: 'clamp(30px, 2vw, 2vw)',
     flexWrap: 'wrap',
-    margin: '0 clamp(5vw, 5vw, 7vw)',
+    margin: '0 clamp(30px, 5vw, 25vw)',
   }
+
+const topContainerStyle: React.CSSProperties = {
+    marginBottom: 'clamp(30px, 2vw, 2vw)'
+}
 
 const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) => {
     const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
@@ -114,39 +112,51 @@ const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) =
 
     const combinedTextStyle = {
         ...cardContainerStyle,
+        ...topContainerStyle,
         ...style
     };
 
     return (
         <>
-            <div style={combinedTextStyle}>
-                {teamMembers && teamMembers.map(member => (
-                    <TeamCard 
-                        key={member.name}
-                        name={member.name}
-                        role={member.role}
-                        imageSrc={member.imageSrc}
-                        onCardClick={() => handleCardClick(member)}
-                    />
-                ))}
-            </div>
-            {selectedMember && (
-                <TeamModal 
-                    isOpen={Boolean(selectedMember)}
-                    onClose={handleCloseModal}
-                    photo={selectedMember.photo}
-                    name={selectedMember.name}
-                    title={selectedMember.title}
-                    linkedin={selectedMember.linkedin}
-                    email={selectedMember.email}
-                    medium={selectedMember.medium}
-                    focus={selectedMember.focus}
-                    education={selectedMember.education}
-                    experience={selectedMember.experience}
-                />
-            )}
+          <div style={combinedTextStyle}>
+            {teamMembers.slice(0, 2).map(member => (
+              <TeamCard 
+                  key={member.name}
+                  name={member.name}
+                  role={member.role}
+                  imageSrc={member.imageSrc}
+                  onCardClick={() => handleCardClick(member)}
+              />
+            ))}
+          </div>
+          <div style={combinedTextStyle}>
+            {teamMembers.slice(2, 5).map(member => (
+              <TeamCard 
+                  key={member.name}
+                  name={member.name}
+                  role={member.role}
+                  imageSrc={member.imageSrc}
+                  onCardClick={() => handleCardClick(member)}
+              />
+            ))}
+          </div>
+          {selectedMember && (
+            <TeamModal 
+                isOpen={Boolean(selectedMember)}
+                onClose={handleCloseModal}
+                imageSrc={selectedMember.imageSrc}
+                name={selectedMember.name}
+                title={selectedMember.title}
+                linkedin={selectedMember.linkedin}
+                email={selectedMember.email}
+                medium={selectedMember.medium}
+                focus={selectedMember.focus}
+                education={selectedMember.education}
+                experience={selectedMember.experience}
+            />
+          )}
         </>
-    );
-}
+      );
+    }
 
 export default TeamCardContainer;
