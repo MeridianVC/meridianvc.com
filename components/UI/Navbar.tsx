@@ -49,7 +49,7 @@ const Navbar: FC = () => {
       <div style={linkStyle}>
         <a href="#section2_principles">Principles</a>
         <a href="#section4_team">Team</a>
-        <a href="#section5_companies">Portfolio</a>
+        <a href="#section5_companies">Investments</a>
         <div>Investor Portal</div>
         <div>Get in Touch</div>
       </div>

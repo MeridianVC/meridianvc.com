@@ -46,7 +46,7 @@ const Footer: FC = () => {
         flexDirection: 'column',
         paddingRight: 'clamp(5px, 5vw, 20px)',
         gap: 'clamp(20px, 40px, 60px)',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         maxWidth: '30%',
     };
 
@@ -55,7 +55,6 @@ const Footer: FC = () => {
         display: 'flex',
         flexDirection: 'row', // changed with className for small screen sizes to 
         gap: 'clamp(20px, 40px, 60px)'
-
     }
 
     const linkStyle: React.CSSProperties = {
@@ -90,8 +89,18 @@ const Footer: FC = () => {
         maxWidth: '300px'
     }
 
+    const footerSpacerStyle: React.CSSProperties = {
+        position: 'fixed',
+        bottom: '0',
+        left: '0',
+        offset: '-90px',
+        // bottom: '-100px', // Adjust this value based on the actual footer height
+        height: '100px',  // This should be at least the height of your footer
+        width: '100%',
+    };
+
     return (
-        <div style={footerStyle}>
+        <div style={footerStyle} className="footer">
             <div style={leftContainerStyle} className="footer-left-flex-column">
                 <div style={sectionStyle}>
                     <Text variant="BodyBaskerville">
@@ -119,13 +128,13 @@ const Footer: FC = () => {
                     <Text variant="BodyBaskerville">
                         Links
                     </Text>
-                    <a href='https://www.linkedin.com/company/meridian-vc/' target="blank" style={linkStyle}>
+                    <a href='https://www.linkedin.com/company/meridian-vc/' target="_blank" style={linkStyle} className="footer-link">
                         <img src="./linkedin.svg" alt="Linkedin"/> Connect on Linkedin
                     </a>
-                    <a href='mailto:devon@meridianventures.co' target="blank" style={linkStyle}>
+                    <a href='mailto:devon@meridianventures.co' target="_blank" style={linkStyle} className="footer-link">
                         <img src="./email.svg" alt="Email"/> Email us
                     </a>
-                    <a href='https://medium.com/@devon_45585' target="blank" style={linkStyle}>
+                    <a href='https://medium.com/@devon_45585' target="_blank" style={linkStyle} className="footer-link">
                         <img src="./medium.svg" alt="Medium"/> Read our writing
                     </a>
                 </div>
@@ -134,13 +143,13 @@ const Footer: FC = () => {
                 <img src="Stamps.jpg" alt="stamps"style={stampStyle}/>
                 <div style= {preparedBySectionStyle}>
                     <Text variant="BodyBaskerville">Prepared By:</Text>
-                    <a href='https://www.linkedin.com/in/devon-gethers/' target="blank">
+                    <a href='https://www.linkedin.com/in/devon-gethers/' target="_blank" className="footer-link">
                         <img src="./signatureDevon.svg" alt="Devon Signature"/>
                     </a>
-                    <a href='https://www.linkedin.com/in/kevinkarltonhaney/' target="blank">
+                    <a href='https://www.linkedin.com/in/kevinkarltonhaney/' target="_blank" className="footer-link">
                         <img src="./signatureKarlton.svg" alt="Karlton Signature"/>
                     </a>
-                    <a href='https://www.linkedin.com/in/andmckay/' target="blank">
+                    <a href='https://www.linkedin.com/in/andmckay/' target="_blank" className="footer-link">
                         <img src="./signatureMckay.svg" alt="Mckay Signature"/>
                     </a>
                 </div>
