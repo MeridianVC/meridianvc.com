@@ -18,6 +18,74 @@ import CompanyGrid from '@/components/UI/CompanyGrid';
 import LatestContentCard from '@/components/UI/LatestContentCard';
 import Footer from '@/components/UI/Footer';
 
+const teamMembers = [
+  {
+      name: "Devon Gethers",
+      role: "Managing Partner",
+      imageSrc: "./headshotDevon.png",
+      photo: "path/to/photoDevon.jpg",
+      title: "Managing Partner",
+      linkedin: "https://linkedin.com/in/devongethers",
+      email: "devongethers@example.com",
+      medium: "https://medium.com/@devongethers",
+      focus: "Business Development",
+      education: "Harvard University",
+      experience: "15 years in management"
+  },
+  {
+      name: "Karlton Haney",
+      role: "Managing Partner",
+      imageSrc: "/headshotKarlton.png",
+      photo: "path/to/photoKarlton.jpg",
+      title: "Managing Partner",
+      linkedin: "https://linkedin.com/in/karltonhaney",
+      email: "karltonhaney@example.com",
+      medium: "https://medium.com/@karltonhaney",
+      focus: "Strategic Planning",
+      education: "Stanford University",
+      experience: "12 years in strategic roles"
+  },
+  {
+      name: "Dallin Anderson",
+      role: "Advisor",
+      imageSrc: "./headshotDallin.png",
+      photo: "path/to/photoDallin.jpg",
+      title: "Advisor",
+      linkedin: "https://linkedin.com/in/dallinanderson",
+      email: "dallinanderson@example.com",
+      medium: "https://medium.com/@dallinanderson",
+      focus: "Financial Advising",
+      education: "MIT",
+      experience: "10 years in finance"
+  },
+  {
+      name: "Heather Harmon",
+      role: "Advisor",
+      imageSrc: "./headshotHeather.png",
+      photo: "path/to/photoHeather.jpg",
+      title: "Advisor",
+      linkedin: "https://linkedin.com/in/heatherharmon",
+      email: "heatherharmon@example.com",
+      medium: "https://medium.com/@heatherharmon",
+      focus: "Marketing",
+      education: "University of California, Berkeley",
+      experience: "8 years in marketing"
+  },
+  {
+      name: "Zach Thomas",
+      role: "Advisor",
+      imageSrc: "./headshotZach.png",
+      photo: "path/to/photoZach.jpg",
+      title: "Advisor",
+      linkedin: "https://linkedin.com/in/zachthomas",
+      email: "zachthomas@example.com",
+      medium: "https://medium.com/@zachthomas",
+      focus: "Technology Development",
+      education: "Carnegie Mellon University",
+      experience: "10 years in tech industry"
+  }
+];
+
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
     ssr: false,
@@ -72,7 +140,8 @@ const legendStyle: React.CSSProperties = {
   marginRight: 'clamp(5vw, 8vw, 20vw)',
   marginBottom: 'clamp(5vh, 10vh, 10vh)',
   marginLeft: 'auto',
-  marginTop: 'auto'
+  marginTop: 'auto',
+  backgroundColor: 'transparent',
 };
 
 const principlesSectionStyle: React.CSSProperties = {
@@ -136,6 +205,20 @@ const latestCardContainerStyle: React.CSSProperties = {
   maxWidth: '1500px',
   margin: '0 auto',
 }
+
+const footerSpacerStyle: React.CSSProperties = {
+  position: 'fixed',
+  // top: '0',
+  // top: 'calc(100vh+50px)',
+  // bottom: '-50',
+  left: '0',
+  // offset: '-90px',
+  bottom: '-100px', // Adjust this value based on the actual footer height
+  backgroundColor: '#FFF5DC',
+  height: '555px',  // This should be at least the height of your footer
+  width: '100%',
+  zIndex: 8,
+};
 
 const Home: FC = () => {
   return (
@@ -220,37 +303,10 @@ const Home: FC = () => {
           <Section id="section4_team" isFullHeight={true} >
             <Spacer height={'5vh'} />
               <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(15px, 8vh, 100px)'> 
-                  A team of seasoned operators and investors, at your side as you chart your course. 
+                  Our team of seasoned operators and investors, at your side as you chart your course. 
               </Header>
-              <TeamCardContainer style={{marginBottom: 'clamp(1vw, 3vw, 4vw)'}}>
-                  <TeamCard 
-                    name="Devon Gethers"
-                    role="Managing Partner"
-                    imageSrc="./headshotDevon.png"
-                  />
-                  <TeamCard 
-                    name="Karlton Haney"
-                    role="Managing Partner"
-                    imageSrc="/headshotKarlton.png"
-                  />
-              </TeamCardContainer>
-              <TeamCardContainer>
-                  <TeamCard 
-                    name="Dallin Anderson"
-                    role="Advisor"
-                    imageSrc="./headshotDallin.png"
-                  />
-                  <TeamCard 
-                    name="Heather Harmon"
-                    role="Advisor"
-                    imageSrc="./headshotHeather.png"
-                  />
-                  <TeamCard 
-                    name="Zach Thomas"
-                    role="Advisor"
-                    imageSrc="./headshotZach.png"
-                  />
-              </TeamCardContainer>
+              <TeamCardContainer teamMembers={teamMembers}/>
+              {/* style={{marginBottom: 'clamp(1vw, 3vw, 4vw)'}} */}
           </Section>
           <Section id="section5_companies" isFullHeight={true} style={portfolioSectionStyle}>
           <Spacer height={'20vh'}/>
@@ -296,10 +352,9 @@ const Home: FC = () => {
               </div>
           </Section>
           <Section id="section7_footer">
-              <Footer>
-                
-              </Footer>
+              <Footer />
           </Section>
+          {/* <div style={footerSpacerStyle}></div> */}
         </main>
       <Globe style={globeStyle} />
     </>

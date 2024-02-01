@@ -1,7 +1,13 @@
-import Link from 'next/link';
 import { FC } from 'react';
 import Header from '../../Text/Header'; // Adjust the import path as necessary
 import Text from '../../Text/Text'; // Adjust the import path as necessary
+
+interface TeamCardProps {
+    name: string;
+    role: string;
+    imageSrc: string;
+    onCardClick: () => void; // Callback function to handle click
+};
 
 interface TeamCardProps {
     name: string;
@@ -31,20 +37,16 @@ const imageStyle: React.CSSProperties = {
     mixBlendMode: 'multiply',
 };
 
-const TeamCard: FC<TeamCardProps> = ({ name, role, imageSrc }) => {
-    // Dynamic path for the team modal
-    const teamModalPath = `/team/${encodeURIComponent(name)}`;
+const TeamCard: FC<TeamCardProps> = ({ name, role, imageSrc, onCardClick }) => {
 
     return (
-        <Link href={teamModalPath}>
-            <div style={cardStyle} className="teamCardHeight"> {/* Use <a> with style if needed */}
-                <img src={imageSrc} alt={name} style={imageStyle} />
-                <div>
-                    <Header type="H4" lineHeight="clamp(4px, 2.5vh, 40px)">{name}</Header>
-                    <Text variant="SmallFranklin" paddingLeft="3px">{role}</Text>
-                </div>
+        <div style={cardStyle} className="teamCardHeight" onClick={onCardClick}>
+            <img src={imageSrc} alt={name} style={imageStyle} />
+            <div>
+                <Header type="H4" lineHeight="clamp(4px, 2.5vh, 40px)">{name}</Header>
+                <Text variant="SmallFranklin" paddingLeft="3px">{role}</Text>
             </div>
-        </Link>
+        </div>
     );
 };
 

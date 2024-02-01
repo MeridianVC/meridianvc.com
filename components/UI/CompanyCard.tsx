@@ -16,13 +16,13 @@ const cardStyle: React.CSSProperties = {
     position: 'relative',
     width: '150px',
     height: '150px',
+    padding: '10px',
   };
   
   const logoStyle: React.CSSProperties = {
     width: '100%',
     height: '100%',
-    objectFit: 'contain',
-    border: '2px solid transparent',
+    objectFit: 'contain'
   };
   
   const detailsStyle: React.CSSProperties = {

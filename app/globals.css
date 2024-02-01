@@ -47,6 +47,10 @@ p, h1, h2, h3, h4, h5, h6 {
   --grey: rgb(68, 68, 68); /* #444444 */
 }
 
+html {
+  background-color:  #FFF5DC;
+}
+
 html,
 body {
   height: 100%;
