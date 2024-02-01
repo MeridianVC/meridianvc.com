@@ -1,3 +1,9 @@
+@media (max-width: 1000px) {
+    .modalDetail {
+        display: none !important;
+    }
+}
+
 @media (max-width: 900px) {
     .testimonialStatement {
         width: 75% !important;
@@ -41,12 +47,12 @@
 }
 
 .company-logo-color {
-    filter: grayscale(100%);
+    filter: brightness(40%) contrast(250%) grayscale(100%);
     transition: border 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
   
 .company-logo-color:hover {
-    filter: grayscale(0);
+    filter: brightness(100%) contrast(100%) grayscale(0%);
     transform: scale(1.15);
     transition: transform 0.3s ease;
 }

@@ -47,14 +47,15 @@ const TeamModal: FC<TeamModalProps> = ({
         borderTop: 'solid 2px #444444',
         borderRight: 'solid 2px #444444',
         borderLeft: 'solid 2px #444444',
-        borderBottom: 'none'
+        borderBottom: 'none',
+        overflowY: 'auto',
     };
 
     // needed to make content inside scrollable without messing up formatting of box
     const modalContentScroll: React.CSSProperties = {
         overflowY: 'auto',
         width: '100%',
-        height: '100%',
+        // height: '100%',
         position: 'relative',
         display: 'flex',
     }
@@ -68,7 +69,9 @@ const TeamModal: FC<TeamModalProps> = ({
         alignItems: 'start',
         gap: '40px',
         width: 'clamp(60%, 80%, 90%)',
-        height: 'auto',
+        // height: 'auto',
+        maxHeight: `calc(100% - ${navHeight})`,
+        height: `calc(100% - ${navHeight})`,
 
     };
 
@@ -173,8 +176,8 @@ const TeamModal: FC<TeamModalProps> = ({
         >
             <div style={contentStyle}>
                 <button style={closeButtonStyle} onClick={onClose}>X</button>
-                <img src="./visionModalTop.svg" alt="vision icon" style={detailIconStyleTop}/>
-                <img src="./visionModalBottom.svg" alt="vision icon" style={detailIconStyleBottom}/>
+                <img src="./visionModalTop.svg" alt="vision icon" style={detailIconStyleTop} className="modalDetail"/>
+                <img src="./visionModalBottom.svg" alt="vision icon" style={detailIconStyleBottom} className="modalDetail"/>
                 <div style={modalContentScroll}>
                     <div style={imageContainerStyle}>
                         <img src={imageSrc} alt={name} style={imageStyle} />
@@ -219,7 +222,7 @@ const TeamModal: FC<TeamModalProps> = ({
                     </div>
                 </div>
             </div>
-            <FillBottomModal />
+            {/* <FillBottomModal /> */}
         </motion.div>
     );
 };

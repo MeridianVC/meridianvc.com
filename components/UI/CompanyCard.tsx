@@ -14,9 +14,8 @@ interface CompanyCardProps {
 
 const cardStyle: React.CSSProperties = {
     position: 'relative',
-    width: '150px',
+    width: '165px',
     height: '150px',
-    padding: '10px',
   };
   
   const logoStyle: React.CSSProperties = {
@@ -52,7 +51,9 @@ const CompanyCard: FC<CompanyCardProps> = ({
 
   return (
     <div style={cardStyle} className="company-card-size">
-      <img src={logoSrc} alt="Company Logo" style={logoStyle} className="company-logo-color"/>
+      <a href={websiteUrl} target="_blank">
+        <img src={logoSrc} alt="Company Logo" style={logoStyle} className="company-logo-color"/>
+      </a>
       <div style={detailsStyle}>
         <div><strong>About:</strong> {about}</div>
         <div><strong>Visit Website:</strong> <a href={websiteUrl} target="_blank" rel="noopener noreferrer">Link</a></div>
