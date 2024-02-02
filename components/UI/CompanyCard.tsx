@@ -58,8 +58,8 @@ const CompanyCard: FC<CompanyCardProps> = ({
       <Image 
         src={logoSrc} 
         alt="Company Logo" 
-        width={100} // Specify the width of your image
-        height={100} // Specify the height of your image
+        width={165}
+        height={150}
         style={logoStyle} 
         className="company-logo-color"
       />
