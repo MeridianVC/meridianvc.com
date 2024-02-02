@@ -156,7 +156,7 @@ const companyData = [
     {
       logoSrc: './companyLogos/Flitch.png',
       about: 'about',
-      websiteUrl: 'https://www.linkedin.com/company/stealth-startup-51/',
+      websiteUrl: 'https://www.getflitch.com/',
       foundedDate: 'founded date',
       founders: ['founder one', 'founder two'],
       stageInvested: 'seed',
