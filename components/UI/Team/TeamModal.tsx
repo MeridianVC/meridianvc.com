@@ -1,4 +1,5 @@
 import React, { FC, useEffect, ReactElement } from 'react';
+import Image from 'next/image';
 import { navHeight } from '../Navbar';
 import { motion } from 'framer-motion';
 import FillBottomModal from '@/components/Structural/FillBottomModal';
@@ -170,9 +171,30 @@ const TeamModal: FC<TeamModalProps> = ({
             transition={{ type: 'easeInOut', stiffness: 100 }}
         >
             <div style={contentStyle} className="team-modal-flex">
-                <button style={closeButtonStyle} onClick={onClose} className="modal-link"><img src="./ModalX.svg" alt="Close X"/> </button>
-                <img src="./visionModalTop.svg" alt="vision icon" style={detailIconStyleTop} className="modalDetail"/>
-                <img src="./visionModalBottom.svg" alt="vision icon" style={detailIconStyleBottom} className="modalDetail"/>
+                <button style={closeButtonStyle} onClick={onClose} className="modal-link">
+                    <Image 
+                        src="/ModalX.svg" 
+                        alt="Close X"
+                        width={34}
+                        height={34}
+                    />
+                </button>
+                <Image 
+                        src="/visionModalTop.svg" 
+                        alt="Vision Icon"
+                        width={695}
+                        height={537}
+                        style={detailIconStyleTop}
+                        className="modalDetail"
+                    />
+                <Image 
+                        src="/visionModalBottom.svg" 
+                        alt="Vision Icon"
+                        width={298}
+                        height={213}
+                        style={detailIconStyleBottom}
+                        className="modalDetail"
+                    />
                     <div style={imageContainerStyle} className="team-modal-content">
                         <img src={imageSrc} alt={name} style={imageStyle} />
                         <div style={imageBackgroundFill}></div>

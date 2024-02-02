@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image';
 import Text from '../Text/Text';
 
 const Footer: FC = () => {
@@ -119,13 +120,31 @@ const Footer: FC = () => {
                         Links
                     </Text>
                     <a href='https://www.linkedin.com/company/meridian-vc/' target="_blank" style={linkStyle} className="footer-link">
-                        <img src="./linkedin.svg" alt="Linkedin"/> Connect on Linkedin
+                        <Image 
+                            src="/linkedin.svg"
+                            alt="Linkedin"
+                            width={19}
+                            height={19}
+                        />
+                        Connect on Linkedin
                     </a>
                     <a href='mailto:info@meridianventures.co' target="_blank" style={linkStyle} className="footer-link">
-                        <img src="./email.svg" alt="Email"/> Email us
+                        <Image 
+                            src="/email.svg"
+                            alt="Email"
+                            width={19}
+                            height={19}
+                        />
+                        Email us
                     </a>
                     <a href='https://medium.com/@devon_45585' target="_blank" style={linkStyle} className="footer-link">
-                        <img src="./medium.svg" alt="Medium"/> Read our writing
+                        <Image 
+                            src="/medium.svg"
+                            alt="Medium"
+                            width={19}
+                            height={19}
+                        />
+                        Read our writing
                     </a>
                 </div>
             </div>
@@ -134,18 +153,38 @@ const Footer: FC = () => {
                 <div style= {preparedBySectionStyle}>
                     <Text variant="BodyBaskerville">Prepared By:</Text>
                     <a href='https://www.linkedin.com/in/devon-gethers/' target="_blank" className="footer-link">
-                        <img src="./signatureDevon.svg" alt="Devon Signature"/>
+                        <Image 
+                            src="/signatureDevon.svg"
+                            alt="Devon Signature"
+                            width={140}
+                            height={28}
+                        />
                     </a>
                     <a href='https://www.linkedin.com/in/kevinkarltonhaney/' target="_blank" className="footer-link">
-                        <img src="./signatureKarlton.svg" alt="Karlton Signature"/>
+                        <Image 
+                            src="/signatureKarlton.svg"
+                            alt="Karlton Signature"
+                            width={140}
+                            height={28}
+                        />
                     </a>
                     <a href='https://www.linkedin.com/in/andmckay/' target="_blank" className="footer-link">
-                        <img src="./signatureMckay.svg" alt="Mckay Signature"/>
+                        <Image 
+                            src="/signatureMckay.svg"
+                            alt="Mckay Signature"
+                            width={140}
+                            height={28}
+                        />
                     </a>
                 </div>
             </div>
             <div style={bottomBadgeStyle}>
-                <img src="./MVbadge.svg" alt="MV Badge" />
+                <Image 
+                    src="/MVbadge.svg"
+                    alt="MV Badge"
+                    width={52}
+                    height={29}
+                />
                 {new Date().getFullYear()} Meridian Ventures &ndash; All Rights Reserved
             </div>
         </footer>

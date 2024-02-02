@@ -31,7 +31,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link rel="preload" href="/globe.glb" as="fetch"/>
+        </Head>
         <body>
           <Main />
           <NextScript />

@@ -13,11 +13,12 @@ interface GlobeObjectProps {
 
 const useGlobeObject = ({ renderer, scene }: GlobeObjectProps) => {
     const [globe, setGlobe] = useState<THREE.Object3D | undefined>(undefined);
+    const [isRendering, setIsRendering] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if (!renderer) {
-            setIsLoading(false);
+            setIsRendering(false);
             return;
         }
 
@@ -34,7 +35,7 @@ const useGlobeObject = ({ renderer, scene }: GlobeObjectProps) => {
                 if (object) {
                     const mesh = object as THREE.Mesh;
                     if (mesh.material instanceof THREE.Material) {
-                        const material = mesh.material as THREE.MeshStandardMaterial; // Assuming MeshStandardMaterial, adjust as needed
+                        const material = mesh.material as THREE.MeshStandardMaterial;
 
                         // Adjust the roughness and metalness for a more matte appearance
                         material.roughness = 1; // Increase roughness
@@ -45,13 +46,20 @@ const useGlobeObject = ({ renderer, scene }: GlobeObjectProps) => {
 
             // Set the loaded globe to state
             setGlobe(gltf.scene);
+            setIsLoading(false);
+            window.dispatchEvent(new CustomEvent('globeLoaded'));
+
+            // if (!isLoading) {
+            //     console.log('set variable'); // this is not firing, so the dispatch event is not getting added to the window
+            //     window.dispatchEvent(new CustomEvent('globeLoaded'));
+            // }
 
         }, undefined, (error) => {
             console.error("Error loading GLTF:", error);
         });
     }, [renderer]);
 
-    return globe;
+    return { globe, isLoading };
 };
 
 export default useGlobeObject;

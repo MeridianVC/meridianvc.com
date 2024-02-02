@@ -5,69 +5,6 @@ import { AnimatePresence } from 'framer-motion';
 import TeamCard from './TeamCard';
 import TeamModal from './TeamModal';
 
-const teamMembers = [
-    {
-        name: "Devon Gethers",
-        role: "Managing Partner",
-        imageSrc: "./headshotDevon.png",
-        title: "Managing Partner",
-        linkedin: "https://linkedin.com/in/devongethers",
-        email: "devongethers@example.com",
-        medium: "https://medium.com/@devongethers",
-        focus: "Business Development",
-        education: "Harvard University",
-        experience: "15 years in management"
-    },
-    {
-        name: "Karlton Haney",
-        role: "Managing Partner",
-        imageSrc: "/headshotKarlton.png",
-        title: "Managing Partner",
-        linkedin: "https://linkedin.com/in/karltonhaney",
-        email: "karltonhaney@example.com",
-        medium: "https://medium.com/@karltonhaney",
-        focus: "Strategic Planning",
-        education: "Stanford University",
-        experience: "12 years in strategic roles"
-    },
-    {
-        name: "Dallin Anderson",
-        role: "Advisor",
-        imageSrc: "./headshotDallin.png",
-        title: "Advisor",
-        linkedin: "https://linkedin.com/in/dallinanderson",
-        email: "dallinanderson@example.com",
-        medium: "https://medium.com/@dallinanderson",
-        focus: "Financial Advising",
-        education: "MIT",
-        experience: "10 years in finance"
-    },
-    {
-        name: "Heather Harmon",
-        role: "Advisor",
-        imageSrc: "./headshotHeather.png",
-        title: "Advisor",
-        linkedin: "https://linkedin.com/in/heatherharmon",
-        email: "heatherharmon@example.com",
-        medium: "https://medium.com/@heatherharmon",
-        focus: "Marketing",
-        education: "University of California, Berkeley",
-        experience: "8 years in marketing"
-    },
-    {
-        name: "Zach Thomas",
-        role: "Advisor",
-        imageSrc: "./headshotZach.png",
-        title: "Advisor",
-        linkedin: "https://linkedin.com/in/zachthomas",
-        email: "zachthomas@example.com",
-        medium: "https://medium.com/@zachthomas",
-        focus: "Technology Development",
-        education: "Carnegie Mellon University",
-        experience: "10 years in tech industry"
-    }
-];
-
 interface TeamMember {
     name: string;
     role: string;

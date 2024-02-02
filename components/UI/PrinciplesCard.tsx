@@ -2,7 +2,7 @@
 
 import { FC, ReactNode } from 'react';
 import Text from '../Text/Text';
-import Header from '../Text/Header';
+import Image from 'next/image';
 
 interface UICardProps {
     title: string;
@@ -47,7 +47,14 @@ const UICard: FC<UICardProps> = ({ title, imagePath, numberDisplay, content }) =
         <div style={cardStyle}>
             <div style={headerStyle}>
                 <h3>{title}</h3>
-                <img src={imagePath} alt="principle icon" style={imgStyle}/>
+                <Image 
+                    src={imagePath}
+                    alt="Principle Icon" 
+                    width={100}
+                    height={30}
+                    style={imgStyle} 
+                    priority
+                  />
                 <h3>{numberDisplay}</h3>
             </div>
             <Text variant="BodyBaskerville" style={{paddingLeft: '3px'}}>{content}</Text>

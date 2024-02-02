@@ -28,8 +28,6 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
     // Function to calculate Y offset based on scale
     const calculateYOffset = (scale:number):number => {
         const yOffset = (maxScale - scale) * 1; // Adjust the factor as needed
-        console.log(`Calculated Y Offset for scale ${scale}: ${yOffset}`);
-
         return -yOffset; // Negative for moving down
     };
 
@@ -78,7 +76,7 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
     }
 
     // Initialize globe
-    const globe = useGlobeObject({ renderer: rendererRef.current, scene: sceneRef.current });
+    const { globe, isLoading } = useGlobeObject({ renderer: rendererRef.current, scene: sceneRef.current });
 
     useEffect(() => {
         if (!divRef.current) return;

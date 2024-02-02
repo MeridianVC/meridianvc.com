@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import Header from '../../Text/Header'; // Adjust the import path as necessary
-import Text from '../../Text/Text'; // Adjust the import path as necessary
+import Header from '../../Text/Header';
+import Text from '../../Text/Text';
+import Image from 'next/image';
 import '../ui.css';
 
 interface TeamCardProps {
@@ -43,7 +44,14 @@ const TeamCard: FC<TeamCardProps> = ({ name, role, imageSrc, onCardClick }) => {
 
     return (
         <div style={cardStyle} className="team-card-hover" onClick={onCardClick}>
-            <img src={imageSrc} alt={name} style={imageStyle} />
+            <Image 
+                src={imageSrc} 
+                alt={name}
+                width={300}
+                height={300}
+                style={imageStyle} 
+            />
+            {/* <img src={imageSrc} alt={name} style={imageStyle} /> */}
             <div>
                 <Header type="H4" lineHeight="clamp(4px, 2.5vh, 40px)">{name}</Header>
                 <Text variant="SmallFranklin" paddingLeft="3px">{role}</Text>

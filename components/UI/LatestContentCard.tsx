@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image';
 import Text from '../Text/Text';
 import './ui.css'
 
@@ -74,7 +75,13 @@ const LatestContentCard: FC<LatestContentCardProps> = ({ author, title, imagePat
         <a href={link} style={cardStyle} target="_blank" rel="noopener" className="content-card-hover content-card-height">
                 <div style={cardMain}>
                     <div style={imageContainerStyle}>
-                        <img src={imagePath} alt="principle icon" style={imageStyle}/>
+                        <Image 
+                            src={imagePath}
+                            alt="Content Image"
+                            width={168}
+                            height={116}
+                            style={imageStyle}
+                        />
                     </div>
                     <div style={textStyle}>
                         <Text variant="SmallFranklin" style={contentStyle}>{author}</Text>

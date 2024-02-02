@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Text from '../Text/Text';
-import Header from '../Text/Header';
+import Image from 'next/image';
 import './ui.css';
 
 interface TestimonialProps {
@@ -76,7 +76,13 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
 
     return (
         <div style={containerStyle}>
-            <img src={imageSrc} alt={name} style={imageStyle} className={isLeftAligned ? "testimonialFounderLeft" : "testimonialFounderPhotoRight"}/>
+            <Image 
+                src={imageSrc} 
+                alt={name}
+                width={100}
+                height={100}
+                style={imageStyle} 
+            />
             <div className="testimonialContent">
                 <Text variant="BodyBaskerville" className="testimonialStatement" style={statementStyle}>
                     <span style={leftQuoteStyle}>“</span>
