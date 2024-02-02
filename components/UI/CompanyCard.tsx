@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import './ui.css';
+import Image from 'next/image';
 
 interface CompanyCardProps {
   logoSrc: string;
@@ -49,10 +50,19 @@ const CompanyCard: FC<CompanyCardProps> = ({
   coInvestors,
 }) => {
 
+  console.log(logoSrc);
+
   return (
     <div style={cardStyle} className="company-card-size">
       <a href={websiteUrl} target="_blank">
-        <img src={logoSrc} alt="Company Logo" style={logoStyle} className="company-logo-color"/>
+      <Image 
+        src={logoSrc} 
+        alt="Company Logo" 
+        width={100} // Specify the width of your image
+        height={100} // Specify the height of your image
+        style={logoStyle} 
+        className="company-logo-color"
+      />
       </a>
       <div style={detailsStyle}>
         <div><strong>About:</strong> {about}</div>
