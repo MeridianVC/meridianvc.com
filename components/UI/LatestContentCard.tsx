@@ -20,13 +20,13 @@ const cardStyle: React.CSSProperties = {
     maxWidth: '600px',
     minWidth: '300px',
     flexBasis: '475px',
-    height: 'auto',
-    color: '#1E1E1E',
+    height: '170px',
     overflow: 'hidden',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     cursor: 'pointer',
+    flexShrink: 1
 };
 
 const imageContainerStyle: React.CSSProperties = {
@@ -72,7 +72,7 @@ const LatestContentCard: FC<LatestContentCardProps> = ({ author, title, imagePat
     const testDate = formatDate(new Date(date));
     
     return (
-        <a href={link} style={cardStyle} target="_blank" rel="noopener" className="content-card-hover">
+        <a href={link} style={cardStyle} target="_blank" rel="noopener" className="content-card-hover content-card-height">
                 <div style={cardMain}>
                     <div style={imageContainerStyle}>
                         <img src={imagePath} alt="principle icon" style={imageStyle}/>

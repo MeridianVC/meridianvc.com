@@ -46,6 +46,9 @@
         max-height: 430px !important;
         min-height: 370px !important;
     }
+    .content-card-height {
+        height: 125px !important;
+    }
 }
 
 .navbar-hover:hover {
