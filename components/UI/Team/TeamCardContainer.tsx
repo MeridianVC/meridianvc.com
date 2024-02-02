@@ -73,13 +73,13 @@ interface TeamMember {
     role: string;
     imageSrc: string;
     title: string;
-    linkedin: string;
-    email: string;
-    medium: string
+    linkedin?: string;
+    email?: string;
+    medium?: string
     focus: string;
     education: string;
     experienceP1: string;
-    experienceP2: string;
+    experienceP2?: string;
 }
 
 interface TeamCardContainerProps {
