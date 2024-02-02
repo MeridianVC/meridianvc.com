@@ -332,7 +332,7 @@ const Home: FC = () => {
           </Section>
           <Section id="section5_companies" isFullHeight={true} style={portfolioSectionStyle}>
           <Spacer height={'20vh'}/>
-              <Header type="H1" isCentered={true} paddingLeft="0px" marginBottom='clamp(70px, 6vh, 100px)'> Our Investments </Header>
+              <Header type="H1" isCentered={true} paddingLeft="0px" marginBottom='clamp(2vh, 4vh, 7vh)'> Our Investments </Header>
               {/* <FundSelector/> */}
               <CompanyGrid/>
           </Section>
