@@ -78,7 +78,8 @@ interface TeamMember {
     medium: string
     focus: string;
     education: string;
-    experience: string;
+    experienceP1: string;
+    experienceP2: string;
 }
 
 interface TeamCardContainerProps {
@@ -154,7 +155,8 @@ const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) =
                     medium={selectedMember.medium}
                     focus={selectedMember.focus}
                     education={selectedMember.education}
-                    experience={selectedMember.experience}
+                    experienceP1={selectedMember.experienceP1}
+                    experienceP2={selectedMember.experienceP2}
                 />
             )}
             </AnimatePresence>

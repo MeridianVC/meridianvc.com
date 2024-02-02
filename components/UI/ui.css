@@ -24,6 +24,12 @@
     .footer-right-flex-column {
         min-width: 40% !important;
     }
+    .team-modal-flex {
+        display: block !important;
+    }
+    .team-modal-content {
+        margin-bottom: 20px !important;
+    }
 }
 
 @media (max-width: 500px) {

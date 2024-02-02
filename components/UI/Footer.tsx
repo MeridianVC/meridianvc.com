@@ -105,7 +105,7 @@ const Footer: FC = () => {
                         About
                     </Text>
                     <Text variant="SmallBaskerville" style={{marginBottom: "10px"}}>
-                    At Meridian, we empower audacious founders who are at the forefront of building durable technologies that positively impact humanity. We believe that visionary founders are the architects of the future, and it’s our privilege to support them. As an early-stage venture capital firm, we specialize in investing in B2B software companies from Pre-Seed to Series A.
+                        At Meridian, we empower audacious founders who are at the forefront of building durable technologies that positively impact humanity. We believe that visionary founders are the architects of the future, and it’s our privilege to support them. As an early-stage venture capital firm, we specialize in investing in B2B software companies from Pre-Seed to Series A.
                     </Text>     
                     <Text variant="BodyBaskerville">
                         Ethos
