@@ -55,7 +55,7 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
 
     // Instantiate directional lights
     if (!dirLightRef.current ) {
-        dirLightRef.current = new THREE.DirectionalLight(0xFFFFFF, 1.6);
+        dirLightRef.current = new THREE.DirectionalLight(0xFFFFFF, 1.5);
         dirLightRef.current.position.set(500, 1000, -1000); // Top right
         dirLightRef.current.lookAt(new THREE.Vector3(0,0,0))
     }
