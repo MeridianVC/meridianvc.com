@@ -50,8 +50,6 @@ const CompanyCard: FC<CompanyCardProps> = ({
   coInvestors,
 }) => {
 
-  console.log(logoSrc);
-
   return (
     <div style={cardStyle} className="company-card-size">
       <a href={websiteUrl} target="_blank">
