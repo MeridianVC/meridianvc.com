@@ -320,18 +320,19 @@ const Home: FC = () => {
                     imageSrc="/headshotAtikh.png"
                   />
               </div>
-              <Spacer height={'10vh'} />
+              <Spacer height={'5vh'} />
               <FillSection/>
           </Section>
           <Section id="section4_team" isFullHeight={true}>
+              <Spacer height={'5vh'} />
               <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(15px, 8vh, 100px)'> 
                   Our team of seasoned operators and investors, at your side as you chart your course. 
               </Header>
               <TeamCardContainer teamMembers={teamMembers}/>
-              {/* style={{marginBottom: 'clamp(1vw, 3vw, 4vw)'}} */}
+              <Spacer height={'5vh'}/>
           </Section>
           <Section id="section5_companies" isFullHeight={true} style={portfolioSectionStyle}>
-          <Spacer height={'20vh'}/>
+          <Spacer height={'15vh'}/>
               <Header type="H1" isCentered={true} paddingLeft="0px" marginBottom='clamp(2vh, 4vh, 7vh)'> Our Investments </Header>
               {/* <FundSelector/> */}
               <CompanyGrid/>
