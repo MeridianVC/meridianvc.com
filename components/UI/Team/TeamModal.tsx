@@ -183,7 +183,7 @@ const TeamModal: FC<TeamModalProps> = ({
                                 <Header type="H4">{name}</Header>
                                 <Text variant="SmallFranklin" style={titleStyle}>{title}</Text>
                             </div>
-                            <div style={linkSectionStyle}>
+                            <div style={linkSectionStyle} className="team-modal-links">
                                 {linkedin &&
                                     <div style={linkStyle} className="modal-link">
                                     <a href={linkedin} target="_blank"><Text variant="SmallFranklin">LinkedIn </Text></a>
