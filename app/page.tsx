@@ -278,7 +278,7 @@ const Home: FC = () => {
                     title="Growth"
                     imagePath="/growth.svg"
                     numberDisplay="03"
-                    content="As former operators, we understand how to build and scale startups. We work with our founders to safeguard against common missteps and position our companies for growth-stage capital."
+                    content="As former operators, we understand how to build and scale startups. We work with our founders to safeguard against common missteps and position our companies best for growth-stage capital."
                   />
               </div>
               <Spacer height={'30vh'}/>
