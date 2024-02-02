@@ -66,7 +66,7 @@ const TeamModal: FC<TeamModalProps> = ({
         gap: 'clamp(20px, 40px, 40px)',
         width: 'clamp(70%, 90%, 1100px)',
         maxWidth: '1200px',
-        height: `calc(100vh - ${navHeight})`,
+        height: `calc(100vh - ${navHeight} - 2px)`,
         overflowX: 'hidden',
         overflowY: 'auto',
     };
@@ -108,6 +108,8 @@ const TeamModal: FC<TeamModalProps> = ({
 
     const sectionStyle: React.CSSProperties = {
         flex: 1,
+        backgroundColor: '#FFF5DC',
+        zIndex: 2,
     };
 
     const titleStyle: React.CSSProperties = {
