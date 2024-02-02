@@ -91,8 +91,8 @@ const Footer: FC = () => {
 
     return (
         <div style={footerStyle} className="footer">
-            <div style={leftContainerStyle} className="footer-left-flex-column footer-small-remove">
-                <div style={sectionStyle}>
+            <div style={leftContainerStyle} className="footer-left-flex-column">
+                <div style={sectionStyle} className="footer-small-remove">
                     <Text variant="BodyBaskerville">
                         Legal
                     </Text>

@@ -22,7 +22,7 @@ const cardStyle: React.CSSProperties = {
     border: '2px solid #444444',
     maxWidth: '400px',
     minWidth: '275px',
-    minHeight: '420px',
+    minHeight: '370px',
     flexBasis: '350px',
     height: 'auto',
     color: '#1E1E1E',
