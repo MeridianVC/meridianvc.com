@@ -12,10 +12,11 @@ type Link = {
 interface DropdownMenuProps {
   isDropdownOpen: boolean;
   setIsDropdownOpen: (isOpen: boolean) => void;
+  toggleModal: () => void;
   links: Link[];
 }
 
-const NavbarDropdown: React.FC<DropdownMenuProps> = ({ isDropdownOpen, setIsDropdownOpen, links }) => {
+const NavbarDropdown: React.FC<DropdownMenuProps> = ({ isDropdownOpen, setIsDropdownOpen, links, toggleModal }) => {
   const dropdownStyle: MotionStyle = {
     display: isDropdownOpen ? 'flex' : 'none',
     height: isDropdownOpen ? 'auto' : 0,
@@ -56,7 +57,8 @@ const NavbarDropdown: React.FC<DropdownMenuProps> = ({ isDropdownOpen, setIsDrop
         exit={{ y: '-40vh' }}
         transition={{ type: 'easeInOut', stiffness: 100 }}
     >
-      <GetInTouchButton className="nav-link"/>
+      {/* <GetInTouchButton className="nav-link" onClick={() => setIsDropdownOpen(!isDropdownOpen) }/> */}
+      <GetInTouchButton className="nav-link" onClick={() => toggleModal() }/>
       <a href="https://login.app.carta.com/credentials/login/" target="blank" className="nav-link" style={navLinkStyle}>Investor Portal</a>
 
       <ul style={listStyle}>

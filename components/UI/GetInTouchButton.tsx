@@ -16,6 +16,7 @@ const GetInTouchButton: FC<SquareButtonProps> = ({ onClick, className, style }) 
     border: 'solid 2px #444444',
     cursor: 'pointer',
     backgroundColor: '#FFF5DC',
+    outline: 'none',
   };
 
   const combinedStyle = {

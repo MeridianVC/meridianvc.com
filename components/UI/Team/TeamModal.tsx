@@ -46,7 +46,7 @@ const TeamModal: FC<TeamModalProps> = ({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#FFF5DC',
-        zIndex: 8,
+        zIndex: 9,
         borderTop: 'solid 2px #444444',
         borderRight: 'solid 2px #444444',
         borderLeft: 'solid 2px #444444',

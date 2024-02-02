@@ -5,6 +5,7 @@ import { navHeight } from '../Structural/NavHeight';
 import NavbarDropdown from './NavbarDropdown';
 import { AnimatePresence } from 'framer-motion';
 import GetInTouchButton from './GetInTouchButton';
+import GetInTouchModal from './GetInTouchModal';
 import './ui.css';
 
 const borderThickness = '2px';
@@ -63,28 +64,44 @@ const links: Link[] = [
 
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // open modal
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // close modal
+  const handleCloseModal = () => {
+      setIsModalOpen(false);
+  };
 
   return (
-      <>
-      <nav style={navStyle}>
-        <a href="./" style={wordmarkStyle}>MERIDIAN</a>
-        <div className={`nav-links ${isOpen ? 'nav-active' : ''}`} style={linkStyle}>
-          <a href="#section2_principles" className="navbar-hover link-disappear">Principles</a>
-          <a href="#section4_team" className="navbar-hover link-disappear">Team</a>
-          <a href="#section5_companies" className="navbar-hover link-disappear">Investments</a>
-          <a href="https://login.app.carta.com/credentials/login/" target="blank" className="navbar-hover link-disappear" link-disappear>Investor Portal</a>
-          <GetInTouchButton className="navbar-hover link-disappear" style={buttonStyle}/>
-        </div>
-        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
-          <img src="/Hamburger.svg" alt="Menu" className="nav-link"/>
-        </div>
-      </nav>
-      <AnimatePresence>
-      {isOpen && (
-          <NavbarDropdown isDropdownOpen={isOpen} setIsDropdownOpen={setIsOpen} links={links}/>
-      )}
-      </AnimatePresence>
-    </>
+        <>
+          <nav style={navStyle}>
+            <a href="./" style={wordmarkStyle}>MERIDIAN</a>
+            <div className={`nav-links ${isOpen ? 'nav-active' : ''}`} style={linkStyle}>
+              <a href="#section2_principles" className="navbar-hover link-disappear">Principles</a>
+              <a href="#section4_team" className="navbar-hover link-disappear">Team</a>
+              <a href="#section5_companies" className="navbar-hover link-disappear">Investments</a>
+              <a href="https://login.app.carta.com/credentials/login/" target="_blank" rel="noopener noreferrer" className="navbar-hover link-disappear">Investor Portal</a>
+              <GetInTouchButton onClick={handleOpenModal} className="navbar-hover link-disappear" style={buttonStyle}/>
+            </div>
+            {isModalOpen && (
+              <AnimatePresence>
+                <GetInTouchModal onClose={handleCloseModal} isOpen={isModalOpen}/>
+              </AnimatePresence>
+            )}
+            <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+              <img src="/Hamburger.svg" alt="Open menu" className="nav-link"/>
+            </div>
+          </nav>
+          <AnimatePresence>
+            {isOpen && (
+                <NavbarDropdown isDropdownOpen={isOpen} setIsDropdownOpen={setIsOpen} links={links} toggleModal={handleOpenModal}/>
+            )}
+          </AnimatePresence>
+        </>
   
   );
 };
