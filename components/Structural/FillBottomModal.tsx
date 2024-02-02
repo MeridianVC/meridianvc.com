@@ -13,6 +13,8 @@ const FillBottomModal: FC = () => {
         backgroundColor: "#FFF5DC",
         width: 'calc(100% + 4px)',
         borderTop: '2px solid #444444',
+        borderRight: '2px solid #FFF5DC',
+        borderLeft: '2px solid #FFF5DC',
         boxSizing: 'border-box',
     };
 
