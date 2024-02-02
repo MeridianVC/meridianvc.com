@@ -52,22 +52,20 @@ const burgerStyle: React.CSSProperties = {
 };
 
 const Navbar: FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const [isOpen, setIsOpen] = useState(false); // State to manage menu toggle
 
   return (
     <nav style={navStyle}>
       <a href="./" style={wordmarkStyle}>MERIDIAN</a>
-      <div className="burger" onClick={toggleMenu} style={{...burgerStyle, ...(isMenuOpen ? {display: 'flex'} : {})}}>
-        ☰
+      <div className={`nav-links ${isOpen ? 'nav-active' : ''}`} style={linkStyle}>
+        <a href="#section2_principles" className="navbar-hover link-disappear">Principles</a>
+        <a href="#section4_team" className="navbar-hover link-disappear">Team</a>
+        <a href="#section5_companies" className="navbar-hover link-disappear">Investments</a>
+        <a href="https://login.app.carta.com/credentials/login/" target="blank" className="navbar-hover link-disappear" link-disappear>Investor Portal</a>
+        <div className="navbar-hover link-disappear">Get in Touch</div>
       </div>
-      <div style={{...linkStyle, ...(isMenuOpen ? mobileLinkStyle : {})}}>
-        <a href="#section2_principles" className="navbar-hover">Principles</a>
-        <a href="#section4_team" className="navbar-hover">Team</a>
-        <a href="#section5_companies" className="navbar-hover">Investments</a>
-        <a href="https://login.app.carta.com/credentials/login/" target="blank" className="navbar-hover">Investor Portal</a>
-        <div className="navbar-hover">Get in Touch</div>
+      <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        <img src="/Hamburger.svg" alt="Menu" />
       </div>
     </nav>
   );

@@ -94,3 +94,32 @@
     transform: scale(1.05);
     transition: transform 0.2s ease-in-out;
 }
+
+/* Hamburger Menu Style */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  /* Responsive Nav Links */
+  @media (max-width: 900px) {
+    .hamburger {
+      display: flex;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .nav-active {
+      display: flex;
+    }
+
+    .link-disappear {
+        display: none;
+    }
+  }
