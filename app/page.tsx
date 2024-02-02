@@ -77,6 +77,41 @@ const teamMembers = [
   }
 ];
 
+const latestContents = [
+  {
+    author: "TechCrunch",
+    title: "Cast AI Raises $35M Series B",
+    imagePath: "./contentPhotos/Cast.png",
+    date: new Date(new Date("2023-11-07").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
+    source: "TechCrunch",
+    link: "https://techcrunch.com/2023/11/07/cast-ai-which-helps-companies-optimize-cloud-spend-lands-35m/"
+  },
+  {
+    author: "Utah Business",
+    title: "How Devon Gethers Co-founded Meridian Ventures",
+    imagePath: "./contentPhotos/MeridianLaunch.png",
+    date: new Date(new Date("2023-08-03").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
+    source: "Utah Business",
+    link: "https://www.utahbusiness.com/how-devon-gethers-cofounded-meridian-ventures/"
+  },
+  {
+    author: "Devon Gethers",
+    title: "InsurTech: The Next Frontier of FinTech",
+    imagePath: "./contentPhotos/Insurtech.png",
+    date: new Date(new Date("2023-11-25").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
+    source: "Medium",
+    link: "https://medium.com/@devon_45585/insurance-technology-the-next-frontier-of-fintech-854aba3a2f70"
+  },
+  {
+    author: "Utah Business",
+    title: "45 Lessons from Utah Founders",
+    imagePath: "./contentPhotos/45Lessons.png",
+    date: new Date(new Date("2024-01-29").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
+    source: "Utah Business",
+    link: "https://www.utahbusiness.com/45-lessons-from-utah-founders/"
+  }
+];
+
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
     ssr: false,
@@ -293,38 +328,17 @@ const Home: FC = () => {
           <Section id="section6_latest" isFullHeight={true} style={latestSectionStyle}>
               <Header type="H1" isCentered={true} marginBottom='clamp(2vh, 5vh, 8vh)' style={principlesHeader}>Our Latest</Header>
               <div style={latestCardContainerStyle}>
-                  <LatestContentCard
-                      author="Devon Gethers"
-                      title="Redefining Healthtech: Our Latest Venture Has Already Saved Consumers $50M"
-                      imagePath="./placeholderImage.png"
-                      date={new Date()}
-                      source="Linkedin"
-                      link="Linkedin.com"
-                  />
-                  <LatestContentCard
-                      author="Devon Gethers"
-                      title="Redefining Healthtech: Our Latest Venture Has Already Saved Consumers $50M"
-                      imagePath="./placeholderImage.png"
-                      date={new Date()}
-                      source="Linkedin"
-                      link="Linkedin.com"
-                  />
-                  <LatestContentCard
-                      author="Devon Gethers"
-                      title="Redefining Healthtech: Our Latest Venture Has Already Saved Consumers $50M"
-                      imagePath="./placeholderImage.png"
-                      date={new Date()}
-                      source="Linkedin"
-                      link="Linkedin.com"
-                  />
-                  <LatestContentCard
-                      author="Devon Gethers"
-                      title="Redefining Healthtech: Our Latest Venture Has Already Saved Consumers $50M"
-                      imagePath="./placeholderImage.png"
-                      date={new Date()}
-                      source="Linkedin"
-                      link="Linkedin.com"
-                  />
+                  {latestContents.map((content, index) => (
+                      <LatestContentCard
+                          key={index}
+                          author={content.author}
+                          title={content.title}
+                          imagePath={content.imagePath}
+                          date={new Date(content.date)}
+                          source={content.source}
+                          link={content.link}
+                      />
+                  ))}
               </div>
           </Section>
           <Section id="section7_footer">

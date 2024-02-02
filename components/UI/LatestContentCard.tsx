@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Text from '../Text/Text';
+import './ui.css'
 
 interface LatestContentCardProps {
     author: string;
@@ -18,26 +19,38 @@ const cardStyle: React.CSSProperties = {
     border: '2px solid #444444',
     maxWidth: '600px',
     minWidth: '300px',
-    flexBasis: '500px',
+    flexBasis: '475px',
     height: 'auto',
     color: '#1E1E1E',
     overflow: 'hidden',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-
+    cursor: 'pointer',
 };
+
+const imageContainerStyle: React.CSSProperties = {
+    width: '40%',
+    height: '100%',
+    overflow: 'hidden',
+}
+
+const textStyle: React.CSSProperties = {
+    width: '60%',
+}
 
 const cardMain: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'row',
-    gap: 'clamp(10px, 1vw, 30px)'
+    gap: 'clamp(10px, 1vw, 30px)',
+    height: '100%',
 }
 
 const imageStyle: React.CSSProperties = {
-    width: '40%',
-    height: 'auto',
     mixBlendMode: 'multiply',
+    objectFit: 'cover',
+    width: '100%',
+    height: '100%',
 }
 
 const linkStyle: React.CSSProperties = {
@@ -59,16 +72,18 @@ const LatestContentCard: FC<LatestContentCardProps> = ({ author, title, imagePat
     const testDate = formatDate(new Date(date));
     
     return (
-        <div style={cardStyle}>
-            <div style={cardMain}>
-                <img src={imagePath} alt="principle icon" style={imageStyle}/>
-                <div>
-                    <Text variant="SmallFranklin" style={contentStyle}>{author}</Text>
-                    <Text variant="BodyBaskerville">{title}</Text>
+        <a href={link} style={cardStyle} target="_blank" rel="noopener" className="content-card-hover">
+                <div style={cardMain}>
+                    <div style={imageContainerStyle}>
+                        <img src={imagePath} alt="principle icon" style={imageStyle}/>
+                    </div>
+                    <div style={textStyle}>
+                        <Text variant="SmallFranklin" style={contentStyle}>{author}</Text>
+                        <Text variant="BodyBaskerville">{title}</Text>
+                    </div>
                 </div>
-            </div>
-            <Text variant="ExtraSmallFranklin" style={linkStyle}>{testDate} – <span style={{textDecoration: "underline"}}>{source}</span></Text>
-        </div>
+                <Text variant="ExtraSmallFranklin" style={linkStyle}>{testDate} – <span style={{textDecoration: "underline"}}>{source}</span></Text>
+        </a>
     );
 };
 
