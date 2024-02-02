@@ -7,7 +7,7 @@ const placeholderImageStyle: React.CSSProperties = {
     objectFit: 'cover',
     height: '1500px',
     offset: '200px',  // 'offset' is not a standard CSS property and might not have the intended effect
-    position: 'relative',
+    position: 'fixed',
     top: '-110px',
     left: '0px',
 };

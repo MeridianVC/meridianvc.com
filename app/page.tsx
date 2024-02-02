@@ -21,7 +21,7 @@ import Footer from '@/components/UI/Footer';
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
   ssr: false,
-  loading: () => <PlaceholderMap/> // loads placeholder while 3D globe renders
+  // loading: () => <PlaceholderMap/> // removed for now – would rather have nothing for .5 seconds
 });
 
 const teamMembers = [
