@@ -25,8 +25,7 @@ const cardStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    cursor: 'pointer',
-    flexShrink: 1
+    cursor: 'pointer'
 };
 
 const imageContainerStyle: React.CSSProperties = {
