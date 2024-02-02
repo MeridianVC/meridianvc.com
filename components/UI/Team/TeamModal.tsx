@@ -53,11 +53,14 @@ const TeamModal: FC<TeamModalProps> = ({
     };
 
     const contentStyle: React.CSSProperties = {
-        padding: '40px 20px',
+        paddingLeft: '20px',
+        paddingRight: '20px',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        alignContent: 'center',
+        paddingTop: 'clamp(40px, 28vh, 28vh)',
+        paddingBottom: '120px',
+        alignContent: 'start',
         justifyContent: 'space-between',
         gap: 'clamp(20px, 40px, 40px)',
         width: 'clamp(70%, 90%, 1100px)',
