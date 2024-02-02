@@ -90,7 +90,7 @@ const Footer: FC = () => {
     }
 
     return (
-        <div style={footerStyle} className="footer">
+        <footer style={footerStyle} className="footer">
             <div style={leftContainerStyle} className="footer-left-flex-column">
                 <div style={sectionStyle} className="footer-small-remove">
                     <Text variant="BodyBaskerville">
@@ -111,7 +111,7 @@ const Footer: FC = () => {
                         Ethos
                     </Text>
                     <Text variant="SmallBaskerville">
-                        Our ethos is grounded in integrity, relentless work ethic, entrepreneurship, and accountability, complemented by a passion for lifelong learning.
+                        Integrity, relentless work ethic, entrepreneurship, and accountability, complemented by a passion for lifelong learning.
                     </Text>  
                 </div>
                 <div style={linkGroupStyle}>
@@ -148,7 +148,7 @@ const Footer: FC = () => {
                 <img src="./MVbadge.svg" alt="MV Badge" />
                 {new Date().getFullYear()} Meridian Ventures &ndash; All Rights Reserved
             </div>
-        </div>
+        </footer>
     );
 };
 
