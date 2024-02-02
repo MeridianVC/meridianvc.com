@@ -1,0 +1,6 @@
+// used in other components for height calcs
+// cannot be exported directly from Navbar due to it being a client-side component
+
+const navHeight = 'clamp(70px, calc(7vh + 2px), calc(7vh + 2px))'; 
+
+export { navHeight }

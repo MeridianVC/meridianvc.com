@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { navHeight } from '../UI/Navbar';
+import { navHeight } from './NavHeight';
 
 interface SpacerProps {
     height?: string;

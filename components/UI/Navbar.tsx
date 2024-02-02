@@ -1,9 +1,10 @@
-// Navbar contains logo and navigation links
+"use client";
 
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import { navHeight } from '../Structural/NavHeight';
 import './ui.css';
 
-const borderThickness = '2px'; 
+const borderThickness = '2px';
 
 const wordmarkStyle: React.CSSProperties = {
   fontSize: '36px',
@@ -17,10 +18,14 @@ const linkStyle: React.CSSProperties = {
   gap: '4vw',
   fontSize: '1rem',
   textDecoration: 'none',
-  color: 'inherit'
+  color: 'inherit',
 };
 
-export const navHeight = 'clamp(70px, calc(7vh + 2px), calc(7vh + 2px))' // used in other components for height calcs
+const mobileLinkStyle: React.CSSProperties = {
+  flexDirection: 'column',
+  gap: '1rem',
+  alignItems: 'center',
+};
 
 const navStyle: React.CSSProperties = {
   display: 'flex',
@@ -41,11 +46,23 @@ const navStyle: React.CSSProperties = {
   alignItems: 'center',
 };
 
+const burgerStyle: React.CSSProperties = {
+  display: 'none', // Default to not display, will be overridden by media query
+  cursor: 'pointer',
+};
+
 const Navbar: FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <nav style={navStyle}>
       <a href="./" style={wordmarkStyle}>MERIDIAN</a>
-      <div style={linkStyle}>
+      <div className="burger" onClick={toggleMenu} style={{...burgerStyle, ...(isMenuOpen ? {display: 'flex'} : {})}}>
+        ☰
+      </div>
+      <div style={{...linkStyle, ...(isMenuOpen ? mobileLinkStyle : {})}}>
         <a href="#section2_principles" className="navbar-hover">Principles</a>
         <a href="#section4_team" className="navbar-hover">Team</a>
         <a href="#section5_companies" className="navbar-hover">Investments</a>

@@ -1,7 +1,7 @@
 // This component is used to define screen-sized sections to place in the main scroll
 
 import { FC } from 'react';
-import { navHeight } from '@/components/UI/Navbar';
+import { navHeight } from './NavHeight';
 
 
 interface SectionProps {

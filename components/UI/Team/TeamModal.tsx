@@ -1,6 +1,6 @@
 import React, { FC, useEffect, ReactElement } from 'react';
 import Image from 'next/image';
-import { navHeight } from '../Navbar';
+import { navHeight } from '../../Structural/NavHeight';
 import { motion } from 'framer-motion';
 import FillBottomModal from '@/components/Structural/FillBottomModal';
 import Header from '@/components/Text/Header';

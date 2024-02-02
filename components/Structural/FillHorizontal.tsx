@@ -1,7 +1,7 @@
 // This component is built to fill space horizontally and contribute to the inner box effect
 
 import { FC } from 'react';
-import { navHeight } from '../UI/Navbar';
+import { navHeight } from './NavHeight';
 
 interface FillHorizontalProps {
     behind?: boolean; // Add a new prop for the "behind" logic
