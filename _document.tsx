@@ -32,7 +32,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="preload" href="/globe.glb" as="fetch"/>
         </Head>
         <body>
           <Main />

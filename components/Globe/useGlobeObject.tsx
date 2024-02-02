@@ -1,10 +1,8 @@
-"use client";
-// This custom hook is used to load the globe object and preprocess any texture
-// Ideally this ran on the server but it is not trivial to get this to work due to three.js's reliance on native features
-
+// Assuming preloadGlobe.ts is correctly set up as before
 import { useState, useEffect } from 'react';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import globePromise from './preloadGlobe'; // Import the preloaded globe promise
 
 interface GlobeObjectProps {
     renderer: THREE.WebGLRenderer | null,
@@ -13,49 +11,35 @@ interface GlobeObjectProps {
 
 const useGlobeObject = ({ renderer, scene }: GlobeObjectProps) => {
     const [globe, setGlobe] = useState<THREE.Object3D | undefined>(undefined);
-    const [isRendering, setIsRendering] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if (!renderer) {
-            setIsRendering(false);
+            setIsLoading(false);
             return;
         }
 
-        // Load the GLB/GLTF file
-        const loader = new GLTFLoader();
-        loader.load('./globe.glb', (gltf) => {
-
-            // Scale and position the scene
-            gltf.scene.scale.set(3, 3, 3);
-            gltf.scene.position.set(8, 5, 5);
-
-            // Adjust materials to reduce shininess
-            gltf.scene.traverse((object) => {
-                if (object) {
+        // Wait for the globePromise to resolve then manipulate globe
+        globePromise.then((gltf: GLTF) => {
+            const scene = gltf.scene;
+            scene.scale.set(3, 3, 3);
+            scene.position.set(8, 5, 5);
+            scene.traverse((object: THREE.Object3D) => {
+                if ((object as THREE.Mesh).isMesh) {
                     const mesh = object as THREE.Mesh;
-                    if (mesh.material instanceof THREE.Material) {
-                        const material = mesh.material as THREE.MeshStandardMaterial;
-
-                        // Adjust the roughness and metalness for a more matte appearance
-                        material.roughness = 1; // Increase roughness
-                        material.metalness = 0; // Decrease metalness
-                    }
+                    const material = mesh.material as THREE.MeshStandardMaterial;
+                    material.roughness = 1;
+                    material.metalness = 0;
                 }
             });
 
             // Set the loaded globe to state
-            setGlobe(gltf.scene);
+            setGlobe(scene);
             setIsLoading(false);
-            window.dispatchEvent(new CustomEvent('globeLoaded'));
-
-            // if (!isLoading) {
-            //     console.log('set variable'); // this is not firing, so the dispatch event is not getting added to the window
-            //     window.dispatchEvent(new CustomEvent('globeLoaded'));
-            // }
-
-        }, undefined, (error) => {
+            
+        }).catch((error) => {
             console.error("Error loading GLTF:", error);
+            setIsLoading(false);
         });
     }, [renderer]);
 
