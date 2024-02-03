@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './ui.css'; // Assuming you'll add .square-button styles here
+import './ui.css';
 
 interface SquareButtonProps {
   onClick: () => void;
@@ -25,7 +25,7 @@ const GetInTouchButton: FC<SquareButtonProps> = ({ onClick, className, style }) 
   }
 
   return (
-    <button className={`square-button ${className}`} style={combinedStyle} onClick={onClick}>
+    <button className={`get-in-touch-hover ${className}`} style={combinedStyle} onClick={onClick}>
       Get in Touch
     </button>
   );

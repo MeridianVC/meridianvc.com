@@ -31,7 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${Baskerville.variable} ${Franklin.variable}`}>
-      <body>{children}</body>
+      <body>
+          {children}
+          <div id="modal-root"></div>
+      </body>
+
     </html>
   )
 }

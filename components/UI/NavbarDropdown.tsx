@@ -27,8 +27,8 @@ const NavbarDropdown: React.FC<DropdownMenuProps> = ({ isDropdownOpen, setIsDrop
     backgroundColor: '#FFF5DC',
     position: 'fixed',
     top: `calc(${navHeight} - 2px`,
-    left: 'calc(4vw - 2px)',
-    right: 'calc(4vw - 2px)',
+    left: 'calc(4vw - 2.5px)',
+    right: 'calc(4vw - 2.5px)',
     borderTop: 'solid 2px #444444',
     borderBottom: 'solid 2px #444444',
     borderRight: 'solid 2px #444444',
@@ -57,10 +57,8 @@ const NavbarDropdown: React.FC<DropdownMenuProps> = ({ isDropdownOpen, setIsDrop
         exit={{ y: '-40vh' }}
         transition={{ type: 'easeInOut', stiffness: 100 }}
     >
-      {/* <GetInTouchButton className="nav-link" onClick={() => setIsDropdownOpen(!isDropdownOpen) }/> */}
       <GetInTouchButton className="nav-link" onClick={() => toggleModal() }/>
       <a href="https://login.app.carta.com/credentials/login/" target="blank" className="nav-link" style={navLinkStyle}>Investor Portal</a>
-
       <ul style={listStyle}>
         {links.map((link, index) => (
             <li className="nav-link">

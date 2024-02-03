@@ -31,7 +31,7 @@ const TeamModal: FC<TeamModalProps> = ({
     medium, 
     focus, 
     education, 
-    experienceP1, 
+    experienceP1,
     experienceP2,
     onClose, 
     isOpen }): ReactElement => {
@@ -59,7 +59,7 @@ const TeamModal: FC<TeamModalProps> = ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        paddingTop: 'clamp(40px, 28vh, 28vh)',
+        paddingTop: 'clamp(40px, 25vh, 28vh)',
         paddingBottom: '120px',
         alignContent: 'start',
         justifyContent: 'space-between',

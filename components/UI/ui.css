@@ -34,6 +34,12 @@
     .team-modal-content {
         margin-bottom: 20px !important;
     }
+    .get-in-touch-content-flex {
+        padding-top: 60px !important;
+        justify-content: center !important;
+        margin-bottom: 20px !important;
+        align-content: center !important;
+    }
 }
 
 @media (max-width: 500px) {
@@ -51,6 +57,9 @@
     }
     .content-card-height {
         height: 125px !important;
+    }
+    .get-in-touch-content-flex {
+        justify-content: start !important;
     }
 }
 
@@ -96,8 +105,8 @@
 }
 
 .nav-link:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-in-out;
+    transform: scale(1.05) !important;
+    transition: transform 0.2s ease-in-out !important;
 }
 
 /* Hamburger Menu Style */
@@ -111,6 +120,11 @@
 .hamburger:hover {
     transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
+}
+
+.get-in-touch-hover:hover {
+    transform: scale(1.1) translateY(-5px) !important;
+    transition: transform 0.2s ease-in-out !important;
 }
   
 /* Responsive Nav Links */

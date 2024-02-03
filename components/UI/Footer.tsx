@@ -22,7 +22,6 @@ const Footer: FC = () => {
         left: '-2px',
         zIndex: 9,
         gap: '25px',
-        
     };
 
     const sectionStyle: React.CSSProperties = {
@@ -112,7 +111,7 @@ const Footer: FC = () => {
                         Ethos
                     </Text>
                     <Text variant="SmallBaskerville">
-                        Integrity, relentless work ethic, entrepreneurship, and accountability, complemented by a passion for lifelong learning.
+                        Integrity, relentless work ethic, entrepreneurship, accountability, and a passion for lifelong learning.
                     </Text>  
                 </div>
                 <div style={linkGroupStyle}>

@@ -32,9 +32,8 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
         right: 'calc(4vw - 3px)',
         height: `calc(100vh - ${navHeight})`,
         justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#FFF5DC',
-        zIndex: 8,
+        zIndex: 10,
         borderTop: 'solid 2px #444444',
         borderRight: 'solid 2px #444444',
         borderLeft: 'solid 2px #444444',
@@ -47,12 +46,10 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        paddingTop: 'clamp(40px, 28vh, 28vh)',
+        paddingTop: 'clamp(40px, 20vh, 28vh)',
         paddingBottom: '120px',
-        alignContent: 'start',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         gap: 'clamp(20px, 40px, 40px)',
-        width: 'clamp(70%, 90%, 1100px)',
         maxWidth: '1200px',
         height: `calc(100vh - ${navHeight} - 2px)`,
         overflowX: 'hidden',
@@ -68,17 +65,12 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
         zIndex: 10,
     };
 
-    const smallArrowStyle: React.CSSProperties = {
-        width: '6.5px',
-        maxWidth: '6.5px',
-        position: 'relative',
-        top: '-4px'
-    }
-
     const sectionStyle: React.CSSProperties = {
-        flex: 1,
+        flexGrow: 1,
         backgroundColor: '#FFF5DC',
         zIndex: 2,
+        minWidth: '300px',
+        maxWidth: 'clamp(150px, 50%, 50%)',
     };
 
     const imageContainerStyle: React.CSSProperties = {
@@ -100,40 +92,55 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
         backgroundColor: '#FFF5DC',
         zIndex: -1
     };
+
     
+
+    const sectionSpacing: React.CSSProperties = {
+        marginBottom: 'clamp(10px, 5vw, 20px)',
+    }
     
         if (!isOpen) {
-            return null; // This ensures the function doesn't return void
+            console.log('not open');
+            return null;
           }
     
         return (
-            <motion.div
-            className="modalStyle"
+        <motion.div
             initial={{ y: '100vh' }}
             animate={{ y: 0 }}
             exit={{ y: '100vh' }}
             transition={{ type: 'easeInOut', stiffness: 100 }}
+            style={modalStyle}
+            className="get-in-touch-modal-flex"
         >
-            <button onClick={onClose} className="closeButtonStyle modal-link">
-                <Image src="/ModalX.svg" alt="Close" width={34} height={34} />
+            <button onClick={onClose} style={closeButtonStyle} className="modal-link">
+                <Image src="/ModalX.svg" alt="Close" width={34} height={34}/>
             </button>
-            <div className="contentStyle team-modal-flex">
-                <div className="imageContainerStyle team-modal-content">
-                <Image 
-                    src='/shipWheel.png'
-                    alt="Ship Wheel" 
-                    width={300}
-                    height={500}
-                    style={imageStyle} 
-                    // className="company-logo-color"
-                />
-                    <div className="imageBackgroundFill"></div>
+            <div style={contentStyle} className="get-in-touch-content-flex">
+                <div style={imageContainerStyle}>
+                    <Image 
+                        src='/shipWheel.png'
+                        alt="Ship Wheel" 
+                        width={300}
+                        height={400}
+                        style={imageStyle}
+                    />
+                    <div style={imageBackgroundFill}></div>
                 </div>
-                <div className="sectionStyle team-modal-content">
-                    {/* Content sections */}
-                    <Header type="H4">Building?</Header>
-                    <Text variant="SmallFranklin">Focus</Text>
-                    {/* Additional sections */}
+                <div style={sectionStyle}>
+                    <Header type="H2" marginBottom="clamp(10px, 1vw, 20px)">Get in Touch</Header>
+                    <div style={sectionSpacing}>
+                        <Header type="H4">Building?</Header>
+                        <Text variant="SmallFranklin"> Submit your startup deck to <span className="get-in-touch-hover"><a href="mailto:info@meridianventures.co" style={{ textDecoration: 'underline' }}>info@meridianventures.co</a></span></Text>
+                    </div>
+                    <div style={sectionSpacing}>
+                        <Header type="H4">About Meridian</Header>
+                        <Text variant="SmallFranklin">At Meridian, we empower audacious founders who are at the forefront of building durable technologies that positively impact humanity. We believe that visionary founders are the architects of the future, and it’s our privilege to support them. We focus on investing in B2B software companies from Pre-Seed to Series A.</Text>
+                    </div>
+                    <div style={sectionSpacing}>
+                        <Header type="H4">Stay in Touch</Header>
+                        <Text variant="SmallFranklin">Connect on <span className="get-in-touch-hover"><a href="https://www.linkedin.com/company/meridian-vc/" target="_blank" style={{ textDecoration: 'underline' }}>LinkedIn</a></span></Text>
+                    </div>
                 </div>
             </div>
             <FillBottomModal />

@@ -46,7 +46,7 @@ const teamMembers = [
       linkedin: "https://www.linkedin.com/in/kevinkarltonhaney/",
       email: "karlton@meridianventures.co",
       focus: "Karlton focuses his time on sourcing startups, making new investments, and managing relationships with portfolio companies.",
-      education: "He holds a B.S. in Industrial Engineering from the University of Arkansas and is a member of the Harvard Business School Class of 2025.",
+      education: "B.S. in Industrial Engineering from the University of Arkansas. Member of the Harvard Business School Class of 2025.",
       experienceP1: "Prior to co-founding Meridian, Karlton was a private equity buyout and growth investor at The Stephens Group. In his role at Stephens Group, he reviewed new investment opportunities, supported the team’s investment efforts by conducting financial analysis, due diligence, and industry research, and worked closely with portfolio companies on strategic priorities. Before Stephens Group, he worked in various finance and strategy roles at Walmart Inc."
   },
   {
@@ -55,10 +55,10 @@ const teamMembers = [
       imageSrc: "/headshotDallin.png",
       title: "Advisor",
       linkedin: "https://linkedin.com/in/dallinanderson",
-      focus: "focus",
-      education: "Mr. Anderson received a B.S. in Accounting from Brigham Young University and an MBA from Harvard Business School.",
+      focus: "Fund strategy and new investment advisory.",
+      education: "B.S. in Accounting from Brigham Young University. MBA from Harvard Business School.",
       experienceP1: "Founder and Managing Director of Serial Capital, an investor in seed and growth-stage companies across various sectors.",
-      experienceP2: "Prior to Serial Capital, Dallin was Co-Founder, Chairman and President of Tolero Pharmaceuticals. Tolero was acquired in 2017 by Dainippon Sumitomo Pharmaceuticals. Prior to Tolero, Mr. Anderson founded Montigen Pharmaceuticals, where he served as Chairman, President, and CEO. Montigen was acquired in 2006 by Supergen (Nasdaq: SUPG), now Astex (Nasdaq: ASTX)."
+      experienceP2: "Prior to Serial Capital, Dallin was Co-Founder, Chairman and President of Tolero Pharmaceuticals. Tolero was acquired in 2017 by Dainippon Sumitomo Pharmaceuticals."
   },
   {
       name: "Heather Harmon",
@@ -66,21 +66,21 @@ const teamMembers = [
       imageSrc: "/headshotHeather.png",
       title: "Advisor",
       linkedin: "https://www.linkedin.com/in/heatheraharmon/",
-      focus: "focus",
+      focus: "New investment advisory and mentorship for portfolio founders.",
       education: "Heather completed a Pre-medicine degree from UC San Diego and University of Washington, attended the Universidad of Guadalajara, and UC Berkeley Haas School of Business for Artificial Intelligence.",
-      experienceP1: "Ms. Harmon is a 4x founder and former venture-backed COO and public company executive. Ms. Harmon is a passionate proptech and fintech leader, who has built and managed highly engaged technical teams, led product management, scaled operations from startup through M&A, and created innovative services valued by users.",
-      experienceP2: "Currently, she is advising early stage companies to navigate intuitively through the challenges of raising capital, scaling a team, defining a product roadmap, and prioritization strategies."
+      experienceP1: "Ms. Harmon is a 4x founder and former venture-backed COO and public company executive. She is a passionate proptech and fintech leader, who has built and managed highly engaged technical teams, led product management, scaled operations from startup through M&A, and created great user products.",
+      experienceP2: "Currently, she is advising early stage companies on raising capital, scaling a team, defining a product roadmap, and balancing resource constraints."
   },
   {
       name: "Zach Thomas",
       role: "Advisor",
       imageSrc: "/headshotZach.png",
       title: "Advisor",
-      focus: "focus",
+      focus: "Fund raising and LP relations.",
       linkedin: "https://www.linkedin.com/in/zachary-smith-b835721/",
-      education: "education",
+      education: "B.S. in Finance from the University of Utah.",
       experienceP1: "Mr. Smith is Managing Director at Crescent Capital ($40B private equity fund) on the Investor Relations team. Prior to joining Crescent, Zachary spent 20 years at Wells Fargo Asset Management.",
-      experienceP2: "He is an LP in Harlem Capital, Beta Boom, First Close Partners, and other minority-owned funds and has made over 50 angel investments. In addition, Mr. Smith is an impassioned ambassador for creating a real and tangible opportunity for the Black community. He is a founding board member of the University of Utah’s IMPACT Program, an internship program focused on post-grad education and employment, in partnership with HBCUs nationwide."
+      experienceP2: "He is an LP in Harlem Capital, Beta Boom, First Close Partners, and other minority-owned funds and has made over 50 angel investments. He is a founding board member of the University of Utah’s IMPACT Program, an internship program focused on post-grad education and employment, in partnership with HBCUs nationwide."
   }
 ];
 
@@ -160,7 +160,7 @@ const legendStyle: React.CSSProperties = {
   width: 'clamp(18rem, 60vw, 33rem)',
   position: 'relative',
   marginRight: 'clamp(5vw, 8vw, 20vw)',
-  marginBottom: 'clamp(5vh, 10vh, 10vh)',
+  marginBottom: 'clamp(5vh, 10vh, 12vh)',
   marginLeft: 'auto',
   marginTop: 'auto',
   backgroundColor: 'transparent',
@@ -356,7 +356,6 @@ const Home: FC = () => {
           <Section id="section7_footer">
               <Footer />
           </Section>
-          {/* <div style={footerSpacerStyle}></div> */}
         </main>
       <Globe style={globeStyle} />
     </>
