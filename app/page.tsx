@@ -57,7 +57,7 @@ const teamMembers = [
       linkedin: "https://linkedin.com/in/dallinanderson",
       focus: "Fund strategy and new investment advisory.",
       education: "B.S. in Accounting from Brigham Young University. MBA from Harvard Business School.",
-      experienceP1: "Dallin is an active seed and growth-stage investor. Much of his life was spent founding and selling cancer drug development companies. His recent success, Tolero Pharmaceuticals, he sold to a Japanese firm which was the biggest Utah biotech deal to date in 2017.",
+      experienceP1: "Dallin is an active seed and growth-stage investor. Until recently, he spent his time building and selling cancer drug development companies. His recent success, Tolero Pharmaceuticals, he sold to a Japanese firm which was the biggest Utah biotech deal to date in 2017.",
       experienceP2: "Today, Dallin spends his time semi-retired while building relationships and preparing for his next venture."
   },
   {
@@ -69,7 +69,7 @@ const teamMembers = [
       focus: "New investment advisory and mentorship for portfolio founders.",
       education: "Heather completed a Pre-medicine degree from UC San Diego and University of Washington, attended the Universidad of Guadalajara, and UC Berkeley Haas School of Business for Artificial Intelligence.",
       experienceP1: "Ms. Harmon is a 4x founder and former venture-backed COO and public company executive. She is a passionate proptech and fintech leader, who has built and managed highly engaged technical teams, led product management, scaled operations from startup through M&A, and created great user products.",
-      experienceP2: "Currently, she is advising early stage companies on raising capital, defining product roadmaps, and scaling teams."
+      experienceP2: "Currently, she is advising early stage companies on raising capital, defining product roadmaps, and scaling."
   },
   {
       name: "Zach Thomas",
