@@ -61,7 +61,7 @@ const NavbarDropdown: React.FC<DropdownMenuProps> = ({ isDropdownOpen, setIsDrop
       <a href="https://login.app.carta.com/credentials/login/" target="blank" className="nav-link" style={navLinkStyle}>Investor Portal</a>
       <ul style={listStyle}>
         {links.map((link, index) => (
-            <li className="nav-link">
+            <li className="nav-link" key={index}>
             <a href={link.href} onClick={() => setIsDropdownOpen(false)}>{link.title}</a>
           </li>
         ))}
