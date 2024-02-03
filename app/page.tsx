@@ -326,7 +326,7 @@ const Home: FC = () => {
           <Section id="section4_team" isFullHeight={true}>
               <Spacer height={'5vh'} />
               <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(15px, 8vh, 100px)'> 
-                  Our team of seasoned operators and investors, at your side as you chart your course. 
+                  Seasoned operators and investors, at your side as you chart your course. 
               </Header>
               <TeamCardContainer teamMembers={teamMembers}/>
               <Spacer height={'5vh'}/>
