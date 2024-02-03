@@ -33,10 +33,10 @@ const teamMembers = [
       linkedin: "https://www.linkedin.com/in/devon-gethers/",
       email: "devon@meridianventures.co",
       medium: "https://medium.com/@devon_45585",
-      focus: "Devon allocates his time to identifying and investing in startups with high growth potential, portfolio construction, capital raising, and managing key relationships with portfolio companies.",
+      focus: "Devon allocates his time to identifying startups with high growth potential, raising capital to fund the opportunities, and investing time in the portfolio and its founders.",
       education: "Devon holds a B.S. in Finance from the University of Utah, where he graduated Summa Cum Laude. He is currently a candidate at Harvard Business School, Class of 2025.",
-      experienceP1: "Prior to co-founding Meridian, Devon served as the CEO and Founder at EarlyAdmit, an EdTech startup dedicated to improving educational and professional outcomes for underserved minorities. This commitment culminated in its acquisition by PE in 2023.",
-      experienceP2: "During his tenure at Mercato Partners, a $2B AUM growth equity firm investing in Enterprise SaaS and Branded Consumer, further showcased his impact and contributions. Here, Devon reviewed emerging investment opportunities, supported the team's investment efforts by conducting financial analysis, due diligence, and industry research, supported senior investors with a $400M fundraise, and closely collaborated with portfolio companies on strategic initiatives. This blend of entrepreneurial operator success and investment expertise positions Devon as a preferred strategic partner to founders."
+      experienceP1: "Prior to co-founding Meridian, Devon founded EarlyAdmit, an EdTech startup dedicated to improving educational and professional outcomes for underserved minorities, which he sold to private equity in 2023.",
+      experienceP2: "While scaling EarlyAdmit, Devon worked in a $2B AUM growth equity firm investing in Enterprise SaaS and Branded Consumer businesses. Devon's blend of operator success and investment expertise makes him a preferred strategic partner to founders."
   },
   {
       name: "Karlton Haney",
@@ -57,8 +57,8 @@ const teamMembers = [
       linkedin: "https://linkedin.com/in/dallinanderson",
       focus: "Fund strategy and new investment advisory.",
       education: "B.S. in Accounting from Brigham Young University. MBA from Harvard Business School.",
-      experienceP1: "Founder and Managing Director of Serial Capital, an investor in seed and growth-stage companies across various sectors.",
-      experienceP2: "Prior to Serial Capital, Dallin was Co-Founder, Chairman and President of Tolero Pharmaceuticals. Tolero was acquired in 2017 by Dainippon Sumitomo Pharmaceuticals."
+      experienceP1: "Dallin is an active seed and growth-stage investor. Much of his life was spent founding and selling cancer drug development companies. His recent success, Tolero Pharmaceuticals, he sold to a Japanese firm which was the biggest Utah biotech deal to date in 2017.",
+      experienceP2: "Today, Dallin spends his time semi-retired while building relationships and preparing for his next venture."
   },
   {
       name: "Heather Harmon",
@@ -69,14 +69,14 @@ const teamMembers = [
       focus: "New investment advisory and mentorship for portfolio founders.",
       education: "Heather completed a Pre-medicine degree from UC San Diego and University of Washington, attended the Universidad of Guadalajara, and UC Berkeley Haas School of Business for Artificial Intelligence.",
       experienceP1: "Ms. Harmon is a 4x founder and former venture-backed COO and public company executive. She is a passionate proptech and fintech leader, who has built and managed highly engaged technical teams, led product management, scaled operations from startup through M&A, and created great user products.",
-      experienceP2: "Currently, she is advising early stage companies on raising capital, scaling a team, defining a product roadmap, and balancing resource constraints."
+      experienceP2: "Currently, she is advising early stage companies on raising capital, defining product roadmaps, and scaling teams."
   },
   {
       name: "Zach Thomas",
       role: "Advisor",
       imageSrc: "/headshotZach.png",
       title: "Advisor",
-      focus: "Fund raising and LP relations.",
+      focus: "Fundraising and LP relations.",
       linkedin: "https://www.linkedin.com/in/zachary-smith-b835721/",
       education: "B.S. in Finance from the University of Utah.",
       experienceP1: "Mr. Smith is Managing Director at Crescent Capital ($40B private equity fund) on the Investor Relations team. Prior to joining Crescent, Zachary spent 20 years at Wells Fargo Asset Management.",

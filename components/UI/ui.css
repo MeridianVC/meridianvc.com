@@ -115,6 +115,7 @@
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    padding-right: 5px;
   }
 
 .hamburger:hover {

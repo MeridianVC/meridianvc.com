@@ -15,6 +15,7 @@ const wordmarkStyle: React.CSSProperties = {
   fontSize: '36px',
   letterSpacing: '2.8px',
   paddingTop: '5px',
+  paddingLeft: '2px',
 }
 
 const linkStyle: React.CSSProperties = {
@@ -24,7 +25,8 @@ const linkStyle: React.CSSProperties = {
   fontSize: '1rem',
   textDecoration: 'none',
   color: 'inherit',
-  transform: 'translate(0px, 3px)'
+  transform: 'translate(0px, 3px)',
+  paddingRight: '.5px',
 };
 
 const navStyle: React.CSSProperties = {

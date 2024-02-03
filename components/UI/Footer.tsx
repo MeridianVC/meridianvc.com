@@ -111,7 +111,7 @@ const Footer: FC = () => {
                         Ethos
                     </Text>
                     <Text variant="SmallBaskerville">
-                        Integrity, relentless work ethic, entrepreneurship, accountability, and a passion for lifelong learning.
+                        Integrity, relentless work ethic, entrepreneurship, accountability, and commitment to learning.
                     </Text>  
                 </div>
                 <div style={linkGroupStyle}>
