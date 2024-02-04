@@ -72,14 +72,14 @@ const teamMembers = [
       experienceP2: "Currently, she is advising early stage companies on raising capital, defining product roadmaps, and scaling."
   },
   {
-      name: "Zach Thomas",
+      name: "Zachary Smith",
       role: "Advisor",
       imageSrc: "/headshotZach.png",
       title: "Advisor",
       focus: "Fundraising and LP relations.",
       linkedin: "https://www.linkedin.com/in/zachary-smith-b835721/",
       education: "B.S. in Finance from the University of Utah.",
-      experienceP1: "Mr. Smith is Managing Director at Crescent Capital ($40B private equity fund) on the Investor Relations team. Prior to joining Crescent, Zachary spent 20 years at Wells Fargo Asset Management.",
+      experienceP1: "Mr. Smith is a Managing Director at Crescent Capital ($40B private equity fund) on the Investor Relations team. Prior to joining Crescent, Zachary spent 20 years at Wells Fargo Asset Management.",
       experienceP2: "He is an LP in Harlem Capital, Beta Boom, First Close Partners, and other minority-owned funds and has made over 50 angel investments. He is a founding board member of the University of Utah’s IMPACT Program, an internship program focused on post-grad education and employment, in partnership with HBCUs nationwide."
   }
 ];
