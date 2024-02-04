@@ -32,6 +32,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/meridian-dcedd.appspot.com/o/Legend.png?alt=media" />
         </Head>
         <body>
           <Main />
