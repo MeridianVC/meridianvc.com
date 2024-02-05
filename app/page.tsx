@@ -57,8 +57,8 @@ const teamMembers = [
       linkedin: "https://linkedin.com/in/dallinanderson",
       focus: "Fund strategy and new investment advisory.",
       education: "B.S. in Accounting from Brigham Young University. MBA from Harvard Business School.",
-      experienceP1: "Dallin is an active seed and growth-stage investor. Until recently, he spent his time building and selling cancer drug development companies. His recent success, Tolero Pharmaceuticals, he sold to a Japanese firm which was the biggest Utah biotech deal to date in 2017.",
-      experienceP2: "Today, Dallin spends his time semi-retired while building relationships and preparing for his next venture."
+      experienceP1: "Mr. Anderson was the Founder, Chairman, and CEO of Montigen Pharmaceuticals (acquired by Supergen) and Co-Founder, Chairman, and President of Tolero Pharmaceuticals (acquired by Dainippon Sumitomo) in what was at the time (2017) the largest Utah-based biotechnology transaction to date.",
+      experienceP2: "Dallin founded and currently manages Serial Capital, an investor in real estate and seed/growth stage companies across various sectors."
   },
   {
       name: "Heather Harmon",
