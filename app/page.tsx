@@ -3,9 +3,7 @@ import './globals.css';
 import { FC } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import PlaceholderMap from '@/components/Globe/GlobePlaceholder';
 import FillHorizontal from '@/components/Structural/FillHorizontal';
-import FillVertical from '@/components/Structural/FillVertical';
 import Navbar from '@/components/UI/Navbar';
 import Header from '@/components/Text/Header';
 import Spacer from '@/components/Structural/Spacer';
@@ -17,6 +15,8 @@ import TeamCardContainer from '@/components/UI/Team/TeamCardContainer';
 import CompanyGrid from '@/components/UI/CompanyGrid';
 import LatestContentCard from '@/components/UI/LatestContentCard';
 import Footer from '@/components/UI/Footer';
+import '../components/UI/ui.css';
+import FillVertical from '@/components/Structural/FillVertical';
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -128,7 +128,6 @@ const mainContentStyle: React.CSSProperties = {
   top: '0',
   marginLeft: 'auto',
   marginRight: 'auto',
-  gap: '20px',
 };
 
 const globeStyle: React.CSSProperties = {
@@ -232,8 +231,8 @@ const Home: FC = () => {
   return (
     <>
       <Navbar />
-      <FillVertical side='left' />
-      <FillVertical side='right' />
+      <FillVertical side="right"/>
+      <FillVertical side="left"/>
       <FillHorizontal />
       <FillHorizontal behind />
         <main style={mainContentStyle}>
