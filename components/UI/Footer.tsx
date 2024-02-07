@@ -90,6 +90,7 @@ const Footer: FC = () => {
     }
 
     return (
+    <div>
         <footer style={footerStyle} className="footer">
             <div style={leftContainerStyle} className="footer-left-flex-column">
                 <div style={sectionStyle} className="footer-small-remove">
@@ -187,6 +188,7 @@ const Footer: FC = () => {
                 {new Date().getFullYear()} Meridian Ventures &ndash; All Rights Reserved
             </div>
         </footer>
+    </div>
     );
 };
 

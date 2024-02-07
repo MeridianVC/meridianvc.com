@@ -61,6 +61,10 @@
     .get-in-touch-content-flex {
         justify-content: start !important;
     }
+    .mobile-modal {
+        left: 4vw !important;
+        right: 4vw !important;
+    }
 }
 
 .navbar-hover:hover {

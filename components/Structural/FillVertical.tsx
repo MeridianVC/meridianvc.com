@@ -7,10 +7,11 @@ const fillStyle = (side: 'left' | 'right'): React.CSSProperties => ({
     top: 0,
     bottom: 0,
     [side]: 0,
-    borderRight: side === 'left' ? '2px solid #444444' : undefined,
-    borderLeft: side === 'right' ? '2px solid #444444' : undefined,
-    width: '4%',
-    zIndex: 9,
+    // borderRight: side === 'left' ? '2px solid #444444' : undefined,
+    // borderLeft: side === 'right' ? '2px solid #444444' : undefined,
+    width: '4vw',
+    height: '100vh',
+    zIndex: 2,
     backgroundColor:"#FFF5DC",
 });
 

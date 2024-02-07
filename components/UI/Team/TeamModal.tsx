@@ -40,8 +40,8 @@ const TeamModal: FC<TeamModalProps> = ({
         display: isOpen ? 'flex' : 'none', // Control visibility
         position: 'fixed',
         top: `calc(${navHeight} - 2px`,
-        left: 'calc(4vw - 3px)',
-        right: 'calc(4vw - 3px)',
+        left: 'calc(4vw - .5px',
+        right: 'calc(4vw  - .5px)',
         height: `calc(100vh - ${navHeight})`,
         justifyContent: 'center',
         alignItems: 'center',
@@ -171,6 +171,7 @@ const TeamModal: FC<TeamModalProps> = ({
             animate={{ y: 0 }}
             exit={{ y: '100vh' }}
             transition={{ type: 'easeInOut', stiffness: 100 }}
+            className='mobile-modal'
         >
             <div style={contentStyle} className="team-modal-flex">
                 <button style={closeButtonStyle} onClick={onClose} className="modal-link">

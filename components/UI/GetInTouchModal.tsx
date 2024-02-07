@@ -28,8 +28,10 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
         display: isOpen ? 'flex' : 'none', // Control visibility
         position: 'fixed',
         top: `calc(${navHeight} - 2px`,
-        left: 'calc(4vw - 3px)',
-        right: 'calc(4vw - 3px)',
+        left: 'calc(4vw  - .5px)',
+        right: 'calc(4vw  - .5px)',
+        // left: 'calc(4vw - 3px)',
+        // right: 'calc(4vw - 3px)',
         height: `calc(100vh - ${navHeight})`,
         justifyContent: 'center',
         backgroundColor: '#FFF5DC',
@@ -111,7 +113,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
             exit={{ y: '100vh' }}
             transition={{ type: 'easeInOut', stiffness: 100 }}
             style={modalStyle}
-            className="get-in-touch-modal-flex"
+            className="get-in-touch-modal-flex mobile-modal"
         >
             <button onClick={onClose} style={closeButtonStyle} className="modal-link">
                 <Image src="/ModalX.svg" alt="Close" width={34} height={34}/>
