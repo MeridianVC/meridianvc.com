@@ -9,6 +9,16 @@ import useGlobeAnimation from './useGlobeAnimation';
 
 const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
 
+    // Refs section
+    const divRef = useRef<HTMLDivElement>(null); // the div for the canvas element to find and attach
+    const rendererRef = useRef<THREE.WebGLRenderer | null>(null); // the renderer itself
+    const globeAddedRef = useRef<boolean>(false); // like a state variable but won't trigger rerender
+    const sceneRef = useRef<THREE.Scene | null>(null);
+    const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+    const ambientLightRef = useRef<THREE.AmbientLight| null>(null);
+
+    const { globe, isLoading } = useGlobeObject({ renderer: rendererRef.current, scene: sceneRef.current });
+
     // Set scale variables
     const baseScale = 3.33
     const maxScale = 3.75;
@@ -31,17 +41,6 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
         return -yOffset; // Negative for moving down
     };
 
-    // Refs section
-    const divRef = useRef<HTMLDivElement>(null); // the div for the canvas element to find and attach
-    const rendererRef = useRef<THREE.WebGLRenderer | null>(null); // the renderer itself
-    const globeAddedRef = useRef<boolean>(false); // like a state variable but won't trigger rerender
-    const sceneRef = useRef<THREE.Scene | null>(null);
-    const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
-    const ambientLightRef = useRef<THREE.AmbientLight| null>(null);
-    const dirLightRef = useRef<THREE.DirectionalLight | null>(null);
-    const dirLightRef2 = useRef<THREE.DirectionalLight | null>(null);
-    const dirLightRef3 = useRef<THREE.DirectionalLight | null>(null);
-
     // Instantiate scene
     if (!sceneRef.current) {
         sceneRef.current = new THREE.Scene();
@@ -53,31 +52,12 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
         cameraRef.current = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
     }
 
-    // Instantiate directional lights
-    if (!dirLightRef.current ) {
-        dirLightRef.current = new THREE.DirectionalLight(0xFFFFFF, 1.5);
-        dirLightRef.current.position.set(500, 1000, -1000); // Top right
-        dirLightRef.current.lookAt(new THREE.Vector3(0,0,0))
-    }
-    if (!dirLightRef2.current) {
-        dirLightRef2.current = new THREE.DirectionalLight(0xFFFFFF, 1.1);
-        dirLightRef2.current.position.set(-1000, 2500, 2500); // left
-        dirLightRef2.current.lookAt(new THREE.Vector3(0,0,0))
-    }
-    if (!dirLightRef3.current) {
-        dirLightRef3.current = new THREE.DirectionalLight(0xFFFFFF, 1.5);
-        dirLightRef3.current.position.set(1000, -3000, 0); // Bottom right
-        dirLightRef3.current.lookAt(new THREE.Vector3(0,0,0))
-    }
-
     // Instantiate ambient light
     if (!ambientLightRef.current) {
-        ambientLightRef.current = new THREE.AmbientLight(0xFFFFFF, 1.9);
+        ambientLightRef.current = new THREE.AmbientLight(0xFFFFFF, 3.1);
     }
 
     // Initialize globe
-    const { globe, isLoading } = useGlobeObject({ renderer: rendererRef.current, scene: sceneRef.current });
-
     useEffect(() => {
         if (!divRef.current) return;
 
@@ -107,11 +87,11 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
         }
 
         // Add directional lights to the scene
-        if (sceneRef.current && dirLightRef.current && dirLightRef2.current && dirLightRef3.current) {
-            sceneRef.current.add(dirLightRef.current);
-            sceneRef.current.add(dirLightRef2.current);
-            sceneRef.current.add(dirLightRef3.current);
-        }
+        // if (sceneRef.current && dirLightRef.current && dirLightRef2.current && dirLightRef3.current) {
+        //     sceneRef.current.add(dirLightRef.current);
+        //     sceneRef.current.add(dirLightRef2.current);
+        //     sceneRef.current.add(dirLightRef3.current);
+        // }
 
         // Add globe to scene
         if (globe && sceneRef.current &&!globeAddedRef.current) {
