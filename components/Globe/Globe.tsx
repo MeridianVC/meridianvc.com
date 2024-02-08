@@ -86,13 +86,6 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
             sceneRef.current.add(ambientLightRef.current);
         }
 
-        // Add directional lights to the scene
-        // if (sceneRef.current && dirLightRef.current && dirLightRef2.current && dirLightRef3.current) {
-        //     sceneRef.current.add(dirLightRef.current);
-        //     sceneRef.current.add(dirLightRef2.current);
-        //     sceneRef.current.add(dirLightRef3.current);
-        // }
-
         // Add globe to scene
         if (globe && sceneRef.current &&!globeAddedRef.current) {
             sceneRef.current.add(globe);
