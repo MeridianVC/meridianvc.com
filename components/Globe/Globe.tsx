@@ -68,10 +68,10 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
         divRef.current.appendChild(renderer.domElement);
         rendererRef.current = renderer;
 
-        if (sceneRef.current) {
-            const axesHelper = new THREE.AxesHelper(200);
-            sceneRef.current.add(axesHelper);
-        }
+        // if (sceneRef.current) {
+        //     const axesHelper = new THREE.AxesHelper(200);
+        //     sceneRef.current.add(axesHelper);
+        // }
 
         // Camera setup
         if (cameraRef.current) {
@@ -81,10 +81,10 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
             cameraRef.current.lookAt(new THREE.Vector3(0,0,0));
         }
 
-        // // Light setup
-        // if (sceneRef.current && ambientLightRef.current) {
-        //     sceneRef.current.add(ambientLightRef.current);
-        // }
+        // Light setup
+        if (sceneRef.current && ambientLightRef.current) {
+            sceneRef.current.add(ambientLightRef.current);
+        }
 
         // Add directional lights to the scene
         // if (sceneRef.current && dirLightRef.current && dirLightRef2.current && dirLightRef3.current) {
