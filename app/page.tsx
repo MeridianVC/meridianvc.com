@@ -3,7 +3,6 @@ import './globals.css';
 import { FC } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import FillHorizontal from '@/components/Structural/FillHorizontal';
 import Navbar from '@/components/UI/Navbar';
 import Header from '@/components/Text/Header';
 import Spacer from '@/components/Structural/Spacer';
@@ -17,6 +16,9 @@ import LatestContentCard from '@/components/UI/LatestContentCard';
 import Footer from '@/components/UI/Footer';
 import '../components/UI/ui.css';
 import FillVertical from '@/components/Structural/FillVertical';
+// import LoadingAnimation from '@/components/Animation/LoadingAnimation';
+
+const ClientSideAnimationWrapper = dynamic(() => import('../components/Animation/ClientSideAnimationWrapper'), { ssr: false });
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -230,11 +232,12 @@ const latestCardContainerStyle: React.CSSProperties = {
 const Home: FC = () => {
   return (
     <>
+    {/* <LoadingAnimation /> */}
+    {/* <div className="loader"></div> */}
       <Navbar />
       <FillVertical side="right"/>
       <FillVertical side="left"/>
-      <FillHorizontal />
-      <FillHorizontal behind />
+      {/* <ClientSideAnimationWrapper> */}
         <main style={mainContentStyle}>
           <Section id="section1_landing" style={landingStyle}>
             <div>
@@ -281,9 +284,9 @@ const Home: FC = () => {
                     title="Collaboration"
                     imagePath="/collaboration.svg"
                     numberDisplay="02"
-                    content="Our investment goes beyond capital. We invest time in our founders – helping chart the course, acquire key talent, and make connections with key partners along the journey."
+                    content="Our investment goes beyond capital. We invest time in our founders – helping chart the course, acquire key talent, and make connections with partners along the journey."
                   />
-                  <PrinciplesCard 
+                  <PrinciplesCard
                     title="Growth"
                     imagePath="/growth.svg"
                     numberDisplay="03"
@@ -313,7 +316,7 @@ const Home: FC = () => {
                   />
                   <Testimonial 
                     alignment="left"
-                    statement="The team at Meridian consistently proves their worth. Their hustle and engagement with portfolio companies have yielded tangible benefits for us, including introductions to investors and new customers for our pipeline. Their provision of resources, potential hires, and market insights has been invaluable. Cannot speak highly enough of these guys!"
+                    statement="The team at Meridian consistently proves their worth. Their hustle and engagement with portfolio companies has been hugely beneficial for us, including introductions to investors, valuable new hires, and potential customers. I highly recommend working with these guys!"
                     name="Atikh Bana"
                     company="Acctual"
                     imageSrc="/headshotAtikh.png"
@@ -355,8 +358,8 @@ const Home: FC = () => {
           <Section id="section7_footer">
               <Footer />
           </Section>
-        </main>
-      <Globe style={globeStyle} />
+        </main>              
+        <Globe style={globeStyle} />
     </>
   );
 };
