@@ -21,11 +21,12 @@ const baseStyle: CSSProperties = {
   
 };
 
+//EDIT THESE AS YOU USE THEM, NOT ALL HAVE THE RIGHT PARAMETERS
 const headerStyles: Record<string, CSSProperties> = {
   H1: { fontSize: 'clamp(40px, 6vw, 70px)', lineHeight: 'clamp(50px, 8vw, 100px)' },
   H2: { fontSize: 'clamp(35px, 5.5vw, 50px)', lineHeight: 'clamp(40px, 7vw, 80px)' },
-  // H3: { fontSize: 'clamp(30px, 5vw, 39.1px)', lineHeight: 'clamp(66px, 8vw, 144px)' },
-  // H4: { fontSize: 'clamp(25px, 4vw, 31.3px)', lineHeight: 'clamp(54px, 2vw, 151px)' },
+  H3: { fontSize: 'clamp(30px, 5vw, 39.1px)', lineHeight: 'clamp(66px, 8vw, 144px)' },
+  H4: { fontSize: 'clamp(25px, 4vw, 31.3px)', lineHeight: 'clamp(45px, 6vw, 60px)' },
   H5: { fontSize: 'clamp(15px, 3.5vw, 25px)', lineHeight: 'clamp(30px, 2.25vw, 100px)' },
   H6: { fontSize: 'clamp(10px, 3vw, 20px)', lineHeight: 'clamp(25px, 2vw, 100px)' },
 };
