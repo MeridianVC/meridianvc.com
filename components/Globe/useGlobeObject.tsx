@@ -24,14 +24,6 @@ const useGlobeObject = ({ renderer, scene }: GlobeObjectProps) => {
             const scene = gltf.scene;
             scene.scale.set(3, 3, 3);
             scene.position.set(8, 5, 5);
-            scene.traverse((object: THREE.Object3D) => {
-                if ((object as THREE.Mesh).isMesh) {
-                    const mesh = object as THREE.Mesh;
-                    const material = mesh.material as THREE.MeshStandardMaterial;
-                    material.roughness = 1;
-                    material.metalness = 0;
-                }
-            });
 
             // Set the loaded globe to state
             setGlobe(scene);
