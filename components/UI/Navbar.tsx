@@ -8,6 +8,7 @@ import GetInTouchButton from './GetInTouchButton';
 import GetInTouchModal from './GetInTouchModal';
 import ReactDOM from 'react-dom';
 import './ui.css';
+import FillHorizontal from '../Structural/FillHorizontal';
 
 /*
 set initial nav height
@@ -108,47 +109,50 @@ const Navbar: FC = () => {
     // NEW SECTION
 
     const controls = useAnimation();
-
-    const [initialY, setInitialY] = useState(0);
-
-    type NavVariantsParams = {
-      initialY: number;
-    };
     
-    const getNavVariants = ({ initialY }: NavVariantsParams) => {
-      return {
-        initial: { y: 800, opacity: 0 },
-        visible: { y: 0, opacity: 1, transition: { duration: 1.5 } },
-      };
+    const navVariants = {
+      initial: {
+        y: -300, // Start below the view
+        scale: 1, // Start a bit scaled down
+        rotate: 0, // Start without rotation
+      },
+      animate: {
+        y: 0, // Move to original position
+        scale: 1, // Scale back to normal
+        transition: {
+          y: { duration: 1.5, ease: "easeInOut" },
+          scale: { duration: 1.5, ease: "easeInOut" },
+        },
+      },
+      exit: {
+        opacity: 0,
+        transition: { duration: 2.5 },
+        left: "50vw",
+      }
     };
+
 
   // loading animation, only invoked once on component mount
   useEffect(() => {
     if (isInitialLoad) {
-
-      const calculatedY = (vh: number) => window.innerHeight * (vh / 2);
-
-      setInitialY(calculatedY);
-
-      controls.start("visible").then(() => {
+      controls.start("animate").then(() => {
         setIsInitialLoad(false); // might not even need the state variable, empty dependency array probably does the trick
       })
     }
   }, []);
 
-  const navVariants = getNavVariants({ initialY });
-
   return (
         <>
-          <AnimatePresence>
+          {/* <AnimatePresence>
               <motion.nav
                 style={navStyle}
                 variants={navVariants}
                 initial="initial"
-                animate="visible"
+                animate="animate"
+                exit="exit"
                 key="something"
-              >
-                {/* <nav style={navStyle}> */}
+              > */}
+                <nav style={navStyle}>
                   <a href="./" style={wordmarkStyle}>MERIDIAN</a>
                   <div className={`nav-links ${isDropdownOpen ? 'nav-active' : ''}`} style={linkStyle}>
                     <a href="#section2_principles" className="navbar-hover link-disappear">Principles</a>
@@ -165,14 +169,16 @@ const Navbar: FC = () => {
                   <div className="hamburger" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                     <img src="/Hamburger.svg" alt="Open menu" className="nav-link"/>
                   </div>
-                {/* </nav> */}
-              </motion.nav>
-          </AnimatePresence>
+                </nav>
+              {/* </motion.nav>
+          </AnimatePresence> */}
           <AnimatePresence>
             {isDropdownOpen && (
                 <NavbarDropdown isDropdownOpen={isDropdownOpen} setIsDropdownOpen={setIsDropdownOpen} links={links} toggleModal={handleOpenModal}/>
             )}
           </AnimatePresence>
+          <FillHorizontal />
+          <FillHorizontal behind={true} />
         </>
   
   );
