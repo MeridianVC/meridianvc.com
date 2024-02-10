@@ -9,6 +9,8 @@ import useGlobeAnimation from './useGlobeAnimation';
 
 const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
 
+    console.log('top level globe');
+
     // Refs section
     const divRef = useRef<HTMLDivElement>(null); // the div for the canvas element to find and attach
     const rendererRef = useRef<THREE.WebGLRenderer | null>(null); // the renderer itself
@@ -103,6 +105,7 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
             globe.scale.set(initialScale, initialScale, initialScale);
             const initialYOffset = calculateYOffset(initialScale);
             globe.position.y = initialYOffset;
+            globe.rotation.x = THREE.MathUtils.degToRad(-23.5)
         }
 
         // Handle window resize
@@ -130,7 +133,7 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
         };
     }, [globe]);
 
-    useGlobeAnimation(globe, rendererRef, cameraRef.current, sceneRef.current);
+        useGlobeAnimation(globe, rendererRef, cameraRef.current, sceneRef.current);
 
     return (
         <div ref={divRef} style={style}/>
