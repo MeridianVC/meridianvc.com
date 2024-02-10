@@ -1,5 +1,4 @@
 // preloadGlobe.ts
-import * as THREE from 'three';
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 // Promise to load the globe and return a GLTF object
