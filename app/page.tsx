@@ -16,9 +16,12 @@ import LatestContentCard from '@/components/UI/LatestContentCard';
 import Footer from '@/components/UI/Footer';
 import '../components/UI/ui.css';
 import FillVertical from '@/components/Structural/FillVertical';
+import GlobeComponent from '@/components/Globe/Worker/GlobeComponent';
 // import LoadingAnimation from '@/components/Animation/LoadingAnimation';
 
-const ClientSideAnimationWrapper = dynamic(() => import('../components/Animation/ClientSideAnimationWrapper'), { ssr: false });
+// const ClientSideAnimationWrapper = dynamic(() => import('../components/Animation/ClientSideAnimationWrapper'), { ssr: false });
+
+const LoadingAnimation = dynamic(() => import('../components/Animation/LoadingAnimation'), { ssr: false})
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
@@ -232,7 +235,7 @@ const latestCardContainerStyle: React.CSSProperties = {
 const Home: FC = () => {
   return (
     <>
-    {/* <LoadingAnimation /> */}
+    <LoadingAnimation />
     {/* <div className="loader"></div> */}
       <Navbar />
       <FillVertical side="right"/>
@@ -358,8 +361,9 @@ const Home: FC = () => {
           <Section id="section7_footer">
               <Footer />
           </Section>
-        </main>              
-        <Globe style={globeStyle} />
+        </main>     
+        <GlobeComponent/>         
+        {/* <Globe style={globeStyle} /> */}
     </>
   );
 };

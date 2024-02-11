@@ -22,9 +22,9 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
     const { globe, isLoading } = useGlobeObject({ renderer: rendererRef.current, scene: sceneRef.current });
 
     // Set scale variables
-    const baseScale = 3.33
+    const baseScale = 3.33;
     const maxScale = 3.75;
-    const minScale = 2.5
+    const minScale = 2.5;
 
     // Function to calculate scale based on window size
     const calculateScale = () => {
