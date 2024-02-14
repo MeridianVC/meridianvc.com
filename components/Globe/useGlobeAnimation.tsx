@@ -38,23 +38,23 @@ const useGlobeAnimation = (
                 rendererRef.render(scene, camera);
             }
 
-            globe.traverse((child: THREE.Object3D) => {
-            // Use type assertion to check if the child is a Mesh and has a material
-            if ((child as THREE.Mesh).isMesh && (child as THREE.Mesh).material) {
-                const mesh = child as THREE.Mesh; // Now 'mesh' is typed as Mesh, providing access to 'material'
+            // globe.traverse((child: THREE.Object3D) => {
+            // // Use type assertion to check if the child is a Mesh and has a material
+            // if ((child as THREE.Mesh).isMesh && (child as THREE.Mesh).material) {
+            //     const mesh = child as THREE.Mesh; // Now 'mesh' is typed as Mesh, providing access to 'material'
                 
-                // Some materials might be an array of materials
-                if (Array.isArray(mesh.material)) {
-                mesh.material.forEach(material => {
-                    material.transparent = true;
-                    material.opacity = 1 - currentScrollYProgress/10;
-                });
-                } else {
-                mesh.material.transparent = true;
-                mesh.material.opacity = 1 - currentScrollYProgress/10;
-                }
-            }
-            });
+            //     // Some materials might be an array of materials
+            //     if (Array.isArray(mesh.material)) {
+            //     mesh.material.forEach(material => {
+            //         material.transparent = true;
+            //         material.opacity = 1 - currentScrollYProgress/10;
+            //     });
+            //     } else {
+            //     mesh.material.transparent = true;
+            //     mesh.material.opacity = 1 - currentScrollYProgress/10;
+            //     }
+            // }
+            // });
 
             previousScrollYProgress.current = currentScrollYProgress;
 
