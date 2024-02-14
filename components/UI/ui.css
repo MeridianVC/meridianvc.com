@@ -92,11 +92,11 @@
         transition: transfrom 0.2s ease;
     }
     .team-card-hover:active {
-        transform: scale(0.85);
+        transform: scale(0.95);
         transition: transform 0.2s ease-in-out;
     }
     .content-card-hover:active {
-        transform: scale(0.85);
+        transform: scale(0.95);
         transition: transform 0.2s ease-in-out;
     }
     .nav-link:active {
