@@ -28,7 +28,7 @@ const useGlobeAnimation = (
             }
 
             if (camera) {
-                camera.position.y = 4 - currentScrollYProgress * 9;
+                camera.position.y = 4 - currentScrollYProgress * 10;
                 camera.position.z = 6.5 - currentScrollYProgress * 2;
                 camera.position.x = 6.5 - currentScrollYProgress * 2;
                 camera.lookAt(new THREE.Vector3(0, 0, 0));
