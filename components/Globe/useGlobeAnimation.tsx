@@ -24,7 +24,7 @@ const useGlobeAnimation = (
             const scrollDelta = currentScrollYProgress - previousScrollYProgress.current;
 
             if (scrollDelta >= 0) { // if scrolling down the website
-                globe.rotation.y -= 0.00022 + scrollDelta * 1.77;
+                globe.rotation.y -= 0.00033 + scrollDelta * 1.77;
             }
 
             if (camera) {
