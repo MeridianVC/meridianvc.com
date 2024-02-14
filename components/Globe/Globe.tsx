@@ -33,7 +33,7 @@ const Globe: FC = () => {
 
     // Set scale variables
     const baseScale = 1.75;
-    const maxScale = 2;
+    const maxScale = 1.75;
     const minScale = 1.25;
 
     // this is used in the resize window useEffect to control globe size

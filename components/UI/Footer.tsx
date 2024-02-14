@@ -112,7 +112,7 @@ const Footer: FC = () => {
                         Ethos
                     </Text>
                     <Text variant="SmallBaskerville">
-                        Integrity, relentless work ethic, entrepreneurship, accountability, and commitment to learning.
+                        Integrity, relentless work ethic, entrepreneurship, accountability, and a commitment to learning.
                     </Text>  
                 </div>
                 <div style={linkGroupStyle}>
@@ -150,7 +150,7 @@ const Footer: FC = () => {
             </div>
             <div style={rightContainerStyle} className ="footer-right-flex-column">
                 <img src="Stamps.jpg" alt="stamps"style={stampStyle}/>
-                <div style= {preparedBySectionStyle}>
+                <div style= {preparedBySectionStyle} className="prepared-by-section">
                     <Text variant="BodyBaskerville">Prepared By:</Text>
                     <a href='https://www.linkedin.com/in/devon-gethers/' target="_blank" className="footer-link">
                         <Image 

@@ -1,5 +1,6 @@
 // This is the main entrypoint for our application
 import './globals.css';
+import '../components/Sections/sections.css';
 import { FC } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
@@ -17,6 +18,7 @@ import Footer from '@/components/UI/Footer';
 import '../components/UI/ui.css';
 import FillVertical from '@/components/Structural/FillVertical';
 // import LoadingAnimation from '@/components/Animation/LoadingAnimation';
+import Section5Companies from '@/components/Sections/section5_companies';
 
 const ClientSideAnimationWrapper = dynamic(() => import('../components/Animation/ClientSideAnimationWrapper'), { ssr: false });
 
@@ -194,18 +196,11 @@ const foundersSectionStyle: React.CSSProperties = {
   alignItems: 'center',
 }
 
-const portfolioSectionStyle: React.CSSProperties = {
-  justifyContent: 'center',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-}
-
 const latestSectionStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   alignContent: 'center',
-  justifyContent: 'center',
+  justifyContent: 'center'
 }
 
 const latestCardContainerStyle: React.CSSProperties = {
@@ -241,7 +236,7 @@ const Home: FC = () => {
                     style={compassStyle} 
                     priority
                   />
-                <Header type='H1' paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(5px, 5vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)'> 
+                <Header type='H1' paddingLeft='clamp(3vw, 3vw, 20px)' paddingRight='clamp(3vw, 3vw, 20px)' marginTop='clamp(5px, 5vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)' maxWidth="950px"> 
                     Championing bold ideas and visionary founders to fuel world-changing innovation.
                 </Header>
             </div>
@@ -318,19 +313,14 @@ const Home: FC = () => {
           </Section>
           <Section id="section4_team" isFullHeight={true}>
               <Spacer height={'5vh'} />
-              <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(15px, 8vh, 100px)'> 
+              <Header type="H1" paddingLeft='clamp(3vw, 3vw, 20px)' paddingRight='clamp(3vw, 3vw, 20px)' marginTop='clamp(2vh, 7vh, 10vh)' marginBottom='clamp(15px, 8vh, 100px)' maxWidth="950px"> 
                   Seasoned operators and investors, at your side as you chart your course. 
               </Header>
               <TeamCardContainer teamMembers={teamMembers}/>
               <Spacer height={'5vh'}/>
           </Section>
-          <Section id="section5_companies" isFullHeight={true} style={portfolioSectionStyle}>
-          <Spacer height={'15vh'}/>
-              <Header type="H1" isCentered={true} paddingLeft="0px" marginBottom='clamp(2vh, 4vh, 7vh)'> Our Investments </Header>
-              {/* <FundSelector/> */}
-              <CompanyGrid/>
-          </Section>
-          <Section id="section6_latest" isFullHeight={true} style={latestSectionStyle}>
+          <Section5Companies/>
+          <Section id="section6_latest" isFullHeight={true} style={latestSectionStyle} className="our-latest">
               <Header type="H1" isCentered={true} marginBottom='clamp(2vh, 5vh, 8vh)' style={principlesHeader}>Our Latest</Header>
               <div style={latestCardContainerStyle}>
                   {latestContents.map((content, index) => (

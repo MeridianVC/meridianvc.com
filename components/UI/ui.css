@@ -23,6 +23,8 @@
     }
     .footer-right-flex-column {
         min-width: 40% !important;
+        justify-content: space-between !important;
+
     }
     .team-modal-flex {
         display: block !important;
@@ -67,20 +69,89 @@
     }
 }
 
-.navbar-hover:hover {
-    transform: scale(1.15);
-    transition: transform 0.2s ease;
+@media (hover: none), (hover: on-demand) {
+    .navbar-hover:active {
+        transform: scale(0.85);
+        transition: transform 0.2s ease;
+    }
+    .hamburger:active {
+        transform: scale(0.85);
+        transition: transform 0.2s ease-in-out;
+    }
+    .company-logo-color:active {
+        filter: brightness(100%) contrast(100%) grayscale(0%);
+        transform: scale(0.85);
+        transition: transform 0.2s ease;
+    }
+    .footer-link:active {
+        transform: scale(0.85);
+        transition: transform 0.2s ease;
+    }
+    .modal-link:active {
+        transform: scale(0.85);
+        transition: transfrom 0.2s ease;
+    }
+    .team-card-hover:active {
+        transform: scale(0.85);
+        transition: transform 0.2s ease-in-out;
+    }
+    .content-card-hover:active {
+        transform: scale(0.85);
+        transition: transform 0.2s ease-in-out;
+    }
+    .nav-link:active {
+        transform: scale(0.85) !important;
+        transition: transform 0.2s ease-in-out !important;
+    }
+    .get-in-touch-hover:active {
+        transform: scale(0.85) translateY(-5px) !important;
+        transition: transform 0.2s ease-in-out !important;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .navbar-hover:hover {
+        transform: scale(1.15);
+        transition: transform 0.2s ease;
+    }
+    .hamburger:hover {
+        transform: scale(1.1);
+        transition: transform 0.2s ease-in-out;
+    }
+    .company-logo-color:hover {
+        filter: brightness(100%) contrast(100%) grayscale(0%);
+        transform: scale(1.15);
+        transition: transform 0.3s ease;
+    }
+    .footer-link:hover {
+        transform: scale(1.1);
+        transition: transform 0.2s ease;
+    }
+    .modal-link:hover {
+        transform: scale(1.1);
+        transition: transfrom 0.2s ease;
+    }
+    .team-card-hover:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+    .content-card-hover:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+    .nav-link:hover {
+        transform: scale(1.05) !important;
+        transition: transform 0.2s ease-in-out !important;
+    }
+    .get-in-touch-hover:hover {
+        transform: scale(1.1) translateY(-5px) !important;
+        transition: transform 0.2s ease-in-out !important;
+    }
 }
 
 .company-logo-color {
     filter: brightness(40%) contrast(250%) grayscale(100%);
     transition: border 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-  
-.company-logo-color:hover {
-    filter: brightness(100%) contrast(100%) grayscale(0%);
-    transform: scale(1.15);
-    transition: transform 0.3s ease;
 }
 
 .footer-link {
@@ -88,32 +159,6 @@
     transition: border 0.3 ease-in-out;
 }
 
-.footer-link:hover {
-    transform: scale(1.1);
-    transition: transform 0.2s ease;
-}
-
-.modal-link:hover {
-    transform: scale(1.1);
-    transition: transfrom 0.2s ease;
-}
-
-.team-card-hover:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-in-out;
-}
-
-.content-card-hover:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-in-out;
-}
-
-.nav-link:hover {
-    transform: scale(1.05) !important;
-    transition: transform 0.2s ease-in-out !important;
-}
-
-/* Hamburger Menu Style */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -122,17 +167,6 @@
     padding-right: 5px;
   }
 
-.hamburger:hover {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
-}
-
-.get-in-touch-hover:hover {
-    transform: scale(1.1) translateY(-5px) !important;
-    transition: transform 0.2s ease-in-out !important;
-}
-  
-/* Responsive Nav Links */
 @media (max-width: 900px) {
     .hamburger {
         display: flex;

@@ -10,9 +10,11 @@ interface HeaderProps {
   children?: ReactNode;
   className?: string;
   paddingLeft?: string;
+  paddingRight?: string;
   marginTop?: string;
   marginBottom?: string;
   lineHeight?: string;
+  maxWidth?: string;
 }
 
 const baseStyle: CSSProperties = {
@@ -28,16 +30,30 @@ const headerStyles: Record<string, CSSProperties> = {
   H3: { fontSize: 'clamp(30px, 5vw, 39.1px)', lineHeight: 'clamp(66px, 8vw, 144px)' },
   H4: { fontSize: 'clamp(25px, 4vw, 31.3px)', lineHeight: 'clamp(45px, 4.5vw, 60px)' },
   H5: { fontSize: 'clamp(15px, 3.5vw, 25px)', lineHeight: 'clamp(30px, 2.25vw, 100px)' },
-  H6: { fontSize: 'clamp(10px, 3vw, 20px)', lineHeight: 'clamp(25px, 2vw, 100px)' },
+  H6: { fontSize: 'clamp(15px, 3vw, 20px)', lineHeight: 'clamp(25px, 2vw, 100px)' },
 };
 
-const Header: FC<HeaderProps> = ({ type, isCentered, style, children, paddingLeft, marginTop, marginBottom, lineHeight, className }) => {
+const Header: FC<HeaderProps> = ({ 
+  type, 
+  isCentered, 
+  style, 
+  children, 
+  paddingLeft, 
+  paddingRight, 
+  maxWidth, 
+  marginTop, 
+  marginBottom, 
+  lineHeight, 
+  className 
+}) => {
 
   const combinedHeaderStyle = {
     ...baseStyle,
     ...headerStyles[type],
     ...(isCentered && { textAlign: 'center'}), 
+    ...{maxWidth: `${maxWidth}`},
     ...{paddingLeft: `${paddingLeft}`},
+    ...{paddingRight: `${paddingRight}`},
     ...{marginTop: `${marginTop}`},
     ...{marginBottom: `${marginBottom}`},
     ...(lineHeight && {lineHeight:`${lineHeight}`}),

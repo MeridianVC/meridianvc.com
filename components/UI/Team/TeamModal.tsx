@@ -91,6 +91,7 @@ const TeamModal: FC<TeamModalProps> = ({
     const linkSectionStyle: React.CSSProperties = {
         display: 'flex',
         flexDirection: 'column',
+        backgroundColor: '#FFF5DC',
     }
 
     const linkStyle: React.CSSProperties = {
@@ -108,13 +109,13 @@ const TeamModal: FC<TeamModalProps> = ({
 
     const sectionStyle: React.CSSProperties = {
         flex: 1,
-        backgroundColor: '#FFF5DC',
         zIndex: 2,
     };
 
     const titleStyle: React.CSSProperties = {
         position: 'relative',
         top: '-10px',
+        backgroundColor: '#FFF5DC',
     }
 
     const detailIconStyleTop: React.CSSProperties = {
@@ -150,6 +151,10 @@ const TeamModal: FC<TeamModalProps> = ({
         top: 0,
         backgroundColor: '#FFF5DC',
         zIndex: -1
+    }
+
+    const backgroundFillStyle: React.CSSProperties = {
+        backgroundColor: '#FFF5DC'
     }
 
 
@@ -205,7 +210,7 @@ const TeamModal: FC<TeamModalProps> = ({
                     <div style={sectionStyle} className="team-modal-content">
                         <div style={titleSectionStyle}>
                             <div>
-                                <Header type="H4">{name}</Header>
+                                <Header type="H4" style={backgroundFillStyle}>{name}</Header>
                                 <Text variant="SmallFranklin" style={titleStyle}>{title}</Text>
                             </div>
                             <div style={linkSectionStyle} className="team-modal-links">
@@ -225,20 +230,20 @@ const TeamModal: FC<TeamModalProps> = ({
                             </div>
                         </div>
                         <div style={{marginBottom: "12px"}}>
-                            <Header type="H4"> Focus </Header>
-                            <Text variant="SmallFranklin"> {focus} </Text>
+                            <Header type="H4" style={backgroundFillStyle}> Focus </Header>
+                            <Text variant="SmallFranklin" style={backgroundFillStyle}> {focus} </Text>
                         </div>
                         <div>
-                            <Header type="H4"> Education </Header>
-                            <Text variant="SmallFranklin"> {education} </Text>
+                            <Header type="H4" style={backgroundFillStyle}> Education </Header>
+                            <Text variant="SmallFranklin" style={backgroundFillStyle}> {education} </Text>
                         </div>
                     </div>
                 <div style={sectionStyle}>
                     <div>
-                        <Header type="H4"> Experience </Header>
-                        <Text variant="SmallFranklin"> {experienceP1} </Text>
+                        <Header type="H4" style={backgroundFillStyle}> Experience </Header>
+                        <Text variant="SmallFranklin" style={backgroundFillStyle}> {experienceP1} </Text>
                         <br/>
-                        <Text variant="SmallFranklin"> {experienceP2} </Text>
+                        <Text variant="SmallFranklin" style={backgroundFillStyle}> {experienceP2} </Text>
                     </div>
                 </div>
             </div>
