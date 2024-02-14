@@ -1,32 +1,42 @@
 "use client";
 
-// This component loads 3d objects, creates the scene, and attaches itself to the DOM
-
-import { FC, useRef, useEffect, useState } from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
-import useGlobeObject from './useGlobeObject';
 import useGlobeAnimation from './useGlobeAnimation';
+import { preloadSphere } from './preloadSphere';
 
-const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
+const globeStyle: React.CSSProperties = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  zIndex: -2,
+};
 
-    console.log('top level globe');
+const Globe: FC = () => {
+  const mountRef = useRef<HTMLDivElement>(null);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  const ambientLightRef = useRef<THREE.AmbientLight | null>(null);
+  const sphereRef = useRef<THREE.Mesh | null>(null);
 
-    // Refs section
-    const divRef = useRef<HTMLDivElement>(null); // the div for the canvas element to find and attach
-    const rendererRef = useRef<THREE.WebGLRenderer | null>(null); // the renderer itself
-    const globeAddedRef = useRef<boolean>(false); // like a state variable but won't trigger rerender
-    const sceneRef = useRef<THREE.Scene | null>(null);
-    const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
-    const ambientLightRef = useRef<THREE.AmbientLight| null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-    const { globe, isLoading } = useGlobeObject({ renderer: rendererRef.current, scene: sceneRef.current });
+  useEffect(() => {
+    preloadSphere().then((loadedSphere) => {
+        sphereRef.current = loadedSphere;
+        setIsLoaded(true);
+    }).catch(error => console.error("Error preloading globe assets:", error));
+  }, []);
 
     // Set scale variables
-    const baseScale = 3.33
-    const maxScale = 3.75;
-    const minScale = 2.5
+    const baseScale = 1.75;
+    const maxScale = 2;
+    const minScale = 1.25;
 
-    // Function to calculate scale based on window size
+    // this is used in the resize window useEffect to control globe size
     const calculateScale = () => {
         const baseWidth = 1920; // base width for scale 1
         let scaleFactor = (window.innerWidth / baseWidth) * baseScale;
@@ -37,107 +47,65 @@ const Globe: FC<{ style?: React.CSSProperties }> = ({ style }) => {
         return scaleFactor;
     };
 
-    // Function to calculate Y offset based on scale
-    const calculateYOffset = (scale:number):number => {
-        const yOffset = (maxScale - scale) * 1; // Adjust the factor as needed
-        return -yOffset; // Negative for moving down
+  useEffect(() => {
+      if (!sceneRef.current) {
+        sceneRef.current = new THREE.Scene();
+        sceneRef.current.background = new THREE.Color(0xFFF5DC);
+      }
+
+      if (!rendererRef.current && mountRef.current) {
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+        mountRef.current.appendChild(renderer.domElement);
+        rendererRef.current = renderer;
+      }
+
+      if (!ambientLightRef.current) {
+        ambientLightRef.current = new THREE.AmbientLight(0xFFFFFF, 3.1);
+        sceneRef.current.add(ambientLightRef.current);
+      }
+
+      if (!cameraRef.current) {
+        cameraRef.current = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
+        //camera movement and look is handled in useGlobeAnimation
+      }
+      
+      if (isLoaded && sphereRef.current) {
+        sceneRef.current.add(sphereRef.current);
+        sphereRef.current.rotation.x = THREE.MathUtils.degToRad(-23.5);
+        const initialScale = calculateScale();
+        sphereRef.current.scale.set(initialScale, initialScale, initialScale);
+      }
+
+      if (rendererRef.current && sceneRef.current && cameraRef.current) {
+        rendererRef.current.render(sceneRef.current, cameraRef.current);
+      }
+
+    }, [isLoaded, sphereRef.current]);
+
+    useGlobeAnimation(sphereRef.current, rendererRef.current, cameraRef.current, sceneRef.current);
+
+  useEffect(() => {
+    const onWindowResize = () => {
+      if (cameraRef.current && rendererRef.current && sphereRef.current) {
+        cameraRef.current.aspect = window.innerWidth / window.innerHeight;
+        cameraRef.current.updateProjectionMatrix();
+        rendererRef.current.setSize(window.innerWidth, window.innerHeight);
+        const newScale = calculateScale();
+        sphereRef.current.scale.set(newScale, newScale, newScale);
+      }
     };
 
-    // Instantiate scene
-    if (!sceneRef.current) {
-        sceneRef.current = new THREE.Scene();
-        sceneRef.current.background = new THREE.Color(0xFFF5DC); // Cream color
-    }
+    window.addEventListener('resize', onWindowResize);
 
-    // Instantiate camera
-    if (!cameraRef.current) {
-        cameraRef.current = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
-    }
+    return () => {
+      window.removeEventListener('resize', onWindowResize);
+    };
+  }, []);
 
-    // Instantiate ambient light
-    if (!ambientLightRef.current) {
-        ambientLightRef.current = new THREE.AmbientLight(0xFFFFFF, 3.1);
-    }
-
-    // Initialize globe
-    useEffect(() => {
-        if (!divRef.current) return;
-
-        // Renderer setup
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        divRef.current.appendChild(renderer.domElement);
-        rendererRef.current = renderer;
-
-        // if (sceneRef.current) {
-        //     const axesHelper = new THREE.AxesHelper(200);
-        //     sceneRef.current.add(axesHelper);
-        // }
-
-        // Camera setup
-        if (cameraRef.current) {
-            cameraRef.current.position.z = 50;
-            cameraRef.current.position.y = 30;
-            cameraRef.current.position.x = 80;
-            cameraRef.current.lookAt(new THREE.Vector3(0,0,0));
-        }
-
-        // Light setup
-        if (sceneRef.current && ambientLightRef.current) {
-            sceneRef.current.add(ambientLightRef.current);
-        }
-
-        // Add globe to scene
-        if (globe && sceneRef.current &&!globeAddedRef.current) {
-            sceneRef.current.add(globe);
-            globeAddedRef.current = true;
-        }
-
-        // Render scene and camera
-        if (renderer && sceneRef.current && cameraRef.current) {
-            renderer.render(sceneRef.current, cameraRef.current);
-        }
-
-        // Initialize scale and position
-        if (globe) {
-            const initialScale = calculateScale();
-            globe.scale.set(initialScale, initialScale, initialScale);
-            const initialYOffset = calculateYOffset(initialScale);
-            globe.position.y = initialYOffset;
-            globe.rotation.x = THREE.MathUtils.degToRad(-23.5)
-        }
-
-        // Handle window resize
-        const onWindowResize = () => {
-            if(renderer && sceneRef.current && cameraRef.current && globe) {
-                cameraRef.current.aspect = window.innerWidth / window.innerHeight;
-                cameraRef.current.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.render(sceneRef.current, cameraRef.current);
-
-                // Calculate scale and position and apply it to the globe
-                const newScale = calculateScale();
-                globe.scale.set(newScale, newScale, newScale);
-            }
-
-        };
-        window.addEventListener('resize', onWindowResize, false);
-
-        // Cleanup
-        return () => {
-            window.removeEventListener('resize', onWindowResize);
-            if (divRef.current && renderer.domElement) {
-                divRef.current.removeChild(renderer.domElement);
-            }
-        };
-    }, [globe]);
-
-        useGlobeAnimation(globe, rendererRef, cameraRef.current, sceneRef.current);
-
-    return (
-        <div ref={divRef} style={style}/>
-    );
+  return <div ref={mountRef} style={globeStyle}></div>;
 };
 
 export default Globe;

@@ -5,10 +5,10 @@ import * as THREE from 'three';
 import { useScroll } from 'framer-motion';
 
 const useGlobeAnimation = (
-    globe: THREE.Object3D | undefined,
-    rendererRef: React.MutableRefObject<THREE.WebGLRenderer | null>,
-    camera: THREE.PerspectiveCamera,
-    scene: THREE.Scene,
+    globe: THREE.Object3D | null,
+    rendererRef: THREE.WebGLRenderer | null,
+    camera: THREE.PerspectiveCamera | null,
+    scene: THREE.Scene | null,
     isAnimationReady?: boolean,
 ) => {
 
@@ -16,46 +16,45 @@ const useGlobeAnimation = (
     const previousScrollYProgress = useRef<number>(0);
 
     useEffect(() => {
-        if (!globe || !rendererRef.current) return;
+        if (!globe || !rendererRef) return;
 
         // animate function, loops continuously
         const animate = () => {
             const currentScrollYProgress = scrollYProgress.get();
             const scrollDelta = currentScrollYProgress - previousScrollYProgress.current;
 
-            console.log('use globe animation');
-
-            if (scrollDelta < 0) {
-            } else {
-                globe.rotation.y -= 0.00055 + scrollDelta * 2;
+            if (scrollDelta >= 0) { // if scrolling down the website
+                globe.rotation.y -= 0.00033 + scrollDelta * 2;
             }
 
-            camera.position.y = 30 - currentScrollYProgress * 95;
-            camera.position.z = 50 - currentScrollYProgress * 10;
-            camera.position.x = 80 - currentScrollYProgress * 16;
-            camera.lookAt(new THREE.Vector3(0, 0, 0));
-
-            if (rendererRef.current) {
-                rendererRef.current.render(scene, camera);
+            if (camera) {
+                camera.position.y = 4 - currentScrollYProgress * 9;
+                camera.position.z = 5 - currentScrollYProgress * 2.25;
+                camera.position.x = 5 - currentScrollYProgress * 2.25;
+                camera.lookAt(new THREE.Vector3(0, 0, 0));
             }
 
-            // globe.traverse((child: THREE.Object3D) => {
-            // // Use type assertion to check if the child is a Mesh and has a material
-            // if ((child as THREE.Mesh).isMesh && (child as THREE.Mesh).material) {
-            //     const mesh = child as THREE.Mesh; // Now 'mesh' is typed as Mesh, providing access to 'material'
+            if (rendererRef && scene && camera) {
+                rendererRef.render(scene, camera);
+            }
+
+            globe.traverse((child: THREE.Object3D) => {
+            // Use type assertion to check if the child is a Mesh and has a material
+            if ((child as THREE.Mesh).isMesh && (child as THREE.Mesh).material) {
+                const mesh = child as THREE.Mesh; // Now 'mesh' is typed as Mesh, providing access to 'material'
                 
-            //     // Some materials might be an array of materials
-            //     if (Array.isArray(mesh.material)) {
-            //     mesh.material.forEach(material => {
-            //         material.transparent = true;
-            //         material.opacity = 1 - currentScrollYProgress/10;
-            //     });
-            //     } else {
-            //     mesh.material.transparent = true;
-            //     mesh.material.opacity = 1 - currentScrollYProgress/10;
-            //     }
-            // }
-            // });
+                // Some materials might be an array of materials
+                if (Array.isArray(mesh.material)) {
+                mesh.material.forEach(material => {
+                    material.transparent = true;
+                    material.opacity = 1 - currentScrollYProgress/10;
+                });
+                } else {
+                mesh.material.transparent = true;
+                mesh.material.opacity = 1 - currentScrollYProgress/10;
+                }
+            }
+            });
 
             previousScrollYProgress.current = currentScrollYProgress;
 

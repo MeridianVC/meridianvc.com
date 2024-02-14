@@ -132,15 +132,6 @@ const mainContentStyle: React.CSSProperties = {
   marginRight: 'auto',
 };
 
-const globeStyle: React.CSSProperties = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: -2
-};
-
 const landingStyle: React.CSSProperties = {
   justifyContent: 'space-between',
   display: 'flex',
@@ -359,7 +350,7 @@ const Home: FC = () => {
               <Footer />
           </Section>
         </main>              
-        <Globe style={globeStyle} />
+        <Globe />
     </>
   );
 };
