@@ -23,7 +23,7 @@ export const preloadSphere = async () => {
   spherePole.position.set(-0.01, -0.01, 0);
   spherePole.rotation.y = -1.55;
   spherePole.rotation.x = 1.7;
-  sphere.rotation.y = -0.1;
+  sphere.rotation.y = -0.15;
 
   return sphere;
 };
