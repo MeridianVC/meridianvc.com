@@ -15,6 +15,18 @@ const globeStyle: React.CSSProperties = {
   zIndex: -2,
 };
 
+const overlayStyle: React.CSSProperties = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  backgroundColor: '#FFF5DC',
+  transition: 'opacity .5s ease-in-out',
+  zIndex: -1,
+  pointerEvents: 'none',
+};
+
 const Globe: FC = () => {
 
   const { isAnimating } = useAnimationContext();
@@ -27,6 +39,8 @@ const Globe: FC = () => {
   const sphereRef = useRef<THREE.Mesh | null>(null);
 
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isRendered, setIsRendered] = useState(false); // this turns to true only after the globe is rendered to the screen
+  const [overlayOpacity, setOverlayOpacity] = useState(1);
 
   useEffect(() => {
     preloadSphere().then((loadedSphere) => {
@@ -51,9 +65,15 @@ const Globe: FC = () => {
         return scaleFactor;
     };
 
+  // Start the opacity transition
   useEffect(() => {
-      // if (isAnimating) return;
+    if (isRendered) {
+      setOverlayOpacity(0); // set to 0 to start the transition
+    }
+  }, [isRendered]);
 
+  // for handling most of the important globe operations
+  useEffect(() => {
       if (!sceneRef.current) {
         sceneRef.current = new THREE.Scene();
         sceneRef.current.background = new THREE.Color(0xFFF5DC);
@@ -87,6 +107,7 @@ const Globe: FC = () => {
 
       if (rendererRef.current && sceneRef.current && cameraRef.current && !isAnimating) {
         rendererRef.current.render(sceneRef.current, cameraRef.current);
+        setIsRendered(true);
       }
 
     }, [isLoaded, sphereRef.current, isAnimating]);
@@ -111,7 +132,12 @@ const Globe: FC = () => {
     };
   }, []);
 
-  return <div ref={mountRef} style={globeStyle}></div>;
+  return (
+  <>
+    <div ref={mountRef} style={globeStyle}></div>;
+    <div style={{ ...overlayStyle, opacity: overlayOpacity }}></div>;
+  </>
+  )
 };
 
 export default Globe;

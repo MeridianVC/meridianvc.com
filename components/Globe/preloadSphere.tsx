@@ -13,8 +13,8 @@ export const preloadSphere = async () => {
   texturePole.colorSpace = THREE.SRGBColorSpace;
 
   const geometry = new THREE.SphereGeometry(1.5, 111, 111);
-  const material = new THREE.MeshStandardMaterial({ map: texture });
-  const materialPole = new THREE.MeshStandardMaterial({ map: texturePole, transparent: true });
+  const material = new THREE.MeshStandardMaterial({ map: texture});
+  const materialPole = new THREE.MeshStandardMaterial({ map: texturePole, transparent: true});
 
   const sphere = new THREE.Mesh(geometry, material);
   const spherePole = new THREE.Mesh(geometry, materialPole);

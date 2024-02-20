@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { useScroll, useMotionValue } from 'framer-motion';
+import { useScroll, useMotionValue, easeInOut } from 'framer-motion';
 import { useAnimationContext } from '../Animation/AnimationContext';
 
 const useGlobeAnimation = (
@@ -27,7 +27,11 @@ const useGlobeAnimation = (
     useEffect(() => {
         if (!globe || !rendererRef || isAnimating) return;
 
-        // animate function, loops continuously
+
+        // let opacity = 0; // Initial opacity
+        // const opacityIncrement = 1 / 30; // Will occur over 60 frames
+
+        // MAIN ROTATION ANIMATION FUNCTION, LOOPS CONTINUOUSLY
         const animate = () => {
 
             const currentScrollYProgress = scrollYProgress.current.get();
@@ -47,6 +51,17 @@ const useGlobeAnimation = (
             if (rendererRef && scene && camera) {
                 rendererRef.render(scene, camera);
             }
+
+            // // Increment opacity until it reaches 1
+            // if (opacity < 1) {
+            //     opacity += opacityIncrement;
+            //     opacity = Math.min(opacity, 1); // Ensure it doesn't exceed 1
+            //     globe.traverse((child) => {
+            //         if (child instanceof THREE.Mesh && child.material && child.material.transparent) {
+            //             child.material.opacity = opacity;
+            //         }
+            //     });
+            // }
 
             previousScrollYProgress.current = currentScrollYProgress;
 

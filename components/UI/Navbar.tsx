@@ -12,7 +12,8 @@ import { useAnimationContext } from '../Animation/AnimationContext';
 
 const linkStyle: React.CSSProperties = {
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'row-reverse',
+
   gap: '4vw',
   fontSize: '1rem',
   textDecoration: 'none',
@@ -136,12 +137,33 @@ const Navbar: FC = () => {
       }
     }, [])
 
+    // These variants are used for our navbar links
+    const linkContainerVariants = {
+      initial: { opacity: 0 }, // initial state for links
+      animate: { 
+        opacity: 1,
+        transition: {
+          when: "beforeChildren",
+          delay: 2.2,
+          duration: .5,
+          staggerChildren: 0.035, // Stagger the animation of child components
+        }
+      },
+    };
+
+    const linkVariants = {
+      initial: { y: -100, opacity: 0 },
+      animate: { 
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: .15,
+        }
+      }
+    };
+
     const navbarControls = useAnimation();
     const wordmarkControls = useAnimation();
-    const linkPrincipleControls = useAnimation();
-    const linkTeamControls = useAnimation();
-    const linkInvestmentsControls = useAnimation();
-    const linkInvestorPortalControls = useAnimation();
 
     //NAVBAR ANIMATION
     useEffect(() => {
@@ -158,36 +180,12 @@ const Navbar: FC = () => {
           y: '0vh',
           transition: { duration: .7, delay: .8, ease: 'easeInOut' },
         });
-      
-        await linkInvestorPortalControls.start({
-          y: 0,
-          opacity: 1,
-          transition: { duration: .1, delay: .2, ease: 'easeInOut' },
-        })
-
-        await linkInvestmentsControls.start({
-          y: 0,
-          opacity: 1,
-          transition: { duration: .1, ease: 'easeInOut' },
-        })
-
-        await linkTeamControls.start({
-          y: 0,
-          opacity: 1,
-          transition: { duration: .1, ease: 'easeInOut' },
-        })
-
-        await linkPrincipleControls.start({
-          y: 0,
-          opacity: 1,
-          transition: { duration: .1, ease: 'easeInOut' },
-        })
 
       };
 
       sequence();
 
-    }, [navbarControls, start, linkPrincipleControls, linkTeamControls, linkInvestmentsControls, linkInvestorPortalControls]);
+    }, [navbarControls, start]);
 
     //WORDMARK ANIMATION
     useEffect(() => {
@@ -221,7 +219,7 @@ const Navbar: FC = () => {
         //slide wordmark from center to the left
         await wordmarkControls.start({
           x: '0vw',
-          transition: { duration: .7, ease: 'easeInOut' },
+          transition: { duration: .6, ease: 'easeInOut' },
         });
 
         // set is animating to false which will trigger the globe rendering
@@ -256,17 +254,22 @@ const Navbar: FC = () => {
               y: `calc(105vh - ${navHeight})`,
               opacity: 0
               }}
+            
             style={navbarStyle}
             animate={navbarControls}
           >
-              <div className={`nav-links ${isDropdownOpen ? 'nav-active' : ''}`} style={linkStyle}>
-                <motion.a href="#section2_principles" className="navbar-hover link-disappear" initial={{y: -100, opacity: 0}} animate={linkPrincipleControls}>Principles</motion.a>
-                <motion.a href="#section4_team" className="navbar-hover link-disappear" initial={{y: -100, opacity: 0}} animate={linkTeamControls}>Team</motion.a>
-                <motion.a href="#section5_investments" className="navbar-hover link-disappear" initial={{y: -100, opacity: 0}} animate={linkInvestmentsControls}>Investments</motion.a>
-                <motion.a href="https://login.app.carta.com/credentials/login/" target="_blank" rel="noopener noreferrer" className="navbar-hover link-disappear" initial={{y: -100, opacity: 0}} animate={linkInvestorPortalControls}>Investor Portal</motion.a>
-                <GetInTouchButton onClick={handleOpenModal} className="link-disappear" style={buttonStyle}/>
-              </div>
-
+              <motion.div 
+                className={`nav-links ${isDropdownOpen ? 'nav-active' : ''}`} 
+                style={linkStyle}
+                initial="initial"
+                animate="animate"
+                variants={linkContainerVariants}>
+                  <GetInTouchButton onClick={handleOpenModal} className="link-disappear" style={buttonStyle}/>
+                  <motion.a href="https://login.app.carta.com/credentials/login/" target="_blank" rel="noopener noreferrer" className="navbar-hover link-disappear" variants={linkVariants}>Investor Portal</motion.a>
+                  <motion.a href="#section5_investments" className="navbar-hover link-disappear"variants={linkVariants} >Investments</motion.a>
+                  <motion.a href="#section4_team" className="navbar-hover link-disappear" variants={linkVariants}>Team</motion.a>
+                  <motion.a href="#section2_principles" className="navbar-hover link-disappear" variants={linkVariants}>Principles</motion.a>
+              </motion.div>
                 {modalRoot && ReactDOM.createPortal(
                   <AnimatePresence>
                     {isModalOpen && <GetInTouchModal onClose={handleCloseModal} isOpen={isModalOpen}/>}
