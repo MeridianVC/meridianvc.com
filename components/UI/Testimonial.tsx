@@ -66,6 +66,7 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         fontSize: '45px',
         position: 'absolute',
         left: `${left}`,
+        top: 0,
         display: 'inline-block'
     }
 
