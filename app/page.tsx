@@ -283,6 +283,7 @@ const Home: FC = () => {
                     name="Cody Eddings"
                     company="SnapRefund"
                     imageSrc="/headshotCodyEddings.png"
+                    left="57px"
                   />
                   <Testimonial 
                     alignment="right"
@@ -290,6 +291,7 @@ const Home: FC = () => {
                     name="Ben Wunderman"
                     company="Packsmith"
                     imageSrc="/headshotBenWunderman.png"
+                    left="39px"
                   />
                   <Testimonial 
                     alignment="left"
@@ -297,6 +299,7 @@ const Home: FC = () => {
                     name="Atikh Bana"
                     company="Acctual"
                     imageSrc="/headshotAtikh.png"
+                    left="40px"
                   />
               </div>
               <Spacer height={'5vh'} />

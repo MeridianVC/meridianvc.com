@@ -9,9 +9,10 @@ interface TestimonialProps {
     name: string;
     company: string;
     imageSrc: string;
+    left: string;
 }
 
-const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company, imageSrc }) => {
+const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company, imageSrc, left }) => {
     const isLeftAligned = alignment === 'left';
 
     const containerStyle: React.CSSProperties = {
@@ -57,15 +58,20 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
         top: '10px',
         left: '-5px',
         display: 'inline-block'
+
     }
 
     const rightQuoteStyle: React.CSSProperties = {
         color: '#E64702',
         fontSize: '45px',
-        position: 'relative',
-        top: '10px',
-        left: '10px',
+        position: 'absolute',
+        left: `${left}`,
         display: 'inline-block'
+    }
+
+    const lastWordStyle: React.CSSProperties = {
+        whiteSpace: 'nowrap', 
+        position: 'relative',
     }
 
     // This work ensures the right quote text decoration never ends up on a line alone
@@ -87,7 +93,7 @@ const Testimonial: FC<TestimonialProps> = ({ alignment, statement, name, company
                 <Text variant="BodyBaskerville" className="testimonialStatement" style={statementStyle}>
                     <span style={leftQuoteStyle}>“</span>
                         {trimmedStatement + ' '}
-                    <span style={{ whiteSpace: 'nowrap' }}>{lastWord}<span style={rightQuoteStyle}>”</span></span>
+                    <span style={lastWordStyle}>{lastWord}<span style={rightQuoteStyle}>”</span></span>
                 </Text>
                 <div>
                     <Text variant="BodyBaskerville" style={nameStyle}>{name} </Text>
