@@ -147,7 +147,7 @@ const TeamModal: FC<TeamModalProps> = ({
     const modalStyle: React.CSSProperties = {
         display: isOpen ? 'flex' : 'none', // Control visibility
         position: 'fixed',
-        top: `calc(${navHeight} - 2px`,
+        top: `calc(${navHeight} - 2px)`,
         bottom: 'auto',
         left: 'calc(4vw - 1px)',
         right: 'calc(4vw  - 1px)',
@@ -164,6 +164,16 @@ const TeamModal: FC<TeamModalProps> = ({
 
     const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
+    // This finds our div and attaches an HTML element to our document to be used by our portal for the modal
+    useEffect(() => {
+        const root = document.getElementById('modal-root');
+        if (root instanceof HTMLElement) {
+        setModalRoot(root);
+        } else {
+        console.error('Modal root element not found or is not an HTML element');
+        }
+    }, [])
+
     useEffect(() => {
         // Close modal on ESC key press
         const handleEsc = (event: KeyboardEvent) => {
@@ -174,16 +184,6 @@ const TeamModal: FC<TeamModalProps> = ({
         window.addEventListener('keydown', handleEsc);
         return () => window.removeEventListener('keydown', handleEsc);
     }, [onClose]);
-
-  // This finds our div and attaches an HTML element to our document to be used by our portal for the modal
-    useEffect(() => {
-        const root = document.getElementById('modal-root');
-        if (root instanceof HTMLElement) {
-          setModalRoot(root);
-        } else {
-          console.error('Modal root element not found or is not an HTML element');
-        }
-      }, [])
 
     return (
     <>

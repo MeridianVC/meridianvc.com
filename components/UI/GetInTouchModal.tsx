@@ -51,7 +51,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
         justifyContent: 'center',
         gap: 'clamp(20px, 40px, 40px)',
         maxWidth: '1200px',
-        height: `calc(100vh - ${navHeight} - 2px)`,
+        height: `calc(100vh - ${navHeight})`,
         overflowX: 'hidden',
         overflowY: 'auto',
     };
@@ -75,7 +75,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
 
     const imageContainerStyle: React.CSSProperties = {
         position: 'relative',
-        zIndex: 1
+        zIndex: 1,
     }
 
     const imageStyle: React.CSSProperties = {
@@ -92,8 +92,6 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
         backgroundColor: '#FFF5DC',
         zIndex: -1
     };
-
-    
 
     const sectionSpacing: React.CSSProperties = {
         marginBottom: 'clamp(10px, 5vw, 20px)',
