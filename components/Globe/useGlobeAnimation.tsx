@@ -17,6 +17,9 @@ const useGlobeAnimation = (
     const scrollYProgress = useRef(useMotionValue(0));
     const previousScrollYProgress = useRef<number>(0);
 
+    console.log('Globe Animation: scrollYProgress', scrollYProgress);
+    console.log('Globe Animation: previous scrollYProgress', previousScrollYProgress);
+
     const { isAnimating } = useAnimationContext();
 
     useEffect(() => {
@@ -34,14 +37,14 @@ const useGlobeAnimation = (
             const currentScrollYProgress = scrollYProgress.current.get();
             const scrollDelta = currentScrollYProgress - previousScrollYProgress.current;
 
-            if (scrollDelta >= 0) { // if scrolling down the website
+            if (scrollDelta >= 0) { // extra rotation only happens on scroll-down
                 globe.rotation.y -= 0.00033 + scrollDelta * 1.77;
             }
 
-            if (camera) {
-                camera.position.y = 4 - currentScrollYProgress * 10;
-                camera.position.z = 6.5 - currentScrollYProgress * 2;
-                camera.position.x = 6.5 - currentScrollYProgress * 2;
+            if (camera) { // changed to previousScrollYProgress, which may be perfect to keep the scrollY at 0,0 at start
+                camera.position.y = 4 - previousScrollYProgress.current * 10;
+                camera.position.z = 6.5 - previousScrollYProgress.current * 2;
+                camera.position.x = 6.5 - previousScrollYProgress.current * 2;
                 camera.lookAt(new THREE.Vector3(0, 0, 0));
             }
 

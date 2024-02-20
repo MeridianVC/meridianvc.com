@@ -5,7 +5,10 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const useCleanAnimation = (isAnimating: boolean, allowScroll: boolean): void => {
 
+  console.log('Clean Animation: useCleanAnimation hit');
+
   useEffect(() => {
+    console.log('Clean Animation: isAnimating', isAnimating);
     if (isAnimating) {
       disableBodyScroll(document.body);
       document.body.style.position = "fixed";
@@ -18,6 +21,8 @@ const useCleanAnimation = (isAnimating: boolean, allowScroll: boolean): void => 
 
   useEffect(() => {
     if (allowScroll) {
+      console.log('Clean Animation: allow Scroll', allowScroll);
+
       enableBodyScroll(document.body);
       document.body.style.position = "";
       document.body.style.width = "";

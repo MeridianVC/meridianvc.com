@@ -195,11 +195,6 @@ const Navbar: FC = () => {
     useEffect(() => {
 
       if(!start) return;
-
-      // setting to true will trigger the main content animation start
-      if (setAnimationStarted) {
-        setAnimationStarted(true);
-      }
       
       const sequence = async () => {
         //move wordmark into view
@@ -233,6 +228,11 @@ const Navbar: FC = () => {
           setIsAnimating(false);
         }
       };
+
+      // setting to true will trigger the main content animation start
+      if (setAnimationStarted) {
+        setAnimationStarted(true);
+      }
 
       sequence();
 
