@@ -60,9 +60,7 @@
     .content-card-height {
         height: 125px !important;
     }
-    .get-in-touch-content-flex {
-        justify-content: start !important;
-    }
+
     .mobile-modal {
         left: 4vw !important;
         right: 4vw !important;
@@ -70,7 +68,8 @@
     .get-in-touch-content-flex {
         padding-top: 25px !important;
         margin-bottom: 20px !important;
-        align-content: bottom !important;
+        align-content: start !important;
+        justify-content: start !important;
     }
 }
 
