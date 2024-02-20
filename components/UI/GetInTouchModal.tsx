@@ -27,7 +27,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
     const modalStyle: React.CSSProperties = {
         display: isOpen ? 'flex' : 'none', // Control visibility
         position: 'fixed',
-        top: `calc(${navHeight} - 2px`,
+        top: `calc(${navHeight} - 2px)`,
         left: 'calc(4vw  - 1px)',
         right: 'calc(4vw  - 1px)',
         height: `calc(100vh - ${navHeight})`,
