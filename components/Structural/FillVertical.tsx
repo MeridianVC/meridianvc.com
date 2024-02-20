@@ -1,18 +1,17 @@
 // This component is built to fill space vertically and contribute to the inner box effect
 
 import { FC } from 'react';
+import { navHeight } from './NavHeight';
 
 const fillStyle = (side: 'left' | 'right'): React.CSSProperties => ({
     position: 'fixed',
-    top: 0,
+    top: navHeight,
     bottom: 0,
     [side]: 0,
-    // borderRight: side === 'left' ? '2px solid #444444' : undefined,
-    // borderLeft: side === 'right' ? '2px solid #444444' : undefined,
     width: '4%',
-    height: '100vh',
+    height: '100%',
     zIndex: 2,
-    backgroundColor:"#FFF5DC",
+    backgroundColor: '#FFF5DC',
 });
 
 const FillVertical: FC<{ side: 'left' | 'right' }> = ({ side }) => {

@@ -22,6 +22,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '10px'
     },
     {
       logoSrc: '/companyLogos/Hona.svg',
@@ -32,6 +33,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '7px'
     },
     {
       logoSrc: '/companyLogos/Bowtie.svg',
@@ -62,6 +64,8 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '5px',
+      paddingBottom: '10px'
     },
     {
       logoSrc: '/companyLogos/Vigil.png',
@@ -72,6 +76,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      paddingTop: '10px',
     },
     {
       logoSrc: '/companyLogos/Rebuy.svg',
@@ -82,6 +87,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '5px'
     },
     {
       logoSrc: '/companyLogos/Trestle.png',
@@ -102,6 +108,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      paddingBottom: '10px',
     },
     {
       logoSrc: '/companyLogos/Reset.svg',
@@ -112,6 +119,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '15px'
     },
     {
       logoSrc: '/companyLogos/OneImaging.png',
@@ -142,6 +150,7 @@ const companyData = [
         stageInvested: 'Series A',
         sector: 'Technology',
         coInvestors: ['Investor A', 'Investor B'],
+        padding: '10px'
     },
     {
       logoSrc: '/companyLogos/Sante.png',
@@ -152,6 +161,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '15px'
     },
     {
       logoSrc: '/companyLogos/Flitch.png',
@@ -202,6 +212,8 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '12px',
+      paddingBottom: '17px'
     },
     {
       logoSrc: '/companyLogos/Pier.png',
@@ -232,6 +244,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '10px'
     },
     {
       logoSrc: '/companyLogos/ClarityValue.svg',
@@ -262,6 +275,8 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '12px',
+      paddingBottom: '17px'
     },
     {
       logoSrc: '/companyLogos/Mortar.png',
@@ -342,6 +357,8 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '5px',
+      paddingBottom: '15px'
     },
     {
       logoSrc: '/companyLogos/BananaDev.svg',
@@ -352,6 +369,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '5px'
     },
     {
       logoSrc: '/companyLogos/OttoAI.png',
@@ -362,6 +380,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '5px'
     },
     {
       logoSrc: "/companyLogos/Trigo.svg",
@@ -372,6 +391,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '10px'
     },
 ];
 
@@ -389,6 +409,11 @@ const CompanyGrid: FC = () => {
           stageInvested={company.stageInvested}
           sector={company.sector}
           coInvestors={company.coInvestors}
+          padding={company.padding}
+          paddingBottom={company.paddingBottom}
+          paddingTop={company.paddingTop}
+          paddingLeft={company.paddingLeft}
+          paddingRight={company.paddingRight}
         />
       ))}
     </div>

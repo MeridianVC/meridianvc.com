@@ -26,8 +26,6 @@ const Section: FC<SectionProps> = ({ id, children, className, style, isFullHeigh
 
   return (
     <section id={id} className={className} style={sectionStyle}>
-    <FillVertical side="right"/>
-    <FillVertical side="left"/>
       {children}
     </section>
   );

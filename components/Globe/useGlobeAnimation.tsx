@@ -2,25 +2,32 @@
 
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { useScroll } from 'framer-motion';
+import { useScroll, useMotionValue } from 'framer-motion';
 
 const useGlobeAnimation = (
     globe: THREE.Object3D | null,
     rendererRef: THREE.WebGLRenderer | null,
     camera: THREE.PerspectiveCamera | null,
-    scene: THREE.Scene | null,
-    isAnimationReady?: boolean,
+    scene: THREE.Scene | null
 ) => {
 
-    const { scrollYProgress } = useScroll();
+    const { scrollYProgress: actualScrollYProgress } = useScroll();
+
+    const scrollYProgress = useRef(useMotionValue(0));
     const previousScrollYProgress = useRef<number>(0);
 
+    useEffect(() => {
+        actualScrollYProgress.on("change", (value) => scrollYProgress.current.set(value))
+    }, [actualScrollYProgress])
+
+    //useEffect to start the animation
     useEffect(() => {
         if (!globe || !rendererRef) return;
 
         // animate function, loops continuously
         const animate = () => {
-            const currentScrollYProgress = scrollYProgress.get();
+
+            const currentScrollYProgress = scrollYProgress.current.get();
             const scrollDelta = currentScrollYProgress - previousScrollYProgress.current;
 
             if (scrollDelta >= 0) { // if scrolling down the website
@@ -37,24 +44,6 @@ const useGlobeAnimation = (
             if (rendererRef && scene && camera) {
                 rendererRef.render(scene, camera);
             }
-
-            // globe.traverse((child: THREE.Object3D) => {
-            // // Use type assertion to check if the child is a Mesh and has a material
-            // if ((child as THREE.Mesh).isMesh && (child as THREE.Mesh).material) {
-            //     const mesh = child as THREE.Mesh; // Now 'mesh' is typed as Mesh, providing access to 'material'
-                
-            //     // Some materials might be an array of materials
-            //     if (Array.isArray(mesh.material)) {
-            //     mesh.material.forEach(material => {
-            //         material.transparent = true;
-            //         material.opacity = 1 - currentScrollYProgress/10;
-            //     });
-            //     } else {
-            //     mesh.material.transparent = true;
-            //     mesh.material.opacity = 1 - currentScrollYProgress/10;
-            //     }
-            // }
-            // });
 
             previousScrollYProgress.current = currentScrollYProgress;
 

@@ -12,20 +12,22 @@ import PrinciplesCard from '@/components/UI/PrinciplesCard';
 import Testimonial from '@/components/UI/Testimonial';
 import FillSection from '@/components/Structural/FillSection';
 import TeamCardContainer from '@/components/UI/Team/TeamCardContainer';
-import CompanyGrid from '@/components/UI/CompanyGrid';
 import LatestContentCard from '@/components/UI/LatestContentCard';
 import Footer from '@/components/UI/Footer';
 import '../components/UI/ui.css';
 import FillVertical from '@/components/Structural/FillVertical';
-// import LoadingAnimation from '@/components/Animation/LoadingAnimation';
-import Section5Companies from '@/components/Sections/section5_companies';
+import Section5Companies from '@/components/Sections/section5_investments';
+import Main from '@/components/Structural/Main';
 
-const ClientSideAnimationWrapper = dynamic(() => import('../components/Animation/ClientSideAnimationWrapper'), { ssr: false });
+const MainContentAnimation = dynamic(() => import('../components/Animation/MainContentAnimation'), { ssr: false });
 
 // dynamically load the globe only when DOM is present
 const Globe = dynamic(() => import('../components/Globe/Globe'), {
   ssr: false,
-  // loading: () => <PlaceholderMap/> // removed for now – would rather have nothing for .5 seconds
+});
+
+const LayoutGroup = dynamic(() => import('framer-motion').then((mod) => mod.LayoutGroup), {
+  ssr: false,
 });
 
 const teamMembers = [
@@ -72,8 +74,8 @@ const teamMembers = [
       linkedin: "https://www.linkedin.com/in/heatheraharmon/",
       focus: "New investment advisory and mentorship for portfolio founders.",
       education: "Heather completed a Pre-medicine degree from UC San Diego and University of Washington, attended the Universidad of Guadalajara, and UC Berkeley Haas School of Business for Artificial Intelligence.",
-      experienceP1: "Ms. Harmon is a 4x founder and former venture-backed COO and public company executive. She is a passionate proptech and fintech leader, who has built and managed highly engaged technical teams, led product management, scaled operations from startup through M&A, and created great user products.",
-      experienceP2: "Currently, she is advising early stage companies on raising capital, defining product roadmaps, and scaling."
+      experienceP1: "Ms. Harmon is a 4x founder and former venture-backed COO and public company executive. She is a passionate proptech and fintech leader who has built and managed highly engaged technical teams, led product management, and scaled operations from startup through M&A.",
+      experienceP2: "She is currently is advising early stage companies on raising capital, defining product roadmaps, and scaling operations."
   },
   {
       name: "Zachary Smith",
@@ -123,22 +125,13 @@ const latestContents = [
   },
 ];
 
-const mainContentStyle: React.CSSProperties = {
-  width: '92%',
-  display: 'flex',
-  flexDirection: 'column',
-  position: 'relative',
-  backgroundColor: 'transparent',
-  top: '0',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-};
-
 const landingStyle: React.CSSProperties = {
   justifyContent: 'space-between',
   display: 'flex',
   flexDirection: 'column',
   height: '100vh',
+  top: 'auto',
+  bottom: 0
 }
 
 const compassStyle: React.CSSProperties = {
@@ -151,10 +144,10 @@ const compassStyle: React.CSSProperties = {
 
 const legendStyle: React.CSSProperties = {
   aspectRatio: 'auto',
-  width: 'clamp(18rem, 60vw, 33rem)',
+  width: 'clamp(288px, 60vw, 600px)',
   position: 'relative',
-  marginRight: 'clamp(5vw, 8vw, 20vw)',
-  marginBottom: 'clamp(5vh, 10vh, 12vh)',
+  paddingRight: 'clamp(5vw, 8vw, 20vw)',
+  paddingBottom: 'clamp(5px, 10vh, 12vh)',
   marginLeft: 'auto',
   marginTop: 'auto',
   backgroundColor: 'transparent',
@@ -217,17 +210,15 @@ const latestCardContainerStyle: React.CSSProperties = {
 
 const Home: FC = () => {
   return (
-    <>
-    {/* <LoadingAnimation /> */}
-    {/* <div className="loader"></div> */}
+   <>
       <Navbar />
       <FillVertical side="right"/>
       <FillVertical side="left"/>
-      {/* <ClientSideAnimationWrapper> */}
-        <main style={mainContentStyle}>
+      <MainContentAnimation>
+        <Main>
           <Section id="section1_landing" style={landingStyle}>
             <div>
-                <Spacer/>
+                <Spacer />
                 <Image 
                     src="/compass.svg" 
                     alt="Compass" 
@@ -339,9 +330,11 @@ const Home: FC = () => {
           <Section id="section7_footer">
               <Footer />
           </Section>
-        </main>              
-        <Globe />
+        </Main> 
+      </MainContentAnimation>      
+      <Globe />   
     </>
+
   );
 };
 

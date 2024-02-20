@@ -11,14 +11,13 @@ interface CompanyCardProps {
   stageInvested: string;
   sector: string;
   coInvestors: string[];
+  padding?: string;
+  paddingBottom?: string;
+  paddingTop?: string;
+  paddingLeft?: string;
+  paddingRight?: string;
 }
 
-const cardStyle: React.CSSProperties = {
-    position: 'relative',
-    width: '165px',
-    height: '150px',
-  };
-  
   const logoStyle: React.CSSProperties = {
     width: '100%',
     height: '100%',
@@ -48,7 +47,23 @@ const CompanyCard: FC<CompanyCardProps> = ({
   stageInvested,
   sector,
   coInvestors,
+  padding,
+  paddingBottom,
+  paddingTop,
+  paddingLeft,
+  paddingRight
 }) => {
+
+  const cardStyle: React.CSSProperties = {
+    position: 'relative',
+    width: '165px',
+    height: '150px',
+    padding: padding,
+    paddingBottom: paddingBottom,
+    paddingTop: paddingTop,
+    paddingLeft: paddingLeft,
+    paddingRight: paddingRight
+  };
 
   return (
     <div style={cardStyle} className="company-card-size">

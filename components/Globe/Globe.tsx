@@ -4,6 +4,7 @@ import React, { FC, useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import useGlobeAnimation from './useGlobeAnimation';
 import { preloadSphere } from './preloadSphere';
+import { useAnimationContext } from '../Animation/AnimationContext';
 
 const globeStyle: React.CSSProperties = {
   position: 'fixed',
@@ -15,6 +16,9 @@ const globeStyle: React.CSSProperties = {
 };
 
 const Globe: FC = () => {
+
+  const { isAnimating } = useAnimationContext();
+
   const mountRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -48,6 +52,8 @@ const Globe: FC = () => {
     };
 
   useEffect(() => {
+      // if (isAnimating) return;
+
       if (!sceneRef.current) {
         sceneRef.current = new THREE.Scene();
         sceneRef.current.background = new THREE.Color(0xFFF5DC);
@@ -72,18 +78,19 @@ const Globe: FC = () => {
         //camera movement and look is handled in useGlobeAnimation
       }
       
-      if (isLoaded && sphereRef.current) {
+      // the following 2 only happen when isAnimating is false to ensure animation is smooth
+      if (isLoaded && sphereRef.current && !isAnimating) {
         sceneRef.current.add(sphereRef.current);
         sphereRef.current.rotation.x = THREE.MathUtils.degToRad(-23.5);
         const initialScale = calculateScale();
         sphereRef.current.scale.set(initialScale, initialScale, initialScale);
       }
 
-      if (rendererRef.current && sceneRef.current && cameraRef.current) {
+      if (rendererRef.current && sceneRef.current && cameraRef.current && !isAnimating) {
         rendererRef.current.render(sceneRef.current, cameraRef.current);
       }
 
-    }, [isLoaded, sphereRef.current]);
+    }, [isLoaded, sphereRef.current, isAnimating]);
 
     useGlobeAnimation(sphereRef.current, rendererRef.current, cameraRef.current, sceneRef.current);
 

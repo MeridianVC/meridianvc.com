@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import ReactDOM from 'react-dom';
 import { motion, MotionStyle } from 'framer-motion';
 import { navHeight } from '../Structural/NavHeight';
 import GetInTouchButton from './GetInTouchButton';
@@ -49,25 +50,41 @@ const NavbarDropdown: React.FC<DropdownMenuProps> = ({ isDropdownOpen, setIsDrop
     paddingTop: '25px',
   }
 
+  const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
+
+  // This finds our div and attaches an HTML element to our document to be used by our portal for the modal
+  useEffect(() => {
+      const root = document.getElementById('modal-root');
+      if (root instanceof HTMLElement) {
+      setModalRoot(root);
+      } else {
+      console.error('Modal root element not found or is not an HTML element');
+      }
+  }, [])
+
   return (
-    <motion.div
-        style={dropdownStyle}
-        initial={{ y: '-40vh' }}
-        animate={{ y: 0 }}
-        exit={{ y: '-40vh' }}
-        transition={{ type: 'easeInOut', stiffness: 100 }}
-        className='mobile-modal'
-    >
-      <GetInTouchButton className="nav-link" onClick={() => toggleModal() }/>
-      <a href="https://login.app.carta.com/credentials/login/" target="blank" className="nav-link" style={navLinkStyle}>Investor Portal</a>
-      <ul style={listStyle}>
-        {links.map((link, index) => (
-            <li className="nav-link" key={index}>
-            <a href={link.href} onClick={() => setIsDropdownOpen(false)}>{link.title}</a>
-          </li>
-        ))}
-      </ul>
-    </motion.div>
+    <>
+    {modalRoot? ReactDOM.createPortal(
+      <motion.div
+          style={dropdownStyle}
+          initial={{ y: '-40vh' }}
+          animate={{ y: 0 }}
+          exit={{ y: '-40vh' }}
+          transition={{ type: 'easeInOut', stiffness: 100 }}
+          className='mobile-modal'
+      >
+        <GetInTouchButton className="nav-link" onClick={() => toggleModal() }/>
+        <a href="https://login.app.carta.com/credentials/login/" target="blank" className="nav-link" style={navLinkStyle}>Investor Portal</a>
+        <ul style={listStyle}>
+          {links.map((link, index) => (
+              <li className="nav-link" key={index}>
+              <a href={link.href} onClick={() => setIsDropdownOpen(false)}>{link.title}</a>
+            </li>
+          ))}
+        </ul>
+      </motion.div>, 
+    modalRoot) : null}
+    </>
   );
 };
 

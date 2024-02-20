@@ -15,6 +15,7 @@ interface HeaderProps {
   marginBottom?: string;
   lineHeight?: string;
   maxWidth?: string;
+  width?: string;
 }
 
 const baseStyle: CSSProperties = {
@@ -25,7 +26,7 @@ const baseStyle: CSSProperties = {
 
 //EDIT THESE AS YOU USE THEM, NOT ALL HAVE THE RIGHT PARAMETERS
 const headerStyles: Record<string, CSSProperties> = {
-  H1: { fontSize: 'clamp(40px, 6vw, 70px)', lineHeight: 'clamp(50px, 8vw, 100px)' },
+  H1: { fontSize: 'clamp(40px, 6vw, 70px)', lineHeight: 'clamp(40px, 8vw, 90px)' },
   H2: { fontSize: 'clamp(35px, 5.5vw, 50px)', lineHeight: 'clamp(40px, 7vw, 80px)' },
   H3: { fontSize: 'clamp(30px, 5vw, 39.1px)', lineHeight: 'clamp(66px, 8vw, 144px)' },
   H4: { fontSize: 'clamp(25px, 4vw, 31.3px)', lineHeight: 'clamp(45px, 4.5vw, 60px)' },
@@ -39,12 +40,13 @@ const Header: FC<HeaderProps> = ({
   style, 
   children, 
   paddingLeft, 
-  paddingRight, 
+  paddingRight,
+  width,
   maxWidth, 
   marginTop, 
   marginBottom, 
   lineHeight, 
-  className 
+  className ,
 }) => {
 
   const combinedHeaderStyle = {
@@ -52,6 +54,7 @@ const Header: FC<HeaderProps> = ({
     ...headerStyles[type],
     ...(isCentered && { textAlign: 'center'}), 
     ...{maxWidth: `${maxWidth}`},
+    ...{width: `${width}`},
     ...{paddingLeft: `${paddingLeft}`},
     ...{paddingRight: `${paddingRight}`},
     ...{marginTop: `${marginTop}`},

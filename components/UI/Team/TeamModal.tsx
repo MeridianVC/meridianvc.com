@@ -1,4 +1,7 @@
-import React, { FC, useEffect, ReactElement } from 'react';
+"use client";
+
+import React, { FC, useEffect, ReactElement, useState } from 'react';
+import ReactDOM from 'react-dom';
 import Image from 'next/image';
 import { navHeight } from '../../Structural/NavHeight';
 import { motion } from 'framer-motion';
@@ -6,6 +9,110 @@ import FillBottomModal from '@/components/Structural/FillBottomModal';
 import Header from '@/components/Text/Header';
 import Text from '@/components/Text/Text';
 import '../ui.css';
+
+const contentStyle: React.CSSProperties = {
+    paddingLeft: '20px',
+    paddingRight: '20px',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingTop: 'clamp(40px, 25vh, 28vh)',
+    paddingBottom: '120px',
+    alignContent: 'start',
+    justifyContent: 'space-between',
+    gap: 'clamp(20px, 40px, 40px)',
+    width: 'clamp(70%, 90%, 1100px)',
+    maxWidth: '1200px',
+    height: `calc(100vh - ${navHeight} - 2px)`,
+    overflowX: 'hidden',
+    overflowY: 'auto',
+};
+
+const closeButtonStyle: React.CSSProperties = {
+    position: 'absolute',
+    top: '20px',
+    right: '20px',
+    height: 'auto',
+    cursor: 'pointer',
+    zIndex: 10,
+};
+
+const titleSectionStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '20px',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap-reverse',
+}
+
+const linkSectionStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#FFF5DC',
+}
+
+const linkStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'row',
+    textDecoration: 'underline',
+}
+
+const smallArrowStyle: React.CSSProperties = {
+    width: '6.5px',
+    maxWidth: '6.5px',
+    position: 'relative',
+    top: '-4px'
+}
+
+const sectionStyle: React.CSSProperties = {
+    flex: 1,
+    zIndex: 2,
+};
+
+const titleStyle: React.CSSProperties = {
+    position: 'relative',
+    top: '-10px',
+    backgroundColor: '#FFF5DC',
+}
+
+const detailIconStyleTop: React.CSSProperties = {
+    position: 'fixed',
+    left: 0,
+    top: 0,
+    zIndex: -1,
+    minWidth: '200px',
+}
+
+const detailIconStyleBottom: React.CSSProperties = {
+    position: 'fixed',
+    right: 0,
+    bottom: `calc(${navHeight} + ${navHeight}/3`,
+    pointerEvents: 'none',
+}
+
+const imageContainerStyle: React.CSSProperties = {
+    position: 'relative',
+    zIndex: 1
+}
+
+const imageStyle: React.CSSProperties = {
+    width: 'clamp(150px, 25vw, 300px)',
+    maxWidth: '300px',
+    mixBlendMode: 'multiply',
+};
+
+const imageBackgroundFill: React.CSSProperties = {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    top: 0,
+    backgroundColor: '#FFF5DC',
+    zIndex: -1
+}
+
+const backgroundFillStyle: React.CSSProperties = {
+    backgroundColor: '#FFF5DC'
+}
 
 interface TeamModalProps {
     imageSrc: string;
@@ -36,12 +143,14 @@ const TeamModal: FC<TeamModalProps> = ({
     onClose, 
     isOpen }): ReactElement => {
 
+    //this style needs isOpen parameter
     const modalStyle: React.CSSProperties = {
         display: isOpen ? 'flex' : 'none', // Control visibility
         position: 'fixed',
         top: `calc(${navHeight} - 2px`,
-        left: 'calc(4vw - .5px',
-        right: 'calc(4vw  - .5px)',
+        bottom: 'auto',
+        left: 'calc(4vw - 1px)',
+        right: 'calc(4vw  - 1px)',
         height: `calc(100vh - ${navHeight})`,
         justifyContent: 'center',
         alignItems: 'center',
@@ -53,110 +162,7 @@ const TeamModal: FC<TeamModalProps> = ({
         borderBottom: 'none',
     };
 
-    const contentStyle: React.CSSProperties = {
-        paddingLeft: '20px',
-        paddingRight: '20px',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        paddingTop: 'clamp(40px, 25vh, 28vh)',
-        paddingBottom: '120px',
-        alignContent: 'start',
-        justifyContent: 'space-between',
-        gap: 'clamp(20px, 40px, 40px)',
-        width: 'clamp(70%, 90%, 1100px)',
-        maxWidth: '1200px',
-        height: `calc(100vh - ${navHeight} - 2px)`,
-        overflowX: 'hidden',
-        overflowY: 'auto',
-    };
-
-    const closeButtonStyle: React.CSSProperties = {
-        position: 'absolute',
-        top: '20px',
-        right: '20px',
-        height: 'auto',
-        cursor: 'pointer',
-        zIndex: 10,
-    };
-
-    const titleSectionStyle: React.CSSProperties = {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '20px',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap-reverse',
-    }
-
-    const linkSectionStyle: React.CSSProperties = {
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#FFF5DC',
-    }
-
-    const linkStyle: React.CSSProperties = {
-        display: 'flex',
-        flexDirection: 'row',
-        textDecoration: 'underline',
-    }
-
-    const smallArrowStyle: React.CSSProperties = {
-        width: '6.5px',
-        maxWidth: '6.5px',
-        position: 'relative',
-        top: '-4px'
-    }
-
-    const sectionStyle: React.CSSProperties = {
-        flex: 1,
-        zIndex: 2,
-    };
-
-    const titleStyle: React.CSSProperties = {
-        position: 'relative',
-        top: '-10px',
-        backgroundColor: '#FFF5DC',
-    }
-
-    const detailIconStyleTop: React.CSSProperties = {
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        zIndex: -1,
-        minWidth: '200px',
-    }
-
-    const detailIconStyleBottom: React.CSSProperties = {
-        position: 'fixed',
-        right: 0,
-        bottom: `calc(${navHeight} + ${navHeight}/3`,
-        pointerEvents: 'none',
-    }
-
-    const imageContainerStyle: React.CSSProperties = {
-        position: 'relative',
-        zIndex: 1
-    }
-
-    const imageStyle: React.CSSProperties = {
-        width: 'clamp(150px, 25vw, 300px)',
-        maxWidth: '300px',
-        mixBlendMode: 'multiply',
-    };
-
-    const imageBackgroundFill: React.CSSProperties = {
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        top: 0,
-        backgroundColor: '#FFF5DC',
-        zIndex: -1
-    }
-
-    const backgroundFillStyle: React.CSSProperties = {
-        backgroundColor: '#FFF5DC'
-    }
-
+    const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
     useEffect(() => {
         // Close modal on ESC key press
@@ -169,87 +175,101 @@ const TeamModal: FC<TeamModalProps> = ({
         return () => window.removeEventListener('keydown', handleEsc);
     }, [onClose]);
 
+  // This finds our div and attaches an HTML element to our document to be used by our portal for the modal
+    useEffect(() => {
+        const root = document.getElementById('modal-root');
+        if (root instanceof HTMLElement) {
+          setModalRoot(root);
+        } else {
+          console.error('Modal root element not found or is not an HTML element');
+        }
+      }, [])
+
     return (
-        <motion.div
-            style={modalStyle}
-            initial={{ y: '100vh' }}
-            animate={{ y: 0 }}
-            exit={{ y: '100vh' }}
-            transition={{ type: 'easeInOut', stiffness: 100 }}
-            className='mobile-modal'
-        >
-            <div style={contentStyle} className="team-modal-flex">
-                <button style={closeButtonStyle} onClick={onClose} className="modal-link">
+    <>
+        {modalRoot ? ReactDOM.createPortal(
+            <motion.div
+                style={modalStyle}
+                initial={{ y: '100vh' }}
+                animate={{ y: 0 }}
+                exit={{ y: '100vh' }}
+                transition={{ type: 'easeInOut'}}
+                className='mobile-modal'
+            >
+                <div style={contentStyle} className="team-modal-flex">
+                    <button style={closeButtonStyle} onClick={onClose} className="modal-link">
+                        <Image 
+                            src="/ModalX.svg" 
+                            alt="Close X"
+                            width={34}
+                            height={34}
+                        />
+                    </button>
                     <Image 
-                        src="/ModalX.svg" 
-                        alt="Close X"
-                        width={34}
-                        height={34}
-                    />
-                </button>
-                <Image 
-                        src="/visionModalTop.svg" 
-                        alt="Vision Icon"
-                        width={695}
-                        height={537}
-                        style={detailIconStyleTop}
-                        className="modalDetail"
-                    />
-                <Image 
-                        src="/visionModalBottom.svg" 
-                        alt="Vision Icon"
-                        width={298}
-                        height={213}
-                        style={detailIconStyleBottom}
-                        className="modalDetail"
-                    />
-                    <div style={imageContainerStyle} className="team-modal-content">
-                        <img src={imageSrc} alt={name} style={imageStyle} />
-                        <div style={imageBackgroundFill}></div>
-                    </div>
-                    <div style={sectionStyle} className="team-modal-content">
-                        <div style={titleSectionStyle}>
+                            src="/visionModalTop.svg" 
+                            alt="Vision Icon"
+                            width={695}
+                            height={537}
+                            style={detailIconStyleTop}
+                            className="modalDetail"
+                        />
+                    <Image 
+                            src="/visionModalBottom.svg" 
+                            alt="Vision Icon"
+                            width={298}
+                            height={213}
+                            style={detailIconStyleBottom}
+                            className="modalDetail"
+                        />
+                        <div style={imageContainerStyle} className="team-modal-content">
+                            <img src={imageSrc} alt={name} style={imageStyle} />
+                            <div style={imageBackgroundFill}></div>
+                        </div>
+                        <div style={sectionStyle} className="team-modal-content">
+                            <div style={titleSectionStyle}>
+                                <div>
+                                    <Header type="H4" style={backgroundFillStyle}>{name}</Header>
+                                    <Text variant="SmallFranklin" style={titleStyle}>{title}</Text>
+                                </div>
+                                <div style={linkSectionStyle} className="team-modal-links">
+                                    {linkedin &&
+                                        <div style={linkStyle} className="modal-link">
+                                        <a href={linkedin} target="_blank"><Text variant="SmallFranklin">LinkedIn </Text></a>
+                                        <img src="./smallArrow.svg" alt="small arrow" style={smallArrowStyle} />
+                                    </div>}
+                                    {email && <div style={linkStyle} className="modal-link">
+                                        <a href={`mailto:${email}`} target="_blank"><Text variant="SmallFranklin">Email</Text></a>
+                                        <img src="./smallArrow.svg" alt="small arrow" style={smallArrowStyle}/>
+                                    </div>}
+                                    { medium && <div style={linkStyle} className="modal-link">
+                                        <a href={medium} target="_blank"><Text variant="SmallFranklin">Medium</Text></a>
+                                        <img src="./smallArrow.svg" alt="small arrow" style={smallArrowStyle}/>
+                                    </div>}
+                                </div>
+                            </div>
+                            <div style={{marginBottom: "12px"}}>
+                                <Header type="H4" style={backgroundFillStyle}> Focus </Header>
+                                <Text variant="SmallFranklin" style={backgroundFillStyle}> {focus} </Text>
+                            </div>
                             <div>
-                                <Header type="H4" style={backgroundFillStyle}>{name}</Header>
-                                <Text variant="SmallFranklin" style={titleStyle}>{title}</Text>
-                            </div>
-                            <div style={linkSectionStyle} className="team-modal-links">
-                                {linkedin &&
-                                    <div style={linkStyle} className="modal-link">
-                                    <a href={linkedin} target="_blank"><Text variant="SmallFranklin">LinkedIn </Text></a>
-                                    <img src="./smallArrow.svg" alt="small arrow" style={smallArrowStyle} />
-                                </div>}
-                                {email && <div style={linkStyle} className="modal-link">
-                                    <a href={`mailto:${email}`} target="_blank"><Text variant="SmallFranklin">Email</Text></a>
-                                    <img src="./smallArrow.svg" alt="small arrow" style={smallArrowStyle}/>
-                                </div>}
-                                { medium && <div style={linkStyle} className="modal-link">
-                                    <a href={medium} target="_blank"><Text variant="SmallFranklin">Medium</Text></a>
-                                    <img src="./smallArrow.svg" alt="small arrow" style={smallArrowStyle}/>
-                                </div>}
+                                <Header type="H4" style={backgroundFillStyle}> Education </Header>
+                                <Text variant="SmallFranklin" style={backgroundFillStyle}> {education} </Text>
                             </div>
                         </div>
-                        <div style={{marginBottom: "12px"}}>
-                            <Header type="H4" style={backgroundFillStyle}> Focus </Header>
-                            <Text variant="SmallFranklin" style={backgroundFillStyle}> {focus} </Text>
-                        </div>
+                    <div style={sectionStyle}>
                         <div>
-                            <Header type="H4" style={backgroundFillStyle}> Education </Header>
-                            <Text variant="SmallFranklin" style={backgroundFillStyle}> {education} </Text>
+                            <Header type="H4" style={backgroundFillStyle}> Experience </Header>
+                            <Text variant="SmallFranklin" style={backgroundFillStyle}> {experienceP1} </Text>
+                            <br/>
+                            <Text variant="SmallFranklin" style={backgroundFillStyle}> {experienceP2} </Text>
                         </div>
-                    </div>
-                <div style={sectionStyle}>
-                    <div>
-                        <Header type="H4" style={backgroundFillStyle}> Experience </Header>
-                        <Text variant="SmallFranklin" style={backgroundFillStyle}> {experienceP1} </Text>
-                        <br/>
-                        <Text variant="SmallFranklin" style={backgroundFillStyle}> {experienceP2} </Text>
                     </div>
                 </div>
-            </div>
-            <FillBottomModal/>
-        </motion.div>
-    );
+                <FillBottomModal/>
+            </motion.div>,
+        modalRoot) : null};
+    </>
+    )
 };
 
 export default TeamModal;

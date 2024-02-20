@@ -28,10 +28,8 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
         display: isOpen ? 'flex' : 'none', // Control visibility
         position: 'fixed',
         top: `calc(${navHeight} - 2px`,
-        left: 'calc(4vw  - .5px)',
-        right: 'calc(4vw  - .5px)',
-        // left: 'calc(4vw - 3px)',
-        // right: 'calc(4vw - 3px)',
+        left: 'calc(4vw  - 1px)',
+        right: 'calc(4vw  - 1px)',
         height: `calc(100vh - ${navHeight})`,
         justifyContent: 'center',
         backgroundColor: '#FFF5DC',
@@ -102,7 +100,6 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
     }
     
         if (!isOpen) {
-            console.log('not open');
             return null;
           }
     

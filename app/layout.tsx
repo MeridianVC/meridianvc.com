@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import localfont from 'next/font/local'
 import { Libre_Franklin } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
+import AnimationProvider from '@/components/Animation/AnimationContext';
+
 
 const Baskerville = localfont({
   src: [
@@ -32,11 +34,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${Baskerville.variable} ${Franklin.variable}`}>
-      <body>
-          {children}
-          <div id="modal-root"></div>
-          <Analytics/>
-      </body>
+      <AnimationProvider>
+        <body>
+            {children}
+            <div id="modal-root"></div>
+            <Analytics/>
+        </body>
+      </AnimationProvider>
 
     </html>
   )

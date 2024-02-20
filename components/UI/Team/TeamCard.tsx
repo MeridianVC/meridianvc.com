@@ -51,7 +51,6 @@ const TeamCard: FC<TeamCardProps> = ({ name, role, imageSrc, onCardClick }) => {
                 height={300}
                 style={imageStyle} 
             />
-            {/* <img src={imageSrc} alt={name} style={imageStyle} /> */}
             <div>
                 <Header type="H4" lineHeight="clamp(4px, 2.5vh, 40px)">{name}</Header>
                 <Text variant="SmallFranklin" paddingLeft="3px">{role}</Text>
