@@ -41,6 +41,10 @@ const useGlobeAnimation = (
         // MAIN ROTATION ANIMATION FUNCTION, LOOPS CONTINUOUSLY
         const animate = () => {
 
+            if (isAnimating) {
+                return;
+            }
+
             const currentScrollYProgress = scrollYProgress.current.get();
             const scrollDelta = currentScrollYProgress - previousScrollYProgress.current;
 
