@@ -87,7 +87,7 @@ interface Link {
 const links: Link[] = [
   {href: "#section2_principles", title: "Principles"},
   {href: "#section4_team", title: "Team"},
-  {href: "#section5_companies", title: "Investments"}
+  {href: "#section5_investments", title: "Investments"}
 ]
 
 const Navbar: FC = () => {

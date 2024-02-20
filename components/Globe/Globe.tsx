@@ -134,8 +134,8 @@ const Globe: FC = () => {
 
   return (
   <>
-    <div ref={mountRef} style={globeStyle}></div>;
-    <div style={{ ...overlayStyle, opacity: overlayOpacity }}></div>;
+    <div ref={mountRef} style={globeStyle}></div>
+    <div style={{ ...overlayStyle, opacity: overlayOpacity }}></div>
   </>
   )
 };
