@@ -75,7 +75,6 @@ const Globe: FC = () => {
 
       if (!cameraRef.current) {
         cameraRef.current = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
-        //camera movement and look is handled in useGlobeAnimation
       }
       
       // the following 2 only happen when isAnimating is false to ensure animation is smooth

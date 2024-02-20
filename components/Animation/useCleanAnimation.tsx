@@ -22,13 +22,11 @@ const useCleanAnimation = (isAnimating: boolean): void => {
   //once animation is done, enable body scroll and remove the forced document styles
   useEffect(() => {
     if (!isAnimating) {
+      window.scrollTo(0,0);
       enableBodyScroll(document.body);
       document.body.style.position = "";
       document.body.style.width = "";
       document.body.style.top = "";
-      setTimeout(() => {
-        window.scrollTo(0, 0); // fully ensure this is our scroll position, other useEffect didn't always work
-      }, 100) // 100 ms delay helps ensure our scroll state is set after the animation 
 
     }
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { useScroll, useMotionValue } from 'framer-motion';
+import { useAnimationContext } from '../Animation/AnimationContext';
 
 const useGlobeAnimation = (
     globe: THREE.Object3D | null,
@@ -16,13 +17,15 @@ const useGlobeAnimation = (
     const scrollYProgress = useRef(useMotionValue(0));
     const previousScrollYProgress = useRef<number>(0);
 
+    const { isAnimating } = useAnimationContext();
+
     useEffect(() => {
         actualScrollYProgress.on("change", (value) => scrollYProgress.current.set(value))
     }, [actualScrollYProgress])
 
     //useEffect to start the animation
     useEffect(() => {
-        if (!globe || !rendererRef) return;
+        if (!globe || !rendererRef || isAnimating) return;
 
         // animate function, loops continuously
         const animate = () => {
@@ -58,7 +61,7 @@ const useGlobeAnimation = (
         return () => {
             cancelAnimationFrame(requestID);
         };
-    }, [globe, camera, scene, scrollYProgress]);
+    }, [globe, camera, scene, scrollYProgress, isAnimating]);
 
 };
 
