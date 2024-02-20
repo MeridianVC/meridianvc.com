@@ -18,6 +18,7 @@ import '../components/UI/ui.css';
 import FillVertical from '@/components/Structural/FillVertical';
 import Section5Companies from '@/components/Sections/section5_investments';
 import Main from '@/components/Structural/Main';
+import '../components/Sections/sections.css';
 
 const MainContentAnimation = dynamic(() => import('../components/Animation/MainContentAnimation'), { ssr: false });
 
@@ -129,7 +130,7 @@ const landingStyle: React.CSSProperties = {
   justifyContent: 'space-between',
   display: 'flex',
   flexDirection: 'column',
-  height: '100vh',
+  minHeight: '100vh',
   top: 'auto',
   bottom: 0
 }
@@ -224,7 +225,7 @@ const Home: FC = () => {
                     alt="Compass" 
                     width={100}
                     height={100}
-                    style={compassStyle} 
+                    style={compassStyle}
                     priority
                   />
                 <Header type='H1' paddingLeft='clamp(3vw, 3vw, 20px)' paddingRight='clamp(3vw, 3vw, 20px)' marginTop='clamp(5px, 5vh, 10vh)' marginBottom='clamp(2vh, 5vh, 8vh)' maxWidth="950px"> 
