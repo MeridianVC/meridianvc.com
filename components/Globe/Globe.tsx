@@ -79,15 +79,6 @@ const Globe: FC = () => {
         sceneRef.current.background = new THREE.Color(0xFFF5DC);
       }
 
-      if (!rendererRef.current && mountRef.current) {
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.outputColorSpace = THREE.SRGBColorSpace;
-        mountRef.current.appendChild(renderer.domElement);
-        rendererRef.current = renderer;
-      }
-
       if (!ambientLightRef.current) {
         ambientLightRef.current = new THREE.AmbientLight(0xFFFFFF, 3.1);
         sceneRef.current.add(ambientLightRef.current);
@@ -97,12 +88,32 @@ const Globe: FC = () => {
         cameraRef.current = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
       }
       
-      // Adding heavy 3d objects to the dom needs to be done after loading animation to ensure it stays smooth
-      if (isLoaded && sphereRef.current && !isAnimating) {
+      if (isLoaded && sphereRef.current) {
         sceneRef.current.add(sphereRef.current);
         sphereRef.current.rotation.x = THREE.MathUtils.degToRad(-23.5);
         const initialScale = calculateScale();
         sphereRef.current.scale.set(initialScale, initialScale, initialScale);
+      }
+
+      console.log(rendererRef.current);
+      console.log('mount ref;', mountRef.current);
+
+      console.log('isAnimating', isAnimating);
+
+      //set mount ref
+      //instantiate renderer for the first time
+
+      if (mountRef.current && !rendererRef.current) {
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        rendererRef.current = renderer;
+        mountRef.current.appendChild(renderer.domElement);
+      }
+
+      // This cannot be done while animating since it risks these not being set correctly
+      if (rendererRef.current && !isAnimating) {
+        rendererRef.current.setSize(window.innerWidth, window.innerHeight);
+        rendererRef.current.setPixelRatio(window.devicePixelRatio);
+        rendererRef.current.outputColorSpace = THREE.SRGBColorSpace;
       }
 
       // Adding heavy 3d objects to the dom needs to be done after loading animation to ensure it stays smooth

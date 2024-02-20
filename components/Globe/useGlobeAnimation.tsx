@@ -25,6 +25,7 @@ const useGlobeAnimation = (
 
     //useEffect to start the animation
     useEffect(() => {
+
         if (!globe || !rendererRef || isAnimating) return;
 
         // MAIN ROTATION ANIMATION FUNCTION, LOOPS CONTINUOUSLY
@@ -61,7 +62,7 @@ const useGlobeAnimation = (
         return () => {
             cancelAnimationFrame(requestID);
         };
-    }, [globe, camera, scene, scrollYProgress, isAnimating]);
+    }, [globe, camera, scene, isAnimating]);
 
 };
 
