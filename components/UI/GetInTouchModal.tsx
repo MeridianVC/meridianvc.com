@@ -111,7 +111,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
             className="get-in-touch-modal-flex mobile-modal"
         >
             <button onClick={onClose} style={closeButtonStyle} className="modal-link">
-                <Image src="/ModalX.svg" alt="Close" width={34} height={34}/>
+                <Image src="/ModalX.svg" alt="Close" width={34} height={34} priority={true}/>
             </button>
             <div style={contentStyle} className="get-in-touch-content-flex">
                 <div style={imageContainerStyle}>
@@ -122,6 +122,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
                         height={400}
                         style={imageStyle}
                         priority={true}
+                        quality={50}
                     />
                     <div style={imageBackgroundFill}></div>
                 </div>
