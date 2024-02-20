@@ -287,7 +287,7 @@ const Navbar: FC = () => {
 
           <motion.div
             initial={{ 
-              y: `calc(74vh)`,
+              y: `calc(105vh)`,
               opacity: 0
               }}
               style={fillStyle}
