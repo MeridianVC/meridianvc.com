@@ -26,7 +26,9 @@ const useCleanAnimation = (isAnimating: boolean): void => {
       document.body.style.position = "";
       document.body.style.width = "";
       document.body.style.top = "";
-      window.scrollTo(0, 0); // fully ensure this is our scroll position, other useEffect didn't always work
+      setTimeout(() => {
+        window.scrollTo(0, 0); // fully ensure this is our scroll position, other useEffect didn't always work
+      }, 100) // 100 ms delay helps ensure our scroll state is set after the animation 
 
     }
 

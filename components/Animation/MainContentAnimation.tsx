@@ -36,7 +36,7 @@ const MainContentAnimation: FC<Props> = ({ children }) => {
       await animationControls.start({
         y: '0vh',
         scale: 1,
-        transition: { duration: .8, delay: 1, ease: 'easeOut'  }
+        transition: { duration: .8, delay: 1, ease: 'easeInOut'  }
       });
 
     };
