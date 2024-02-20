@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import React, { FC, Children, cloneElement, isValidElement, ReactNode, useState, useEffect } from 'react';
-import useCleanAnimation from './useCleanAnimation';
 import { useAnimationContext } from './AnimationContext';
 
 interface Props {
@@ -17,7 +16,6 @@ interface ChildrenProps {
 const MainContentAnimation: FC<Props> = ({ children }) => {
 
   const { isAnimating } = useAnimationContext(); // animation context used to sync animations across mult components
-  useCleanAnimation(isAnimating); // this ensures no user scroll during animation
 
   const animationControls = useAnimation();
 
@@ -29,14 +27,14 @@ const MainContentAnimation: FC<Props> = ({ children }) => {
       // turn opacity on
       await animationControls.start({
         opacity: 1,
-        transition: { duration: 0, delay: 1.3 }
+        transition: { duration: 0, delay: 1 }
       });
 
       //animate to final position
       await animationControls.start({
         y: '0vh',
         scale: 1,
-        transition: { duration: .8, delay: .45, ease: 'easeInOut'  }
+        transition: { duration: .7, delay: .8, ease: 'easeInOut'  }
       });
 
     };

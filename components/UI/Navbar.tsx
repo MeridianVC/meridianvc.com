@@ -3,12 +3,13 @@
 import React, { FC, useState, useEffect } from 'react';
 import { navHeight } from '../Structural/NavHeight';
 import NavbarDropdown from './NavbarDropdown';
-import { AnimatePresence, motion, useAnimation, LayoutGroup } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import GetInTouchButton from './GetInTouchButton';
 import GetInTouchModal from './GetInTouchModal';
 import ReactDOM from 'react-dom';
 import './ui.css';
 import { useAnimationContext } from '../Animation/AnimationContext';
+import useCleanAnimation from '../Animation/useCleanAnimation';
 
 const linkStyle: React.CSSProperties = {
   display: 'flex',
@@ -97,8 +98,11 @@ const Navbar: FC = () => {
   const [initialWordmarkScale, setInitialWordmarkScale] = useState<number>(1.5); //used as the initial wordmark scale animation
   const [start, setStart] = useState<boolean>(false); //animation does not start until the initial wordmark scale is ready
   const [showWordmarkCover, setshowWordmarkCover] = useState<boolean>(true); //for wordmark to slide out from under,
-  
-  const { setIsAnimating, setAnimationStarted } = useAnimationContext(); // animation state is set in this component
+
+  const [allowScroll, setAllowScroll] = useState(false);
+  const { isAnimating, setIsAnimating, setAnimationStarted } = useAnimationContext(); // animation state is set in this component
+
+  useCleanAnimation(isAnimating, allowScroll); // this ensures no user scroll during animation
 
   // calculate initial scale based on viewport size, animation will not start until this value is set
   useEffect(() => {
@@ -198,7 +202,6 @@ const Navbar: FC = () => {
       }
       
       const sequence = async () => {
-        
         //move wordmark into view
         await wordmarkControls.start({
           y: '45vh',
@@ -206,15 +209,18 @@ const Navbar: FC = () => {
           rotate: 0,
           transition: { duration: .5, delay: 1, ease: 'easeInOut' },
         });
-
         setshowWordmarkCover(false); // remove the div the wordmark slid out from under
-
         //move wordmark to top-center of nav while scaling down
         await wordmarkControls.start({
           y: '0vh',
           scale: 1,
           transition: { duration: .7, delay: .3, ease: 'easeInOut'  },
         });
+
+        //allows user to scroll
+        if (!allowScroll) {
+          setAllowScroll(true);
+        }
 
         //slide wordmark from center to the left
         await wordmarkControls.start({
@@ -223,7 +229,7 @@ const Navbar: FC = () => {
         });
 
         // set is animating to false which will trigger the globe rendering
-        if (setIsAnimating) {
+        if (setIsAnimating && isAnimating) {
           setIsAnimating(false);
         }
       };
@@ -251,7 +257,7 @@ const Navbar: FC = () => {
 
           <motion.nav
             initial={{ 
-              y: `calc(105vh - ${navHeight})`,
+              y: '105vh',
               opacity: 0
               }}
             
@@ -290,7 +296,7 @@ const Navbar: FC = () => {
 
           <motion.div
             initial={{ 
-              y: `calc(105vh)`,
+              y: '105vh',
               opacity: 0
               }}
               style={fillStyle}

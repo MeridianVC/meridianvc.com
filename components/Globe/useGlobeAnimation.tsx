@@ -27,10 +27,6 @@ const useGlobeAnimation = (
     useEffect(() => {
         if (!globe || !rendererRef || isAnimating) return;
 
-
-        // let opacity = 0; // Initial opacity
-        // const opacityIncrement = 1 / 30; // Will occur over 60 frames
-
         // MAIN ROTATION ANIMATION FUNCTION, LOOPS CONTINUOUSLY
         const animate = () => {
 
@@ -52,17 +48,6 @@ const useGlobeAnimation = (
                 rendererRef.render(scene, camera);
             }
 
-            // // Increment opacity until it reaches 1
-            // if (opacity < 1) {
-            //     opacity += opacityIncrement;
-            //     opacity = Math.min(opacity, 1); // Ensure it doesn't exceed 1
-            //     globe.traverse((child) => {
-            //         if (child instanceof THREE.Mesh && child.material && child.material.transparent) {
-            //             child.material.opacity = opacity;
-            //         }
-            //     });
-            // }
-
             previousScrollYProgress.current = currentScrollYProgress;
 
             // This keeps it going by requesting the next frame
@@ -71,10 +56,6 @@ const useGlobeAnimation = (
 
         // This starts the animation loop
         let requestID = requestAnimationFrame(animate);
-
-        // this will set the scroll position to 0 right as soon as we start the animation, which is necessary in some browser situations
-        const scrollToTop = () => window.scrollTo(0,0);
-        requestAnimationFrame(scrollToTop)
 
         // Cleanup function
         return () => {

@@ -121,6 +121,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
                         width={300}
                         height={400}
                         style={imageStyle}
+                        priority={true}
                     />
                     <div style={imageBackgroundFill}></div>
                 </div>

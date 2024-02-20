@@ -97,7 +97,7 @@ const Globe: FC = () => {
         cameraRef.current = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
       }
       
-      // the following 2 only happen when isAnimating is false to ensure animation is smooth
+      // Adding heavy 3d objects to the dom needs to be done after loading animation to ensure it stays smooth
       if (isLoaded && sphereRef.current && !isAnimating) {
         sceneRef.current.add(sphereRef.current);
         sphereRef.current.rotation.x = THREE.MathUtils.degToRad(-23.5);
@@ -105,6 +105,7 @@ const Globe: FC = () => {
         sphereRef.current.scale.set(initialScale, initialScale, initialScale);
       }
 
+      // Adding heavy 3d objects to the dom needs to be done after loading animation to ensure it stays smooth
       if (rendererRef.current && sceneRef.current && cameraRef.current && !isAnimating) {
         rendererRef.current.render(sceneRef.current, cameraRef.current);
         setIsRendered(true);

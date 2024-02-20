@@ -212,6 +212,7 @@ const TeamModal: FC<TeamModalProps> = ({
                             height={537}
                             style={detailIconStyleTop}
                             className="modalDetail"
+                            priority={true}
                         />
                     <Image 
                             src="/visionModalBottom.svg" 
@@ -220,9 +221,18 @@ const TeamModal: FC<TeamModalProps> = ({
                             height={213}
                             style={detailIconStyleBottom}
                             className="modalDetail"
+                            priority={true}
                         />
                         <div style={imageContainerStyle} className="team-modal-content">
-                            <img src={imageSrc} alt={name} style={imageStyle} />
+                            <Image
+                                src={imageSrc}
+                                alt={name}
+                                style={imageStyle}
+                                width={300}
+                                height={300}
+                                priority={true}
+                            />
+                            {/* <img src={imageSrc} alt={name} style={imageStyle} /> */}
                             <div style={imageBackgroundFill}></div>
                         </div>
                         <div style={sectionStyle} className="team-modal-content">
