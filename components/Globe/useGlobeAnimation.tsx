@@ -57,6 +57,10 @@ const useGlobeAnimation = (
         // This starts the animation loop
         let requestID = requestAnimationFrame(animate);
 
+        // this will set the scroll position to 0 right as soon as we start the animation, which is necessary in some browser situations
+        const scrollToTop = () => window.scrollTo(0,0);
+        requestAnimationFrame(scrollToTop)
+
         // Cleanup function
         return () => {
             cancelAnimationFrame(requestID);
