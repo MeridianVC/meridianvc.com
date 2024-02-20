@@ -29,7 +29,14 @@ const useGlobeAnimation = (
     //useEffect to start the animation
     useEffect(() => {
 
-        if (!globe || !rendererRef || isAnimating) return;
+        console.log('Globe Animation: useEffect globe', globe)
+        console.log('Globe Animation: useEffect renderRef', rendererRef)
+        console.log('Globe Animation: useEffect camera', camera)
+        console.log('Globe Animation: useEffect isAnimating', isAnimating)
+
+        if (!globe || !rendererRef || !camera || isAnimating) return; // added camera to this perhaps this ensures nothing strange happens
+
+        console.log('Globe Animation useEffect animation running');
 
         // MAIN ROTATION ANIMATION FUNCTION, LOOPS CONTINUOUSLY
         const animate = () => {
@@ -41,10 +48,10 @@ const useGlobeAnimation = (
                 globe.rotation.y -= 0.00033 + scrollDelta * 1.77;
             }
 
-            if (camera) { // changed to previousScrollYProgress, which may be perfect to keep the scrollY at 0,0 at start
-                camera.position.y = 4 - previousScrollYProgress.current * 10;
-                camera.position.z = 6.5 - previousScrollYProgress.current * 2;
-                camera.position.x = 6.5 - previousScrollYProgress.current * 2;
+            if (camera) {
+                camera.position.y = 4 - currentScrollYProgress * 10;
+                camera.position.z = 6.5 - currentScrollYProgress * 2;
+                camera.position.x = 6.5 - currentScrollYProgress * 2;
                 camera.lookAt(new THREE.Vector3(0, 0, 0));
             }
 
