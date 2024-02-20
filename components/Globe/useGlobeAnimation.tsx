@@ -38,11 +38,23 @@ const useGlobeAnimation = (
 
         console.log('Globe Animation useEffect animation running');
 
+        const startTime = Date.now(); // Capture the start time of the animation
+
+
         // MAIN ROTATION ANIMATION FUNCTION, LOOPS CONTINUOUSLY
         const animate = () => {
 
             if (isAnimating) {
                 return;
+            }
+
+            const currentTime = Date.now();
+
+            // Check if 5 seconds have passed
+            if (currentTime - startTime <= 2000) {
+                console.log('scroll position and element:');
+                console.log(document.body.scrollTop);
+                console.log(document.scrollingElement?.scrollTop);
             }
 
             const currentScrollYProgress = scrollYProgress.current.get();
