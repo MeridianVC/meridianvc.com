@@ -150,7 +150,8 @@ const companyData = [
         stageInvested: 'Series A',
         sector: 'Technology',
         coInvestors: ['Investor A', 'Investor B'],
-        padding: '10px'
+        padding: '10px',
+        paddingLeft: '15px'
     },
     {
       logoSrc: '/companyLogos/Sante.png',
@@ -234,6 +235,7 @@ const companyData = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      paddingRight: '2px',
     },
     {
       logoSrc: '/companyLogos/Bump.png',
