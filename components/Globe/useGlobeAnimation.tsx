@@ -16,10 +16,6 @@ const useGlobeAnimation = (
 
     const scrollYProgress = useRef(useMotionValue(0));
     const previousScrollYProgress = useRef<number>(0);
-    
-
-    console.log('Globe Animation: scrollYProgress', scrollYProgress);
-    console.log('Globe Animation: previous scrollYProgress', previousScrollYProgress);
 
     const { isAnimating } = useAnimationContext();
 
@@ -30,38 +26,18 @@ const useGlobeAnimation = (
     //useEffect to start the animation
     useEffect(() => {
 
-        console.log('Globe Animation: useEffect globe', globe)
-        console.log('Globe Animation: useEffect renderRef', rendererRef)
-        console.log('Globe Animation: useEffect camera', camera)
-        console.log('Globe Animation: useEffect isAnimating', isAnimating)
+        if (!globe || !rendererRef || !camera || isAnimating) return;
 
-        if (!globe || !rendererRef || !camera || isAnimating) return; // added camera to this perhaps this ensures nothing strange happens
-
-        //set the scroll position as soon we're ready to render
-        console.log('window scroll toY 1:', window.scrollY);
-        window.scrollTo(0,1); // this ensures there is a change
-        console.log('window scroll toY 2:', window.scrollY);
+        //force the scroll position to control for race conditions
+        window.scrollTo(0,1); // this ensures there is a state change
         window.scrollTo(0,0); // and this immediately moves us back
-        console.log('window scroll toY 2:', window.scrollY);
 
-        console.log('Globe Animation useEffect animation running');
-
-        const startTime = Date.now(); // Capture the start time of the animation
 
         // MAIN ROTATION ANIMATION FUNCTION, LOOPS CONTINUOUSLY
         const animate = () => {
 
             if (isAnimating) {
                 return;
-            }
-
-            const currentTime = Date.now();
-
-            // Check if 5 seconds have passed
-            if (currentTime - startTime <= 2000) {
-                console.log('scroll position and element:');
-                console.log(document.body.scrollTop);
-                console.log(document.scrollingElement?.scrollTop);
             }
 
             const currentScrollYProgress = scrollYProgress.current.get();

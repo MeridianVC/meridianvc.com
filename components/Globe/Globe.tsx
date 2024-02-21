@@ -108,11 +108,8 @@ const Globe: FC = () => {
         rendererRef.current.outputColorSpace = THREE.SRGBColorSpace;
       }
 
-      console.log('Globe: isAnimating before heavy 3d objects:', isAnimating);
-
       // Adding heavy 3d objects to the dom needs to be done after loading animation to ensure it stays smooth
       if (rendererRef.current && sceneRef.current && cameraRef.current && !isAnimating) {
-        console.log('Globe: adding heavy 3d objects to dom')
         rendererRef.current.render(sceneRef.current, cameraRef.current);
         setIsRendered(true);
       }
