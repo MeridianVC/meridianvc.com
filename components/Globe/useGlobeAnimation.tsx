@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { useScroll, useMotionValue, easeInOut } from 'framer-motion';
+import { useScroll, useMotionValue } from 'framer-motion';
 import { useAnimationContext } from '../Animation/AnimationContext';
 
 const useGlobeAnimation = (
@@ -16,6 +16,7 @@ const useGlobeAnimation = (
 
     const scrollYProgress = useRef(useMotionValue(0));
     const previousScrollYProgress = useRef<number>(0);
+    
 
     console.log('Globe Animation: scrollYProgress', scrollYProgress);
     console.log('Globe Animation: previous scrollYProgress', previousScrollYProgress);
@@ -36,10 +37,16 @@ const useGlobeAnimation = (
 
         if (!globe || !rendererRef || !camera || isAnimating) return; // added camera to this perhaps this ensures nothing strange happens
 
+        //set the scroll position as soon we're ready to render
+        console.log('window scroll toY 1:', window.scrollY);
+        window.scrollTo(0,1); // this ensures there is a change
+        console.log('window scroll toY 2:', window.scrollY);
+        window.scrollTo(0,0); // and this immediately moves us back
+        console.log('window scroll toY 2:', window.scrollY);
+
         console.log('Globe Animation useEffect animation running');
 
         const startTime = Date.now(); // Capture the start time of the animation
-
 
         // MAIN ROTATION ANIMATION FUNCTION, LOOPS CONTINUOUSLY
         const animate = () => {
@@ -78,7 +85,7 @@ const useGlobeAnimation = (
             previousScrollYProgress.current = currentScrollYProgress;
 
             // This keeps it going by requesting the next frame
-            requestID = requestAnimationFrame(animate); // change to commit.then
+            requestID = requestAnimationFrame(animate);
         };
 
         // This starts the animation loop
