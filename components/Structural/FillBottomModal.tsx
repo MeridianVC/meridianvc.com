@@ -6,7 +6,7 @@ import { navHeight } from './NavHeight';
 const FillBottomModal: FC = () => {
 
     const fillStyle: React.CSSProperties = {
-        height: `calc(${navHeight} + ${navHeight}/3`,
+        height: `calc(${navHeight} + ${navHeight}/3)`,
         position: 'fixed',
         bottom: '-2px',
         zIndex: 11,

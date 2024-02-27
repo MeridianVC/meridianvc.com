@@ -22,9 +22,9 @@ const mainContentStyle: React.CSSProperties = {
   }
   
   const Main: React.FC<Props> = ({ children, isAnimating, style }) => {
+
     return (
       <main style={{...mainContentStyle, ...style}}>
-        {/* <Spacer/> */}
         {React.Children.map(children, child =>  //Loop over all children and provide them with the isAnimating prop
             cloneElement(child as ReactElement<ChildrenProps>, { isAnimating })
 )       }
