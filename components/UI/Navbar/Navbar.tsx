@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 import { navHeight } from '../../Structural/NavHeight';
 import NavbarDropdown from './NavbarDropdown';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
@@ -92,14 +92,16 @@ const links: Link[] = [
 ]
 
 const Navbar: FC = () => {
+
+  const modalRoot = useRef<HTMLElement | null>(null); //for the portal to attach our dropdowns to
+  const start = useRef<boolean>(false); //animation does not start until the initial wordmark scale is ready
+  const wordmarkScale = useRef<number>(1.5); //used as the initial wordmark scale animation
+
+  const [showWordmarkCover, setshowWordmarkCover] = useState<boolean>(true); //for wordmark to slide out from under
+  const [allowScroll, setAllowScroll] = useState(false); //scroll is disabled while animation is running
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
-  const [initialWordmarkScale, setInitialWordmarkScale] = useState<number>(1.5); //used as the initial wordmark scale animation
-  const [start, setStart] = useState<boolean>(false); //animation does not start until the initial wordmark scale is ready
-  const [showWordmarkCover, setshowWordmarkCover] = useState<boolean>(true); //for wordmark to slide out from under,
 
-  const [allowScroll, setAllowScroll] = useState(false);
   const { isAnimating, setIsAnimating, setAnimationStarted } = useAnimationContext(); // animation state is set in this component
 
   useCleanAnimation(isAnimating, allowScroll); // this ensures no user scroll during animation
@@ -109,17 +111,16 @@ const Navbar: FC = () => {
     const calculateInitialScale = () => {
       const viewportWidth = window.innerWidth;
       const scale = Math.max(1.5, viewportWidth / 400); // minimum can be a scale of 1
-      setInitialWordmarkScale(scale);
+      wordmarkScale.current = scale
     };
 
     calculateInitialScale();
 
-    setStart(true);
+    start.current = true
 
     // in case the user resizes as the animating is happening
     window.addEventListener('resize', calculateInitialScale);
 
-    // Cleanup listener on component unmount
     return () => window.removeEventListener('resize', calculateInitialScale);
   }, []);
 
@@ -135,7 +136,7 @@ const Navbar: FC = () => {
   useEffect(() => {
       const root = document.getElementById('modal-root');
       if (root instanceof HTMLElement) {
-        setModalRoot(root);
+        modalRoot.current = root
       } else {
         console.error('Modal root element not found or is not an HTML element');
       }
@@ -241,7 +242,7 @@ const Navbar: FC = () => {
   return (
         <>
           <motion.a href="./"
-            style={{...wordmarkStyle, scale: initialWordmarkScale}} // this is effectively the initial scale
+            style={{...wordmarkStyle, scale: wordmarkScale.current}} // this is effectively the initial scale
             animate={wordmarkControls}
             initial={{
               rotate: -25,
@@ -276,11 +277,11 @@ const Navbar: FC = () => {
                   <motion.a href="#section4_team" className="navbar-hover link-disappear" variants={linkVariants}>Team</motion.a>
                   <motion.a href="#section2_principles" className="navbar-hover link-disappear" variants={linkVariants}>Principles</motion.a>
               </motion.div>
-                {modalRoot && ReactDOM.createPortal(
+                {modalRoot.current && ReactDOM.createPortal(
                   <AnimatePresence>
                     {isModalOpen && <GetInTouchModal onClose={handleCloseModal} isOpen={isModalOpen}/>}
                   </AnimatePresence>,
-                  modalRoot)}
+                  modalRoot.current)}
 
               <div className="hamburger" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                 <img src="/Hamburger.svg" alt="Open menu" className="nav-link"/>
