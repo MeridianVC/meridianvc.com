@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Section from '../Structural/Section';
 import Header from '../Text/Header';
-import CompanyGrid from '../UI/CompanyGrid';
+import CompanyGrid from '../UI/Companies/CompanyGrid';
 import FundSelector from '../UI/FundSelector';
 import Spacer from '../Structural/Spacer';
 

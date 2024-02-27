@@ -1,18 +1,4 @@
-import { FC } from 'react';
-import CompanyCard from './CompanyCard'; // Import the CompanyCard component
-
-const gridStyle: React.CSSProperties = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
-  alignItems: 'flex-start',
-  gap: 'clamp(10px, 5vw, 50px)',
-  margin: '0 clamp(5vw, 13vw, 25vw)',
-  maxWidth: '1200px'
-};
-
-// This array should eventually come from a database or API call
-const companyData = [
+const companies = [
     {
       logoSrc: '/companyLogos/CastAI.svg',
       about: 'about',
@@ -142,16 +128,16 @@ const companyData = [
       coInvestors: ['Investor C', 'Investor D'],
     },
     {
-        logoSrc: '/companyLogos/Abode.svg',
-        about: 'Company1 is a leading innovator in the tech industry, known for its cutting-edge solutions.',
-        websiteUrl: 'https://www.ownabode.com',
-        foundedDate: 'January 1, 2010',
-        founders: ['Founder One', 'Founder Two'],
-        stageInvested: 'Series A',
-        sector: 'Technology',
-        coInvestors: ['Investor A', 'Investor B'],
-        padding: '10px',
-        paddingLeft: '15px'
+      logoSrc: '/companyLogos/Abode.svg',
+      about: 'Company1 is a leading innovator in the tech industry, known for its cutting-edge solutions.',
+      websiteUrl: 'https://www.ownabode.com',
+      foundedDate: 'January 1, 2010',
+      founders: ['Founder One', 'Founder Two'],
+      stageInvested: 'Series A',
+      sector: 'Technology',
+      coInvestors: ['Investor A', 'Investor B'],
+      padding: '10px',
+      paddingLeft: '15px'
     },
     {
       logoSrc: '/companyLogos/Sante.png',
@@ -397,29 +383,4 @@ const companyData = [
     },
 ];
 
-const CompanyGrid: FC = () => {
-  return (
-    <div style={gridStyle} className="company-grid-margin">
-      {companyData.map((company, index) => (
-        <CompanyCard
-          key={index}
-          logoSrc={company.logoSrc}
-          about={company.about}
-          websiteUrl={company.websiteUrl}
-          foundedDate={company.foundedDate}
-          founders={company.founders}
-          stageInvested={company.stageInvested}
-          sector={company.sector}
-          coInvestors={company.coInvestors}
-          padding={company.padding}
-          paddingBottom={company.paddingBottom}
-          paddingTop={company.paddingTop}
-          paddingLeft={company.paddingLeft}
-          paddingRight={company.paddingRight}
-        />
-      ))}
-    </div>
-  );
-};
-
-export default CompanyGrid;
+export default companies;

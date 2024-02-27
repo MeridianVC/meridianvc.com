@@ -4,14 +4,6 @@ import React, { useState } from 'react';
 import Header from '../Text/Header';
 import './ui.css';
 
-const underlineStyle: React.CSSProperties = {
-  position: 'absolute',
-  bottom: '-2px',
-  height: '2px',
-  backgroundColor: '#444444',
-  width: '0',
-};
-
 const mainStyle: React.CSSProperties = {
   position: 'relative',
   display: 'flex',

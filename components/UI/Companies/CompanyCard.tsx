@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './ui.css';
+import '../ui.css';
 import Image from 'next/image';
 
 interface CompanyCardProps {
@@ -81,8 +81,8 @@ const CompanyCard: FC<CompanyCardProps> = ({
           <Image 
             src={logoSrc} 
             alt="Company Logo" 
-            width={165} // Specify width
-            height={150} // Specify height
+            width={165}
+            height={150}
             style={{objectFit: 'contain'}}
             className="company-logo-color"
           />

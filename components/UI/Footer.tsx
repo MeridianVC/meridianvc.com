@@ -3,14 +3,13 @@ import Image from 'next/image';
 import Text from '../Text/Text';
 
 const Footer: FC = () => {
-    const borderThickness = '2px';
 
     const footerStyle: React.CSSProperties = {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: '#FFF5DC',
-        borderTop: `${borderThickness} solid #444444`,
+        borderTop: '2px solid #444444',
         paddingTop: 'clamp(15px, 4vw, 60px)',
         paddingBottom: '100px',
         paddingLeft: '2px',
