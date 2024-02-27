@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import { motion, MotionStyle } from 'framer-motion';
-import { navHeight } from '../Structural/NavHeight';
+import { navHeight } from '../../Structural/NavHeight';
 import GetInTouchButton from './GetInTouchButton';
-import './ui.css'
+import '../ui.css'
 
 type Link = {
   href: string;

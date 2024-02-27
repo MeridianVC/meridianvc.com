@@ -1,15 +1,15 @@
 "use client";
 
 import React, { FC, useState, useEffect } from 'react';
-import { navHeight } from '../Structural/NavHeight';
+import { navHeight } from '../../Structural/NavHeight';
 import NavbarDropdown from './NavbarDropdown';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import GetInTouchButton from './GetInTouchButton';
 import GetInTouchModal from './GetInTouchModal';
 import ReactDOM from 'react-dom';
-import './ui.css';
-import { useAnimationContext } from '../Animation/AnimationContext';
-import useCleanAnimation from '../Animation/useCleanAnimation';
+import '../ui.css';
+import { useAnimationContext } from '../../Animation/AnimationContext';
+import useCleanAnimation from '../../Animation/useCleanAnimation';
 
 const linkStyle: React.CSSProperties = {
   display: 'flex',

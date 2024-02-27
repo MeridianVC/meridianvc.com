@@ -1,11 +1,11 @@
 import React, { FC, useEffect } from 'react';
 import Image from 'next/image';
-import { navHeight } from '../Structural/NavHeight';
+import { navHeight } from '../../Structural/NavHeight';
 import { motion } from 'framer-motion';
 import FillBottomModal from '@/components/Structural/FillBottomModal';
 import Header from '@/components/Text/Header';
 import Text from '@/components/Text/Text';
-import './ui.css';
+import '../ui.css';
 
 
 interface TeamModalProps {

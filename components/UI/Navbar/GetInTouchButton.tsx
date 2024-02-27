@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './ui.css';
+import '../ui.css';
 
 interface SquareButtonProps {
   onClick: () => void;
