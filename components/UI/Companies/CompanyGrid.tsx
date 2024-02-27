@@ -12,8 +12,6 @@ const gridStyle: React.CSSProperties = {
   maxWidth: '1200px'
 };
 
-
-
 const CompanyGrid: FC = () => {
   return (
     <div style={gridStyle} className="company-grid-margin">

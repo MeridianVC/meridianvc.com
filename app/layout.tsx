@@ -4,7 +4,6 @@ import { Libre_Franklin } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import AnimationProvider from '@/components/Animation/AnimationContext';
 
-
 const Baskerville = localfont({
   src: [
     {
@@ -17,7 +16,7 @@ const Baskerville = localfont({
 
 const Franklin = Libre_Franklin({ 
   subsets: ['latin'],
-  weight: ['300'], //extra-light
+  weight: ['300'], //extra-lightop
   style: ['normal'],
   variable: '--font-franklin'
 })
@@ -42,7 +41,6 @@ export default function RootLayout({
             <Analytics/>
         </body>
       </AnimationProvider>
-
     </html>
   )
 }
