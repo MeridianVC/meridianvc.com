@@ -2,8 +2,6 @@
 
 import { FC } from 'react';
 import { navHeight } from './NavHeight';
-import FillVertical from './FillVertical';
-
 
 interface SectionProps {
     id: string;

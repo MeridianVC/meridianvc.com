@@ -14,7 +14,6 @@ import useCleanAnimation from '../../Animation/useCleanAnimation';
 const linkStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'row-reverse',
-
   gap: '4vw',
   fontSize: '1rem',
   textDecoration: 'none',
@@ -94,9 +93,9 @@ const links: Link[] = [
 const Navbar: FC = () => {
 
   const modalRoot = useRef<HTMLElement | null>(null); //for the portal to attach our dropdowns to
-  const start = useRef<boolean>(false); //animation does not start until the initial wordmark scale is ready
   const wordmarkScale = useRef<number>(1.5); //used as the initial wordmark scale animation
 
+  const [start, setStart] = useState<boolean>(false);  //animation does not start until the initial wordmark scale is ready, MainContentAnimation is driven by this Navbar animation
   const [showWordmarkCover, setshowWordmarkCover] = useState<boolean>(true); //for wordmark to slide out from under
   const [allowScroll, setAllowScroll] = useState(false); //scroll is disabled while animation is running
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -116,7 +115,7 @@ const Navbar: FC = () => {
 
     calculateInitialScale();
 
-    start.current = true
+    setStart(true);
 
     // in case the user resizes as the animating is happening
     window.addEventListener('resize', calculateInitialScale);
@@ -134,7 +133,7 @@ const Navbar: FC = () => {
 
   // This finds our div and attaches an HTML element to our document to be used by our portal for the modal
   useEffect(() => {
-      const root = document.getElementById('modal-root');
+      const root = document.getElementById('modal-root'); //modal-root is created in layout.tsx
       if (root instanceof HTMLElement) {
         modalRoot.current = root
       } else {
@@ -206,6 +205,7 @@ const Navbar: FC = () => {
           transition: { duration: .5, delay: 1, ease: 'easeInOut' },
         });
         setshowWordmarkCover(false); // remove the div the wordmark slid out from under
+        
         //move wordmark to top-center of nav while scaling down
         await wordmarkControls.start({
           y: '0vh',
