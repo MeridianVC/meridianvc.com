@@ -403,7 +403,7 @@ const companies = [
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
       padding: '28px',
-      paddingBottom: '36px'
+      paddingBottom: '39px'
     }
 ];
 
