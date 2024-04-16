@@ -390,8 +390,8 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '10px',
-      paddingBottom: '23px'
+      padding: '15px',
+      paddingBottom: '28px'
     },
     {
       logoSrc: "/companyLogos/DGI.png",
@@ -402,8 +402,8 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '28px',
-      paddingBottom: '39px'
+      padding: '33px',
+      paddingBottom: '44px'
     }
 ];
 
