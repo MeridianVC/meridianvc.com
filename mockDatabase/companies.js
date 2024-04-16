@@ -56,7 +56,7 @@ const companies = [
     {
       logoSrc: '/companyLogos/Vigil.png',
       about: 'about',
-      websiteUrl: 'https://www.vigil.fi',
+      websiteUrl: 'https://getvigil.com/',
       foundedDate: 'founded date',
       founders: ['founder one', 'founder two'],
       stageInvested: 'seed',
@@ -381,6 +381,30 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
       padding: '10px'
     },
+    {
+      logoSrc: '/companyLogos/Eden.svg',
+      about: 'about',
+      websiteUrl: 'https://edenmed.com/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      padding: '10px',
+      paddingBottom: '23px'
+    },
+    {
+      logoSrc: "/companyLogos/DGI.png",
+      about: 'about',
+      websiteUrl: 'https://www.dgiapparel.com/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      padding: '28px',
+      paddingBottom: '36px'
+    }
 ];
 
 export default companies;
