@@ -402,8 +402,8 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '33px',
-      paddingBottom: '44px'
+      padding: '29px',
+      paddingBottom: '39px'
     }
 ];
 
