@@ -54,6 +54,30 @@ const companies = [
       paddingBottom: '10px'
     },
     {
+      logoSrc: '/companyLogos/Eden.svg',
+      about: 'about',
+      websiteUrl: 'https://edenmed.com/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      padding: '15px',
+      paddingBottom: '28px'
+    },
+    {
+      logoSrc: "/companyLogos/DGI.png",
+      about: 'about',
+      websiteUrl: 'https://www.dgiapparel.com/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      padding: '30px',
+      paddingBottom: '39px'
+    },
+    {
       logoSrc: '/companyLogos/Vigil.png',
       about: 'about',
       websiteUrl: 'https://getvigil.com/',
@@ -327,50 +351,6 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
     },
     {
-      logoSrc: '/companyLogos/Archer.png',
-      about: 'about',
-      websiteUrl: 'https://www.tryarcher.io',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-    },
-    {
-      logoSrc: '/companyLogos/Homeflow.svg',
-      about: 'about',
-      websiteUrl: 'https://www.homeflow.me',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-      padding: '5px',
-      paddingBottom: '15px'
-    },
-    {
-      logoSrc: '/companyLogos/BananaDev.svg',
-      about: 'about',
-      websiteUrl: 'https://www.banana.dev',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-      padding: '5px'
-    },
-    {
-      logoSrc: '/companyLogos/OttoAI.png',
-      about: 'about',
-      websiteUrl: 'https://www.sellwithotto.ai',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-      padding: '5px'
-    },
-    {
       logoSrc: "/companyLogos/Trigo.svg",
       about: 'about',
       websiteUrl: 'https://trigodata.com',
@@ -380,30 +360,6 @@ const companies = [
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
       padding: '10px'
-    },
-    {
-      logoSrc: '/companyLogos/Eden.svg',
-      about: 'about',
-      websiteUrl: 'https://edenmed.com/',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-      padding: '15px',
-      paddingBottom: '28px'
-    },
-    {
-      logoSrc: "/companyLogos/DGI.png",
-      about: 'about',
-      websiteUrl: 'https://www.dgiapparel.com/',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-      padding: '29px',
-      paddingBottom: '39px'
     }
 ];
 
