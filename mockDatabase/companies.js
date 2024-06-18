@@ -62,7 +62,7 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '15px',
+      padding: '16px',
       paddingBottom: '28px'
     },
     {
@@ -74,7 +74,7 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '30px',
+      padding: '31px',
       paddingBottom: '39px'
     },
     {
