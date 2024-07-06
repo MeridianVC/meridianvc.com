@@ -44,7 +44,7 @@ const useGlobeAnimation = (
             const scrollDelta = currentScrollYProgress - previousScrollYProgress.current;
 
             if (scrollDelta >= 0) { // extra rotation only happens on scroll-down
-                globe.rotation.y -= 0.00033 + scrollDelta * 1.77;
+                globe.rotation.y -= 0.00020 + scrollDelta * 1.77;
             }
 
             if (camera) {

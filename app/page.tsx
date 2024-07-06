@@ -45,6 +45,7 @@ const compassStyle: React.CSSProperties = {
   marginRight: 'clamp(2vw, 7vw, 20vw)',
   marginTop: 'clamp(2vh, 5vh, 10vh)',
   marginLeft: 'auto',
+  rotate: '-3.5deg'
 };  
 
 const legendStyle: React.CSSProperties = {

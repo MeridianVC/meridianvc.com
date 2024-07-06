@@ -35,6 +35,17 @@ const teamMembers = [
         experienceP2: "Dallin founded and currently manages Serial Capital, an investor in real estate and seed/growth stage companies across various sectors."
     },
     {
+        name: "Ken Goldman",
+        role: "Advisor",
+        imageSrc: "/headshotKen.png",
+        title: "Advisor",
+        linkedin: "https://www.linkedin.com/in/ken-goldman-552a472/",
+        focus: "Fund strategy, network, and portfolio advisement.",
+        education: "B.S. in Electrical Engineering from Cornell University and an M.B.A. from Harvard Business School.",
+        experienceP1: "Mr. Goldman is the former President of Hillspire. Previously, he was the CFO of Yahoo!, Fortinet, and Siebel Systems, Inc. Over his 40-year career, Mr. Goldman has helped take three companies public, including VLSI, Excite@Home, and Fortinet.",
+        experienceP2: "Mr. Goldman has extensive board experience, serving on over 40 corporate boards, including Fortinet, RingCentral, Zuora, and GoPro, Inc. He also sits on private and non-profit boards such as Wealthfront and the RFK Human Rights Board."
+    },
+    {
         name: "Heather Harmon",
         role: "Advisor",
         imageSrc: "/headshotHeather.png",
@@ -45,17 +56,6 @@ const teamMembers = [
         experienceP1: "Ms. Harmon is a 4x founder and former venture-backed COO and public company executive. She is a passionate proptech and fintech leader who has built and managed highly engaged technical teams, led product management, and scaled operations from startup through M&A.",
         experienceP2: "She is currently is advising early stage companies on raising capital, defining product roadmaps, and scaling operations."
     },
-    {
-        name: "Zachary Smith",
-        role: "Advisor",
-        imageSrc: "/headshotZach.png",
-        title: "Advisor",
-        focus: "Fundraising and LP relations.",
-        linkedin: "https://www.linkedin.com/in/zachary-smith-b835721/",
-        education: "B.S. in Finance from the University of Utah.",
-        experienceP1: "Mr. Smith is a Managing Director at Crescent Capital ($40B private equity fund) on the Investor Relations team. Prior to joining Crescent, Zachary spent 20 years at Wells Fargo Asset Management.",
-        experienceP2: "He is an LP in Harlem Capital, Beta Boom, First Close Partners, and other minority-owned funds and has made over 50 angel investments. He is a founding board member of the University of Utah’s IMPACT Program, an internship program focused on post-grad education and employment, in partnership with HBCUs nationwide."
-    }
   ];
 
   export default teamMembers;
