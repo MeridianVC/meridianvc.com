@@ -1,35 +1,35 @@
 const latestContent = [
     {
-      author: "Utah Business",
-      title: "45 Lessons from Utah Founders",
-      imagePath: "/contentPhotos/45Lessons.png",
-      date: new Date(new Date("2024-01-29").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
-      source: "Utah Business",
-      link: "https://www.utahbusiness.com/45-lessons-from-utah-founders/"
+      author: "Tech Crunch",
+      title: "YC-backed Hona Looks to Reduce Friction in Law",
+      imagePath: "/contentPhotos/Hona.png",
+      date: new Date(new Date("2024-06-17").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
+      source: "Tech Crunch",
+      link: "https://techcrunch.com/2024/06/17/yc-backed-hona-looks-to-reduce-the-communication-friction-between-law-firms-and-their-consumer-clients/"
+    },
+    {
+      author: "MBA Blog",
+      title: "African American Student Union Spotlight",
+      imagePath: "/contentPhotos/Devon.png",
+      date: new Date(new Date("2024-02-28").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
+      source: "hbs.edu",
+      link: "https://www.hbs.edu/mba/blog/post/african-american-student-union-spotlight-on-entrepreneurship2024"
     },
     {
       author: "Devon Gethers",
-      title: "InsurTech: The Next Frontier of FinTech",
-      imagePath: "/contentPhotos/Insurtech.png",
-      date: new Date(new Date("2023-11-25").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
+      title: "Packsmith: Transforming E-Commerce Logistics",
+      imagePath: "/contentPhotos/Packsmith.png",
+      date: new Date(new Date("2024-01-18").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
       source: "Medium",
-      link: "https://medium.com/@devon_45585/insurance-technology-the-next-frontier-of-fintech-854aba3a2f70"
+      link: "https://medium.com/@devon_45585/packsmith-transforming-e-commerce-logistics-f12c8dbd664c"
     },
     {
       author: "Devon Gethers",
-      title: "How We Started Meridian Ventures",
-      imagePath: "/contentPhotos/MeridianLaunch.png",
-      date: new Date(new Date("2023-08-03").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
-      source: "Utah Business",
-      link: "https://www.utahbusiness.com/how-devon-gethers-cofounded-meridian-ventures/"
-    },
-    {
-      author: "TechCrunch",
-      title: "Cast AI Raises $35M Series B",
-      imagePath: "/contentPhotos/Cast.png",
-      date: new Date(new Date("2023-11-07").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
-      source: "TechCrunch",
-      link: "https://techcrunch.com/2023/11/07/cast-ai-which-helps-companies-optimize-cloud-spend-lands-35m/"
+      title: "Bowtie: The Future of Cybersecurity",
+      imagePath: "/contentPhotos/Bowtie.png",
+      date: new Date(new Date("2024-01-14").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
+      source: "Medium",
+      link: "https://medium.com/@devon_45585/the-future-of-cybersecurity-65399a77babf"
     },
   ];
 
