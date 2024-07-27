@@ -74,8 +74,8 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '15px',
-      paddingBottom: '14px'
+      padding: '5px',
+      paddingBottom: '5px'
     },
     {
       logoSrc: '/companyLogos/Vigil.png',
