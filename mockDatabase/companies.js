@@ -63,7 +63,7 @@ const companies = [
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
       padding: '16px',
-      paddingBottom: '28px'
+      paddingBottom: '25px'
     },
     {
       logoSrc: "/companyLogos/DGI.png",
@@ -74,8 +74,8 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '31px',
-      paddingBottom: '39px'
+      padding: '15px',
+      paddingBottom: '14px'
     },
     {
       logoSrc: '/companyLogos/Vigil.png',
@@ -86,7 +86,7 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      paddingTop: '10px',
+      paddingTop: '3px',
     },
     {
       logoSrc: '/companyLogos/Rebuy.svg',
