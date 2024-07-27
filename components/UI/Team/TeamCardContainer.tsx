@@ -32,10 +32,14 @@ const cardContainerStyle: React.CSSProperties = {
     gap: 'clamp(30px, 2vw, 2vw)',
     flexWrap: 'wrap',
     margin: '0 clamp(30px, 5vw, 25vw)',
-  }
+    marginBottom: 'clamp(30px, 2vw, 2vw)',
+    maxWidth: '1200px',
+}
 
-const topContainerStyle: React.CSSProperties = {
-    marginBottom: 'clamp(30px, 2vw, 2vw)'
+const outerWrapperStyle: React.CSSProperties = {
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
 }
 
 const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) => {
@@ -51,25 +55,13 @@ const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) =
 
     const combinedTextStyle = {
         ...cardContainerStyle,
-        ...topContainerStyle,
         ...style
     };
 
     return (
-        <>
+        <div style={outerWrapperStyle}>
           <div style={combinedTextStyle}>
-            {teamMembers.slice(0, 2).map(member => (
-              <TeamCard 
-                  key={member.name}
-                  name={member.name}
-                  role={member.role}
-                  imageSrc={member.imageSrc}
-                  onCardClick={() => handleCardClick(member)}
-              />
-            ))}
-          </div>
-          <div style={combinedTextStyle}>
-            {teamMembers.slice(2, 5).map(member => (
+            {teamMembers.map(member => (              
               <TeamCard 
                   key={member.name}
                   name={member.name}
@@ -97,7 +89,7 @@ const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) =
                 />
             )}
             </AnimatePresence>
-        </>
+        </div>
       );
     }
 

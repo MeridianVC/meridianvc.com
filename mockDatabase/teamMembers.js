@@ -46,6 +46,17 @@ const teamMembers = [
         experienceP2: "Mr. Goldman has extensive board experience, serving on over 40 corporate boards, including Fortinet, RingCentral, Zuora, and GoPro, Inc. He also sits on private and non-profit boards such as Wealthfront and the RFK Human Rights Board."
     },
     {
+        name: "Curtis Feeny",
+        role: "Advisor",
+        imageSrc: "/headshotCurtis.png",
+        title: "Advisor",
+        linkedin: "https://www.linkedin.com/in/curtisfeeny/",
+        focus: "Fund strategy, network, portfolio advisement",
+        education: "MBA from Harvard Business School and a B.S. in M.E. from Texas A&M University.",
+        experienceP1: "Curtis is a Senior Advisor at Peterson Partners. Prior to Peterson Partners, Curtis was a General Partner in venture capital funds at Voyager Capital and Silicon Valley Data Capital. Prior to Voyager Capital and Silicon Valley Data Capital, he was Executive Vice President of Stanford Management Company and a Partner at Trammell Crow Company.",
+        experienceP2: "Curtis has served on 35 public and private boards. He recently served on the boards of CBRE (NYSE) and Staples (NYSE) and is currently on the boards of Khan Academy and Stanford Federal Credit Union."
+    },
+    {
         name: "Heather Harmon",
         role: "Advisor",
         imageSrc: "/headshotHeather.png",
@@ -55,7 +66,7 @@ const teamMembers = [
         education: "Heather completed a Pre-medicine degree from UC San Diego and University of Washington, attended the Universidad of Guadalajara, and UC Berkeley Haas School of Business for Artificial Intelligence.",
         experienceP1: "Ms. Harmon is a 4x founder and former venture-backed COO and public company executive. She is a passionate proptech and fintech leader who has built and managed highly engaged technical teams, led product management, and scaled operations from startup through M&A.",
         experienceP2: "She is currently is advising early stage companies on raising capital, defining product roadmaps, and scaling operations."
-    },
+    }
   ];
 
   export default teamMembers;
