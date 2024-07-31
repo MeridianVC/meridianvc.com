@@ -91,7 +91,7 @@ const companies = [
     {
       logoSrc: '/companyLogos/Rebuy.svg',
       about: 'about',
-      websiteUrl: 'https://getparallel.com',
+      websiteUrl: 'https://www.rebuyengine.com',
       foundedDate: 'founded date',
       founders: ['founder one', 'founder two'],
       stageInvested: 'seed',
