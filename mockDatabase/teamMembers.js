@@ -20,7 +20,7 @@ const teamMembers = [
         linkedin: "https://www.linkedin.com/in/kevinkarltonhaney/",
         email: "karlton@meridianventures.co",
         focus: "Karlton focuses his time on sourcing startups, making new investments, and managing relationships with portfolio companies.",
-        education: "B.S. in Industrial Engineering from the University of Arkansas. Member of the Harvard Business School Class of 2025.",
+        education: "Karlton holds a B.S. in Industrial Engineering from the University of Arkansas, where he graduated Summa Cum Laude. He is currently a candidate at Harvard Business School, Class of 2025.",
         experienceP1: "Prior to co-founding Meridian, Karlton was a private equity buyout and growth investor at The Stephens Group. In his role at Stephens Group, he reviewed new investment opportunities, supported the team’s investment efforts by conducting financial analysis, due diligence, and industry research, and worked closely with portfolio companies on strategic priorities. Before Stephens Group, he worked in various finance and strategy roles at Walmart Inc."
     },
     {
