@@ -281,6 +281,17 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
     },
     {
+      logoSrc: '/companyLogos/HeyWalt.png',
+      about: 'about',
+      websiteUrl: 'https://www.heywalt.ai/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      padding: '14px'
+    },
+    {
       logoSrc: '/companyLogos/Eqtble.png',
       about: 'about',
       websiteUrl: 'https://www.eqtble.com',
@@ -330,7 +341,8 @@ const companies = [
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
       padding: '10px'
-    }
+    },
+
 ];
 
 export default companies;
