@@ -195,16 +195,6 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
     },
     {
-      logoSrc: '/companyLogos/CTRLTower.png',
-      about: 'about',
-      websiteUrl: 'https://ctrltower.ai',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-    },
-    {
       logoSrc: '/companyLogos/Leaseup.svg',
       about: 'about',
       websiteUrl: 'https://www.leaseup.co',
@@ -259,16 +249,6 @@ const companies = [
       padding: '10px'
     },
     {
-      logoSrc: '/companyLogos/ClarityValue.svg',
-      about: 'about',
-      websiteUrl: 'https://www.clarityvalue.co',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-    },
-    {
       logoSrc: '/companyLogos/Palm.png',
       about: 'about',
       websiteUrl: 'https://getpalm.com',
@@ -289,16 +269,6 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
       padding: '12px',
       paddingBottom: '17px'
-    },
-    {
-      logoSrc: '/companyLogos/Mortar.png',
-      about: 'about',
-      websiteUrl: 'https://mortar.us',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
     },
     {
       logoSrc: '/companyLogos/Scanbase.png',
