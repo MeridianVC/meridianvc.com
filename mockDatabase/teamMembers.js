@@ -74,9 +74,20 @@ const teamMembers = [
         title: "Advisor",
         linkedin: "https://www.linkedin.com/in/blakemodersitzki/",
         focus: "Fund strategy, sourcing, and portfolio advisement.",
-        education: " B.S. in Economics from Brigham Young University",
+        education: "B.S. in Economics from Brigham Young University.",
         experienceP1: "Blake Modersitzki is the Managing Partner at Pelion Venture Partners, where he focuses on early-stage technology investments. Blake has raised over $1B AUM across numerous funds.",
-        experienceP2: "With over two decades at Pelion, Blake is known for investing in the next frontier of technology. Blake invested in Red Hat, Fusion-io, Metacloud, Domo, Weave, MX, and more"
+        experienceP2: "With over two decades at Pelion, Blake is known for investing in the next frontier of technology. Blake invested in Red Hat, Fusion-io, Metacloud, Domo, Weave, MX, and more."
+    },
+    {
+        name: "Mark Fernandes",
+        role: "Advisor",
+        imageSrc: "/headshotMark.png",
+        title: "Advisor",
+        linkedin: "https://www.linkedin.com/in/markjfernandes/",
+        focus: "New deal advisory and fund strategy.",
+        education: "B.S. from Mangalore University, M.S. from the University of California, Berkeley, and an M.B.A. from Harvard Business School.",
+        experienceP1: "Mark Fernandes is a Managing Partner at Sierra Ventures and has extensive experience as a successful software investor. His portfolio includes exits such as Sourcefire (IPO, acquired by Cisco for $2.7B), RedLock (acquired by Palo Alto Networks), Ooyala (acquired by Telstra), Frontbridge (acquired by Microsoft), Opalis (acquired by Microsoft) and DynamicOps (acquired by VMware).",
+        experienceP2: "Mark brings decades of experience to his advisory role, helping companies navigate growth, scale, and successful exits. He currently serves on the boards of Reify Health, Yalo, Spectro Cloud, and other private companies. He started the Sierra CXO Advisory Board which now has over 75 F2000 executives."
     }
   ];
 
