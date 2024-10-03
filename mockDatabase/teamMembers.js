@@ -68,7 +68,7 @@ const teamMembers = [
         experienceP2: "She is currently is advising early stage companies on raising capital, defining product roadmaps, and scaling operations."
     },
     {
-        name: "Blake",
+        name: "Blake Modersitzki",
         role: "Advisor",
         imageSrc: "/headshotBlake.png",
         title: "Advisor",
