@@ -86,8 +86,8 @@ const teamMembers = [
         linkedin: "https://www.linkedin.com/in/markjfernandes/",
         focus: "New deal advisory and fund strategy.",
         education: "B.S. from Mangalore University, M.S. from the University of California, Berkeley, and an M.B.A. from Harvard Business School.",
-        experienceP1: "Mark Fernandes is a Managing Partner at Sierra Ventures and has extensive experience as a successful software investor. His portfolio includes exits such as Sourcefire (IPO, acquired by Cisco for $2.7B), RedLock (acquired by Palo Alto Networks), Ooyala (acquired by Telstra), Frontbridge (acquired by Microsoft), Opalis (acquired by Microsoft) and DynamicOps (acquired by VMware).",
-        experienceP2: "Mark brings decades of experience to his advisory role, helping companies navigate growth, scale, and successful exits. He currently serves on the boards of Reify Health, Yalo, Spectro Cloud, and other private companies. He started the Sierra CXO Advisory Board which now has over 75 F2000 executives."
+        experienceP1: "Mark Fernandes is a Managing Partner at Sierra Ventures and has extensive experience as a successful software investor. He currently serves on the boards of Reify Health, Yalo, Spectro Cloud, and other private companies.",
+        experienceP2: "His portfolio includes exits such as Sourcefire (IPO, acquired by Cisco for $2.7B), RedLock (acquired by Palo Alto Networks), Ooyala (acquired by Telstra), Frontbridge (acquired by Microsoft), Opalis (acquired by Microsoft) and DynamicOps (acquired by VMware)."
     }
   ];
 
