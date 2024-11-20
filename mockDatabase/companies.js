@@ -342,6 +342,27 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
       padding: '10px'
     },
+    {
+      logoSrc: "/companyLogos/Aipotheosis.png",
+      about: 'about',
+      websiteUrl: 'https://www.aipotheosis.xyz',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      padding: '18px'
+    },
+    {
+      logoSrc: "/companyLogos/Pathwork.png", 
+      about: 'about',
+      websiteUrl: 'https://www.pathworklife.com',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D']
+    }
 
 ];
 
