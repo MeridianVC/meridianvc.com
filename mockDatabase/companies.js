@@ -49,9 +49,7 @@ const companies = [
       founders: ['founder one', 'founder two'],
       stageInvested: 'seed',
       sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-      padding: '5px',
-      paddingBottom: '10px'
+      coInvestors: ['Investor C', 'Investor D']
     },
     {
       logoSrc: '/companyLogos/Eden.svg',
