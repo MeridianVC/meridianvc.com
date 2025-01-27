@@ -76,7 +76,7 @@ const companies = [
       paddingBottom: '0px'
     },
     {
-      logoSrc: '/companyLogos/Vigil.png',
+      logoSrc: '/companyLogos/Vigil.svg',
       about: 'about',
       websiteUrl: 'https://getvigil.com/',
       foundedDate: 'founded date',
@@ -84,7 +84,8 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      paddingTop: '3px',
+      padding: '25px',
+      paddingTop: '28px',
     },
     {
       logoSrc: '/companyLogos/Rebuy.svg',
@@ -140,14 +141,16 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
     },
     {
-      logoSrc: '/companyLogos/Pave.png',
+      logoSrc: '/companyLogos/Pave.svg',
       about: 'about',
-      websiteUrl: 'https://pave.dev',
+      websiteUrl: 'https://Pave.dev',
       foundedDate: 'founded date',
       founders: ['founder one', 'founder two'],
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
+      padding: '10px',
+      paddingTop: '20px'
     },
     {
       logoSrc: '/companyLogos/Abode.svg',
