@@ -31,7 +31,7 @@ const teamMembers = [
         linkedin: "https://linkedin.com/in/dallinanderson",
         focus: "Fund strategy and new investment advisory.",
         education: "B.S. in Accounting from Brigham Young University. MBA from Harvard Business School.",
-        experienceP1: "Mr. Anderson was the Founder, Chairman, and CEO of Montigen Pharmaceuticals (acquired by Supergen) and Co-Founder, Chairman, and President of Tolero Pharmaceuticals (acquired by Dainippon Sumitomo) in what was at the time (2017) the largest Utah-based biotechnology transaction to date.",
+        experienceP1: "Mr. Anderson was the Founder, Chairman, and CEO of Montigen Pharmaceuticals (acquired by Supergen) and Co-Founder, Chairman, and President of Tolero Pharmaceuticals (acquired by Dainippon Sumitomo).",
         experienceP2: "Dallin founded and currently manages Serial Capital, an investor in real estate and seed/growth stage companies across various sectors."
     },
     {
