@@ -15,7 +15,6 @@ interface CompanyCardProps {
   paddingBottom?: string;
   paddingTop?: string;
   paddingLeft?: string;
-  paddingRight?: string;
 }
 
   // const logoStyle: React.CSSProperties = {
@@ -51,8 +50,7 @@ const CompanyCard: FC<CompanyCardProps> = ({
   padding,
   paddingBottom,
   paddingTop,
-  paddingLeft,
-  paddingRight
+  paddingLeft
 }) => {
 
   const cardStyle: React.CSSProperties = {
@@ -62,8 +60,7 @@ const CompanyCard: FC<CompanyCardProps> = ({
     padding: padding,
     paddingBottom: paddingBottom,
     paddingTop: paddingTop,
-    paddingLeft: paddingLeft,
-    paddingRight: paddingRight
+    paddingLeft: paddingLeft
   };
 
   const imageWrapperStyle: React.CSSProperties = {

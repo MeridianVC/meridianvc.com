@@ -30,7 +30,6 @@ const CompanyGrid: FC = () => {
           paddingBottom={company.paddingBottom}
           paddingTop={company.paddingTop}
           paddingLeft={company.paddingLeft}
-          paddingRight={company.paddingRight}
         />
       ))}
     </div>
