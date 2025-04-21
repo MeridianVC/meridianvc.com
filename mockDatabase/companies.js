@@ -8,7 +8,7 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '10px'
+      paddingTop: '9px'
     },
     {
       logoSrc: '/companyLogos/Hona.svg',
@@ -238,7 +238,7 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
     },
     {
-      logoSrc: '/companyLogos/HeyWalt.png',
+      logoSrc: '/companyLogos/Walt.svg',
       about: 'about',
       websiteUrl: 'https://www.heywalt.ai/',
       foundedDate: 'founded date',
@@ -246,7 +246,8 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '14px'
+      padding: '14px',
+      paddingBottom: '30px'
     },
     {
       logoSrc: '/companyLogos/Eqtble.png',
@@ -300,15 +301,15 @@ const companies = [
       padding: '10px'
     },
     {
-      logoSrc: "/companyLogos/Aipotheosis.png",
+      logoSrc: "/companyLogos/AciDev.svg",
       about: 'about',
-      websiteUrl: 'https://www.aipotheosis.xyz',
+      websiteUrl: 'https://www.aci.dev',
       foundedDate: 'founded date',
       founders: ['founder one', 'founder two'],
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
-      padding: '18px'
+      padding: '8px'
     },
     {
       logoSrc: "/companyLogos/Pathwork.png", 
@@ -319,7 +320,53 @@ const companies = [
       stageInvested: 'seed',
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D']
-    }
+    },
+    {
+      logoSrc: "/companyLogos/OptainHealth.png", 
+      about: 'about',
+      websiteUrl: 'https://www.optainhealth.com/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      padding: '5px',
+      paddingBottom: '15px'
+    },
+    {
+      logoSrc: "/companyLogos/Lumif.png", 
+      about: 'about',
+      websiteUrl: 'https://www.optainhealth.com/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      padding: '5px',
+    },
+    {
+      logoSrc: "/companyLogos/Krevera.png", 
+      about: 'about',
+      websiteUrl: 'https://www.krevera.com/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+    },
+    {
+      logoSrc: "/companyLogos/Krevera.png", 
+      about: 'about',
+      websiteUrl: 'https://www.krevera.com/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+    },
+
+
+
 
 ];
 
