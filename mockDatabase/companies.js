@@ -31,6 +31,7 @@ const companies = [
       sector: 'sector',
       coInvestors: ['Investor C', 'Investor D'],
     },
+    
     {
       logoSrc: '/companyLogos/Packsmith.svg',
       about: 'about',
