@@ -183,10 +183,10 @@ const Home: FC = () => {
               <div>
                   <Testimonial 
                     alignment="left"
-                    statement="Meridian added value from day one. Devon and Karlton stand out among their peers as diligent and insightful. Their contributions have attracted top-tier investors, refined our financing, and improved our go-to-market and product strategy."
-                    name="Cody Eddings"
-                    company="SnapRefund"
-                    imageSrc="/headshotCodyEddings.png"
+                    statement="I like to pride myself on the degree of grit harnessed in my DNA and as I went down the venture road, I saw the same DNA in Devon. The team at Meridian has provided unparalleled value to Transend and I cannot recommend them enough. "
+                    name="Matt Lekawa"
+                    company="Transend"
+                    imageSrc="/headshotMattLekawa.png"
                     left="57px"
                   />
                   <Testimonial 
