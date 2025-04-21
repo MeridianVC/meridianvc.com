@@ -323,6 +323,18 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D']
     },
     {
+      logoSrc: "/companyLogos/Heva.svg", 
+      about: 'about',
+      websiteUrl: 'https://heva.co/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      padding: '5px',
+      paddingBottom: '10px'
+    },
+    {
       logoSrc: "/companyLogos/Krevera.png", 
       about: 'about',
       websiteUrl: 'https://www.krevera.com/',
@@ -356,6 +368,7 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
       padding: '5px',
     },
+
 
 ];
 
