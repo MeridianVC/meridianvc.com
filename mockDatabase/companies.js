@@ -322,6 +322,17 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D']
     },
     {
+      logoSrc: "/companyLogos/Krevera.png", 
+      about: 'about',
+      websiteUrl: 'https://www.krevera.com/',
+      foundedDate: 'founded date',
+      founders: ['founder one', 'founder two'],
+      stageInvested: 'seed',
+      sector: 'sector',
+      coInvestors: ['Investor C', 'Investor D'],
+      paddingTop: '5px'
+    },
+    {
       logoSrc: "/companyLogos/OptainHealth.png", 
       about: 'about',
       websiteUrl: 'https://www.optainhealth.com/',
@@ -344,29 +355,6 @@ const companies = [
       coInvestors: ['Investor C', 'Investor D'],
       padding: '5px',
     },
-    {
-      logoSrc: "/companyLogos/Krevera.png", 
-      about: 'about',
-      websiteUrl: 'https://www.krevera.com/',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-    },
-    {
-      logoSrc: "/companyLogos/Krevera.png", 
-      about: 'about',
-      websiteUrl: 'https://www.krevera.com/',
-      foundedDate: 'founded date',
-      founders: ['founder one', 'founder two'],
-      stageInvested: 'seed',
-      sector: 'sector',
-      coInvestors: ['Investor C', 'Investor D'],
-    },
-
-
-
 
 ];
 
