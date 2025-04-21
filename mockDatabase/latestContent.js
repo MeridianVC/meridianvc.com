@@ -1,5 +1,13 @@
 const latestContent = [
     {
+      author: "Chuck Isgar",
+      title: "Building an Institutionally-Backed Venture Firm as Students",
+      imagePath: "/contentPhotos/Harbus.png",
+      date: new Date(new Date("2025-03-02").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
+      source: "The Harbus",
+      link: "https://www.harbus.org/post/meridian-ventures-building-an-institutionally-backed-venture-firm-as-students"
+    },
+    {
       author: "Tech Crunch",
       title: "YC-backed Hona Looks to Reduce Friction in Law",
       imagePath: "/contentPhotos/Hona.png",
@@ -22,15 +30,7 @@ const latestContent = [
       date: new Date(new Date("2024-01-18").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
       source: "Medium",
       link: "https://medium.com/@devon_45585/packsmith-transforming-e-commerce-logistics-f12c8dbd664c"
-    },
-    {
-      author: "Devon Gethers",
-      title: "Bowtie: The Future of Cybersecurity",
-      imagePath: "/contentPhotos/Bowtie.png",
-      date: new Date(new Date("2024-01-14").getTime() + (7 * 60 * 60 * 1000)).toISOString(),
-      source: "Medium",
-      link: "https://medium.com/@devon_45585/the-future-of-cybersecurity-65399a77babf"
-    },
+    }
   ];
 
 export default latestContent;
