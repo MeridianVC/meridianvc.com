@@ -183,7 +183,7 @@ const Home: FC = () => {
               <div>
                   <Testimonial 
                     alignment="left"
-                    statement="I like to pride myself on the degree of grit harnessed in my DNA and as I went down the venture road, I saw the same DNA in Devon. The team at Meridian has provided unparalleled value to Transend and I cannot recommend them enough. "
+                    statement="I like to pride myself on the degree of grit harnessed in my DNA and as I went down the venture road, I saw the same in Devon. The team at Meridian has provided unparalleled value to Transend and I cannot recommend them enough. "
                     name="Matt Lekawa"
                     company="Transend"
                     imageSrc="/headshotMattLekawa.png"
