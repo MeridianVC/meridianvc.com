@@ -360,7 +360,7 @@ const companies = [
     {
       logoSrc: "/companyLogos/Lumif.png", 
       about: 'about',
-      websiteUrl: 'https://www.optainhealth.com/',
+      websiteUrl: 'https://lumif.ai/',
       foundedDate: 'founded date',
       founders: ['founder one', 'founder two'],
       stageInvested: 'seed',
