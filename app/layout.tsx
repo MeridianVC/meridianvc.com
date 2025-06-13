@@ -24,7 +24,7 @@ const Franklin = Libre_Franklin({
 export const metadata: Metadata = {
   title: 'Meridian Ventures',
   description: 'Bold ideas and visionary founders',
-  metadataBase: new URL("https://meridianventures.co")
+  metadataBase: new URL("https://meridianvc.com")
 }
 
 export default function RootLayout({

@@ -1,4 +1,4 @@
-See the live project at [Meridianventures.co](https://www.meridianventures.co/)
+See the live project at [meridianvc.com](https://meridianvc.com/)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
