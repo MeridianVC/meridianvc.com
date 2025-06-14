@@ -130,7 +130,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
                     <Header type="H2" marginBottom="clamp(10px, 1vw, 20px)">Get in Touch</Header>
                     <div style={sectionSpacing}>
                         <Header type="H4">Building?</Header>
-                        <Text variant="SmallFranklin"> Submit your startup deck to <span className="get-in-touch-hover"><a href="mailto:info@meridianventures.co" style={{ textDecoration: 'underline' }}>info@meridianventures.co</a></span></Text>
+                        <Text variant="SmallFranklin"> Submit your startup deck to <span className="get-in-touch-hover"><a href="mailto:info@meridianvc.com" style={{ textDecoration: 'underline' }}>info@meridianvc.com</a></span></Text>
                     </div>
                     <div style={sectionSpacing}>
                         <Header type="H4">About Meridian</Header>

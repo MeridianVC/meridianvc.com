@@ -5,7 +5,7 @@ const teamMembers = [
     imageSrc: '/headshotDevon.png',
     title: 'Managing Partner',
     linkedin: 'https://www.linkedin.com/in/devon-gethers/',
-    email: 'devon@meridianventures.co',
+    email: 'devon@meridianvc.com',
     medium: 'https://medium.com/@devon_45585',
     focus:
       'Devon allocates his time to identifying startups with high growth potential, raising capital to fund the opportunities, and investing time in the portfolio and its founders.',
@@ -22,7 +22,7 @@ const teamMembers = [
     imageSrc: '/headshotKarlton.png',
     title: 'Managing Partner',
     linkedin: 'https://www.linkedin.com/in/kevinkarltonhaney/',
-    email: 'karlton@meridianventures.co',
+    email: 'karlton@meridianvc.com',
     focus:
       'Karlton focuses his time on sourcing startups, making new investments, and managing relationships with portfolio companies.',
     education:

@@ -127,7 +127,7 @@ const Footer: FC = () => {
                         />
                         Connect on Linkedin
                     </a>
-                    <a href='mailto:info@meridianventures.co' target="_blank" style={linkStyle} className="footer-link">
+                    <a href='mailto:info@meridianvc.com' target="_blank" style={linkStyle} className="footer-link">
                         <Image 
                             src="/email.svg"
                             alt="Email"
