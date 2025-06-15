@@ -194,7 +194,7 @@ const Navbar: FC = () => {
       //move wordmark into view
       await wordmarkControls.start({
         y: '45vh',
-        x: 'calc(50vw - 223px/2 - 4vw)',
+        x: 'calc(50vw - 223px/2)',
         rotate: 0,
         transition: { duration: 0.5, delay: 1, ease: 'easeInOut' },
       });
