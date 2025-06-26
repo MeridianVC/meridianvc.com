@@ -12,6 +12,7 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.4",
     "@opennextjs/cloudflare": "^1.2.1",
     "@vercel/analytics": "^1.1.2",
     "body-scroll-lock": "^4.0.0-beta.0",

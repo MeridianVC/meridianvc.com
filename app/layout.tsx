@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import localfont from 'next/font/local';
 import { Libre_Franklin } from 'next/font/google';
-// import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import AnimationProvider from '@/components/Animation/AnimationContext';
 
 const Baskerville = localfont({
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <body>
           {children}
           <div id="modal-root"></div>
-          {/* <Analytics/> */}
+          <GoogleAnalytics gaId="G-Y3B9NBHM3E" />
         </body>
       </AnimationProvider>
     </html>
