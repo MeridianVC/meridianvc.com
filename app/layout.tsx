@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
-import localfont from 'next/font/local';
-import { Libre_Franklin } from 'next/font/google';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import AnimationProvider from '@/components/Animation/AnimationContext';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import type { Metadata } from 'next';
+import { Libre_Franklin } from 'next/font/google';
+import localfont from 'next/font/local';
 
 const Baskerville = localfont({
   src: [

@@ -1,13 +1,13 @@
 /** DIRECTIVES */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 /* DEFAULT STYLES */
 
 /* 1. Use a more-intuitive box-sizing model. */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 /* 2. Remove default margin */
@@ -23,20 +23,34 @@ body {
   width: 100%;
 }
 /* 6. Improve media defaults */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 /* 7. Remove built-in form typography styles */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 /* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 /* 9. Create a root stacking context */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
   --dark-green: rgb(74, 121, 71); /* #4A7947 */
   --light-green: rgb(166, 207, 163); /* A6CFA3 */
@@ -48,7 +62,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 html {
-  background-color:  #FFF5DC;
+  background-color: #fff5dc;
 }
 
 html,
@@ -56,8 +70,12 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: var(--font-baskerville), Times New roman, Times, serif;
-  color: #1E1E1E;
+  font-family:
+    var(--font-baskerville),
+    Times New roman,
+    Times,
+    serif;
+  color: #1e1e1e;
 }
 
 a {
@@ -68,7 +86,7 @@ a {
 /* Most of the site is dynamic but this is needed to make legend look good on the worst phones */
 @media (max-width: 400px) {
   .legend {
-    margin-right: .5vw !important;
+    margin-right: 0.5vw !important;
   }
 }
 

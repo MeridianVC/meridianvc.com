@@ -2,9 +2,10 @@ import * as THREE from 'three';
 
 export const preloadSphere = async () => {
   const manager = new THREE.LoadingManager();
-  const loadTexture = (path: string) => new Promise<THREE.Texture>((resolve, reject) => {
-    new THREE.TextureLoader(manager).load(path, resolve, undefined, reject);
-  });
+  const loadTexture = (path: string) =>
+    new Promise<THREE.Texture>((resolve, reject) => {
+      new THREE.TextureLoader(manager).load(path, resolve, undefined, reject);
+    });
 
   const texture = await loadTexture('texture-base.png');
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -13,8 +14,8 @@ export const preloadSphere = async () => {
   texturePole.colorSpace = THREE.SRGBColorSpace;
 
   const geometry = new THREE.SphereGeometry(1.5, 111, 111);
-  const material = new THREE.MeshStandardMaterial({ map: texture});
-  const materialPole = new THREE.MeshStandardMaterial({ map: texturePole, transparent: true});
+  const material = new THREE.MeshStandardMaterial({ map: texture });
+  const materialPole = new THREE.MeshStandardMaterial({ map: texturePole, transparent: true });
 
   const sphere = new THREE.Mesh(geometry, material);
   const spherePole = new THREE.Mesh(geometry, materialPole);

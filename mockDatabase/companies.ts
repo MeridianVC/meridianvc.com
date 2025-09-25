@@ -1,4 +1,19 @@
-const companies = [
+type Company = {
+  logoSrc: string;
+  about: string;
+  websiteUrl: string;
+  foundedDate: string;
+  founders: string[];
+  stageInvested: string;
+  sector: string;
+  coInvestors: string[];
+  padding?: string;
+  paddingTop?: string;
+  paddingBottom?: string;
+  paddingLeft?: string;
+};
+
+const companies: Company[] = [
   {
     logoSrc: '/companyLogos/CastAI.svg',
     about: 'about',
@@ -358,4 +373,4 @@ const companies = [
   },
 ];
 
-export default companies;
+export { companies, type Company };

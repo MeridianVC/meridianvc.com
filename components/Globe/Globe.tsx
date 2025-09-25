@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React, { FC, useRef, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import useGlobeAnimation from './useGlobeAnimation';
-import { preloadSphere } from './preloadSphere';
 import { useAnimationContext } from '../Animation/AnimationContext';
+import { preloadSphere } from './preloadSphere';
+import useGlobeAnimation from './useGlobeAnimation';
 
 const globeStyle: React.CSSProperties = {
   position: 'fixed',
@@ -28,7 +28,6 @@ const overlayStyle: React.CSSProperties = {
 };
 
 const Globe: FC = () => {
-
   const { isAnimating } = useAnimationContext();
 
   const mountRef = useRef<HTMLDivElement>(null);
@@ -43,27 +42,29 @@ const Globe: FC = () => {
   const [overlayOpacity, setOverlayOpacity] = useState(1);
 
   useEffect(() => {
-    preloadSphere().then((loadedSphere) => {
+    preloadSphere()
+      .then(loadedSphere => {
         sphereRef.current = loadedSphere;
         setIsLoaded(true);
-    }).catch(error => console.error("Error preloading globe assets:", error));
+      })
+      .catch(error => console.error('Error preloading globe assets:', error));
   }, []);
 
-    // Set scale variables
-    const baseScale = 1.75;
-    const maxScale = 1.75;
-    const minScale = 1.25;
+  // Set scale variables
+  const baseScale = 1.75;
+  const maxScale = 1.75;
+  const minScale = 1.25;
 
-    // this is used in the resize window useEffect to control globe size
-    const calculateScale = () => {
-        const baseWidth = 1920; // base width for scale 1
-        let scaleFactor = (window.innerWidth / baseWidth) * baseScale;
+  // this is used in the resize window useEffect to control globe size
+  const calculateScale = () => {
+    const baseWidth = 1920; // base width for scale 1
+    let scaleFactor = (window.innerWidth / baseWidth) * baseScale;
 
-        scaleFactor = Math.max(scaleFactor, minScale); // min scale
-        scaleFactor = Math.min(scaleFactor, maxScale); // max scale
+    scaleFactor = Math.max(scaleFactor, minScale); // min scale
+    scaleFactor = Math.min(scaleFactor, maxScale); // max scale
 
-        return scaleFactor;
-    };
+    return scaleFactor;
+  };
 
   // Start the opacity transition
   useEffect(() => {
@@ -74,49 +75,48 @@ const Globe: FC = () => {
 
   // for handling most of the important globe operations
   useEffect(() => {
-      if (!sceneRef.current) {
-        sceneRef.current = new THREE.Scene();
-        sceneRef.current.background = new THREE.Color(0xFFF5DC);
-      }
+    if (!sceneRef.current) {
+      sceneRef.current = new THREE.Scene();
+      sceneRef.current.background = new THREE.Color(0xfff5dc);
+    }
 
-      if (!ambientLightRef.current) {
-        ambientLightRef.current = new THREE.AmbientLight(0xFFFFFF, 3.1);
-        sceneRef.current.add(ambientLightRef.current);
-      }
+    if (!ambientLightRef.current) {
+      ambientLightRef.current = new THREE.AmbientLight(0xffffff, 3.1);
+      sceneRef.current.add(ambientLightRef.current);
+    }
 
-      if (!cameraRef.current) {
-        cameraRef.current = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
-      }
-      
-      if (isLoaded && sphereRef.current) {
-        sceneRef.current.add(sphereRef.current);
-        sphereRef.current.rotation.x = THREE.MathUtils.degToRad(-23.5);
-        const initialScale = calculateScale();
-        sphereRef.current.scale.set(initialScale, initialScale, initialScale);
-      }
+    if (!cameraRef.current) {
+      cameraRef.current = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
+    }
 
-      if (mountRef.current && !rendererRef.current) {
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        rendererRef.current = renderer;
-        mountRef.current.appendChild(renderer.domElement);
-      }
+    if (isLoaded && sphereRef.current) {
+      sceneRef.current.add(sphereRef.current);
+      sphereRef.current.rotation.x = THREE.MathUtils.degToRad(-23.5);
+      const initialScale = calculateScale();
+      sphereRef.current.scale.set(initialScale, initialScale, initialScale);
+    }
 
-      // This cannot be done while animating since it risks these not being set correctly
-      if (rendererRef.current && !isAnimating) {
-        rendererRef.current.setSize(window.innerWidth, window.innerHeight);
-        rendererRef.current.setPixelRatio(window.devicePixelRatio);
-        rendererRef.current.outputColorSpace = THREE.SRGBColorSpace;
-      }
+    if (mountRef.current && !rendererRef.current) {
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      rendererRef.current = renderer;
+      mountRef.current.appendChild(renderer.domElement);
+    }
 
-      // Adding heavy 3d objects to the dom needs to be done after loading animation to ensure it stays smooth
-      if (rendererRef.current && sceneRef.current && cameraRef.current && !isAnimating) {
-        rendererRef.current.render(sceneRef.current, cameraRef.current);
-        setIsRendered(true);
-      }
+    // This cannot be done while animating since it risks these not being set correctly
+    if (rendererRef.current && !isAnimating) {
+      rendererRef.current.setSize(window.innerWidth, window.innerHeight);
+      rendererRef.current.setPixelRatio(window.devicePixelRatio);
+      rendererRef.current.outputColorSpace = THREE.SRGBColorSpace;
+    }
 
-    }, [isLoaded, sphereRef.current, isAnimating]);
+    // Adding heavy 3d objects to the dom needs to be done after loading animation to ensure it stays smooth
+    if (rendererRef.current && sceneRef.current && cameraRef.current && !isAnimating) {
+      rendererRef.current.render(sceneRef.current, cameraRef.current);
+      setIsRendered(true);
+    }
+  }, [isLoaded, sphereRef.current, isAnimating]);
 
-    useGlobeAnimation(sphereRef.current, rendererRef.current, cameraRef.current, sceneRef.current);
+  useGlobeAnimation(sphereRef.current, rendererRef.current, cameraRef.current, sceneRef.current);
 
   useEffect(() => {
     const onWindowResize = () => {
@@ -137,11 +137,11 @@ const Globe: FC = () => {
   }, []);
 
   return (
-  <>
-    <div ref={mountRef} style={globeStyle}></div>
-    <div style={{ ...overlayStyle, opacity: overlayOpacity }}></div>
-  </>
-  )
+    <>
+      <div ref={mountRef} style={globeStyle}></div>
+      <div style={{ ...overlayStyle, opacity: overlayOpacity }}></div>
+    </>
+  );
 };
 
 export default Globe;

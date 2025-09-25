@@ -4,11 +4,10 @@ import '../ui.css';
 interface SquareButtonProps {
   onClick: () => void;
   className?: string;
-  style?: React.CSSProperties
+  style?: React.CSSProperties;
 }
 
 const GetInTouchButton: FC<SquareButtonProps> = ({ onClick, className, style }) => {
-
   const buttonStyle: React.CSSProperties = {
     paddingTop: '3px',
     paddingLeft: '15px',
@@ -21,8 +20,8 @@ const GetInTouchButton: FC<SquareButtonProps> = ({ onClick, className, style }) 
 
   const combinedStyle = {
     ...buttonStyle,
-    ...style
-  }
+    ...style,
+  };
 
   return (
     <button className={`get-in-touch-hover ${className}`} style={combinedStyle} onClick={onClick}>

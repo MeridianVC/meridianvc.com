@@ -1,5 +1,5 @@
+import { companies } from '@/mockDatabase/companies';
 import { FC } from 'react';
-import companies from '@/mockDatabase/companies';
 import CompanyCard from './CompanyCard'; // Import the CompanyCard component
 
 const gridStyle: React.CSSProperties = {
@@ -9,7 +9,7 @@ const gridStyle: React.CSSProperties = {
   alignItems: 'flex-start',
   gap: 'clamp(10px, 5vw, 50px)',
   margin: '0 clamp(5vw, 13vw, 25vw)',
-  maxWidth: '1200px'
+  maxWidth: '1200px',
 };
 
 const CompanyGrid: FC = () => {

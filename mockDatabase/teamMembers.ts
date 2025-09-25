@@ -1,4 +1,18 @@
-const teamMembers = [
+type TeamMember = {
+  name: string;
+  role: string;
+  imageSrc: string;
+  title: string;
+  linkedin: string;
+  email?: string;
+  medium?: string;
+  focus: string;
+  education: string;
+  experienceP1: string;
+  experienceP2?: string;
+};
+
+const teamMembers: TeamMember[] = [
   {
     name: 'Devon Gethers',
     role: 'Managing Partner',
@@ -112,4 +126,4 @@ const teamMembers = [
   },
 ];
 
-export default teamMembers;
+export { teamMembers, type TeamMember };

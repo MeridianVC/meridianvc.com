@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React, { createContext, useContext, useState, ReactNode, FC } from 'react';
+import React, { createContext, FC, ReactNode, useContext, useState } from 'react';
 
 interface AnimationContextType {
   isAnimating: boolean;
   setIsAnimating?: React.Dispatch<React.SetStateAction<boolean>>;
   animationStarted: boolean;
-  setAnimationStarted?: React.Dispatch<React.SetStateAction<boolean>>
+  setAnimationStarted?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AnimationContext = createContext<AnimationContextType | undefined>(undefined);
@@ -28,10 +28,10 @@ const AnimationProvider: FC<AnimationProviderProps> = ({ children }) => {
   const [animationStarted, setAnimationStarted] = useState<boolean>(false);
 
   return (
-    <AnimationContext.Provider value={{ isAnimating, setIsAnimating, animationStarted, setAnimationStarted}}>
+    <AnimationContext.Provider value={{ isAnimating, setIsAnimating, animationStarted, setAnimationStarted }}>
       {children}
     </AnimationContext.Provider>
   );
 };
 
-export default AnimationProvider
+export default AnimationProvider;

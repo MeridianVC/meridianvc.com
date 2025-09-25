@@ -1,15 +1,17 @@
 'use client';
 
-import React, { FC, useState, useEffect, useRef } from 'react';
-import { navHeight } from '../../Structural/NavHeight';
-import NavbarDropdown from './NavbarDropdown';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
-import GetInTouchButton from './GetInTouchButton';
-import GetInTouchModal from './GetInTouchModal';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import '../ui.css';
 import { useAnimationContext } from '../../Animation/AnimationContext';
 import useCleanAnimation from '../../Animation/useCleanAnimation';
+import { navHeight } from '../../Structural/NavHeight';
+import { Hamburger } from '../Icons/Hamburger';
+import { XNotTwitter } from '../Icons/XNotTwitter';
+import '../ui.css';
+import GetInTouchButton from './GetInTouchButton';
+import GetInTouchModal from './GetInTouchModal';
+import NavbarDropdown from './NavbarDropdown';
 
 const linkStyle: React.CSSProperties = {
   display: 'flex',
@@ -31,6 +33,8 @@ const wordmarkStyle: React.CSSProperties = {
   width: '223px',
   margin: '0',
   height: navHeight,
+  appearance: 'unset',
+  cursor: 'pointer',
 };
 
 //style of everything except the wordmark in the navbar
@@ -183,7 +187,7 @@ const Navbar: FC = () => {
       });
     };
 
-    sequence();
+    void sequence();
   }, [navbarControls, start]);
 
   //WORDMARK ANIMATION
@@ -229,13 +233,13 @@ const Navbar: FC = () => {
       setAnimationStarted(true);
     }
 
-    sequence();
+    void sequence();
   }, [wordmarkControls, start]);
 
   return (
     <>
-      <motion.a
-        href="./"
+      <motion.button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         style={{ ...wordmarkStyle, scale: wordmarkScale.current }} // this is effectively the initial scale
         animate={wordmarkControls}
         initial={{
@@ -243,10 +247,9 @@ const Navbar: FC = () => {
           y: '90vh',
           x: 'calc(50vw - 223px/2 - 4vw)',
         }}
-        key="wordmark"
-      >
+        key="wordmark">
         <img src="/meridianWordmark.svg" alt="Meridian Wordmark" />
-      </motion.a>
+      </motion.button>
 
       {showWordmarkCover && <div style={wordmarkCoverStyle}></div>}
 
@@ -256,23 +259,20 @@ const Navbar: FC = () => {
           opacity: 0,
         }}
         style={navbarStyle}
-        animate={navbarControls}
-      >
+        animate={navbarControls}>
         <motion.div
           className={`nav-links ${isDropdownOpen ? 'nav-active' : ''}`}
           style={linkStyle}
           initial="initial"
           animate="animate"
-          variants={linkContainerVariants}
-        >
+          variants={linkContainerVariants}>
           <GetInTouchButton onClick={handleOpenModal} className="link-disappear" style={buttonStyle} />
           <motion.a
             href="https://login.app.carta.com/credentials/login/"
             target="_blank"
             rel="noopener noreferrer"
             className="navbar-hover link-disappear"
-            variants={linkVariants}
-          >
+            variants={linkVariants}>
             Investor Portal
           </motion.a>
           <motion.a href="#section5_investments" className="navbar-hover link-disappear" variants={linkVariants}>
@@ -290,11 +290,60 @@ const Navbar: FC = () => {
             <AnimatePresence>
               {isModalOpen && <GetInTouchModal onClose={handleCloseModal} isOpen={isModalOpen} />}
             </AnimatePresence>,
-            modalRoot.current
+            modalRoot.current,
           )}
 
         <div className="hamburger" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-          <img src="/Hamburger.svg" alt="Open menu" className="nav-link" />
+          <div style={{ position: 'relative', width: 34, height: 34 }}>
+            <AnimatePresence>
+              {isDropdownOpen && (
+                <motion.div
+                  key="close"
+                  initial={{
+                    opacity: 0,
+                    scale: 0.7,
+                    rotate: -45,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    rotate: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0.8,
+                    rotate: 90,
+                  }}
+                  transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                  style={{ position: 'absolute', top: 0, left: 0 }}>
+                  <XNotTwitter width={34} height={34} className="nav-link" />
+                </motion.div>
+              )}
+              {!isDropdownOpen && (
+                <motion.div
+                  key="menu"
+                  initial={{
+                    opacity: 0,
+                    scale: 0.8,
+                    rotate: 90,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    rotate: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0.7,
+                    rotate: -45,
+                  }}
+                  transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                  style={{ position: 'absolute', top: 0, left: 0 }}>
+                  <Hamburger width={34} height={34} className="nav-link" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         <AnimatePresence>

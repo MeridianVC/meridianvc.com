@@ -1,192 +1,193 @@
 @media (max-width: 1000px) {
-    .modalDetail {
-        display: none !important;
-    }
+  .modalDetail {
+    display: none !important;
+  }
 }
 
 @media (max-width: 900px) {
-    .testimonialStatement {
-        width: 75% !important;
-    }
-    .company-card-size {
-        width: 90px !important;
-        height: 90px !important;
-    }
-    .company-grid-margin {
-        margin: 5vw !important;
-    }
-    .footer-small-remove {
-        display: none !important;
-    }
-    .footer-left-flex-column {
-        flex-direction: column !important;
-    }
-    .footer-right-flex-column {
-        min-width: 40% !important;
-        justify-content: space-between !important;
-
-    }
-    .team-modal-flex {
-        display: block !important;
-        padding-top: 40px !important;
-    }
-    .team-modal-links {
-        padding-right: 30px !important;
-    }
-    .team-modal-content {
-        margin-bottom: 20px !important;
-    }
-    .get-in-touch-content-flex {
-        padding-top: 25px !important;
-        margin-bottom: 20px !important;
-        align-content: center !important;
-        justify-content: start !important;
-    }
+  .testimonialStatement {
+    width: 75% !important;
+  }
+  .company-card-size {
+    width: 90px !important;
+    height: 90px !important;
+  }
+  .company-grid-margin {
+    margin: 5vw !important;
+  }
+  .footer-small-remove {
+    display: none !important;
+  }
+  .footer-left-flex-column {
+    flex-direction: column !important;
+  }
+  .footer-right-flex-column {
+    min-width: 40% !important;
+    justify-content: space-between !important;
+  }
+  .team-modal-flex {
+    display: block !important;
+    padding-top: 40px !important;
+  }
+  .team-modal-links {
+    padding-right: 30px !important;
+  }
+  .team-modal-content {
+    margin-bottom: 20px !important;
+  }
+  .get-in-touch-content-flex {
+    padding-top: 25px !important;
+    margin-bottom: 20px !important;
+    align-content: center !important;
+    justify-content: start !important;
+  }
 }
 
 @media (max-width: 500px) {
-    .testimonialStatement {
-        margin-top: 20px !important;
-        width: 100% !important;
-    }
-    .testimonialContent {
-        display: flex;
-        flex-direction: column;
-    }
-    .teamCardHeight {
-        max-height: 430px !important;
-        min-height: 370px !important;
-    }
-    .content-card-height {
-        height: 125px !important;
-    }
+  .testimonialStatement {
+    margin-top: 20px !important;
+    width: 100% !important;
+  }
+  .testimonialContent {
+    display: flex;
+    flex-direction: column;
+  }
+  .teamCardHeight {
+    max-height: 430px !important;
+    min-height: 370px !important;
+  }
+  .content-card-height {
+    height: 125px !important;
+  }
 
-    .mobile-modal {
-        left: 4vw !important;
-        right: 4vw !important;
-    }
-    .get-in-touch-content-flex {
-        padding-top: 25px !important;
-        margin-bottom: 20px !important;
-        align-content: start !important;
-        justify-content: start !important;
-    }
+  .mobile-modal {
+    left: 4vw !important;
+    right: 4vw !important;
+  }
+  .get-in-touch-content-flex {
+    padding-top: 25px !important;
+    margin-bottom: 20px !important;
+    align-content: start !important;
+    justify-content: start !important;
+  }
 }
 
 @media (hover: none), (hover: on-demand) {
-    .navbar-hover:active {
-        transform: scale(0.85) !important;
-        transition: transform 0.2s ease;
-    }
-    .hamburger:active {
-        transform: scale(0.85) !important;
-        transition: transform 0.2s ease-in-out;
-    }
-    .company-logo-color:active {
-        filter: brightness(100%) contrast(100%) grayscale(0%);
-        transform: scale(0.85) !important;
-        transition: transform 0.2s ease;
-    }
-    .footer-link:active {
-        transform: scale(0.85) !important;
-        transition: transform 0.2s ease;
-    }
-    .modal-link:active {
-        transform: scale(0.85) !important;
-        transition: transfrom 0.2s ease;
-    }
-    .team-card-hover:active {
-        transform: scale(0.95) !important;
-        transition: transform 0.2s ease-in-out;
-    }
-    .content-card-hover:active {
-        transform: scale(0.95) !important;
-        transition: transform 0.2s ease-in-out;
-    }
-    .nav-link:active {
-        transform: scale(0.85) !important;
-        transition: transform 0.2s ease-in-out !important;
-    }
-    .get-in-touch-hover:active {
-        transform: scale(0.85) translateY(-5px) !important;
-        transition: transform 0.2s ease-in-out !important;
-    }
+  .navbar-hover:active {
+    transform: scale(0.85) !important;
+    transition: transform 0.2s ease;
+  }
+  .hamburger:active {
+    transform: scale(0.85) !important;
+    transition: transform 0.2s ease-in-out;
+  }
+  .company-logo-color:active {
+    filter: brightness(100%) contrast(100%) grayscale(0%);
+    transform: scale(0.85) !important;
+    transition: transform 0.2s ease;
+  }
+  .footer-link:active {
+    transform: scale(0.85) !important;
+    transition: transform 0.2s ease;
+  }
+  .modal-link:active {
+    transform: scale(0.85) !important;
+    transition: transfrom 0.2s ease;
+  }
+  .team-card-hover:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.2s ease-in-out;
+  }
+  .content-card-hover:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.2s ease-in-out;
+  }
+  .nav-link:active {
+    transform: scale(0.85) !important;
+    transition: transform 0.2s ease-in-out !important;
+  }
+  .get-in-touch-hover:active {
+    transform: scale(0.85) translateY(-5px) !important;
+    transition: transform 0.2s ease-in-out !important;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .navbar-hover:hover {
-        transform: scale(1.15) !important;
-        transition: transform 0.2s ease;
-    }
-    .hamburger:hover {
-        transform: scale(1.1) !important;
-        transition: transform 0.2s ease-in-out;
-    }
-    .company-logo-color:hover {
-        filter: brightness(100%) contrast(100%) grayscale(0%);
-        transform: scale(1.15) !important;
-        transition: transform 0.3s ease;
-    }
-    .footer-link:hover {
-        transform: scale(1.1) !important;
-        transition: transform 0.2s ease;
-    }
-    .modal-link:hover {
-        transform: scale(1.1) !important;
-        transition: transfrom 0.2s ease;
-    }
-    .team-card-hover:hover {
-        transform: scale(1.05) !important;
-        transition: transform 0.2s ease-in-out;
-    }
-    .content-card-hover:hover {
-        transform: scale(1.05) !important;
-        transition: transform 0.2s ease-in-out;
-    }
-    .nav-link:hover {
-        transform: scale(1.05) !important;
-        transition: transform 0.2s ease-in-out !important;
-    }
-    .get-in-touch-hover:hover {
-        transform: scale(1.1) translateY(-5px) !important;
-        transition: transform 0.2s ease-in-out !important;
-    }
+  .navbar-hover:hover {
+    transform: scale(1.15) !important;
+    transition: transform 0.2s ease;
+  }
+  .hamburger:hover {
+    transform: scale(1.1) !important;
+    transition: transform 0.2s ease-in-out;
+  }
+  .company-logo-color:hover {
+    filter: brightness(100%) contrast(100%) grayscale(0%);
+    transform: scale(1.15) !important;
+    transition: transform 0.3s ease;
+  }
+  .footer-link:hover {
+    transform: scale(1.1) !important;
+    transition: transform 0.2s ease;
+  }
+  .modal-link:hover {
+    transform: scale(1.1) !important;
+    transition: transfrom 0.2s ease;
+  }
+  .team-card-hover:hover {
+    transform: scale(1.05) !important;
+    transition: transform 0.2s ease-in-out;
+  }
+  .content-card-hover:hover {
+    transform: scale(1.05) !important;
+    transition: transform 0.2s ease-in-out;
+  }
+  .nav-link:hover {
+    transform: scale(1.05) !important;
+    transition: transform 0.2s ease-in-out !important;
+  }
+  .get-in-touch-hover:hover {
+    transform: scale(1.1) translateY(-5px) !important;
+    transition: transform 0.2s ease-in-out !important;
+  }
 }
 
 .company-logo-color {
-    filter: brightness(40%) contrast(250%) grayscale(100%);
-    transition: border 0.3s ease-in-out, filter 0.3s ease-in-out;
+  filter: brightness(40%) contrast(250%) grayscale(100%);
+  transition:
+    border 0.3s ease-in-out,
+    filter 0.3s ease-in-out;
 }
 
 .footer-link {
-    padding-bottom: 3px;
-    transition: border 0.3 ease-in-out;
+  padding-bottom: 3px;
+  transition: border 0.3 ease-in-out;
 }
 
 .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding-right: 5px;
-  }
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding-right: 5px;
+}
 
 @media (max-width: 900px) {
-    .hamburger {
-        display: flex;
-    }
+  .hamburger {
+    display: flex;
+  }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 20px;
-    }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    .nav-active {
-        display: flex;
-    }
+  .nav-active {
+    display: flex;
+  }
 
-    .link-disappear {
-        display: none;
-    }
+  .link-disappear {
+    display: none;
+  }
 }

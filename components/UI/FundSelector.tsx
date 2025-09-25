@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../Text/Header';
 import './ui.css';
 
@@ -14,15 +14,12 @@ const mainStyle: React.CSSProperties = {
   textUnderlineOffset: '10px',
   textDecorationColor: '#444444',
   textDecorationThickness: '2px',
-}
+};
 
 const FundSelector: React.FC = () => {
-
   return (
     <div style={mainStyle}>
-      <Header type="H6">
-        Fund I
-      </Header>
+      <Header type="H6">Fund I</Header>
     </div>
   );
 };

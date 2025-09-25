@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import { FC } from 'react';
 import '../ui.css';
-import Image from 'next/image';
 
 interface CompanyCardProps {
   logoSrc: string;
@@ -17,26 +17,26 @@ interface CompanyCardProps {
   paddingLeft?: string;
 }
 
-  // const logoStyle: React.CSSProperties = {
-  //   width: '100%',
-  //   height: '100%',
-  //   objectFit: 'contain'
-  //   // position: ''
-  // };
-  
-  // const detailsStyle: React.CSSProperties = {
-  //   display: 'none',
-  //   position: 'absolute',
-  //   top: 0,
-  //   left: 0,
-  //   width: '100%',
-  //   height: '100%',
-  //   background: 'rgba(255, 255, 255, 0.9)',
-  //   zIndex: 10,
-  //   padding: '10px',
-  //   boxSizing: 'border-box',
-  //   overflow: 'auto',
-  // };
+// const logoStyle: React.CSSProperties = {
+//   width: '100%',
+//   height: '100%',
+//   objectFit: 'contain'
+//   // position: ''
+// };
+
+// const detailsStyle: React.CSSProperties = {
+//   display: 'none',
+//   position: 'absolute',
+//   top: 0,
+//   left: 0,
+//   width: '100%',
+//   height: '100%',
+//   background: 'rgba(255, 255, 255, 0.9)',
+//   zIndex: 10,
+//   padding: '10px',
+//   boxSizing: 'border-box',
+//   overflow: 'auto',
+// };
 
 const CompanyCard: FC<CompanyCardProps> = ({
   logoSrc,
@@ -50,9 +50,8 @@ const CompanyCard: FC<CompanyCardProps> = ({
   padding,
   paddingBottom,
   paddingTop,
-  paddingLeft
+  paddingLeft,
 }) => {
-
   const cardStyle: React.CSSProperties = {
     position: 'relative',
     width: '165px',
@@ -60,7 +59,7 @@ const CompanyCard: FC<CompanyCardProps> = ({
     padding: padding,
     paddingBottom: paddingBottom,
     paddingTop: paddingTop,
-    paddingLeft: paddingLeft
+    paddingLeft: paddingLeft,
   };
 
   const imageWrapperStyle: React.CSSProperties = {
@@ -73,14 +72,14 @@ const CompanyCard: FC<CompanyCardProps> = ({
 
   return (
     <div style={cardStyle} className="company-card-size">
-      <a href={websiteUrl} target="_blank" rel="noopener noreferrer" style={{position: 'relative'}}>
+      <a href={websiteUrl} target="_blank" rel="noopener noreferrer" style={{ position: 'relative' }}>
         <div style={imageWrapperStyle}>
-          <Image 
-            src={logoSrc} 
-            alt="Company Logo" 
+          <Image
+            src={logoSrc}
+            alt="Company Logo"
             width={165}
             height={150}
-            style={{objectFit: 'contain'}}
+            style={{ objectFit: 'contain' }}
             className="company-logo-color"
           />
         </div>

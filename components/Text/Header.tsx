@@ -1,4 +1,4 @@
-import { FC, CSSProperties, ReactNode, createElement } from 'react';
+import { CSSProperties, FC, ReactNode, createElement } from 'react';
 import './text.css';
 
 const cssStyle = 'headerWidth'; // from text css style sheet
@@ -21,7 +21,6 @@ interface HeaderProps {
 const baseStyle: CSSProperties = {
   color: '#1E1E1E',
   overflowWrap: 'break-word',
-  
 };
 
 //EDIT THESE AS YOU USE THEM, NOT ALL HAVE THE RIGHT PARAMETERS
@@ -34,34 +33,32 @@ const headerStyles: Record<string, CSSProperties> = {
   H6: { fontSize: 'clamp(15px, 3vw, 20px)', lineHeight: 'clamp(25px, 2vw, 100px)' },
 };
 
-const Header: FC<HeaderProps> = ({ 
-  type, 
-  isCentered, 
-  style, 
-  children, 
-  paddingLeft, 
+const Header: FC<HeaderProps> = ({
+  type,
+  isCentered,
+  style,
+  children,
+  paddingLeft,
   paddingRight,
   width,
-  maxWidth, 
-  marginTop, 
-  marginBottom, 
-  lineHeight, 
-  className ,
+  maxWidth,
+  marginTop,
+  marginBottom,
+  lineHeight,
+  className,
 }) => {
-
   const combinedHeaderStyle = {
     ...baseStyle,
     ...headerStyles[type],
-    ...(isCentered && { textAlign: 'center'}), 
-    ...{maxWidth: `${maxWidth}`},
-    ...{width: `${width}`},
-    ...{paddingLeft: `${paddingLeft}`},
-    ...{paddingRight: `${paddingRight}`},
-    ...{marginTop: `${marginTop}`},
-    ...{marginBottom: `${marginBottom}`},
-    ...(lineHeight && {lineHeight:`${lineHeight}`}),
+    ...(isCentered && { textAlign: 'center' }),
+    ...{ maxWidth: `${maxWidth}` },
+    ...{ width: `${width}` },
+    ...{ paddingLeft: `${paddingLeft}` },
+    ...{ paddingRight: `${paddingRight}` },
+    ...{ marginTop: `${marginTop}` },
+    ...{ marginBottom: `${marginBottom}` },
+    ...(lineHeight && { lineHeight: `${lineHeight}` }),
     ...style,
-    
   };
 
   const combinedClassName = `${cssStyle} ${className || ''}`.trim();
