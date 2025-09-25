@@ -13,7 +13,99 @@ type Company = {
   paddingLeft?: string;
 };
 
-const companies: Company[] = [
+const fundIICompanies: Company[] = [
+  {
+    logoSrc: '/companyLogos/GhostEye.png',
+    about: 'about',
+    websiteUrl: 'https://ghosteye.ai',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
+  },
+  // TODO: get an Ambusun logo
+  {
+    logoSrc: '/companyLogos/Ambusun.png',
+    about: 'about',
+    websiteUrl: 'https://ambusun.com/',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
+  },
+  // TODO: get a not upscaled Zaqa logo
+  {
+    logoSrc: '/companyLogos/Zaqa.png',
+    about: 'about',
+    websiteUrl: 'https://zaqa.ai/',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
+    padding: '0.5rem',
+    // paddingBottom: '0.5rem',
+  },
+  {
+    logoSrc: '/companyLogos/LocalLocker.png',
+    about: 'about',
+    websiteUrl: 'https://www.whitelabelstorage.com/',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
+    padding: '1rem',
+    paddingBottom: '2rem',
+  },
+  {
+    logoSrc: '/companyLogos/Float.png',
+    about: 'about',
+    websiteUrl: 'https://heyfloat.com/',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
+  },
+  // TODO: get a VSinc logo
+  // {
+  //   logoSrc: '/companyLogos/VSinc.png',
+  //   about: 'about',
+  //   websiteUrl: 'https://www.vsinc.ai/',
+  //   foundedDate: 'founded date',
+  //   founders: ['founder one', 'founder two'],
+  //   stageInvested: 'seed',
+  //   sector: 'sector',
+  //   coInvestors: ['Investor C', 'Investor D'],
+  // },
+  {
+    logoSrc: '/companyLogos/eBliss.png',
+    about: 'about',
+    websiteUrl: 'https://eblissai.com/',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
+  },
+  {
+    logoSrc: '/companyLogos/BayCompute.png',
+    about: 'about',
+    websiteUrl: 'https://baycompute.com/',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
+    padding: '1rem',
+    paddingBottom: '2rem',
+  },
+];
+
+const fundICompanies: Company[] = [
   {
     logoSrc: '/companyLogos/CastAI.svg',
     about: 'about',
@@ -373,4 +465,9 @@ const companies: Company[] = [
   },
 ];
 
-export { companies, type Company };
+const Funds = {
+  I: fundICompanies,
+  II: fundIICompanies,
+} as const;
+
+export { Funds, type Company };

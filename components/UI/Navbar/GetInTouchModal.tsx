@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { FC, useEffect } from 'react';
 import { navHeight } from '../../Structural/NavHeight';
+import { XNotTwitter } from '../Icons/XNotTwitter';
 import '../ui.css';
 
 interface TeamModalProps {
@@ -109,7 +110,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
       style={modalStyle}
       className="get-in-touch-modal-flex mobile-modal">
       <button onClick={onClose} style={closeButtonStyle} className="modal-link">
-        <Image src="/ModalX.svg" alt="Close" width={34} height={34} priority={true} />
+        <XNotTwitter width={34} height={34} />
       </button>
       <div style={contentStyle} className="get-in-touch-content-flex">
         <div style={imageContainerStyle}>

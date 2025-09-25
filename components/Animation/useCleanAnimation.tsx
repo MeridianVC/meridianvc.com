@@ -1,28 +1,24 @@
 'use client';
 
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useEffect } from 'react';
+import { useScrollLock } from '../hooks/useScrollLock';
 
 const useCleanAnimation = (isAnimating: boolean, allowScroll: boolean): void => {
+  const { lockScroll, unlockScroll } = useScrollLock();
+
   useEffect(() => {
     if (isAnimating) {
-      disableBodyScroll(document.body);
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-      document.body.style.top = '0px';
+      lockScroll();
       document.body.style.overflowY = 'scroll'; // ensures scroll bar is always set in view
       document.body.style.overflowX = 'hidden'; // no x-direction scroll ever
     }
-  }, [isAnimating]);
+  }, [isAnimating, lockScroll]);
 
   useEffect(() => {
     if (allowScroll) {
-      enableBodyScroll(document.body);
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.style.top = '';
+      unlockScroll();
     }
-  }, [allowScroll]);
+  }, [allowScroll, unlockScroll]);
 };
 
 export default useCleanAnimation;

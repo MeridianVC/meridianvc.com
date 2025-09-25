@@ -18,6 +18,7 @@ const Section: FC<SectionProps> = ({ id, children, className, style, isFullHeigh
     position: 'relative',
     borderLeft: '2px solid #444444',
     borderRight: '2px solid #444444',
+    willChange: 'transform',
     ...style,
   };
 

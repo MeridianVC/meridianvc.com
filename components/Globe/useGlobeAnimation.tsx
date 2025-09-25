@@ -26,9 +26,14 @@ const useGlobeAnimation = (
   useEffect(() => {
     if (!globe || !rendererRef || !camera || isAnimating) return;
 
+    // joey: i'm not sure why there is a scroll being forced here.
+    //       it jumps the page to top and seems to work fine without it
+    //       the whole race condition bit makes me worried i'm missing something
+    //       but actually zero idea what could be racing here
+
     //force the scroll position to control for race conditions
-    window.scrollTo(0, 1); // this ensures there is a state change
-    window.scrollTo(0, 0); // and this immediately moves us back
+    // window.scrollTo(0, 1); // this ensures there is a state change
+    // window.scrollTo(0, 0); // and this immediately moves us back
 
     // MAIN ROTATION ANIMATION FUNCTION, LOOPS CONTINUOUSLY
     const animate = () => {

@@ -156,7 +156,8 @@
   filter: brightness(40%) contrast(250%) grayscale(100%);
   transition:
     border 0.3s ease-in-out,
-    filter 0.3s ease-in-out;
+    filter 0.3s ease-in-out,
+    transform 0.3s ease;
 }
 
 .footer-link {

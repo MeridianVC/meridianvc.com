@@ -119,3 +119,11 @@ h5 {
 h6 {
   font-size: clamp(12px, 3vw, 20px);
 }
+
+/* Safari-friendly modal scroll prevention */
+.modal-scroll-lock {
+  touch-action: none !important;
+  -webkit-overflow-scrolling: auto !important;
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+}

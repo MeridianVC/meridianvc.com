@@ -5,6 +5,7 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useAnimationContext } from '../../Animation/AnimationContext';
 import useCleanAnimation from '../../Animation/useCleanAnimation';
+import { useScrollLock } from '../../hooks/useScrollLock';
 import { navHeight } from '../../Structural/NavHeight';
 import { Hamburger } from '../Icons/Hamburger';
 import { XNotTwitter } from '../Icons/XNotTwitter';
@@ -96,6 +97,7 @@ const links: Link[] = [
 const Navbar: FC = () => {
   const modalRoot = useRef<HTMLElement | null>(null); //for the portal to attach our dropdowns to
   const wordmarkScale = useRef<number>(1.5); //used as the initial wordmark scale animation
+  const { lockScroll, unlockScroll } = useScrollLock();
 
   const [start, setStart] = useState<boolean>(false); //animation does not start until the initial wordmark scale is ready, MainContentAnimation is driven by this Navbar animation
   const [showWordmarkCover, setshowWordmarkCover] = useState<boolean>(true); //for wordmark to slide out from under
@@ -127,9 +129,11 @@ const Navbar: FC = () => {
 
   // Used to open and close the get in touch button
   const handleOpenModal = () => {
+    lockScroll();
     setIsModalOpen(true);
   };
   const handleCloseModal = () => {
+    unlockScroll();
     setIsModalOpen(false);
   };
 

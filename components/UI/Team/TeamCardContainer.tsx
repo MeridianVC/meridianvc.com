@@ -2,6 +2,7 @@
 
 import { AnimatePresence } from 'framer-motion';
 import { FC, useState } from 'react';
+import { useScrollLock } from '../../hooks/useScrollLock';
 import TeamCard from './TeamCard';
 import TeamModal from './TeamModal';
 
@@ -44,12 +45,15 @@ const outerWrapperStyle: React.CSSProperties = {
 
 const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const { lockScroll, unlockScroll } = useScrollLock();
 
   const handleCardClick = (member: TeamMember) => {
+    lockScroll();
     setSelectedMember(member);
   };
 
   const handleCloseModal = () => {
+    unlockScroll();
     setSelectedMember(null);
   };
 
