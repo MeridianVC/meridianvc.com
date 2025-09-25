@@ -17,6 +17,7 @@
     "@next/third-parties": "^15.3.4",
     "@opennextjs/cloudflare": "^1.2.1",
     "@vercel/analytics": "^1.1.2",
+    "babel-plugin-react-compiler": "^19.1.0-rc.3",
     "body-scroll-lock": "^4.0.0-beta.0",
     "framer-motion": "^12.23.21",
     "next": "15.6.0-canary.29",
