@@ -13,14 +13,22 @@ const useGlobeAnimation = (
 ) => {
   const scrollYProgress = useRef(useMotionValue(0));
   const previousScrollYProgress = useRef<number>(0);
+  const maxScrollRef = useRef<number>(0);
 
   const { isAnimating } = useAnimationContext();
 
   useEffect(() => {
+    const updateMaxScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight;
+      maxScrollRef.current = scrollHeight - clientHeight;
+    };
+
+    updateMaxScroll();
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const maxScroll = 5000; // fixed maximum scroll distance for animation (works fine)
-      const progress = Math.min(scrollY / maxScroll, 1);
+      const progress = maxScrollRef.current > 0 ? scrollY / maxScrollRef.current : 0;
       scrollYProgress.current.set(progress);
     };
 
