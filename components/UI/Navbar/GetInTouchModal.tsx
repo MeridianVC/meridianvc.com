@@ -30,7 +30,7 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
     top: `calc(${navHeight} - 2px)`,
     left: 'calc(4vw  - 1px)',
     right: 'calc(4vw  - 1px)',
-    height: `calc(100vh - ${navHeight})`,
+    height: `calc(100lvh - ${navHeight})`,
     justifyContent: 'center',
     backgroundColor: '#FFF5DC',
     zIndex: 10,
@@ -46,12 +46,12 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    paddingTop: 'clamp(40px, 20vh, 28vh)',
+    paddingTop: 'clamp(40px, 10rem, 14rem)',
     paddingBottom: '120px',
     justifyContent: 'center',
     gap: 'clamp(20px, 40px, 40px)',
     maxWidth: '1200px',
-    height: `calc(100vh - ${navHeight})`,
+    height: `calc(100lvh - ${navHeight})`,
     overflowX: 'hidden',
     overflowY: 'auto',
   };
@@ -103,12 +103,13 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
 
   return (
     <motion.div
-      initial={{ y: '100vh' }}
+      initial={{ y: '100lvh' }}
       animate={{ y: 0 }}
-      exit={{ y: '100vh' }}
+      exit={{ y: '100lvh' }}
       transition={{ stiffness: 100, ease: 'easeInOut' }}
       style={modalStyle}
-      className="get-in-touch-modal-flex mobile-modal">
+      className="get-in-touch-modal-flex mobile-modal"
+    >
       <button onClick={onClose} style={closeButtonStyle} className="modal-link">
         <XNotTwitter width={34} height={34} />
       </button>
@@ -158,7 +159,8 @@ const GetInTouchModal: FC<TeamModalProps> = ({ onClose, isOpen }) => {
                   href="https://www.linkedin.com/company/meridian-vc/"
                   target="_blank"
                   style={{ textDecoration: 'underline' }}
-                  rel="noreferrer">
+                  rel="noreferrer"
+                >
                   LinkedIn
                 </a>
               </span>

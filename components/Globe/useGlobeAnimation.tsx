@@ -1,6 +1,6 @@
 'use client';
 
-import { useMotionValue, useScroll } from 'framer-motion';
+import { useMotionValue } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { useAnimationContext } from '../Animation/AnimationContext';
@@ -9,18 +9,24 @@ const useGlobeAnimation = (
   globe: THREE.Object3D | null,
   rendererRef: THREE.WebGLRenderer | null,
   camera: THREE.PerspectiveCamera | null,
-  scene: THREE.Scene | null,
+  scene: THREE.Scene | null
 ) => {
-  const { scrollYProgress: actualScrollYProgress } = useScroll();
-
   const scrollYProgress = useRef(useMotionValue(0));
   const previousScrollYProgress = useRef<number>(0);
 
   const { isAnimating } = useAnimationContext();
 
   useEffect(() => {
-    actualScrollYProgress.on('change', value => scrollYProgress.current.set(value));
-  }, [actualScrollYProgress]);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const maxScroll = 5000; // fixed maximum scroll distance for animation (works fine)
+      const progress = Math.min(scrollY / maxScroll, 1);
+      scrollYProgress.current.set(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   //useEffect to start the animation
   useEffect(() => {

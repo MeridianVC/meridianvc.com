@@ -17,14 +17,14 @@ const contentStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  paddingTop: 'clamp(40px, 25vh, 28vh)',
+  paddingTop: 'clamp(40px, 12.5rem, 14rem)',
   paddingBottom: '120px',
   alignContent: 'start',
   justifyContent: 'space-between',
   gap: 'clamp(20px, 40px, 40px)',
   width: 'clamp(70%, 90%, 1100px)',
   maxWidth: '1200px',
-  height: `calc(100vh - ${navHeight} - 2px)`,
+  height: `calc(100lvh - ${navHeight} - 2px)`,
   overflowX: 'hidden',
   overflowY: 'auto',
 };
@@ -152,7 +152,7 @@ const TeamModal: FC<TeamModalProps> = ({
     bottom: 'auto',
     left: 'calc(4vw - 1px)',
     right: 'calc(4vw  - 1px)',
-    height: `calc(100vh - ${navHeight})`,
+    height: `calc(100lvh - ${navHeight})`,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFF5DC',
@@ -192,11 +192,12 @@ const TeamModal: FC<TeamModalProps> = ({
         ? ReactDOM.createPortal(
             <motion.div
               style={modalStyle}
-              initial={{ y: '100vh' }}
+              initial={{ y: '100lvh' }}
               animate={{ y: 0 }}
-              exit={{ y: '100vh' }}
+              exit={{ y: '100lvh' }}
               transition={{ stiffness: 100, ease: 'easeInOut' }}
-              className="mobile-modal">
+              className="mobile-modal"
+            >
               <div style={contentStyle} className="team-modal-flex">
                 <button style={closeButtonStyle} onClick={onClose} className="modal-link">
                   <XNotTwitter width={34} height={34} />
@@ -302,7 +303,7 @@ const TeamModal: FC<TeamModalProps> = ({
               </div>
               <FillBottomModal />
             </motion.div>,
-            modalRoot,
+            modalRoot
           )
         : null}
     </>

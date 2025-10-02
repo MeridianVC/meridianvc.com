@@ -14,9 +14,9 @@ interface LatestContentCardProps {
 
 const cardStyle: React.CSSProperties = {
   backgroundColor: '#FFF5DC',
-  paddingTop: 'clamp(5px, 1.5vh, 30px)',
-  paddingLeft: 'clamp(5px, 1.5vh, 30px)',
-  paddingRight: 'clamp(5px, 1.5vh, 30px)',
+  paddingTop: 'clamp(5px, 0.75rem, 30px)',
+  paddingLeft: 'clamp(5px, 0.75rem, 30px)',
+  paddingRight: 'clamp(5px, 0.75rem, 30px)',
   border: '2px solid #444444',
   maxWidth: '600px',
   minWidth: '300px',
@@ -56,11 +56,11 @@ const imageStyle: React.CSSProperties = {
 const linkStyle: React.CSSProperties = {
   position: 'relative',
   alignSelf: 'end',
-  paddingBottom: 'clamp(5px, .8vh, 15px)',
+  paddingBottom: 'clamp(5px, 0.4rem, 15px)',
 };
 
 const contentStyle: React.CSSProperties = {
-  paddingBottom: 'clamp(2px, .25vh, 20px)',
+  paddingBottom: 'clamp(2px, 0.125rem, 20px)',
 };
 
 const formatDate = (date: Date) => {
@@ -77,7 +77,8 @@ const LatestContentCard: FC<LatestContentCardProps> = ({ author, title, imagePat
       style={cardStyle}
       target="_blank"
       rel="noopener noreferrer"
-      className="content-card-hover content-card-height">
+      className="content-card-hover content-card-height"
+    >
       <div style={cardMain}>
         <div style={imageContainerStyle}>
           <Image src={imagePath} alt="Content Image" width={168} height={116} style={imageStyle} />

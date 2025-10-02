@@ -32,7 +32,7 @@ const MainContentAnimation: FC<Props> = ({ children }) => {
       await animationControls.start({
         y: '0vh',
         scale: 1,
-        transition: { duration: 0.7, delay: 0.6, ease: 'easeInOut' },
+        transition: { duration: 0.7, delay: 0.8, ease: 'easeInOut' },
       });
     };
 
@@ -47,13 +47,14 @@ const MainContentAnimation: FC<Props> = ({ children }) => {
           y: '105vh', // just outside of the viewport
           opacity: 0,
         }}
-        key="main-content-animation">
-        {Children.map(children, child =>
+        key="main-content-animation"
+      >
+        {Children.map(children, (child) =>
           isValidElement<ChildrenProps>(child)
             ? cloneElement(child, {
                 style: !isAnimating ? { ...child.props.style, backgroundColor: 'transparent' } : child.props.style,
               })
-            : child,
+            : child
         )}
       </motion.div>
     </AnimatePresence>

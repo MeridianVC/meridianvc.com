@@ -1,4 +1,4 @@
-import Section5Companies from '@/components/Sections/section5_investments';
+import Section5Companies from '@/components/Sections/Investments';
 import FillSection from '@/components/Structural/FillSection';
 import FillVertical from '@/components/Structural/FillVertical';
 import Main from '@/components/Structural/Main';
@@ -24,7 +24,7 @@ const landingStyle: React.CSSProperties = {
   justifyContent: 'space-between',
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '100vh',
+  minHeight: '100lvh',
   top: 'auto',
   bottom: 0,
 };
@@ -33,7 +33,7 @@ const compassStyle: React.CSSProperties = {
   aspectRatio: 'auto',
   width: 'clamp(5.5rem, 8vw, 8rem)',
   marginRight: 'clamp(2vw, 7vw, 20vw)',
-  marginTop: 'clamp(2vh, 5vh, 10vh)',
+  marginTop: 'clamp(1rem, 2.5rem, 5rem)',
   marginLeft: 'auto',
   rotate: '-3.5deg',
 };
@@ -43,7 +43,7 @@ const legendStyle: React.CSSProperties = {
   width: 'clamp(288px, 60vw, 600px)',
   position: 'relative',
   paddingRight: 'clamp(5vw, 8vw, 20vw)',
-  paddingBottom: 'clamp(5px, 10vh, 12vh)',
+  paddingBottom: 'clamp(5px, 5rem, 6rem)',
   marginLeft: 'auto',
   marginTop: 'auto',
   backgroundColor: 'transparent',
@@ -71,7 +71,7 @@ const principlesHeader: React.CSSProperties = {
   maxWidth: '100%',
   display: 'flex',
   flexDirection: 'column',
-  marginBottom: 'clamp(2vh, 3vh, 20vh)',
+  marginBottom: 'clamp(1rem, 1.5rem, 10rem)',
   alignItems: 'center',
 };
 
@@ -110,7 +110,7 @@ const Home: FC = () => {
       <FillVertical side="left" />
       <ClientMainContentAnimation>
         <Main>
-          <Section id="section1_landing" style={landingStyle}>
+          <Section id="landing" style={landingStyle}>
             <div>
               <Spacer />
               <Image src="/compass.svg" alt="Compass" width={100} height={100} style={compassStyle} priority />
@@ -118,9 +118,10 @@ const Home: FC = () => {
                 type="H1"
                 paddingLeft="clamp(3vw, 3vw, 20px)"
                 paddingRight="clamp(3vw, 3vw, 20px)"
-                marginTop="clamp(5px, 5vh, 10vh)"
-                marginBottom="clamp(2vh, 5vh, 8vh)"
-                maxWidth="950px">
+                marginTop="clamp(5px, 2.5rem, 5rem)"
+                marginBottom="clamp(1rem, 2.5rem, 4rem)"
+                maxWidth="950px"
+              >
                 Championing bold ideas and visionary founders to fuel world-changing innovation.
               </Header>
             </div>
@@ -136,10 +137,15 @@ const Home: FC = () => {
               />
             </div>
           </Section>
-          <Section id="section2_principles" style={principlesSectionStyle} isFullHeight={false}>
-            <Spacer height={'10vh'} />
+          <Section id="principles" style={principlesSectionStyle} isFullHeight={false}>
+            <Spacer height={'5rem'} />
             <div style={principlesHeader}>
-              <Header type="H1" isCentered={true} marginTop="clamp(2vh, 7vh, 10vh)" marginBottom="clamp(2vh, 4vh, 4vh)">
+              <Header
+                type="H1"
+                isCentered={true}
+                marginTop="clamp(1rem, 3.5rem, 5rem)"
+                marginBottom="clamp(1rem, 2rem, 2rem)"
+              >
                 Guiding Principles
               </Header>
             </div>
@@ -163,10 +169,15 @@ const Home: FC = () => {
                 content="As former operators, we understand how to build and scale startups. We work with our founders to safeguard against common missteps and position our companies best for growth-stage capital."
               />
             </div>
-            <Spacer height={'30vh'} />
+            <Spacer height={'15rem'} />
           </Section>
-          <Section id="section3_founders" style={foundersSectionStyle} isFullHeight={false}>
-            <Header type="H1" isCentered={true} marginTop="clamp(2vh, 7vh, 10vh)" marginBottom="clamp(2vh, 4vh, 7vh)">
+          <Section id="founders" style={foundersSectionStyle} isFullHeight={false}>
+            <Header
+              type="H1"
+              isCentered={true}
+              marginTop="clamp(1rem, 3.5rem, 5rem)"
+              marginBottom="clamp(1rem, 2rem, 3.5rem)"
+            >
               What Founders Say
             </Header>
             <div>
@@ -195,26 +206,27 @@ const Home: FC = () => {
                 left="40px"
               />
             </div>
-            <Spacer height={'5vh'} />
+            <Spacer height={'2.5rem'} />
             <FillSection />
           </Section>
-          <Section id="section4_team" isFullHeight={true}>
-            <Spacer height={'5vh'} />
+          <Section id="team" isFullHeight={true}>
+            <Spacer height={'2.5rem'} />
             <Header
               type="H1"
               paddingLeft="clamp(3vw, 3vw, 20px)"
               paddingRight="clamp(3vw, 3vw, 20px)"
-              marginTop="clamp(2vh, 7vh, 10vh)"
-              marginBottom="clamp(15px, 8vh, 100px)"
-              maxWidth="950px">
+              marginTop="clamp(1rem, 3.5rem, 5rem)"
+              marginBottom="clamp(15px, 4rem, 100px)"
+              maxWidth="950px"
+            >
               Seasoned operators and investors, at your side as you chart your course.
             </Header>
             <TeamCardContainer teamMembers={teamMembers} />
-            <Spacer height={'5vh'} />
+            <Spacer height={'2.5rem'} />
           </Section>
           <Section5Companies />
-          <Section id="section6_latest" isFullHeight={true} style={latestSectionStyle} className="our-latest">
-            <Header type="H1" isCentered={true} marginBottom="clamp(2vh, 5vh, 8vh)" style={principlesHeader}>
+          <Section id="latest" isFullHeight={true} style={latestSectionStyle} className="our-latest">
+            <Header type="H1" isCentered={true} marginBottom="clamp(1rem, 2.5rem, 4rem)" style={principlesHeader}>
               Our Latest
             </Header>
             <div style={latestCardContainerStyle}>
@@ -231,7 +243,7 @@ const Home: FC = () => {
               ))}
             </div>
           </Section>
-          <Section id="section7_footer">
+          <Section id="footer">
             <Footer />
           </Section>
         </Main>

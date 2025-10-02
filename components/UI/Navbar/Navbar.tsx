@@ -75,7 +75,7 @@ const wordmarkCoverStyle: React.CSSProperties = {
   position: 'fixed',
   width: '100%',
   bottom: 0,
-  height: '40vh',
+  height: '40dvh',
 };
 
 const buttonStyle: React.CSSProperties = {
@@ -89,9 +89,9 @@ interface Link {
 }
 
 const links: Link[] = [
-  { href: '#section2_principles', title: 'Principles' },
-  { href: '#section4_team', title: 'Team' },
-  { href: '#section5_investments', title: 'Investments' },
+  { href: '#principles', title: 'Principles' },
+  { href: '#team', title: 'Team' },
+  { href: '#investments', title: 'Investments' },
 ];
 
 const Navbar: FC = () => {
@@ -186,7 +186,7 @@ const Navbar: FC = () => {
       });
 
       await navbarControls.start({
-        y: '0vh',
+        y: '0dvh',
         transition: { duration: 0.7, delay: 0.8, ease: 'easeInOut' },
       });
     };
@@ -201,7 +201,7 @@ const Navbar: FC = () => {
     const sequence = async () => {
       //move wordmark into view
       await wordmarkControls.start({
-        y: '45vh',
+        y: '45dvh',
         x: 'calc(50vw - 223px/2)',
         rotate: 0,
         transition: { duration: 0.5, delay: 1, ease: 'easeInOut' },
@@ -210,7 +210,7 @@ const Navbar: FC = () => {
 
       //move wordmark to top-center of nav while scaling down
       await wordmarkControls.start({
-        y: '0vh',
+        y: '0dvh',
         scale: 1,
         transition: { duration: 0.7, delay: 0.3, ease: 'easeInOut' },
       });
@@ -248,10 +248,11 @@ const Navbar: FC = () => {
         animate={wordmarkControls}
         initial={{
           rotate: -25,
-          y: '90vh',
+          y: '90dvh',
           x: 'calc(50vw - 223px/2 - 4vw)',
         }}
-        key="wordmark">
+        key="wordmark"
+      >
         <img src="/meridianWordmark.svg" alt="Meridian Wordmark" />
       </motion.button>
 
@@ -259,33 +260,36 @@ const Navbar: FC = () => {
 
       <motion.nav
         initial={{
-          y: '105vh',
+          y: '105dvh',
           opacity: 0,
         }}
         style={navbarStyle}
-        animate={navbarControls}>
+        animate={navbarControls}
+      >
         <motion.div
           className={`nav-links ${isDropdownOpen ? 'nav-active' : ''}`}
           style={linkStyle}
           initial="initial"
           animate="animate"
-          variants={linkContainerVariants}>
+          variants={linkContainerVariants}
+        >
           <GetInTouchButton onClick={handleOpenModal} className="link-disappear" style={buttonStyle} />
           <motion.a
             href="https://login.app.carta.com/credentials/login/"
             target="_blank"
             rel="noopener noreferrer"
             className="navbar-hover link-disappear"
-            variants={linkVariants}>
+            variants={linkVariants}
+          >
             Investor Portal
           </motion.a>
-          <motion.a href="#section5_investments" className="navbar-hover link-disappear" variants={linkVariants}>
+          <motion.a href="#investments" className="navbar-hover link-disappear" variants={linkVariants}>
             Investments
           </motion.a>
-          <motion.a href="#section4_team" className="navbar-hover link-disappear" variants={linkVariants}>
+          <motion.a href="#team" className="navbar-hover link-disappear" variants={linkVariants}>
             Team
           </motion.a>
-          <motion.a href="#section2_principles" className="navbar-hover link-disappear" variants={linkVariants}>
+          <motion.a href="#principles" className="navbar-hover link-disappear" variants={linkVariants}>
             Principles
           </motion.a>
         </motion.div>
@@ -294,7 +298,7 @@ const Navbar: FC = () => {
             <AnimatePresence>
               {isModalOpen && <GetInTouchModal onClose={handleCloseModal} isOpen={isModalOpen} />}
             </AnimatePresence>,
-            modalRoot.current,
+            modalRoot.current
           )}
 
         <div className="hamburger" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -319,7 +323,8 @@ const Navbar: FC = () => {
                     rotate: 90,
                   }}
                   transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-                  style={{ position: 'absolute', top: 0, left: 0 }}>
+                  style={{ position: 'absolute', top: 0, left: 0 }}
+                >
                   <XNotTwitter width={34} height={34} className="nav-link" />
                 </motion.div>
               )}
@@ -342,7 +347,8 @@ const Navbar: FC = () => {
                     rotate: -45,
                   }}
                   transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-                  style={{ position: 'absolute', top: 0, left: 0 }}>
+                  style={{ position: 'absolute', top: 0, left: 0 }}
+                >
                   <Hamburger width={34} height={34} className="nav-link" />
                 </motion.div>
               )}
@@ -364,7 +370,7 @@ const Navbar: FC = () => {
 
       <motion.div
         initial={{
-          y: '105vh',
+          y: '105dvh',
           opacity: 0,
         }}
         style={fillStyle}

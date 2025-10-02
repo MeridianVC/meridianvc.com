@@ -1,5 +1,4 @@
 /** DIRECTIVES */
-
 @import 'tailwindcss';
 
 /* DEFAULT STYLES */
@@ -70,11 +69,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family:
-    var(--font-baskerville),
-    Times New roman,
-    Times,
-    serif;
+  font-family: var(--font-baskerville), Times New roman, Times, serif;
   color: #1e1e1e;
 }
 

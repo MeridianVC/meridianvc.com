@@ -13,7 +13,7 @@ interface SectionProps {
 
 const Section: FC<SectionProps> = ({ id, children, className, style, isFullHeight }) => {
   const sectionStyle: React.CSSProperties = {
-    minHeight: isFullHeight ? `calc(100vh - ${navHeight})` : undefined, // no height defined if height is not needed
+    minHeight: isFullHeight ? `calc(100lvh - ${navHeight})` : undefined, // no height defined if height is not needed
     width: '100%',
     position: 'relative',
     borderLeft: '2px solid #444444',

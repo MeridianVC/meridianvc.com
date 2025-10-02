@@ -36,7 +36,7 @@ const cardStyle: React.CSSProperties = {
 
 const imageStyle: React.CSSProperties = {
   width: '100%',
-  marginBottom: 'clamp(5px, 4vh, 20px)',
+  marginBottom: 'clamp(5px, 2rem, 20px)',
   mixBlendMode: 'multiply',
 };
 
@@ -45,7 +45,7 @@ const TeamCard: FC<TeamCardProps> = ({ name, role, imageSrc, onCardClick }) => {
     <div style={cardStyle} className="team-card-hover" onClick={onCardClick}>
       <Image src={imageSrc} alt={name} width={300} height={300} style={imageStyle} fill={false} />
       <div>
-        <Header type="H4" lineHeight="clamp(4px, 2.5vh, 40px)">
+        <Header type="H4" lineHeight="clamp(4px, 1.25rem, 40px)">
           {name}
         </Header>
         <Text variant="SmallFranklin" paddingLeft="3px">

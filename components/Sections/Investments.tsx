@@ -16,15 +16,14 @@ const Section5Companies = () => {
   return (
     <>
       <CompanyProvider>
-        <Section id="section5_investments" isFullHeight={true} style={portfolioSectionStyle}>
-          <Spacer height={'15vh'} />
-          <Header type="H1" isCentered={true} paddingLeft="0px" marginBottom="clamp(2vh, 4vh, 7vh)">
-            {' '}
-            Our Investments{' '}
+        <Section id="investments" isFullHeight={false} style={portfolioSectionStyle}>
+          <Spacer height={'7.5rem'} />
+          <Header type="H1" isCentered={true} paddingLeft="0px" marginBottom="clamp(1rem, 2rem, 3.5rem)">
+            Our Investments
           </Header>
           <FundSelector />
           <CompanyGrid />
-          <Spacer height={'8vh'} />
+          <Spacer height={'4rem'} />
         </Section>
       </CompanyProvider>
     </>

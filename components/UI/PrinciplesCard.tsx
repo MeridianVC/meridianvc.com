@@ -32,7 +32,7 @@ const headerStyle: React.CSSProperties = {
   gap: 'clamp(5px, 10px, 20px)',
   flexShrink: 1,
   margin: '0',
-  marginBottom: 'clamp(10px, 1vh, 10px)',
+  marginBottom: 'clamp(10px, 0.5rem, 10px)',
 };
 
 const imgStyle: React.CSSProperties = {
