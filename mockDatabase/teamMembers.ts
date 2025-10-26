@@ -84,20 +84,6 @@ const teamMembers: TeamMember[] = [
       'Curtis has served on 35 public and private boards. He recently served on the boards of CBRE (NYSE) and Staples (NYSE) and is currently on the boards of Khan Academy and Stanford Federal Credit Union.',
   },
   {
-    name: 'Heather Harmon',
-    role: 'Advisor',
-    imageSrc: '/headshotHeather.png',
-    title: 'Advisor',
-    linkedin: 'https://www.linkedin.com/in/heatheraharmon/',
-    focus: 'New investment advisory and mentorship for portfolio founders.',
-    education:
-      'Heather completed a Pre-medicine degree from UC San Diego and University of Washington, attended the Universidad of Guadalajara, and UC Berkeley Haas School of Business for Artificial Intelligence.',
-    experienceP1:
-      'Ms. Harmon is a 4x founder and former venture-backed COO and public company executive. She is a passionate proptech and fintech leader who has built and managed highly engaged technical teams, led product management, and scaled operations from startup through M&A.',
-    experienceP2:
-      'She is currently is advising early stage companies on raising capital, defining product roadmaps, and scaling operations.',
-  },
-  {
     name: 'Blake Modersitzki',
     role: 'Advisor',
     imageSrc: '/headshotBlake.png',

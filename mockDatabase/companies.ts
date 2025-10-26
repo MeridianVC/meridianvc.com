@@ -70,17 +70,17 @@ const fundIICompanies: Company[] = [
     sector: 'sector',
     coInvestors: ['Investor C', 'Investor D'],
   },
-  // TODO: get a VSinc logo
-  // {
-  //   logoSrc: '/companyLogos/VSinc.png',
-  //   about: 'about',
-  //   websiteUrl: 'https://www.vsinc.ai/',
-  //   foundedDate: 'founded date',
-  //   founders: ['founder one', 'founder two'],
-  //   stageInvested: 'seed',
-  //   sector: 'sector',
-  //   coInvestors: ['Investor C', 'Investor D'],
-  // },
+  // TODO: get a better VSinc logo lol
+  {
+    logoSrc: '/companyLogos/VSinc.png',
+    about: 'about',
+    websiteUrl: 'https://www.vsinc.ai/',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
+  },
   {
     logoSrc: '/companyLogos/eBliss.png',
     about: 'about',
@@ -346,16 +346,6 @@ const fundICompanies: Company[] = [
     paddingBottom: '30px',
   },
   {
-    logoSrc: '/companyLogos/Eqtble.png',
-    about: 'about',
-    websiteUrl: 'https://www.eqtble.com',
-    foundedDate: 'founded date',
-    founders: ['founder one', 'founder two'],
-    stageInvested: 'seed',
-    sector: 'sector',
-    coInvestors: ['Investor C', 'Investor D'],
-  },
-  {
     logoSrc: '/companyLogos/Acctual.png',
     about: 'about',
     websiteUrl: 'https://acctual.com',
@@ -384,17 +374,6 @@ const fundICompanies: Company[] = [
     stageInvested: 'seed',
     sector: 'sector',
     coInvestors: ['Investor C', 'Investor D'],
-  },
-  {
-    logoSrc: '/companyLogos/Trigo.svg',
-    about: 'about',
-    websiteUrl: 'https://trigodata.com',
-    foundedDate: 'founded date',
-    founders: ['founder one', 'founder two'],
-    stageInvested: 'seed',
-    sector: 'sector',
-    coInvestors: ['Investor C', 'Investor D'],
-    padding: '10px',
   },
   {
     logoSrc: '/companyLogos/AciDev.svg',
@@ -462,6 +441,27 @@ const fundICompanies: Company[] = [
     sector: 'sector',
     coInvestors: ['Investor C', 'Investor D'],
     padding: '5px',
+  },
+  {
+    logoSrc: '/companyLogos/GhostEye.png',
+    about: 'about',
+    websiteUrl: 'https://ghosteye.ai',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
+  },
+  // TODO: get a better VSinc logo lol
+  {
+    logoSrc: '/companyLogos/VSinc.png',
+    about: 'about',
+    websiteUrl: 'https://www.vsinc.ai/',
+    foundedDate: 'founded date',
+    founders: ['founder one', 'founder two'],
+    stageInvested: 'seed',
+    sector: 'sector',
+    coInvestors: ['Investor C', 'Investor D'],
   },
 ];
 
