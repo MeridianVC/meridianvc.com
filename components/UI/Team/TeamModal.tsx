@@ -9,6 +9,7 @@ import React, { FC, ReactElement, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { navHeight } from '../../Structural/NavHeight';
 import { XNotTwitter } from '../Icons/XNotTwitter';
+import { useReCaptcha } from 'next-recaptcha-v3';
 import '../ui.css';
 
 const contentStyle: React.CSSProperties = {
@@ -120,6 +121,10 @@ interface TeamModalProps {
   name: string;
   title: string;
   linkedin?: string;
+  verification?: {
+    key: string;
+    until: Date;
+  };
   email?: string;
   medium?: string;
   focus: string;
@@ -130,11 +135,35 @@ interface TeamModalProps {
   isOpen: boolean; // Added to control visibility
 }
 
+const grabVerifiedData = async (
+  verificationKey: string,
+  executeRecaptcha: (action: string) => Promise<string>
+): Promise<string> => {
+  const token = await executeRecaptcha('team_modal_verification');
+  const response = await fetch(`https://timeverif.meridianvc.com/${verificationKey}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token }),
+  });
+  if (!response.ok) throw new Error('Network response was not ok');
+  const data = await response.json();
+  return data.value;
+};
+
+const showVerification = (verification?: { key: string; until: Date }) => {
+  if (!verification) return false;
+  const currentDate = new Date();
+  if (verification.until && currentDate > verification.until) return false;
+  return true;
+};
+
+let reCatpchaRan = false;
 const TeamModal: FC<TeamModalProps> = ({
   imageSrc,
   name,
   title,
   linkedin,
+  verification,
   email,
   medium,
   focus,
@@ -164,6 +193,23 @@ const TeamModal: FC<TeamModalProps> = ({
   };
 
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
+  const [verifiedData, setVerifiedData] = useState<string | null>(null);
+  const { executeRecaptcha } = useReCaptcha();
+
+  useEffect(() => {
+    if (
+      !showVerification(verification) ||
+      !process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED ||
+      reCatpchaRan ||
+      !verification?.key
+    )
+      return;
+    reCatpchaRan = true;
+
+    grabVerifiedData(verification.key, executeRecaptcha)
+      .then((data) => setVerifiedData(data))
+      .catch(() => {});
+  }, []);
 
   // This finds our div and attaches an HTML element to our document to be used by our portal for the modal
   useEffect(() => {
@@ -234,6 +280,16 @@ const TeamModal: FC<TeamModalProps> = ({
                       <Text variant="SmallFranklin" style={titleStyle}>
                         {title}
                       </Text>
+                      {showVerification(verification) &&
+                        (verifiedData ? (
+                          <Text variant="SmallFranklin" style={titleStyle}>
+                            {verifiedData}
+                          </Text>
+                        ) : (
+                          <Text variant="SmallFranklin" style={titleStyle}>
+                            verification in progress...
+                          </Text>
+                        ))}
                     </div>
                     <div style={linkSectionStyle} className="team-modal-links">
                       {linkedin && (

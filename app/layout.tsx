@@ -1,3 +1,4 @@
+import { ReCaptchaProvider } from 'next-recaptcha-v3';
 import AnimationProvider from '@/components/Animation/AnimationContext';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
@@ -32,11 +33,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${Baskerville.variable} ${Franklin.variable}`}>
       <AnimationProvider>
         <body>
-          {children}
-          <div id="modal-root"></div>
-          <GoogleAnalytics gaId="G-Y3B9NBHM3E" />
+          <MaybeReCatpchaProvider>
+            {children}
+            <div id="modal-root"></div>
+            <GoogleAnalytics gaId="G-Y3B9NBHM3E" />
+          </MaybeReCatpchaProvider>
         </body>
       </AnimationProvider>
     </html>
   );
+}
+
+function MaybeReCatpchaProvider({ children }: { children: React.ReactNode }) {
+  if (process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED === 'true')
+    return <ReCaptchaProvider useEnterprise>{children}</ReCaptchaProvider>;
+  return <>{children}</>;
 }

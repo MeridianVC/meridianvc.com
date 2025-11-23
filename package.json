@@ -21,6 +21,7 @@
     "body-scroll-lock": "^4.0.0-beta.0",
     "framer-motion": "^12.23.21",
     "next": "15.6.0-canary.29",
+    "next-recaptcha-v3": "^1.5.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "three": "^0.180.0"

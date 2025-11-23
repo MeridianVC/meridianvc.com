@@ -5,20 +5,7 @@ import { FC, useState } from 'react';
 import { useScrollLock } from '../../hooks/useScrollLock';
 import TeamCard from './TeamCard';
 import TeamModal from './TeamModal';
-
-interface TeamMember {
-  name: string;
-  role: string;
-  imageSrc: string;
-  title: string;
-  linkedin?: string;
-  email?: string;
-  medium?: string;
-  focus: string;
-  education: string;
-  experienceP1: string;
-  experienceP2?: string;
-}
+import type { TeamMember } from '../../../mockDatabase/teamMembers';
 
 interface TeamCardContainerProps {
   style?: React.CSSProperties;
@@ -65,7 +52,7 @@ const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) =
   return (
     <div style={outerWrapperStyle}>
       <div style={combinedTextStyle}>
-        {teamMembers.map(member => (
+        {teamMembers.map((member) => (
           <TeamCard
             key={member.name}
             name={member.name}
@@ -84,6 +71,7 @@ const TeamCardContainer: FC<TeamCardContainerProps> = ({ style, teamMembers }) =
             name={selectedMember.name}
             title={selectedMember.title}
             linkedin={selectedMember.linkedin}
+            verification={selectedMember.verification}
             email={selectedMember.email}
             medium={selectedMember.medium}
             focus={selectedMember.focus}
