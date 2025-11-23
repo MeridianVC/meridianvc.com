@@ -17,6 +17,10 @@ const nextConfig = {
   },
   compiler: { removeConsole: process.env.ENV === 'production' ? { exclude: ['error'] } : false },
   eslint: { ignoreDuringBuilds: true },
+  env: {
+    NEXT_PUBLIC_RECAPTCHA_ENABLED: 'true',
+    NEXT_PUBLIC_RECAPTCHA_SITE_KEY: '6Le9VhUsAAAAAEGmqOkao0_FK9tee2rIkCB5q9xX',
+  },
 } satisfies NextConfig;
 
 export default nextConfig;
